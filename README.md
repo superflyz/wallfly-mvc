@@ -1,2 +1,2 @@
-# wallfly-mvc
+# Wallfly MVC
 Wallfly, MVC Style
