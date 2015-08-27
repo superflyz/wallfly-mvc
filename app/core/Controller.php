@@ -14,4 +14,12 @@ class Controller
     require_once '../app/views/' . $view . '.php';
   }
 
+  /*
+   * REDIRECT USER TO $location
+   */
+  public function redirect($location)
+  {
+    header('Location: ' . WEBDIR . $location);
+  }
+
 }

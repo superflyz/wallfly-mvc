@@ -6,21 +6,15 @@ class Home extends Controller
   public function index()
   {
     // if not logged in
-    if (!self::is_authenticated())
+    if (!User::is_authenticated())
     {
       $this->view('home/index');
     }
     else
     {
       // TODO: redirect to dashboard
+      $this->redirect('/dashboard');
     }
-  }
-
-  // helper method
-  protected static function is_authenticated()
-  {
-    session_start();
-    return isset($_SESSION['email']);
   }
   
 }
