@@ -1,18 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Wallfly Rental Information System</title>
-
+  <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="WallFly - Property Mangement System">
+  <meta name="author" content="The SuperFlyz">
 
-  <!-- BOOTSTRAP -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
-  <link rel="stylesheet" href="css/style.css">
+  <title>Welcome To WallFly</title>
 
+  <!-- Bootstrap Core CSS -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link href="css/wallfly.css" rel="stylesheet">
+
+  <!-- Custom Fonts -->
+  <link href="css/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
   
-
 </head>
 <body>

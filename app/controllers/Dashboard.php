@@ -5,9 +5,13 @@ class Dashboard extends Controller
 
   public function index()
   {
-    if (!User::is_authenticated())
+    if (!Owner::is_authenticated())
     {
       $this->redirect('/');
+    }
+    else
+    {
+      $this->view('dashboard/index');
     }
   }
 

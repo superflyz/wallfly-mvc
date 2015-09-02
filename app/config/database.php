@@ -1,15 +1,7 @@
 <?php
 
-use Illuminate\Database\Capsule\Manager as Capsule;
-
-$capsule = new Capsule;
-
-$capsule->addConnection([
-  'driver' => 'mysql',
-  'host' => '127.0.0.1:3307',
-  'username' => 'admin',
-  'password' => 'password',
-  'database' => 'admin'
-]);
-
-$capsule->bootEloquent();
+define('DB_DRIVER', 'mysql');
+define('DB_HOST', '127.0.0.1:8889');
+define('DB_USERNAME', 'admin');
+define('DB_PASSWORD', 'password');
+define('DB_NAME', 'wallflydb');

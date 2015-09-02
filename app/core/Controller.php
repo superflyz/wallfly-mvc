@@ -11,7 +11,9 @@ class Controller
 
   public function view($view, $data = [])
   {
+    require_once '../app/views/templates/header.php';
     require_once '../app/views/' . $view . '.php';
+    require_once '../app/views/templates/footer.php';
   }
 
   /*
@@ -20,6 +22,11 @@ class Controller
   public function redirect($location)
   {
     header('Location: ' . WEBDIR . $location);
+  }
+
+  public function send_404()
+  {
+    // TODO
   }
 
 }

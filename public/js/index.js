@@ -39,9 +39,12 @@
           }
       });
 
-
-
-
+      $('#usertypes').change(function(e) {
+        if (e.target.value === 'agent') {
+          location = 'agent/signup';
+        }
+      });
+      
   });
 
 
@@ -61,3 +64,4 @@ function newPage(){
 
   window.location = 'index.php';
 }
+
