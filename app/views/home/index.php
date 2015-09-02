@@ -55,7 +55,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="row">
                 <div class="col-md-12 text">
                     <p>Own a property? <a href="#" class="s-link" data-toggle="modal" data-target=".sign-up-modal-sm">Sign Up</a></p>
@@ -124,55 +124,55 @@
             </div>
         </div>
     </section>
-    
+
     <!-- Footer -->
     <footer>
         <div class="container text-right">
             <p>Copyright &copy; <span class="diff-color">WallFly 2015</span></p>
         </div>
     </footer>
-    
-    
+
+
     <!-- Login & sign up forms -->
     <div class="modal modal-vcenter fade sign-up-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
         <div class="modal-dialog modal-sm">
             <div class="modal-content">
                 <div class="modal-header text-center">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <p class="modal-title flabel">Owner Sign Up</p>           
+                    <p class="modal-title flabel">Owner Sign Up</p>
                 </div>
-                
+
                 <div class="modal-body">
-                    <form id="signup_form" name="signup_form" method="post" action="owner/submit"> 
-                        
+                    <form id="signup_form" name="signup_form" method="post" action="owner/submit">
+
                         <a href="agent/signup">Click here for agent sign-up!</a>
-                         
+
                          <div class="form-field">
-                             <label for="first_name">First Name</label> 
+                             <label for="first_name">First Name</label>
                             <input class="form-control" type='text' name='first_name' maxlength='50' size='30'  value="" id="fname" />
                             <span class="error"></span>
                           </div>
-                        
-                          <div class="form-field">  
-                            <label for="last_name">Last Name</label> 
+
+                          <div class="form-field">
+                            <label for="last_name">Last Name</label>
                             <input class="form-control" type='text' name='last_name' maxlength='50' size='30'  value="" id="lname" />
                             <span class="error"></span>
                           </div>
-                        
+
                           <div class="form-field">
-                             <label for="email">Email Address</label> 
+                             <label for="email">Email Address</label>
                             <input class="form-control" type="email" name="email" maxlength="50" size="12" value="" id="email" />
                             <span class="error"></span>
                            </div>
-                        
+
                          <div class="form-field">
-                             <label for="password">Password</label> 
+                             <label for="password">Password</label>
                             <input class="form-control" type="password" size="12" name="password" value="" id="password" />
                             <span class="error"></span>
                          </div>
 
                          <div class="form-field">
-                            <label for="password_repeat">Re-enter Password</label> 
+                            <label for="password_repeat">Re-enter Password</label>
                             <input class="form-control" type="password" size="12" name="password_repeat" value="" id="password_repeat" />
                             <span class="error"></span>
                          </div>
@@ -189,9 +189,9 @@
 
                          <div class="form-field">
                              <label for="address2">Address Line 2 (Optional)</label>
-                             <input type="text" class="form-control select-style" size="12" name="address2">
+                             <input type="text" class="form-control" size="12" name="address2">
                          </div>
-                        
+
                         By clicking "sign up" you agree to our <a href="#">Terms &amp; Conditions</a>.
 
                         <span class="error"></span>
@@ -210,9 +210,9 @@
             <div class="modal-content">
                 <div class="modal-header text-center">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <p class="modal-title flabel">Login</p>           
+                    <p class="modal-title flabel">Login</p>
                 </div>
-                
+
                 <div class="modal-body">
                     <form id="login" name="login" method="post" action="login.php">
                         <div class="form-field">
@@ -223,12 +223,12 @@
                                 <option value="agent">Agent</option>
                             </select>
                         </div>
-                        <div class="form-field">  
-                            <label for="email">Email</label> 
+                        <div class="form-field">
+                            <label for="email">Email</label>
                             <input name="email" type="email" id="email" class="form-control">
                         </div>
-                        <div class="form-field">  
-                            <label for="password">Password</label> 
+                        <div class="form-field">
+                            <label for="password">Password</label>
                             <input name="password" type="password" id="password" class="form-control">
                         </div>
                         <span class="error"></span>
