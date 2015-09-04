@@ -189,7 +189,7 @@
 
                          <div class="form-field">
                              <label for="address2">Address Line 2 (Optional)</label>
-                             <input type="text" class="form-control select-style" size="12" name="address2">
+                             <input type="text" class="form-control" size="12" name="address2">
                          </div>
 
                         By clicking "sign up" you agree to our <a href="#">Terms &amp; Conditions</a>.
