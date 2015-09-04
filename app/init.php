@@ -3,6 +3,7 @@
 require_once '../vendor/autoload.php';
 
 require_once 'config/app.php';
+require_once 'config/globals.php';
 require_once 'config/database.php';
 
 require_once 'libs/PasswordHash.php';

@@ -13,52 +13,56 @@ class Model
 
   public function save()
   {
-    $db = Database::get_instance();
-    $variables = get_object_vars($this);
-    $parentclass = get_parent_class($this);
-    $tablename = $parentclass !== 'Model' ? $parentclass : get_class($this);
-    $tablename = strtolower($tablename);
-    $statement = "INSERT INTO " . $tablename . " (";
-    $i = 0;
-    foreach ($variables as $key => $value)
-    {
-      if ($key !== "id")
+    try {
+      $db = Database::get_instance();
+      $variables = get_object_vars($this);
+      $parentclass = get_parent_class($this);
+      $tablename = $parentclass !== 'Model' ? $parentclass : get_class($this);
+      $tablename = strtolower($tablename);
+      $statement = "INSERT INTO " . $tablename . " (";
+      $i = 0;
+      foreach ($variables as $key => $value)
       {
-        $comma = ", ";
-        if ($i === sizeof($variables)-1)
+        if ($key !== "id")
         {
-          $comma = "";
+          $comma = ", ";
+          if ($i === sizeof($variables)-1)
+          {
+            $comma = "";
+          }
+          $statement .= $key . $comma;
         }
-        $statement .= $key . $comma;
+        $i++;
       }
-      $i++;
-    }
-    $statement .= ") VALUES (";
-    $i = 0;
-    foreach ($variables as $key => $value)
-    {
-      if ($key !== "id")
+      $statement .= ") VALUES (";
+      $i = 0;
+      foreach ($variables as $key => $value)
       {
-        $comma = ", ";
-        if ($i === sizeof($variables)-1)
+        if ($key !== "id")
         {
-          $comma = "";
+          $comma = ", ";
+          if ($i === sizeof($variables)-1)
+          {
+            $comma = "";
+          }
+          $statement .= ":" . $key . $comma;
         }
-        $statement .= ":" . $key . $comma;
+        $i++;
       }
-      $i++;
-    }
-    $statement .= ")";
-    $statement = $db->prepare($statement);
-    foreach ($this as $key => $value)
-    {
-      if ($key !== "id")
+      $statement .= ")";
+      $statement = $db->prepare($statement);
+      foreach ($this as $key => $value)
       {
-        $statement->bindParam(":" . $key, $variables[$key]);
+        if ($key !== "id")
+        {
+          $statement->bindParam(":" . $key, $variables[$key]);
+        }
       }
+      $statement->execute();
+      $this->id = $db->lastInsertId();
+    } catch (Exception $e) {
+      echo $e->getMessage();
     }
-    var_dump($statement);
-    $x = $statement->execute();
   }
 
   public function update()
@@ -96,6 +100,14 @@ class Model
     $statement = $db->prepare("DELETE FROM " . strtolower(get_class($this)) . " WHERE id=:id");
     $statement->bindParam(':id', $this->id);
     $statement->execute();
+  }
+
+  public static function create($data)
+  {
+    $classname = get_called_class();
+    $object = new $classname($data);
+    $object->save();
+    return $object;
   }
 
 }

@@ -14,11 +14,13 @@ class Owner extends Super_User
     ]);
   }
 
-  public static function create($data)
+  public static function is_authenticated()
   {
-    $owner = new Owner($data);
-    $owner->save();
-    return $owner;
+    if (session_status() == PHP_SESSION_NONE) {
+      session_start();
+    }
+    return (isset($_SESSION['usertype']) && $_SESSION['usertype'] === USERTYPE_OWNER &&
+      isset($_SESSION['userid']));
   }
 
 }

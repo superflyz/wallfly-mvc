@@ -7,12 +7,24 @@ class Super_User extends Model
 
   public function save()
   {
-    parent::save();
-
-    $db = Database::get_instance();
-    $result = $db->query("SELECT id FROM super_user WHERE email='{$this->email}'");
-    $result = $result->fetchObject();
-    $this->id = $result->id;
+    try {
+      $db = Database::get_instance();
+      $db->beginTransaction();
+      $statement = $db->prepare("INSERT INTO super_user (email, password, firstname,
+        lastname, phone, photo) VALUES (:email, :password, :firstname, :lastname,
+        :phone, :photo)");
+      $statement->execute([
+        ':email' => $this->email,
+        ':password' => $this->password,
+        ':firstname' => $this->firstname,
+        ':lastname' => $this->lastname,
+        ':phone' => $this->phone,
+        ':photo' => $this->photo
+      ]);
+      $this->id = $db->lastInsertId();
+    } catch (Exception $e) {
+      echo $e->getMessage();
+    }
   }
 
 }

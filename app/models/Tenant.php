@@ -1,20 +1,18 @@
 <?php
 
-class Agent extends Super_User
+class Tenant extends Super_User
 {
-
-  public $real_estate_id;
+  public $property_id;
 
   public function save()
   {
     parent::save();
-
     try {
       $db = Database::get_instance();
-      $statement = $db->prepare("INSERT INTO agent VALUES (:super_user_id, :real_estate_id)");
+      $statement = $db->prepare("INSERT INTO tenant VALUES (:super_user_id, :property_id)");
       $statement->execute([
-        ':super_user_id' => $this->id,
-        ':real_estate_id' => $this->real_estate_id
+        ":super_user_id" => $this->id,
+        ":property_id" => $this->property_id
       ]);
       $db->commit();
     } catch (Exception $e) {
@@ -27,7 +25,7 @@ class Agent extends Super_User
     if (session_status() == PHP_SESSION_NONE) {
       session_start();
     }
-    return (isset($_SESSION['usertype']) && $_SESSION['usertype'] === USERTYPE_AGENT &&
+    return (isset($_SESSION['usertype']) && $_SESSION['usertype'] === USERTYPE_TENANT &&
       isset($_SESSION['userid']));
   }
 
