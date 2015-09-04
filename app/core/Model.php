@@ -15,7 +15,10 @@ class Model
   {
     $db = Database::get_instance();
     $variables = get_object_vars($this);
-    $statement = "INSERT INTO " . strtolower(get_class($this)) . " (";
+    $parentclass = get_parent_class($this);
+    $tablename = $parentclass !== 'Model' ? $parentclass : get_class($this);
+    $tablename = strtolower($tablename);
+    $statement = "INSERT INTO " . $tablename . " (";
     $i = 0;
     foreach ($variables as $key => $value)
     {
@@ -54,7 +57,8 @@ class Model
         $statement->bindParam(":" . $key, $variables[$key]);
       }
     }
-    $statement->execute();
+    var_dump($statement);
+    $x = $statement->execute();
   }
 
   public function update()
