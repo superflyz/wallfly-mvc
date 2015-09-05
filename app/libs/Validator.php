@@ -1,12 +1,10 @@
 <?php
 
-define('PATTERN', '#^[a-z0-9\x20]+$#i');
-
-
-
 define('ERROR_EMPTY', 0);
 define('ERROR_NAME_CONTAINS_NUMERIC', 1);
 define('ERROR_PASSWORDS_NOT_MATCH', 2);
+define('ERROR_EMAIL_NOT_IN_PROPER_FORMAT', 3);
+define('ERROR_PHONE_NOT_IN_PROPER_FORMAT', 4);
 
 class Validator
 {
@@ -16,42 +14,62 @@ class Validator
     return htmlspecialchars(stripslashes(trim($data)));
   }
 
-  public static function validate($data)
+  public static function validate_owner_data($data)
   {
-    $result = ['valid' => true];
+    // 1. check if any of the field is empty
     $emptycheck = self::check_empty($data);
     if ($emptycheck['empty'])
     {
-      $result['valid'] = false;
-      $result['error_code'] = ERROR_EMPTY;
-      $result['field'] = $emptycheck['field'];
-      return $result;
+      return [
+        'valid' => false,
+        'error_code' => ERROR_EMPTY,
+        'field' => $emptycheck['field']
+      ];
     }
-    print_r($data);
+    // 2. check if the repeated password is matched with the original password
     if ($data['password'] != $data['password_repeat']);
     {
-      $result['valid'] = false;
-      $result['error_code'] = ERROR_PASSWORDS_NOT_MATCH;
-      $result['field'] = 'password_repeat';
-      return $result;
+      return [
+        'valid' => false,
+        'error_code' => ERROR_PASSWORDS_NOT_MATCH,
+        'field' => 'password_repeat'
+      ];
     }
+    // 3. check if firstname contains numeric
     if (!ctype_alpha($data['firstname']))
     {
-      $result['valid'] = false;
-      $result['error_code'] = ERROR_NAME_CONTAINS_NUMERIC;
-      $result['field'] = 'firstname';
-      return $result;
+      return [
+        'valid' => false,
+        'error_code' => ERROR_NAME_CONTAINS_NUMERIC,
+        'field' => 'firstname'
+      ];
     }
+    // 4. check if lastname contains numeric
     if (!ctype_alpha($data['lastname']))
     {
-      $result['valid'] = false;
-      $result['error_code'] = ERROR_NAME_CONTAINS_NUMERIC;
-      $result['field'] = 'lastname';
-      return $result;
+      return [
+        'valid' => false,
+        'error_code' => ERROR_NAME_CONTAINS_NUMERIC,
+        'field' => 'lastname'
+      ];
     }
-
-
-    return $result;
+    // 5. check email address
+    if (!filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
+      return [
+        'valid' => false,
+        'error_code' => ERROR_EMAIL_NOT_IN_PROPER_FORMAT,
+        'field' => 'email'
+      ];
+    }
+    // 6. check phone number
+    if (!ctype_digit($data['phone'])) {
+      return [
+        'valid' => false,
+        'error_code' => ERROR_PHONE_NOT_IN_PROPER_FORMAT,
+        'field' => 'phone'
+      ];
+    }
+    return ['valid' => true];
   }
 
   public static function check_empty($data)
