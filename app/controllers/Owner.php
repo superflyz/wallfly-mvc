@@ -39,6 +39,22 @@ class Owner extends Controller
           // TODO: handle the error
           Flash::set('error_message', "Please enter valid phone number");
 
+        } elseif ($validcheck['error_code'] === ERROR_PASSWORD_LESS_THAN_EIGHT_CHARS) {
+          // password is less than 8 characters
+          Flash::set('error_message', 'Your password should have at least 8 characters');
+
+        } elseif ($validcheck['error_code'] === ERROR_PASSWORD_NOT_CONTAIN_ANY_NUMERIC) {
+          // password does not contain any numerics
+          Flash::set('error_message', 'Your password should have at least 1 numerical character');
+
+        } elseif ($validcheck['error_code'] === ERROR_PASSWORD_NOT_CONTAIN_ANY_CAPITAL) {
+          // password does not contain any capital letters
+          Flash::set('error_message', 'Your password should have at least 1 capital letter');
+
+        } elseif ($validcheck['error_code'] === ERROR_PASSWORD_NOT_CONTAIN_ANY_LOWERCASE) {
+          // password does not contain any lowercase letters
+          Flash::set('error_message', 'Your password should have at least 1 lowercase letter');
+
         } else {
           // unknown error
           // TODO: handle the error

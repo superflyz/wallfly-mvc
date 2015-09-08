@@ -15,24 +15,29 @@ class Validator
 
   private static function sanitize($data)
   {
-    return htmlspecialchars(stripslashes(trim($data)));
+    foreach ($data as $key => $value) {
+      $data[$key] = htmlspecialchars(stripslashes(trim($value)));
+    }
+    return $data;
   }
 
   public static function validate_owner_data($data)
   {
     // 1. check if any of the field is empty
     $emptycheck = self::check_empty($data);
-    if ($emptycheck['empty'])
-    {
+    if ($emptycheck['empty']) {
       return [
         'valid' => false,
         'error_code' => ERROR_EMPTY,
         'field' => $emptycheck['field']
       ];
     }
+    // 1a. sanitize data
+    $data = self::sanitize($data);
+
+
     // 2. check if the repeated password is matched with the original password
-    if ($data['password'] != $data['password_repeat']);
-    {
+    if ($data['password'] !== $data['password_repeat']) {
       return [
         'valid' => false,
         'error_code' => ERROR_PASSWORDS_NOT_MATCH,
@@ -40,8 +45,7 @@ class Validator
       ];
     }
     // 3. check if firstname contains numeric
-    if (!ctype_alpha($data['firstname']))
-    {
+    if (!ctype_alpha($data['first_name'])) {
       return [
         'valid' => false,
         'error_code' => ERROR_NAME_CONTAINS_NUMERIC,
@@ -49,8 +53,7 @@ class Validator
       ];
     }
     // 4. check if lastname contains numeric
-    if (!ctype_alpha($data['lastname']))
-    {
+    if (!ctype_alpha($data['last_name'])) {
       return [
         'valid' => false,
         'error_code' => ERROR_NAME_CONTAINS_NUMERIC,
@@ -74,7 +77,7 @@ class Validator
       ];
     }
     // 7. check password strength
-    if (strlen($data['password']) <= '8') {
+    if (strlen($data['password']) < '8') {
       return [
         'valid' => false,
         'error_code' => ERROR_PASSWORD_LESS_THAN_EIGHT_CHARS,
