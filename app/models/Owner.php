@@ -12,6 +12,7 @@ class Owner extends Super_User
     $statement->execute([
         ':id' => $this->id
     ]);
+    $db->commit();
   }
 
   public static function is_authenticated()

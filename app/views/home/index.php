@@ -38,6 +38,14 @@
     <!-- Header -->
     <header>
         <div class="container">
+          <?php if ($error = Flash::get('error_message')): ?>
+            <div class="alert alert-default" role="alert" style="color:rgb(159, 221, 94)"><?=$error?>!!!</div>
+          <?php endif ?>
+          <?php if ($success = Flash::get('success_message')): ?>
+            <div class="alert alert-default" role="alert" style="color:rgb(159, 221, 94)">
+              <?=$success?><a href="#" class="alert-link" data-toggle="modal" data-target="#loginmodal">log in!</a>
+            </div>
+          <?php endif ?>
             <div class="intro">
                 <div class="row">
                     <div class="col-md-12 intro-text-1">
@@ -143,17 +151,10 @@
                 </div>
 
                 <div class="modal-body">
-                    <form id="signup_form" name="signup_form" method="post" action="owner/submit">
+                    <form id="signup_form" name="signup_form" method="post" action="propertyowner/submit">
 
                         <p>
                           <a href="agent/signup">Click here for real estate sign-up!</a>
-                        </p>
-
-                        <p>
-                          <?php
-                            $error = Flash::get('error_message');
-                            echo $error ? $error : "";
-                          ?>
                         </p>
 
                          <div class="form-field">
@@ -220,7 +221,7 @@
         </div>
   </div>
 
-<div class="modal modal-vcenter fade login-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+<div class="modal modal-vcenter fade login-modal-sm" id="loginmodal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
         <div class="modal-dialog modal-sm">
             <div class="modal-content">
                 <div class="modal-header text-center">

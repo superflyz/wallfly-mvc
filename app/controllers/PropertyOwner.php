@@ -1,7 +1,7 @@
 <?php
 
 
-class Owner extends Controller
+class PropertyOwner extends Controller
 {
 
   public function submit()
@@ -64,13 +64,21 @@ class Owner extends Controller
         $this->redirect('/');
 
       } else {
-        // 3b. if valid, sanitize the data & store in the database
-        // TODO: sanitize data
-
+        // TODO: hash password
+        $hashed = create_hash($_POST['password']);
 
         // TODO: store in database
+        Owner::create([
+            'email' => $_POST['email'],
+            'password' => $hashed,
+            'firstname' => $_POST['first_name'],
+            'lastname' => $_POST['last_name'],
+            'phone' => $_POST['phone'],
+            'photo' => 'img/dummy_profile_picture.jpg'
+        ]);
 
-        echo 'valid';
+        Flash::set('success_message', 'Your account has been created, you can now ');
+        $this->redirect('/');
       }
     } else {
       $this->redirect('/');
