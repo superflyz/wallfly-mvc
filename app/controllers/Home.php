@@ -6,14 +6,23 @@ class Home extends Controller
   public function index()
   {
     if (Owner::is_authenticated()) {
+      // if owner is authenticated
+      // TODO: display owner dashboard
 
     } elseif (Tenant::is_authenticated()) {
+      // if tenant is authenticated
+      // TODO: display tenant dashboard
 
     } elseif (Agent::is_authenticated()) {
+      // if agent is authenticated
+      // TODO: display agent dashboard
 
     } elseif (Real_Estate::is_authenticated()) {
+      // if real estate is authenticated
+      // TODO: display real estate dashboard
 
     } else {
+      // if no one is authenticated
       // display landing page
       $this->view('home/index');
     }

@@ -8,6 +8,7 @@ require_once 'config/database.php';
 
 require_once 'libs/PasswordHash.php';
 require_once 'libs/Validator.php';
+require_once 'libs/Flash.php';
 
 require_once 'core/App.php';
 require_once 'core/Controller.php';

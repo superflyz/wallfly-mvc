@@ -1,5 +1,5 @@
   $(document).ready(function() {
-      
+
       $("#login")[0].reset();
       $('#username').val('');
       $('#passwrd').val('');
@@ -40,11 +40,12 @@
       });
 
       $('#usertypes').change(function(e) {
-        if (e.target.value === 'agent') {
-          location = 'agent/signup';
+        console.log(e.target.value);
+        if (e.target.value === 'real_estate') {
+          location = 'realestate/login';
         }
       });
-      
+
   });
 
 
@@ -64,4 +65,3 @@ function newPage(){
 
   window.location = 'index.php';
 }
-

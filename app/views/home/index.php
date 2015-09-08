@@ -145,45 +145,54 @@
                 <div class="modal-body">
                     <form id="signup_form" name="signup_form" method="post" action="owner/submit">
 
-                        <a href="agent/signup">Click here for real estate sign-up!</a>
+                        <p>
+                          <a href="agent/signup">Click here for real estate sign-up!</a>
+                        </p>
+
+                        <p>
+                          <?php
+                            $error = Flash::get('error_message');
+                            echo $error ? $error : "";
+                          ?>
+                        </p>
 
                          <div class="form-field">
-                             <label for="first_name">First Name</label>
+                             <label for="first_name">First Name*</label>
                             <input class="form-control" type='text' name='first_name' maxlength='50' size='30'  value="" id="fname" />
                             <span class="error"></span>
                           </div>
 
                           <div class="form-field">
-                            <label for="last_name">Last Name</label>
+                            <label for="last_name">Last Name*</label>
                             <input class="form-control" type='text' name='last_name' maxlength='50' size='30'  value="" id="lname" />
                             <span class="error"></span>
                           </div>
 
                           <div class="form-field">
-                             <label for="email">Email Address</label>
+                             <label for="email">Email Address*</label>
                             <input class="form-control" type="email" name="email" maxlength="50" size="12" value="" id="email" />
                             <span class="error"></span>
                            </div>
 
                          <div class="form-field">
-                             <label for="password">Password</label>
+                             <label for="password">Password*</label>
                             <input class="form-control" type="password" size="12" name="password" value="" id="password" />
                             <span class="error"></span>
                          </div>
 
                          <div class="form-field">
-                            <label for="password_repeat">Re-enter Password</label>
+                            <label for="password_repeat">Re-enter Password*</label>
                             <input class="form-control" type="password" size="12" name="password_repeat" value="" id="password_repeat" />
                             <span class="error"></span>
                          </div>
 
                          <div class="form-field">
-                             <label for="phone">Phone</label>
+                             <label for="phone">Phone*</label>
                              <input type="tel" class="form-control" size="12" name="phone">
                          </div>
 
                          <div class="form-field">
-                             <label for="address">Address Line 1</label>
+                             <label for="address">Address Line 1*</label>
                              <input type="text" class="form-control" size="12" name="address">
                          </div>
 
@@ -192,7 +201,13 @@
                              <input type="text" class="form-control" size="12" name="address2">
                          </div>
 
-                        By clicking "sign up" you agree to our <a href="#">Terms &amp; Conditions</a>.
+                        <p>
+                          *required
+                        </p>
+
+                        <p>
+                          By clicking "sign up" you agree to our <a href="#">Terms &amp; Conditions</a>.
+                        </p>
 
                         <span class="error"></span>
                             <div class="form-field">
@@ -218,9 +233,10 @@
                         <div class="form-field">
                             <label for="usertype">Are you a/an...</label>
                             <select class="form-control select-style" name="usertype" id="usertypes">
-                                <option value="tenant">Tenant</option>
+                                <option value="tenant" selected>Tenant</option>
                                 <option value="owner">Owner</option>
                                 <option value="agent">Agent</option>
+                                <option value="real_estate">Real Estate</option>
                             </select>
                         </div>
                         <div class="form-field">
