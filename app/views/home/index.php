@@ -230,7 +230,7 @@
                 </div>
 
                 <div class="modal-body">
-                    <form id="login" name="login" method="post" action="login.php">
+                    <form id="login" name="login" method="post" action="home/login">
                         <div class="form-field">
                             <label for="usertype">Are you a/an...</label>
                             <select class="form-control select-style" name="usertype" id="usertypes">

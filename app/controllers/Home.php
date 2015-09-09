@@ -8,6 +8,7 @@ class Home extends Controller
     if (Owner::is_authenticated()) {
       // if owner is authenticated
       // TODO: display owner dashboard
+      $this->redirect('/propertyowner/index');
 
     } elseif (Tenant::is_authenticated()) {
       // if tenant is authenticated
@@ -67,6 +68,54 @@ class Home extends Controller
     //   'owner_id' => NULL
     // ]);
 
+  }
+
+  public function login()
+  {
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+      // check user type
+      if ($_POST['usertype'] === 'owner') {
+        // if owner
+        $owner = Owner::get_by_email($_POST['email']);
+        if ($owner) {
+          // check the password
+          if (validate_password($_POST['password'], $owner->password)) {
+            // password matched
+            $_SESSION['usertype'] = USERTYPE_OWNER;
+            $_SESSION['userid'] = $owner->id;
+
+          } else {
+            // wrong password
+            Flash::set('error_message', 'Wrong email or password');
+
+          }
+        } else {
+          // cannot find the user with the email
+          Flash::set('error_message', 'Wrong email or password');
+
+        }
+      } elseif ($_POST['usertype'] === 'tenant') {
+
+      } elseif ($_POST['usertype'] === 'agent') {
+
+      } elseif ($_POST['usertype'] === 'real_estate') {
+
+      }
+    }
+    $this->redirect('/');
+  }
+
+  public function logout()
+  {
+    unset($_SESSION['usertype']);
+    unset($_SESSION['userid']);
+    $this->redirect('/');
+  }
+
+  public function test()
+  {
+    // $owner = Owner::get_by_email('rayp1100@gmail.com');
+    // var_dump($owner);
   }
 
 }

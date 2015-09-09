@@ -10,13 +10,14 @@
   <title>Welcome To WallFly</title>
 
   <!-- Bootstrap Core CSS -->
-  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="/wallfly-mvc/public/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Custom CSS -->
-  <link href="css/wallfly.css" rel="stylesheet">
+  <link rel="stylesheet" href="/wallfly/public/css/style.css">
+  <link rel="stylesheet" href="/wallfly-mvc/public/css/wallfly.css">
 
   <!-- Custom Fonts -->
-  <link href="css/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-  
+  <link href="/wallfly-mvc/public/css/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
 </head>
 <body>

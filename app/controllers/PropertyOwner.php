@@ -4,6 +4,14 @@
 class PropertyOwner extends Controller
 {
 
+  public function index() {
+    if (!Owner::is_authenticated()) {
+      $this->redirect('/');
+    } else {
+      $this->view('owner/index', Owner::get_one($_SESSION['userid']));
+    }
+  }
+
   public function submit()
   {
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
