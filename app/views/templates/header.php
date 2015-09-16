@@ -7,14 +7,13 @@
   <meta name="description" content="WallFly - Property Mangement System">
   <meta name="author" content="The SuperFlyz">
 
-  <title>Welcome To WallFly</title>
+  <title>Dashboard - WallFly</title>
 
   <!-- Bootstrap Core CSS -->
   <link href="/wallfly-mvc/public/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Custom CSS -->
-  <link rel="stylesheet" href="/wallfly/public/css/style.css">
-  <link rel="stylesheet" href="/wallfly-mvc/public/css/wallfly.css">
+  <link href="/wallfly-mvc/public/css/wallfly.css" rel="stylesheet">
 
   <!-- Custom Fonts -->
   <link href="/wallfly-mvc/public/css/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">

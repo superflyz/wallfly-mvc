@@ -7,7 +7,7 @@ class Owner extends Super_User
   {
     parent::save();
 
-    $db = Database::get_instance();
+    $db = Database::getInstance();
     $statement = $db->prepare("INSERT INTO owner VALUES (:id)");
     $statement->execute([
         ':id' => $this->id
@@ -15,44 +15,53 @@ class Owner extends Super_User
     $db->commit();
   }
 
-  public static function is_authenticated()
+  public function getProperties()
+  {
+    try {
+      $db = Database::getInstance();
+      $statement = $db->prepare("SELECT * FROM property WHERE owner_id=:owner_id");
+      $statement->execute(['owner_id' => $this->id]);
+      $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+      $result = array_map(function($row) {
+        return new Property($row);
+      }, $result);
+      return $result;
+    } catch (Exception $e) {
+      echo 'Error: ' . $e->getMessage();
+    }
+  }
+
+  public static function isAuthenticated()
   {
     if (session_status() == PHP_SESSION_NONE) {
       session_start();
     }
     return (isset($_SESSION['usertype']) && $_SESSION['usertype'] === USERTYPE_OWNER &&
-      isset($_SESSION['userid']));
+      isset($_SESSION['user']));
   }
 
-  public static function get_by_email($email)
+  public static function get($data)
   {
-    try {
-      $db = Database::get_instance();
-      $result = $db->query("SELECT * FROM owner, super_user WHERE owner.super_user_id = super_user.id AND super_user.email='{$email}'");
-      $result = $result->fetchObject();
-      if ($result) {
-        return new Owner($result);
-      } else {
-        return NULL;
+    $query = "SELECT * FROM owner, super_user WHERE owner.super_user_id = super_user.id AND ";
+    $i = 0;
+    foreach ($data as $key => $value) {
+      $query .= $key . '=:' . $key;
+      if ($i !== sizeof($data)-1) {
+        $query .= ' AND ';
       }
-    } catch (Exception $e) {
-
+      $i++;
     }
-  }
-
-  public static function get_one($id)
-  {
     try {
-      $db = Database::get_instance();
-      $result = $db->query("SELECT * FROM owner, super_user WHERE owner.super_user_id = super_user.id AND super_user.id='{$id}'");
-      $result = $result->fetchObject();
-      if ($result) {
-        return new Owner($result);
-      } else {
-        return NULL;
-      }
+      $db = Database::getInstance();
+      $statement = $db->prepare($query);
+      $statement->execute($data);
+      $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+      $result = array_map(function($row) {
+        return new Owner($row);
+      }, $result);
+      return $result;
     } catch (Exception $e) {
-
+      echo 'Error: ' . $e->getMessage();
     }
   }
 

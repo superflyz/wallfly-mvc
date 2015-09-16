@@ -14,7 +14,7 @@ class Model
   public function save()
   {
     try {
-      $db = Database::get_instance();
+      $db = Database::getInstance();
       $variables = get_object_vars($this);
       $parentclass = get_parent_class($this);
       $tablename = $parentclass !== 'Model' ? $parentclass : get_class($this);
@@ -67,7 +67,7 @@ class Model
 
   public function update()
   {
-    $db = Database::get_instance();
+    $db = Database::getInstance();
     $statement = "UPDATE " . strtolower(get_class($this)) . " SET ";
     $variables = get_object_vars($this);
     $i = 0;

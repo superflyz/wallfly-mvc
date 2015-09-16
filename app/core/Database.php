@@ -5,7 +5,7 @@ class Database
 
   private static $db;
 
-  public static function get_instance()
+  public static function getInstance()
   {
     if (self::$db === NULL)
     {

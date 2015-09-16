@@ -1,123 +1,167 @@
-<div id="page-top" class="index">
-    <!-- Navigator-->
-    <nav class="navbar navbar-default">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <a style="color: #ffffff;" class="navbar-brand" href="home.php"><span style="color: #ffffff;" class="glyphicon glyphicon-home"></span>&nbsp;Wall Fly</a>
-        </div>
+<div class="index d-body">
 
-        <ul class="nav navbar-nav navbar-right">
-          <!-- notification test -->
-          <li>
-            <div class="dropdown" id="alert">
-            <a id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="#" style="background-color: #036E2C;">
-              <i class="glyphicon glyphicon-bell"></i>
-            </a>
-
-            <ul class="dropdown-menu notifications" role="menu" aria-labelledby="dLabel">
-
-              <div class="notification-heading"><h4 class="menu-title"><b>Notifications</b></h4>
-              </div>
-              <li class="divider"></li>
-              <div class="notifications-wrapper">
-                <a class="content" href="calendar.php">
-                <div class="notification-item">
-                  <h4 class="item-title">An Event has been updated (1 hour ago)</h4>
+<div class="container-fluid fill">
+    <div class="row no-gutter row-offcanvas row-offcanvas-left">
+        <div class="col-md-2 col-sm-2 sidebar-offcanvas">
+            <div class="navbar-dashboard-left">
+                <div id="logo">
+                    <img src="<?=WEBDIR?>/images/wallfly_logo.svg" alt="WallFly logo">
                 </div>
-                </a>
-
-                <a class="content" href="#">
-                <div class="notification-item">
-                  <h4 class="item-title">You have got a message (1 hour ago)</h4>
+                <nav id="navbg">
+                    <ul id="tab-nav" class="nav nav-pills nav-stacked">
+                        <li class="active"><a href="#dashboard" data-toggle="pill">Dashboard<i class="fa fa-desktop pull-right"></i></a></li>
+                        <li data-info='properties.php'><a href="#properties" data-toggle="pill"><span class="wrap">Properties</span><i class="fa fa-home pull-right"></i></a></li>
+                        <li data-info='calendar/calendar.php'><a href="#calendar" data-toggle="pill">Calendar<i class="fa fa-calendar pull-right"></i></a></li>
+                        <li data-info='chatsys/chat.php'><a href="#messages" data-toggle="pill">Messages<i class="fa fa-comments-o pull-right"></i></a></li>
+                        <li data-info='paymentsys/payment.php'><a href="#payment" data-toggle="pill">Payment<i class="fa fa-credit-card pull-right"></i></a></li>
+                        <li><a href="#repairs" data-toggle="pill">Repairs<i class="fa fa-wrench pull-right"></i></a></li>
+                    </ul>
+                </nav>
+                <div id="dfooter">
+                    <p>Copyright &copy; <span class="diff-color"><span class="diff-font">WallFly</span> 2015</span></p>
                 </div>
-                </a>
-
-                <a class="content" href="#">
-                <div class="notification-item">
-                  <h4 class="item-title">You have got a message (2 hour ago)</h4>
-                </div>
-                </a>
-
-                <a class="content" href="calendar.php">
-                <div class="notification-item">
-                  <h4 class="item-title">An event has been updated (4 hour ago)</h4>
-                </div>
-                </a>
-              </div>
-              <li class="divider"></li>
-            </ul>
             </div>
-          </li>
-          <li>
-            <ul class="nav navbar-nav" id="user_dropdown">
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo $data->email; ?>(<?php echo $_SESSION["usertype"];?>) <span class="glyphicon glyphicon-user pull-right"></span></a>
-                  <ul class="dropdown-menu">
-                    <li><a href="#">Account Settings <span class="glyphicon glyphicon-cog pull-right"></span></a></li>
-                    <li class="divider"></li>
-                    <li><a href="property.php">Property <span class="glyphicon glyphicon-home pull-right"></span></a></li>
-                    <li class="divider"></li>
-                    <li><a href="calendar.php">Calendar <span class="glyphicon glyphicon-calendar pull-right"></span></a></li>
-                    <li class="divider"></li>
-                    <li><a href="chatsys/chat.html">Messages <span class="glyphicon glyphicon-comment pull-right"></span></a></li>
-                    <li class="divider"></li>
-                    <li><a href="login_page.html">Sign Out <span class="glyphicon glyphicon-log-out pull-right"></span></a></li>
-                  </ul>
-              </li>
-            </ul>
-          </li>
-          <li><button type="button" class="logout" onclick="window.location.href='/wallfly-mvc/public/home/logout'"><span class="glyphicon glyphicon-log-out"></span>&nbsp;Logout</button></li>
-        </ul>
-      </div>
-    </nav>
+        </div>
+        <div class="col-md-10 col-sm-10">
+            <div class="navbar-dashboard-main">
+                <div class="visible-xs pull-left smtog">
+                    <a class="tog" href="#" data-toggle="offcanvas">
+                        <i class="fa fa-bars"></i>
+                    </a>
+                </div>
+                <div class="user pull-right">
+                    <div class="btn-group">
+                        <button type="button" class="btn user-btn inc" aria-label="Left Align">
+                            <span class="glyphicon glyphicon-bell" aria-hidden="true"></span><span
+                                class="badge anown">3</span>
+                        </button>
+                        <div class="btn-group">
+                            <a class="btn user-btn dropdown-toggle" data-toggle="dropdown" href="#"><span
+                                    class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;<span class="user-name"><?=$data->firstname?></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#"><i class="icon-pencil"></i> Edit</a></li>
+                                <li><a href="#"><i class="icon-trash"></i> Delete</a></li>
+                                <li><a href="#"><i class="icon-ban-circle"></i> Ban</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#"><i class="i"></i> Make admin</a></li>
+                            </ul>
+                        </div>
+                        <button type="button" class="btn user-btn inc" aria-label="Left Align">
+                            <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
+                        </button>
+                        <a href="logout.php"><button type="button" class="btn user-btn-diff inc" aria-label="Left Align">
+                            <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+                        </button></a>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid fill">
+                <div class="pill-content">
+                    <div class="pill-pane active" id="dashboard">
 
-    <!-- contents -->
-    <div class="container-fluid1">
-      <div class="row">
-        <div class="col-md-12">
-          <img class="logo" src="/wallfly-mvc/public/img/logo.jpg">
+
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-9 col-md-offset-1">
+                                    <h1 class="wlcm-h1">Welcome <span class="user-color"> <?=$data->firstname?>!</span></h1>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-9 col-md-offset-1">
+                                    <!-- Features Section -->
+                                    <section id="dash-links">
+                                        <div class="container-fluid">
+                                            <div class="row text-center">
+                                                <div class="col-md-4 col-sm-6">
+                                                    <a href="#calendar" data-toggle="pill">
+                                                        <div class="dash-link">
+                                                            <span class="icons">
+                                                                <i class="fa fa-calendar fa-inverse"></i>
+                                                            </span>
+                                                            <h4 class="link-heading">Calendar</h4>
+                                                            <p class="link-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur adipisicing elit.</p>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                                <div class="col-md-4 col-sm-6">
+                                                    <a href="#properties" data-toggle="pill">
+                                                        <div class="dash-link">
+                                                            <span class="icons">
+                                                                <i class="fa fa-home fa-inverse"></i>
+                                                            </span>
+                                                            <h4 class="link-heading">Manage Properties</h4>
+                                                            <p class="link-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur adipisicing elit.</p>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                                <div class="col-md-4 col-sm-6">
+                                                    <a href="#messages" data-toggle="pill">
+                                                        <div class="dash-link">
+                                                            <span class="icons">
+                                                                <i class="fa fa-comments-o fa-inverse"></i>
+                                                            </span>
+                                                            <h4 class="link-heading">Messages</h4>
+                                                            <p class="link-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur adipisicing elit.</p>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                    </section>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="pill-pane fade" id="properties">
+                        <object class="iiframe" data="<?=WEBDIR?>/propertyowner/manage" type="text/html"></object>
+                    </div>
+                    <div class="pill-pane fade" id="calendar">
+                        <object class="iiframe" data="#" type="text/html"></object>
+                    </div>
+                    <div class="pill-pane fade" id="messages">
+                        <object class="iiframe" data="#" type="text/html"></object>
+                    </div>
+                    <div class="pill-pane fade" id="payment">
+                        <object class="iiframe" data="#" type="text/html"></object>
+                    </div>
+                    <div class="pill-pane fade" id="repairs">
+                        <object class="iiframe" data="#">
+                        </object>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="jumbotron">
-          <div class="container">
-            <h1>Hello, Welcome to WallFly!</h1>
-            <p>We are a web service that is committed to making the rental process easier for everyone, tenants, owners and agents!
-            We provide owners with more visibility of properties, tenants easier communication to owners and agents and agents easier management of properties.</p>
-            <!--<p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>-->
-            <a id="start_btn" href="property.php" class="btn btn-lg btn-success"><span class="glyphicon glyphicon-home"></span> Manage Properties</a>&nbsp;&nbsp;
-            <a id="start_btn" href="calendar.php" class="btn btn-lg btn-success"><span class="glyphicon glyphicon-calendar"></span> Calendar</a>&nbsp;&nbsp;
-            <a id="start_btn" href="chatsys/chat.php" class="btn btn-lg btn-success"><span class="glyphicon glyphicon-comment"></span> Messages</a>
-          </div>
-        </div>
-      </div>
-      <!--<div class="row">
-        <div class="col-md-12">
-		      <a id="start_btn" href="property.php" class="btn btn-block btn-lg btn-success"><span class="glyphicon glyphicon-home"></span> Manage Properties</a>
-		      <a id="start_btn" href="calendar.php" class="btn btn-block btn-lg btn-success"><span class="glyphicon glyphicon-calendar"></span> Calendar</a>
-		      <a id="start_btn" href="chatsys/chat.html" class="btn btn-block btn-lg btn-success"><span class="glyphicon glyphicon-comment"></span> Messages</a>
-        </div>
-      </div>-->
     </div>
+</div>
 
-    <!--<div class="container-fluid" id="content">
-      <div class="row">
-        <div class="col-md-2">
-          <a>About us</a>
-          <a>Application form</a>
-        </div>
-      </div>
-    </div>-->
-	<br>
-	<br>
-	<div>
-		<ul style="list-style-type: none; text-align: center; text-decoration: none;">
-			<li style="display:inline; padding:25px;"><a href="#">About Us</li>
-			<li style="display:inline; padding:25px;"><a href="#">Contact Us</li>
-			<li style="display:inline; padding:25px;"><a href="#">RTA Website</li>
-			<li style="display:inline; padding:25px;"><a href="#">Report an Issue</li>
-		</ul>
-	</div>
+<!-- jQuery -->
+<script src="<?=WEBDIR?>/js/jquery.js"></script>
+<!-- Bootstrap Core JavaScript -->
+<script src="<?=WEBDIR?>/js/bootstrap.min.js"></script>
+<!-- Plugin JavaScript -->
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+<script src="<?=WEBDIR?>/js/classie.js"></script>
+<script src="<?=WEBDIR?>/js/cbpAnimatedHeader.js"></script>
+<!-- Custom Theme JavaScript -->
+<script src="<?=WEBDIR?>/js/wallfly.js"></script>
+<script src="<?=WEBDIR?>/js/offcanvas.js"></script>
+<script type="text/javascript">
+$(document).ready(function () {
+    $("#tab-nav li").click(function () {
+        $("object").empty();
+        var objecturl = $(this).attr('data-info');
+        $('object').attr('data', objecturl);
 
 
+    });
+
+    //http://jsfiddle.net/s6bP9/
+    $('a[data-toggle="pill"]').on('shown.bs.tab', function (e) {
+        var target = this.href.split('#');
+        $('.nav a').filter('a[href="#' + target[1] + '"]').tab('show');
+    });
+
+});
+</script>
 </div>

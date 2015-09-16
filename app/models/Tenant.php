@@ -8,7 +8,7 @@ class Tenant extends Super_User
   {
     parent::save();
     try {
-      $db = Database::get_instance();
+      $db = Database::getInstance();
       $statement = $db->prepare("INSERT INTO tenant VALUES (:super_user_id, :property_id)");
       $statement->execute([
         ":super_user_id" => $this->id,
@@ -20,13 +20,13 @@ class Tenant extends Super_User
     }
   }
 
-  public static function is_authenticated()
+  public static function isAuthenticated()
   {
     if (session_status() == PHP_SESSION_NONE) {
       session_start();
     }
     return (isset($_SESSION['usertype']) && $_SESSION['usertype'] === USERTYPE_TENANT &&
-      isset($_SESSION['userid']));
+      isset($_SESSION['user']));
   }
 
 }

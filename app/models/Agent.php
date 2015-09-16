@@ -10,7 +10,7 @@ class Agent extends Super_User
     parent::save();
 
     try {
-      $db = Database::get_instance();
+      $db = Database::getInstance();
       $statement = $db->prepare("INSERT INTO agent VALUES (:super_user_id, :real_estate_id)");
       $statement->execute([
         ':super_user_id' => $this->id,
@@ -22,13 +22,38 @@ class Agent extends Super_User
     }
   }
 
-  public static function is_authenticated()
+  public static function get($data)
+  {
+    $query = "SELECT * FROM agent, super_user WHERE agent.super_user_id = super_user.id AND ";
+    $i = 0;
+    foreach ($data as $key => $value) {
+      $query .= $key . '=:' . $key;
+      if ($i !== sizeof($data)-1) {
+        $query .= ' AND ';
+      }
+      $i++;
+    }
+    try {
+      $db = Database::getInstance();
+      $statement = $db->prepare($query);
+      $statement->execute($data);
+      $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+      $result = array_map(function($row) {
+        return new Agent($row);
+      }, $result);
+      return $result;
+    } catch (Exception $e) {
+      echo 'Error: ' . $e->getMessage();
+    }
+  }
+
+  public static function isAuthenticated()
   {
     if (session_status() == PHP_SESSION_NONE) {
       session_start();
     }
     return (isset($_SESSION['usertype']) && $_SESSION['usertype'] === USERTYPE_AGENT &&
-      isset($_SESSION['userid']));
+      isset($_SESSION['user']));
   }
 
 }

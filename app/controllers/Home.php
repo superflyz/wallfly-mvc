@@ -5,20 +5,20 @@ class Home extends Controller
 
   public function index()
   {
-    if (Owner::is_authenticated()) {
+    if (Owner::isAuthenticated()) {
       // if owner is authenticated
       // TODO: display owner dashboard
       $this->redirect('/propertyowner/index');
 
-    } elseif (Tenant::is_authenticated()) {
+    } elseif (Tenant::isAuthenticated()) {
       // if tenant is authenticated
       // TODO: display tenant dashboard
 
-    } elseif (Agent::is_authenticated()) {
+    } elseif (Agent::isAuthenticated()) {
       // if agent is authenticated
       // TODO: display agent dashboard
 
-    } elseif (Real_Estate::is_authenticated()) {
+    } elseif (Real_Estate::isAuthenticated()) {
       // if real estate is authenticated
       // TODO: display real estate dashboard
 
@@ -76,13 +76,13 @@ class Home extends Controller
       // check user type
       if ($_POST['usertype'] === 'owner') {
         // if owner
-        $owner = Owner::get_by_email($_POST['email']);
+        $owner = Owner::get(['email' => $_POST['email']])[0];
         if ($owner) {
           // check the password
           if (validate_password($_POST['password'], $owner->password)) {
             // password matched
             $_SESSION['usertype'] = USERTYPE_OWNER;
-            $_SESSION['userid'] = $owner->id;
+            $_SESSION['user'] = $owner;
 
           } else {
             // wrong password
@@ -108,7 +108,7 @@ class Home extends Controller
   public function logout()
   {
     unset($_SESSION['usertype']);
-    unset($_SESSION['userid']);
+    unset($_SESSION['user']);
     $this->redirect('/');
   }
 
@@ -116,6 +116,10 @@ class Home extends Controller
   {
     // $owner = Owner::get_by_email('rayp1100@gmail.com');
     // var_dump($owner);
+
+    $owners = Owner::get([
+      'email' => 'rayp1100@gmail.com'
+    ]);
   }
 
 }

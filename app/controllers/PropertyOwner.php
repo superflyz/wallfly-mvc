@@ -4,11 +4,33 @@
 class PropertyOwner extends Controller
 {
 
-  public function index() {
-    if (!Owner::is_authenticated()) {
+  public function index()
+  {
+    if (!Owner::isAuthenticated()) {
       $this->redirect('/');
     } else {
-      $this->view('owner/index', Owner::get_one($_SESSION['userid']));
+      $this->view('owner/index', $_SESSION['user']);
+    }
+  }
+
+  public function manage()
+  {
+    if (!Owner::isAuthenticated()) {
+      $this->redirect('/');
+    } else {
+      $data = [];
+      $data['properties'] = $_SESSION['user']->getProperties();
+      $data['owner'] = $_SESSION['user'];
+      $this->view('owner/manage', $data);
+    }
+  }
+
+  public function home()
+  {
+    if (!Owner::isAuthenticated()) {
+      $this->redirect('/');
+    } else {
+      $this->view('owner/home');
     }
   }
 

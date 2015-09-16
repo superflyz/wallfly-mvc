@@ -8,7 +8,7 @@ class Super_User extends Model
   public function save()
   {
     try {
-      $db = Database::get_instance();
+      $db = Database::getInstance();
       $db->beginTransaction();
       $statement = $db->prepare("INSERT INTO super_user (email, password, firstname,
         lastname, phone, photo) VALUES (:email, :password, :firstname, :lastname,
