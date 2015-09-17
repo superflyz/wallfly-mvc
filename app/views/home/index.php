@@ -26,7 +26,7 @@
                         <a class="page-scroll" href="#about-i-e">About I. E.</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="agent/signup">Real Estate Sign Up</a>
+                        <a class="page-scroll" href="<?=WEBDIR?>/realest/signup">Real Estate Sign Up</a>
                     </li>
                 </ul>
             </div>
@@ -154,7 +154,7 @@
                     <form id="signup_form" name="signup_form" method="post" action="propertyowner/submit">
 
                         <p>
-                          <a href="agent/signup">Click here for real estate sign-up!</a>
+                          <a href="<?=WEBDIR?>/realest/signup">Click here for real estate sign-up!</a>
                         </p>
 
                          <div class="form-field">

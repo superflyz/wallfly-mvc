@@ -24,9 +24,11 @@ class Controller
     header('Location: ' . WEBDIR . $location);
   }
 
-  public function send_404()
+  public function send404()
   {
     // TODO
+    header($_SERVER["SERVER_PROTOCOL"]." 404 Not Found");
+    echo 'The page you\'re trying to access is not found!';
   }
 
 }
