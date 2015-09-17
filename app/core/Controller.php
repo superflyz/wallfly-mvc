@@ -3,6 +3,8 @@
 class Controller
 {
 
+  private $scripts;
+
   public function model($model)
   {
     require_once '../app/models/' .$model . '.php';
@@ -13,6 +15,7 @@ class Controller
   {
     require_once '../app/views/templates/header.php';
     require_once '../app/views/' . $view . '.php';
+    require_once '../app/views/templates/scripts.php';
     require_once '../app/views/templates/footer.php';
   }
 
@@ -29,6 +32,11 @@ class Controller
     // TODO
     header($_SERVER["SERVER_PROTOCOL"]." 404 Not Found");
     echo 'The page you\'re trying to access is not found!';
+  }
+
+  public function setJavascriptDependencies($scripts)
+  {
+    $this->scripts = $scripts;
   }
 
 }

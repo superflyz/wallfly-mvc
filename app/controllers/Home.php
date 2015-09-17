@@ -25,6 +25,17 @@ class Home extends Controller
     } else {
       // if no one is authenticated
       // display landing page
+      $this->setJavascriptDependencies([
+          WEBDIR . '/js/jquery.js',
+          WEBDIR . '/js/bootstrap.min.js',
+          'http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js',
+          WEBDIR . '/js/classie.js',
+          WEBDIR . '/js/cbpAnimatedHeader.js',
+          WEBDIR . '/js/wallfly.js',
+          'http://cdn.jsdelivr.net/jquery.validation/1.14.0/jquery.validate.js',
+          'http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.0/additional-methods.js',
+          WEBDIR . '/js/index.js'
+      ]);
       $this->view('home/index');
     }
 
