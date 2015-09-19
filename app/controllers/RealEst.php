@@ -3,6 +3,11 @@
 class RealEst extends Controller
 {
 
+  public function home()
+  {
+    $this->view('realestate/index');
+  }
+
   public function signup()
   {
     $this->view('realestate/signup');
@@ -37,6 +42,7 @@ class RealEst extends Controller
         Flash::set('success_message', 'Your company account has been created!');
 
         $this->redirect('/');
+        return;
       }
 
       $this->redirect('/realest/signup');
@@ -44,6 +50,16 @@ class RealEst extends Controller
     } else {
       $this->send404();
     }
+  }
+
+  public function names()
+  {
+    header('Content-Type: application/json');
+    $realestates = Real_Estate::get();
+    $response = array_map(function($element) {
+      return $element->name;
+    }, $realestates);
+    echo json_encode($response);
   }
 
 }

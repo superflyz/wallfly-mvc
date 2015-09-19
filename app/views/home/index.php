@@ -240,9 +240,17 @@
                                 <option value="real_estate">Real Estate</option>
                             </select>
                         </div>
-                        <div class="form-field">
+                        <div class="form-field" id="differentinput">
+                          <div id="email-login">
                             <label for="email">Email</label>
                             <input name="email" type="email" id="email" class="form-control">
+                          </div>
+                          <div id="realestate-login">
+                            <label for="realestatelist">Select your institution</label>
+                            <select class="form-control select-style" name="name" id="realestatelist">
+
+                            </select>
+                          </div>
                         </div>
                         <div class="form-field">
                             <label for="password">Password</label>

@@ -21,6 +21,7 @@ class Home extends Controller
     } elseif (Real_Estate::isAuthenticated()) {
       // if real estate is authenticated
       // TODO: display real estate dashboard
+      $this->redirect('/realest/home');
 
     } else {
       // if no one is authenticated
@@ -110,7 +111,18 @@ class Home extends Controller
       } elseif ($_POST['usertype'] === 'agent') {
 
       } elseif ($_POST['usertype'] === 'real_estate') {
-
+        // if real estate
+        $realestate = Real_Estate::get(['name' => $_POST['name']])[0];
+        if ($realestate) {
+          // check password
+          if (validate_password($_POST['password'], $realestate->password)) {
+            $_SESSION['usertype'] = USERTYPE_REALESTATE;
+            $_SESSION['user'] = $realestate;
+          } else {
+            // wrong password
+            Flash::set('error_message', 'Wrong password');
+          }
+        }
       }
     }
     $this->redirect('/');
