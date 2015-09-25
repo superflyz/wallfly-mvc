@@ -5,8 +5,8 @@ class Dashboard extends Controller
 
   public function index()
   {
-    if (!Owner::is_authenticated())
-    {
+    if (!Owner::isAuthenticated()) {
+
       $this->redirect('/');
     }
     else
@@ -14,5 +14,13 @@ class Dashboard extends Controller
       $this->view('dashboard/index');
     }
   }
+
+
+
+    public function setSidebar(){
+    echo 'hello';
+    //$this->view('dashboard/setSidebar');
+
+    }
 
 }

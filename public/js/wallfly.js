@@ -22,6 +22,28 @@ $('.navbar-collapse ul li a').click(function () {
 });
 
 
+$('#tab-nav li').click(function(){
+     var selected =  this.id;
+    jQuery.ajax({
+        url: 'dashboard/setSidebar',
+        type: "POST",
+        data: {
+            sidebar: selected
+        },
+        success: function (result) {
+            alert(result);
+
+        },
+        error: function (result) {
+            alert('Exeption:' + exception);
+        }
+
+    });
+
+});
+
+
+
 // Reference: http://www.minimit.com/demos/vertical-center-bootstrap-3-modals
 
 /* center modal */
