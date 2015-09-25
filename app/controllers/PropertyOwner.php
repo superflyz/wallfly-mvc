@@ -34,6 +34,15 @@ class PropertyOwner extends Controller
     }
   }
 
+  public function calendar()
+  {
+    if (!Owner::isAuthenticated()) {
+      $this->redirect('/');
+    } else {
+      $this->view('owner/calendar');
+    }
+  }
+
   public function submit()
   {
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
