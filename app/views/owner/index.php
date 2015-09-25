@@ -12,7 +12,7 @@
                         <li class="active" data-info="<?=WEBDIR?>/propertyowner/home"><a href="#dashboard" data-toggle="pill">Dashboard<i class="fa fa-desktop pull-right"></i></a></li>
                         <li data-info='<?=WEBDIR?>/propertyowner/manage'><a href="#properties" data-toggle="pill"><span class="wrap">Properties</span><i class="fa fa-home pull-right"></i></a></li>
                         <li data-info='<?=WEBDIR?>/propertyowner/calendar'><a href="#calendar" data-toggle="pill">Calendar<i class="fa fa-calendar pull-right"></i></a></li>
-                        <li><a href='<?= WEBDIR?>/propertyowner/chat' data-toggle="pill">Messages<i class="fa fa-comments-o pull-right"></i></a></li>
+                        <li><a href='<?=WEBDIR?>/propertyowner/chat'>Messages<i class="fa fa-comments-o pull-right"></i></a></li>
                         <li data-info='paymentsys/payment.php'><a href="#payment" data-toggle="pill">Payment<i class="fa fa-credit-card pull-right"></i></a></li>
                         <li><a href="#repairs" data-toggle="pill">Repairs<i class="fa fa-wrench pull-right"></i></a></li>
                     </ul>
@@ -57,6 +57,7 @@
             </div>
             <div class="container-fluid fill">
                 <div class="pill-content">
+
                     <div class="pill-pane fade" id="dashboard">
                         <object class="iiframe" data="<?=WEBDIR?>/propertyowner/home" type="text/html"></object>
                     </div>
@@ -66,9 +67,7 @@
                     <div class="pill-pane fade" id="calendar">
                         <object class="iiframe" data="<?=WEBDIR?>/propertyowner/calendar" type="text/html"></object>
                     </div>
-                    <div class="pill-pane fade" id="messages">
-                        <object class="iiframe" data="" type="text/html"></object>
-                    </div>
+
                     <div class="pill-pane fade" id="payment">
                         <object class="iiframe" data="" type="text/html"></object>
                     </div>

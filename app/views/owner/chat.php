@@ -3,16 +3,16 @@
         <div class="col-md-2 col-sm-2 sidebar-offcanvas">
             <div class="navbar-dashboard-left">
                 <div id="logo">
-                    <img src="images/wallfly_logo.svg" alt="WallFly logo">
+                    <img src="<?=WEBDIR?>/images/wallfly_logo.svg" alt="WallFly logo">
                 </div>
                 <nav id="navbg">
                     <ul id="tab-nav" class="nav nav-pills nav-stacked">
-                        <li ><a href="dashboard.php">Dashboard<i class="fa fa-desktop pull-right"></i></a></li>
-                        <li><a href="propertylist.php"><span class="wrap">Properties</span><i class="fa fa-home pull-right"></i></a></li>
-                        <li><a href="calendar.php">Calendar<i class="fa fa-calendar pull-right"></i></a></li>
-                        <li class="active"><a href="chat.php">Messages<i class="fa fa-comments-o pull-right"></i></a></li>
-                        <li><a href="#">Payment<i class="fa fa-credit-card pull-right"></i></a></li>
-                        <li><a href="repair.php">Repairs<i class="fa fa-wrench pull-right"></i></a></li>
+                        <li class="active" data-info="<?=WEBDIR?>/propertyowner/home"><a href="#dashboard" data-toggle="pill">Dashboard<i class="fa fa-desktop pull-right"></i></a></li>
+                        <li data-info='<?=WEBDIR?>/propertyowner/manage'><a href="#properties" data-toggle="pill"><span class="wrap">Properties</span><i class="fa fa-home pull-right"></i></a></li>
+                        <li data-info='<?=WEBDIR?>/propertyowner/calendar'><a href="#calendar" data-toggle="pill">Calendar<i class="fa fa-calendar pull-right"></i></a></li>
+                        <li><a href='<?=WEBDIR?>/propertyowner/chat'>Messages<i class="fa fa-comments-o pull-right"></i></a></li>
+                        <li data-info='paymentsys/payment.php'><a href="#payment" data-toggle="pill">Payment<i class="fa fa-credit-card pull-right"></i></a></li>
+                        <li><a href="#repairs" data-toggle="pill">Repairs<i class="fa fa-wrench pull-right"></i></a></li>
                     </ul>
                 </nav>
                 <div id="dfooter">
