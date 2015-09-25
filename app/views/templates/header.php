@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="WallFly - Property Mangement System">
-  <meta name="author" content="The SuperFlyz">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="WallFly - Property Mangement System">
+    <meta name="author" content="The SuperFlyz">
 
-  <title>Dashboard - WallFly</title>
+    <title>Dashboard - WallFly</title>
 
-  <!-- Bootstrap Core CSS -->
-  <link href="/wallfly-mvc/public/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Core CSS -->
+    <link href="/wallfly-mvc/public/css/bootstrap.min.css" rel="stylesheet">
 
-  <!-- Custom CSS -->
-  <link href="/wallfly-mvc/public/css/wallfly.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="/wallfly-mvc/public/css/wallfly.css" rel="stylesheet">
 
-  <!-- Custom Fonts -->
-  <link href="/wallfly-mvc/public/css/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <!-- Custom Fonts -->
+    <link href="/wallfly-mvc/public/css/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <?php require_once 'links.php'; ?>
 
 </head>
 <body>

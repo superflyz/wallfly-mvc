@@ -4,6 +4,7 @@ class Controller
 {
 
   private $scripts;
+  private $links;
 
   public function model($model)
   {
@@ -37,6 +38,11 @@ class Controller
   public function setJavascriptDependencies($scripts)
   {
     $this->scripts = $scripts;
+  }
+
+  public function setCSSDependencies($links)
+  {
+    $this->links = $links;
   }
 
 }
