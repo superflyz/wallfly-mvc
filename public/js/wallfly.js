@@ -28,8 +28,12 @@ $('.navbar-collapse ul li a').click(function () {
 });
 
 
-$('#tab-nav li').click(function(){
+
+
+$('#tab-nav li').click(function(event){
+    event.preventDefault();
      var selected =  this.id;
+     var href = $("a",this).attr('href');
     jQuery.ajax({
         url: '/wallfly-mvc/public/dashboard/setSidebar',
         type: "POST",
@@ -37,7 +41,7 @@ $('#tab-nav li').click(function(){
             sidebar: selected
         },
         success: function (result) {
-
+            window.location.href = href;
 
         },
         error: function (result) {
