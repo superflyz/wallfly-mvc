@@ -13,6 +13,7 @@ class PropertyOwner extends Controller
     }
   }
 
+
   public function manage()
   {
     if (!Owner::isAuthenticated()) {
@@ -76,6 +77,27 @@ class PropertyOwner extends Controller
         $this->view('owner/chat');
     }
   }
+
+
+  public function payment()
+  {
+    if (!Owner::isAuthenticated()) {
+      $this->redirect('/');
+    } else {
+      $this->view('owner/payment');
+    }
+  }
+
+  public function repair()
+  {
+    if (!Owner::isAuthenticated()) {
+      $this->redirect('/');
+    } else {
+      $this->view('owner/repair');
+    }
+  }
+
+
 
   public function submit()
   {

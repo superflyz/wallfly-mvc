@@ -17,8 +17,11 @@ class Dashboard extends Controller
 
 
 
-    public function setSidebar(){
-    echo 'hello';
+  public function setSidebar(){
+    $sidebar = $_POST['sidebar'];
+    $_SESSION['sidebar'] = $sidebar;
+    echo "Session['sidebar']: " . $_SESSION['sidebar'];
+
     //$this->view('dashboard/setSidebar');
 
     }

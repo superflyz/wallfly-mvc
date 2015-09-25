@@ -1,5 +1,11 @@
 // Reference:(http://startbootstrap.com)
 
+
+$( document ).ready(function() {
+    
+});
+
+
 // jQuery for page scrolling feature - requires jQuery Easing plugin
 $(function () {
     $('a.page-scroll').bind('click', function (event) {
@@ -25,13 +31,13 @@ $('.navbar-collapse ul li a').click(function () {
 $('#tab-nav li').click(function(){
      var selected =  this.id;
     jQuery.ajax({
-        url: 'dashboard/setSidebar',
+        url: '/wallfly-mvc/public/dashboard/setSidebar',
         type: "POST",
         data: {
             sidebar: selected
         },
         success: function (result) {
-            alert(result);
+
 
         },
         error: function (result) {
