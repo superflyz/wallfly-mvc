@@ -1,3 +1,4 @@
+<audio id="audiotag1" src="<?=WEBDIR?>/sounds/messageAlert.mp3" preload="auto"></audio>
 <?php
 
 //include(__DIR__ . "/../classes/PropertyFunctions.php");
@@ -15,7 +16,8 @@ $pID = '';
 //set the propertyID from the $_SESSION['selectedChatProperty'] if set
 if (isset($_SESSION['selectedProperty'])) {
     $selectedProperty = $_SESSION['selectedProperty'];
-    $pID = PropertyFunctions::GetPropertyID($userName, $userType, $selectedProperty);
+    //$pID = PropertyFunctions::GetPropertyID($userName, $userType, $selectedProperty);
+    $pID = $_SESSION['selectedProperty']->id;
     //unset($_SESSION['selectedChatProperty']);
 
 }
@@ -38,35 +40,36 @@ if (isset($_SESSION['selectedProperty'])) {
 <audio id="audiotag1" src="../sounds/messageAlert.mp3" preload="auto"></audio>
 <!-- create address dropdown list only if agent or owner usertype -->
 <?php if ($userType == 2) {
-    if ($properties = $_SESSION['user']->getProperties()) {
-      echo $properties[0]->address;
-    }
+//    if ($properties = $_SESSION['user']->getProperties()) {
+//      echo $properties[1]->address;
+//    }
 
-//    $properties = PropertyFunctions::GetProperties($userName, $userType);
-
+      $properties = $_SESSION['user']->getProperties();
 
     //dropdown for property list
-//    echo '<div class="container">
-//
-//            <div class="btn-group">
-//                <a class="btn btn-primary dropdown-toggle show-properties selector" data-toggle="dropdown" href="#" style="margin-left: 15px;">Select a Property</a>';
-        //echo '<button type="button" class="btn btn-default">Default</button>';
+    echo '<div class="container">
+
+            <div class="btn-group">
+                <a class="btn btn-primary dropdown-toggle show-properties selector" data-toggle="dropdown" href="#" style="margin-left: 15px;">Select a Property</a>
+            </div>';
+
 }
 
 ?>
-<!--<div id="reducedPadding" class="container">-->
-<!--    <div id="propertyHolder">-->
-<!--        <input placeholder="type to search..." id="box" type="text"/>-->
-<!--        <ul class="navList ">-->
-<!--            --><?php
+<div id="reducedPadding" class="container">
+    <div id="propertyHolder">
+        <input placeholder="type to search..." id="box" type="text"/>
+        <ul class="navList ">
+            <?php
 
+            for($i=0;$i<count($properties);$i++){
 
-//            foreach ($properties as $propertyAddress) {
-//                echo '<li><a href="">' . $propertyAddress->address . '</a></li>';
-//            } ?>
-<!--        </ul>-->
-<!--    </div>-->
-<!--</div>-->
+                echo '<li id="'.$i.'"><a>' . $properties[$i]->address . '</a></li>';
+            }
+            ?>
+        </ul>
+    </div>
+</div>
 
 
 <!-- Chat box -->
@@ -76,7 +79,7 @@ if (isset($_SESSION['selectedProperty'])) {
             <div class="panel panel-primary">
                 <div class="panel-heading">
                     Chat <?php if ($selectedProperty != "") {
-                        echo ' for ' . $selectedProperty;
+                        echo ' for ' . $selectedProperty->address;
                     }; ?>
                 </div>
                 <div id="chatbox" class="panel-body">
@@ -108,19 +111,18 @@ if (isset($_SESSION['selectedProperty'])) {
     }
 
     // assign current username to jquery var and use it in SendMessage function
-    var user = <?php echo "'".$_SESSION['username']."'";?>;
+    var ID = <?php echo "'".$_SESSION['user']->id."'";?>;
     var pID =  <?php echo "'".$pID."'";?>;
-    var type = <?php echo "'".$userType."'";?>;
+//    var type = <?php //echo "'".$userType."'";?>//;
 
     $(document).ready(function () {
-
-        chatLoad(pID, user);
-        $("#btn-send").click(function () {
-
-            SendMessage(user, pID, type);
-
-
-        });
+           chatLoad(ID,pID);
+//        $("#btn-send").click(function () {
+//
+//            SendMessage(user, pID, type);
+//
+//
+//        });
 
 
         $("#propertyHolder").hide();
@@ -128,22 +130,20 @@ if (isset($_SESSION['selectedProperty'])) {
             $("#propertyHolder").toggle();
         });
 
-        $('.navList li a').on('click', function () {
-
-            var propertyAdd = $(this).text();
-
+        $('.navList li ').on('click', function () {
+            var arraypos = $(this).attr('id');
             jQuery.ajax({
-                url: 'setselectedchatpropery.php',
+                url: '/wallfly-mvc/public/dashboard/selectedProperty',
                 type: "POST",
                 data: {
-                    selected: propertyAdd
+                    selected: arraypos
                 },
                 success: function (result) {
-
                     $("#propertyHolder").hide();
                     window.location.reload();
-
-
+                },
+                error: function (result) {
+                    alert('Exeption:' + exception);
                 }
             });
         });

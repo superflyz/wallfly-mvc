@@ -132,6 +132,8 @@ class Home extends Controller
   {
     unset($_SESSION['usertype']);
     unset($_SESSION['user']);
+    unset($_SESSION['selectedProperty']);
+    unset($_SESSION['sidebar']);
     $this->redirect('/');
   }
 

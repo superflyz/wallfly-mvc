@@ -8,6 +8,8 @@
 
     <title>WallFly</title>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
     <!-- Bootstrap Core CSS -->
     <link href="/wallfly-mvc/public/css/bootstrap.min.css" rel="stylesheet">
 
@@ -18,7 +20,7 @@
     <link href="/wallfly-mvc/public/css/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <?php require_once '../app/views/templates/links.php'; ?>
     <?php if(!isset($_SESSION['sidebar'])){
-        $_SESSION['sidebar'] = "";
+        $_SESSION['sidebar'] = "dashboard";
     }?>
 
 </head>
