@@ -97,6 +97,15 @@ class PropertyOwner extends Controller
     }
   }
 
+  public function manageDetails()
+  {
+    if (!Owner::isAuthenticated()) {
+      $this->redirect('/');
+    } else {
+      $this->view('owner/managedetails');
+    }
+  }
+
 
 
   public function submit()
