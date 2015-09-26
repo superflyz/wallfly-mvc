@@ -1,29 +1,31 @@
-function chatLoad(propertyID, username) {
+function chatLoad(userID,propertyID) {
     if (propertyID !== "") {
         jQuery.ajax({
-            url: 'loadChatBox.php',
+            url: '/wallfly-mvc/public/dashboard/loadChatBox',
             type: "POST",
+            dataType : 'json',
             data: {
                 pID: propertyID
             },
 
             success: function (response) {
                 $('#chatlist').empty();
-                var obj = eval("(" + response + ')');
-                for (var i = 0; i < obj.length; i++) {
-                    var parseobj = obj[i];
-                    if (parseobj.username == username) {
+                var chatobj = response;
+                //alert(chatobj[0].message);
+                for (var i = 0; i < chatobj.length; i++) {
+                    var parseobj = chatobj[i];
+                    if (parseobj.super_user_id == userID) {
                         $("#chatbox ul").append("<li class='left clearfix'>" +
-                            "<span class='chat-img pull-left'><img src='../img/me.png' alt='User Avatar' class='img-circle' /></span>" +
-                            "<div class='chat-body clearfix'><div class='header'><strong class='primary-font'>" + username + "</strong> <small class='pull-right text-muted'>" +
-                            "<span class='glyphicon glyphicon-time'></span>" + parseobj.chatdate + "</small></div><p>" + parseobj.msg + "</p></div></li>");
+                            "<span class='chat-img pull-left'><img src='' class='img-circle' /></span>" +
+                            "<div class='chat-body clearfix'><div class='header'><strong class='primary-font'>Me</strong> <small class='pull-right text-muted'>" +
+                            "<span class='glyphicon glyphicon-time'></span>" + parseobj.send_at + "</small></div><p>" + parseobj.message + "</p></div></li>");
 
 
                     } else {
                         $("#chatbox ul").append("<li class='left clearfix'>" +
-                            "<span class='chat-img pull-left'><img src='../img/you.png' alt='User Avatar' class='img-circle' /></span>" +
-                            "<div class='chat-body clearfix'><div class='header'><strong class='primary-font'>" + parseobj.username + "</strong> <small class='pull-right text-muted'>" +
-                            "<span class='glyphicon glyphicon-time'></span>" + parseobj.chatdate + "</small></div><p>" + parseobj.msg + "</p></div></li>");
+                            "<span class='chat-img pull-left'><img src='' class='img-circle' /></span>" +
+                            "<div class='chat-body clearfix'><div class='header'><strong class='primary-font'>" + parseobj.user_type + "</strong> <small class='pull-right text-muted'>" +
+                            "<span class='glyphicon glyphicon-time'></span>" + parseobj.send_at + "</small></div><p>" + parseobj.message + "</p></div></li>");
 
 
                     }
@@ -55,10 +57,10 @@ function chatLoad(propertyID, username) {
                 var obj = eval("(" + response + ')');
                 for (var i = 0; i < obj.length; i++) {
                     var parseobj = obj[i];
-                    if (parseobj.username == username) {
+                    if (parseobj.username == userID) {
                         $("#chatbox ul").append("<li class='left clearfix'>" +
                             "<span class='chat-img pull-left'><img src='../img/me.png' alt='User Avatar' class='img-circle' /></span>" +
-                            "<div class='chat-body clearfix'><div class='header'><strong class='primary-font'>" + username + "</strong> <small class='pull-right text-muted'>" +
+                            "<div class='chat-body clearfix'><div class='header'><strong class='primary-font'>" + userID + "</strong> <small class='pull-right text-muted'>" +
                             "<span class='glyphicon glyphicon-time'></span>" + parseobj.chatdate + "</small></div><p>" + parseobj.msg + "</p></div></li>");
 
 

@@ -29,6 +29,7 @@ class Owner extends Super_User
     } catch (Exception $e) {
       echo 'Error: ' . $e->getMessage();
     }
+    return false;
   }
 
   public static function isAuthenticated()
