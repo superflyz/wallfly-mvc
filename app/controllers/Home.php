@@ -5,6 +5,7 @@ class Home extends Controller
 
   public function index()
   {
+    $_SESSION['sidebar'] = 'dashboard';
     if (Owner::isAuthenticated()) {
       // if owner is authenticated
       // TODO: display owner dashboard
@@ -95,7 +96,6 @@ class Home extends Controller
             // password matched
             $_SESSION['usertype'] = USERTYPE_OWNER;
             $_SESSION['user'] = $owner;
-
           } else {
             // wrong password
             Flash::set('error_message', 'Wrong email or password');
@@ -134,6 +134,8 @@ class Home extends Controller
     unset($_SESSION['user']);
     unset($_SESSION['selectedProperty']);
     unset($_SESSION['sidebar']);
+    session_destroy();
+
     $this->redirect('/');
   }
 

@@ -47,7 +47,7 @@
                         <button type="button" class="btn user-btn inc" aria-label="Left Align">
                             <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
                         </button>
-                        <a href="logout.php"><button type="button" class="btn user-btn-diff inc" aria-label="Left Align">
+                        <a href="<?=WEBDIR?>/home/logout"><button type="button" class="btn user-btn-diff inc" aria-label="Left Align">
                                 <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
                             </button></a>
                     </div>
