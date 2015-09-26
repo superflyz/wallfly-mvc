@@ -38,9 +38,12 @@ if (isset($_SESSION['selectedProperty'])) {
 <audio id="audiotag1" src="../sounds/messageAlert.mp3" preload="auto"></audio>
 <!-- create address dropdown list only if agent or owner usertype -->
 <?php if ($userType == 2) {
-    $properties = Owner::getProperties();
+    if ($properties = $_SESSION['user']->getProperties()) {
+      echo $properties[0]->address;
+    }
+
 //    $properties = PropertyFunctions::GetProperties($userName, $userType);
-    echo $properties[0]->address;
+
 
     //dropdown for property list
 //    echo '<div class="container">
@@ -162,4 +165,3 @@ if (isset($_SESSION['selectedProperty'])) {
 <?php
 require_once '../app/views/templates/interfaceEnd.php';
 ?>
-
