@@ -113,16 +113,31 @@ if (isset($_SESSION['selectedProperty'])) {
     // assign current username to jquery var and use it in SendMessage function
     var ID = <?php echo "'".$_SESSION['user']->id."'";?>;
     var pID =  <?php echo "'".$pID."'";?>;
-//    var type = <?php //echo "'".$userType."'";?>//;
+    var userType = <?php echo "'".$userType."'";?>;
 
     $(document).ready(function () {
            chatLoad(ID,pID);
-//        $("#btn-send").click(function () {
-//
-//            SendMessage(user, pID, type);
-//
-//
-//        });
+        $("#btn-send").click(function () {
+            var type="";
+            switch (userType) {
+                case '0':
+                    type = "TENANT";
+                    break;
+                case '1':
+                    type = "AGENT";
+                    break;
+                case '2':
+                    type = "OWNER";
+                    break;
+                case '3':
+                    type = "REALESTATE";
+                    break;
+            }
+
+            SendMessage(ID, pID, type);
+
+
+        });
 
 
         $("#propertyHolder").hide();

@@ -267,7 +267,7 @@ h6 {
 
 .navbar-default .nav li a {
     text-transform: uppercase;
-    font-weight: 350;
+    font-weight: 300;
     padding: 16px 18px 11px 18px;
     letter-spacing: 1px;
     color: #ffffff;
@@ -402,7 +402,7 @@ header {
     background-attachment: scroll;
     background-image: url(../images/header-bg.png);
     background-position: center center;
-    background-repeat: none;
+    background-repeat: no-repeat;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
@@ -557,7 +557,7 @@ header .intro .intro-text-2 {
 }
 
 /*-- Large devices (large desktops, 1200px and up) --*/
-@media (min-width: 1200px) { ... }
+@media (min-width: 1200px) { }
 
 
 /*--- Footer ALL screen ---*/
@@ -635,6 +635,17 @@ body {
     margin: 7px 0px 0px 15px;
 }
 
+#uilogo {
+    margin: 0px 0px 50px 0px;
+    height: 45px;
+    background-color: #333;
+}
+
+#uilogo img {
+    width: 90px;
+    margin: 7px 0px 0px 15px;
+}
+
 .navbar-dashboard-main {
     padding: 0px 0;
     height: 45px;
@@ -663,7 +674,7 @@ body {
 
 .nav-pills li a {
     margin-bottom: 10px;
-    font-weight: 350;
+    font-weight: 300;
     color: #ffffff;  
     border-left: 2px solid #5AD663;
     border-radius: 0px;
@@ -710,7 +721,7 @@ body {
 }
 
 .wrap {
-    white-space: wrap;
+    white-space: pre-wrap;
     width: 50%;
     margin: 0px 0px 0px 0px;
 }
@@ -839,14 +850,14 @@ https://groups.google.com/forum/#!topic/twitter-bootstrap-stackoverflow/0Aqzs5s_
     width: 100%; 
     border: 0px;
     height: 100vh;
-    overflow: none;
+    overflow: hidden;
     padding: 0px 0px 0px 0px;    
 }
 
 .fill { 
     min-height: 100%;
     height: 100%;
-        overflow: none;
+    overflow: hidden;
 }
 
 /*home css*/
@@ -989,7 +1000,7 @@ https://groups.google.com/forum/#!topic/twitter-bootstrap-stackoverflow/0Aqzs5s_
 @media(min-width:920px) {
 
       .wrap {
-        white-space: wrap;
+        white-space: pre-wrap;
         max-width: 20px;
         margin: 0px 40px 0px 0px;
     }
@@ -1015,7 +1026,7 @@ https://groups.google.com/forum/#!topic/twitter-bootstrap-stackoverflow/0Aqzs5s_
 
 .nav-pills li a {
     margin-bottom: 10px;
-    font-weight: 350;
+    font-weight: 300;
     color: #ffffff;  
     border-left: 2px solid #5AD663;
     border-radius: 0px;

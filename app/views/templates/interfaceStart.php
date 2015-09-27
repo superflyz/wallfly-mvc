@@ -2,7 +2,7 @@
     <div class="row no-gutter row-offcanvas row-offcanvas-left">
         <div class="col-md-2 col-sm-2 sidebar-offcanvas">
             <div class="navbar-dashboard-left">
-                <div id="logo">
+                <div id="uilogo">
                     <img src="<?=WEBDIR?>/images/wallfly_logo.svg" alt="WallFly logo">
                 </div>
                 <nav id="navbg">
