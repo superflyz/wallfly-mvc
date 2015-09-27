@@ -6,7 +6,7 @@
     <meta name="description" content="WallFly - Property Mangement System">
     <meta name="author" content="The SuperFlyz">
 
-    <title>WallFly</title>
+    <title>Dashboard - WallFly</title>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 
@@ -24,4 +24,4 @@
     }?>
 
 </head>
-<body>
+<body class="ui_body">

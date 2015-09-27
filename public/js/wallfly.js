@@ -76,3 +76,9 @@ $('.modal-vcenter').on('show.bs.modal', function (e) {
     centerModals($(this));
 });
 $(window).on('resize', centerModals);
+
+
+
+
+$('[rel=tooltip]').tooltip() 
+$("[data-toggle=tooltip]").tooltip({ placement: 'bottom'});
