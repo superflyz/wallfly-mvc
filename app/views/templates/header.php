@@ -11,13 +11,13 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 
     <!-- Bootstrap Core CSS -->
-    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/wallfly-mvc/public/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="/css/wallfly.css" rel="stylesheet">
+    <link href="/wallfly-mvc/public/css/wallfly.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
-    <link href="/css/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="/wallfly-mvc/public/css/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <?php require_once '../app/views/templates/links.php'; ?>
     <?php if(!isset($_SESSION['sidebar'])){
         $_SESSION['sidebar'] = "dashboard";
