@@ -65,5 +65,4 @@ class Owner extends Super_User
       echo 'Error: ' . $e->getMessage();
     }
   }
-
 }

@@ -64,13 +64,43 @@ class PropertyOwner extends Controller
     }
   }
 
-
   public function payment()
   {
     if (!Owner::isAuthenticated()) {
       $this->redirect('/');
     } else {
       $this->view('owner/payment');
+    }
+  }
+
+  public function viewPayments()
+  {
+    if (!Owner::isAuthenticated()) {
+      $this->redirect('/');
+    } else {
+      $this->view('owner/viewpayments');
+    }
+  }
+
+  public function addPayment()
+  {
+    if (!Owner::isAuthenticated()) {
+      $this->redirect('/');
+    } else {
+      $this->view('owner/addpayment');
+    }
+  }
+
+  public function processPayment()
+  {
+    if (!Owner::isAuthenticated()) {
+      $this->redirect('/');
+    }
+    $result = $_SESSION['selectedProperty']->addPayment($_POST['amount']);
+    if ($result == false) {
+      $this->view('owner/addpayment');
+    } else {
+      $this->view('owner/viewpayments');
     }
   }
 

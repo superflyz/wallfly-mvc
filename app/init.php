@@ -15,6 +15,8 @@ require_once 'core/Controller.php';
 require_once 'core/Database.php';
 require_once 'core/Model.php';
 
+date_default_timezone_set("Australia/brisbane");
+
 if (session_status() == PHP_SESSION_NONE) {
   session_start();
 }
