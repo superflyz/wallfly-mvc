@@ -26,15 +26,6 @@ class PropertyOwner extends Controller
     }
   }
 
-  public function home()
-  {
-    if (!Owner::isAuthenticated()) {
-      $this->redirect('/');
-    } else {
-      $this->view('owner/home');
-    }
-  }
-
   public function calendar()
   {
     if (!Owner::isAuthenticated()) {

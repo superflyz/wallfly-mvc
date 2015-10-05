@@ -39,6 +39,9 @@ class Property extends Model
         $tmp = Array("time" => $row['timestamp'], "amount" => $row['amount']);
         array_push($result, $tmp);
       }
+      if (count($result) == 0) {
+        return false;
+      }
       return $result;
     } catch (Exception $e) {
       echo 'Error: ' . $e->getMessage();
@@ -71,6 +74,9 @@ class Property extends Model
       while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
         $tmp = Array("tenant_id" => $row['super_user_id']);
         array_push($result, $tmp);
+      }
+      if (count($result) == 0) {
+        return false;
       }
       return $result[0]['tenant_id'];
     } catch (Exception $e) {
