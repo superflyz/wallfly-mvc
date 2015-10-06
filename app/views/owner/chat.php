@@ -176,6 +176,10 @@ if (isset($_SESSION['selectedProperty'])) {
 
         });
     });
+    
+
+    document.title = 'Messages - WallFly';
+
 </script>
 <?php
 require_once '../app/views/templates/interfaceEnd.php';

@@ -1,3 +1,36 @@
+<?php
+
+//include(__DIR__ . "/../classes/PropertyFunctions.php");
+//require_once(__DIR__ . '/../logincheck.php');
+
+//set up page variables
+$_SESSION['propertyId'] = "";
+$userID = $_SESSION["user"]->id;
+$userType = $_SESSION["usertype"];
+$properties = [];
+$selectedProperty = "";
+$pID = '';
+
+
+//set the propertyID from the $_SESSION['selectedChatProperty'] if set
+if (isset($_SESSION['selectedProperty'])) {
+    $selectedProperty = $_SESSION['selectedProperty'];
+    //$pID = PropertyFunctions::GetPropertyID($userName, $userType, $selectedProperty);
+    $pID = $_SESSION['selectedProperty']->id;
+    //unset($_SESSION['selectedChatProperty']);
+
+}
+
+//set pID if a tenant because only has one property to display
+//if ($userType == 'TENANT') {
+//    $tenantArray = [];
+//    $tenantArray = PropertyFunctions::GetProperties($userName, $userType);
+//    $selectedProperty = $tenantArray[0];
+//    $pID = PropertyFunctions::GetPropertyID($userName, $userType, $selectedProperty);
+//
+//}
+
+?>
 <div class="container-fluid">
     <div class="row no-gutter row-offcanvas row-offcanvas-left">
         <div class="col-md-2 col-sm-2 sidebar-offcanvas">
@@ -23,7 +56,7 @@
         <div class="col-md-10 col-sm-10">
             <div class="navbar-dashboard-main">
                 <div class="visible-xs pull-left smtog">
-                    <a class="tog" href="#" data-toggle="offcanvas">
+                    <a class="tog" href="" data-toggle="offcanvas">
                         <i class="fa fa-bars"></i>
                     </a>
                 </div>
@@ -34,11 +67,11 @@
                             <a class="btn user-btn-t dropdown-toggle"  data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-bell" aria-hidden="true"></span>
                             <span class="badge anown">3</span></a>
                             <ul class="dropdown-menu pull-right">
-                                <li><a href="#"><i class="i"></i> Payment is due on 19/10/15</a></li>
+                                <li><a href=""><i class="i"></i>Payment is due on 19/10/15</a></li>
                                 <li class="divider"></li>
-                                <li><a href="#"><i class="i"></i> New message from owner</a></li>
+                                <li><a href=""><i class="i"></i>New message from owner</a></li>
                                 <li class="divider"></li>
-                                <li><a href="#"><i class="i"></i>Repair request approved</a></li>
+                                <li><a href=""><i class="i"></i>Repair request approved</a></li>
                             </ul>
                         </div>
                         <span class="btn-separator"></span>
@@ -48,8 +81,8 @@
                             <ul class="dropdown-menu">
                                 <li><i class="i"></i><span class="user-name">User name</span></li>
                                 <li class="divider"></li>
-                                <li><a href="#"><i class="i"></i> User Profile</a></li>
-                                <li><a href="#"><i class="i"></i> Account Settings</a></li>
+                                <li><a href=""><i class="i"></i>User Profile</a></li>
+                                <li><a href=""><i class="i"></i>Account Settings</a></li>
                             </ul>
                         </div>
                         <span class="btn-separator"></span>
@@ -64,4 +97,20 @@
                     </div>
                 </div>
             </div>
-            <div class="container-fluid content_body">
+            <div class="container content_body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="property-display">
+                            <div class="pull-left">
+                                <div class="property-label"><p>Property</p></div>
+                                <div class="property-address"><p><?php if ($selectedProperty != "") {
+                        echo '' . $selectedProperty->address;
+                    }; ?></p></div>
+                            </div>
+                            <div class="pull-right">
+                            right
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                

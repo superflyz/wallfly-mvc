@@ -44,6 +44,11 @@ Tiles would be for Tenant Repair page !!<br>
         </div>
     </div>
 </div>
+    
+<script type="text/javascript">
+    document.title = 'Repairs - WallFly';
+</script>
+    
 <?php
 require_once '../app/views/templates/interfaceEnd.php';
 ?>

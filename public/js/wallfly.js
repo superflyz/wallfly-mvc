@@ -78,7 +78,38 @@ $('.modal-vcenter').on('show.bs.modal', function (e) {
 $(window).on('resize', centerModals);
 
 
+//http://stackoverflow.com/questions/23443579/how-to-stop-buttons-from-staying-depressed-with-bootstrap-3
+$(".btn").mouseup(function(){
+    $(this).blur();
+})
+
 
 
 $('[rel=tooltip]').tooltip() 
 $("[data-toggle=tooltip]").tooltip({ placement: 'bottom'});
+
+
+// http://stackoverflow.com/questions/13233304/how-to-make-jqueryui-tooltip-apply-only-on-focus
+$(function () {
+    $(".btn-group").tooltip({
+        enabled: true
+    }).on("focusin", function () {
+        $(this)
+//            .tooltip("close")
+            .tooltip("disable");
+    }).on("focusout", function () {
+        $(this)
+            .tooltip("enable")
+            .tooltip("open");
+    });
+
+});
+
+$(function(){
+
+    $(".dropdown-menu").on('click', 'li a', function(){
+      $(".select-p-text:first-child").text($(this).text());
+      $(".select-p-text:first-child").val($(this).text());
+   });
+
+});

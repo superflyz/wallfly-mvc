@@ -64,7 +64,11 @@ require_once '../app/views/templates/interfaceStart.php';
         </div>
     </div>
 </div>
-
+    
+<script type="text/javascript">
+    document.title = 'Properties - WallFly';
+</script>
+    
 <?php
 require_once '../app/views/templates/interfaceEnd.php';
 ?>
