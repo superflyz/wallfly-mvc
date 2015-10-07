@@ -22,7 +22,7 @@ class Home extends Controller
     } elseif (Real_Estate::isAuthenticated()) {
       // if real estate is authenticated
       // TODO: display real estate dashboard
-      $this->redirect('/realest/home');
+      $this->redirect('/realest/index');
 
     } else {
       // if no one is authenticated
