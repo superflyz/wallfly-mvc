@@ -14,7 +14,7 @@ class Home extends Controller
     } elseif (Tenant::isAuthenticated()) {
       // if tenant is authenticated
       // TODO: display tenant dashboard
-
+      $this->redirect('/propertytenant/index');
     } elseif (Agent::isAuthenticated()) {
       // if agent is authenticated
       // TODO: display agent dashboard
@@ -107,6 +107,22 @@ class Home extends Controller
 
         }
       } elseif ($_POST['usertype'] === 'tenant') {
+        $tenant = Tenant::get(['email' => $_POST['email']])[0];
+        if ($tenant) {
+          // check the password
+          if (validate_password($_POST['password'], $tenant->password)) {
+            // password matched
+            $_SESSION['usertype'] = USERTYPE_TENANT;
+            $_SESSION['user'] = $tenant;
+          } else {
+            // wrong password
+            Flash::set('error_message', 'Wrong email or password');
+
+          }
+        } else {
+          // cannot find the user with the email
+          Flash::set('error_message', 'Wrong email or password');
+        }
 
       } elseif ($_POST['usertype'] === 'agent') {
         $agent = Agent::get(['email' => $_POST['email']])[0];
