@@ -11,7 +11,7 @@ require_once '../app/views/templates/interfaceStart.php';
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <h1 class="wlcm-h1">Welcome <span class="user-color"> User!</span></h1>
+            <h1 class="wlcm-h1">Welcome <span class="user-color"> <?php echo $_SESSION['user']->firstname?></span></h1>
         </div>
     </div>
     <div class="row">
