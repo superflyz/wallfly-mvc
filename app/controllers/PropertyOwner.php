@@ -122,7 +122,14 @@ class PropertyOwner extends Controller
     }
   }
 
-
+  public function addproperty()
+  {
+    if (!Owner::isAuthenticated()) {
+      $this->redirect('/');
+    } else {
+      $this->view('owner/addpropertyform');
+    }
+  }
 
   public function submit()
   {

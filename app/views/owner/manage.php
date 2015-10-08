@@ -9,7 +9,7 @@ require_once '../app/views/templates/interfaceStart.php';
 	<?php endforeach ?>
 
 	<br>
-	<a href="#" class="btn btn-success">Add Property</a>
+	<a href="<?=WEBDIR . '/propertyowner/addproperty'?>" class="btn btn-success">Add Property</a>
 </ul>
 
 
