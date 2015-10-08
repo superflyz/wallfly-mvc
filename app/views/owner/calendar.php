@@ -122,9 +122,9 @@ echo '</div>';
                                     $explodeDate = explode("/", $event->eventDate);
                                     echo ' <div class="event-tobe" data-tag="blue" data-repeat=' . $interval . ' data-day="' . $explodeDate[0] . '" data-month="' . $explodeDate[1] . '"
                                         data-year="' . $explodeDate[2] . '" data-type="link" data-href="#">
-                                        <span class="tooltip-heading">' . $event->eventName . '</span>';
+                                        <span class="tooltip-heading ">' . $event->eventName . '</span>';
                                     if ($event->eventTime != "") {
-                                        echo '<span class="label">Time:</span>' . $event->eventTime . '<br/>';
+                                        echo '<span class="label eventlabel">Time:</span>' . $event->eventTime . '<br/>';
                                     }
                                     echo '<br/>' . $event->description . '</div>';
 
@@ -365,7 +365,7 @@ echo '</div>';
                     <div class="form-field">
                         <label for="time">Time</label>
                         <br/>
-                        <input id='timepicker' type='text' name='timepicker'/>
+                        <input id='timepicker' type='text' name='timepicker1'/>
 
                     </div>
                     <div class="form-field">
