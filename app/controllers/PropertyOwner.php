@@ -104,12 +104,17 @@ class PropertyOwner extends Controller
     }
   }
 
-  public function manageDetails()
+  public function manageDetails($propertyId)
   {
     if (!Owner::isAuthenticated()) {
       $this->redirect('/');
     } else {
-      $this->view('owner/managedetails');
+      $data = [];
+      $data['property'] = Property::get(['id' => $propertyId]);      
+      if  (sizeof($data['property']) > 0) {
+        $data['property'] = $data['property'][0];
+      }
+      $this->view('owner/managedetails', $data);
     }
   }
 

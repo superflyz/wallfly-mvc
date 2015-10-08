@@ -8,6 +8,10 @@ require_once '../app/views/templates/interfaceStart.php';
     <!--            <h1 class="wlcm-h1">Welcome <span class="user-color"> User!</span></h1>-->
     <!--        </div>-->
     <!--    </div>-->
+
+    <h1><?=$data['property']->address?></h1>
+
+
     <div class="row">
         <div class="col-md-12">
             <!-- Features Section -->
@@ -59,10 +63,17 @@ require_once '../app/views/templates/interfaceStart.php';
                             </a>
                         </div>
 
+
                     </div>
             </section>
         </div>
     </div>
+
+    <br>
+    <a href="<?=WEBDIR . '/propertyowner/removeprop/' . $data['property']->id ?>" class="btn btn-danger">Remove this property!</a>
+
+
+
 </div>
 
 <?php

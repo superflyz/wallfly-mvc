@@ -12,7 +12,7 @@ class Property extends Model
     return $agent ? $agent[0] : null;
   }
 
-  public static function find_by_owner($ownerid)
+  public static function findByOwner($ownerid)
   {
     try {
       $db = Database::getInstance();
@@ -25,7 +25,31 @@ class Property extends Model
     } catch (Exception $e) {
 
     }
+  }
 
+  public static function get($data)
+  {
+    try {
+      $db = Database::getInstance();
+      $query = "SELECT * FROM property WHERE ";
+      $i = 0;
+      foreach ($data as $key => $value) {
+        $query .= $key . '=:' . $key;
+        if ($i != sizeof($data)-1) {
+          $query .= ' AND ';
+        }
+        $i++;
+      }
+      $statement = $db->prepare($query);
+      $statement->execute($data);
+      $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+      $result = array_map(function($row) {
+        return new Property($row);
+      }, $result);
+      return $result;
+    } catch (Exception $e) {
+      return false;
+    }
   }
 
   public function getPayments()

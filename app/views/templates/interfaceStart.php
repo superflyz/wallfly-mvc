@@ -61,7 +61,7 @@
                         </button>
                         <div class="btn-group">
                             <a class="btn user-btn dropdown-toggle" data-toggle="dropdown" href="#"><span
-                                    class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;<span class="user-name">User</span></a>
+                                    class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;<span class="user-name"><?=$_SESSION['user']->firstname . ' ' . $_SESSION['user']->lastname?></span></a>
                             <ul class="dropdown-menu">
                                 <li><a href="#"><i class="icon-pencil"></i> Edit</a></li>
                                 <li><a href="#"><i class="icon-trash"></i> Delete</a></li>
