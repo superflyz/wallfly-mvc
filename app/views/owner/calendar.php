@@ -23,7 +23,6 @@ if (isset($_SESSION['selectedProperty'])) {
 }
 
 
-
 ?>
 
 
@@ -49,10 +48,10 @@ require_once '../app/views/templates/interfaceStart.php';
 <?php
 
 
-    $properties = $_SESSION['user']->getProperties();
+$properties = $_SESSION['user']->getProperties();
 
-    //dropdown for property list
-    echo '<div class="container">
+//dropdown for property list
+echo '<div class="container">
 
             <div class="btn-group">
                 <a class="btn btn-primary dropdown-toggle show-properties selector" data-toggle="dropdown" href="#" style="margin-left: 15px;">Select a Property</a>
@@ -66,9 +65,9 @@ require_once '../app/views/templates/interfaceStart.php';
         <ul class="navList ">
             <?php
 
-            for($i=0;$i<count($properties);$i++){
+            for ($i = 0; $i < count($properties); $i++) {
 
-                echo '<li id="'.$i.'"><a>' . $properties[$i]->address . '</a></li>';
+                echo '<li id="' . $i . '"><a>' . $properties[$i]->address . '</a></li>';
             }
             ?>
         </ul>
@@ -76,16 +75,16 @@ require_once '../app/views/templates/interfaceStart.php';
 </div>
 
 <?php
-    echo '</div>';
-    echo '<div class="btn-group pull-right">';
-    echo '<a id="add-event" class="btn btn-primary dropdown-toggle add-event" data-toggle="modal"  href="#">Add Calander Event</a>';
-    echo '</div>';
+echo '</div>';
+echo '<div class="btn-group pull-right">';
+echo '<a id="add-event" class="btn btn-primary dropdown-toggle add-event" data-toggle="modal"  href="#">Add Calander Event</a>';
+echo '</div>';
 
-    echo '<div class="btn-group pull-right">';
-    echo '<a id="select-event" class="btn btn-primary" data-toggle="modal"  href="#">Edit Calander Event</a>';
-    echo '</div>';
-    echo '</div>';
- ?>
+echo '<div class="btn-group pull-right">';
+echo '<a id="select-event" class="btn btn-primary" data-toggle="modal"  href="#">Edit Calander Event</a>';
+echo '</div>';
+echo '</div>';
+?>
 
 <!--start calendar-->
 <section id="calender">
@@ -153,7 +152,6 @@ require_once '../app/views/templates/interfaceStart.php';
                             ?>
 
 
-
                         </div>
                     </div>
                 </div>
@@ -163,9 +161,6 @@ require_once '../app/views/templates/interfaceStart.php';
     </div>
 </section>
 <!--end calendar-->
-
-
-
 
 
 <!--select event modal-->
@@ -190,10 +185,6 @@ require_once '../app/views/templates/interfaceStart.php';
     </div>
 </div>
 <!-- end add event modal-->
-
-
-
-
 
 
 <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -250,7 +241,6 @@ require_once '../app/views/templates/interfaceStart.php';
 
         }
         <?php unset($_SESSION['eventAdded']);?>
-
 
 
         $('#add-event').click(function () {
@@ -340,7 +330,6 @@ require_once '../app/views/templates/interfaceStart.php';
 //        });
 
 
-
         $('#hidden').bind("DOMSubtreeModified", function () {
             var date = $('#hidden').html();
             var dateArray = date.split("-");
@@ -349,9 +338,7 @@ require_once '../app/views/templates/interfaceStart.php';
 
         });
 
-
-
-
+        $('#timepicker').timepicki();
 
     });
 
@@ -378,7 +365,7 @@ require_once '../app/views/templates/interfaceStart.php';
                     <div class="form-field">
                         <label for="time">Time</label>
                         <br/>
-                        <input id='timepicker' type='text'name='timepicker'/>
+                        <input id='timepicker' type='text' name='timepicker'/>
 
                     </div>
                     <div class="form-field">
