@@ -60,6 +60,10 @@ class PropertyOwner extends Controller
     if (!Owner::isAuthenticated()) {
       $this->redirect('/');
     } else {
+      $this->setCSSDependencies([
+          WEBDIR . '/css/module.css'
+
+      ]);
       $this->view('owner/payment');
     }
   }
