@@ -338,7 +338,7 @@ echo '</div>';
 
         });
 
-        $('#timepicker').timepicki();
+
 
     });
 
@@ -422,6 +422,11 @@ echo '</div>';
     </div>
 </div>
 <!-- end add event modal-->
+<script>
+    jQuery(function($) {
+        $("#timepicker").timepicki();
+    });
+</script>
 
 <?php
 require_once '../app/views/templates/interfaceEnd.php';
