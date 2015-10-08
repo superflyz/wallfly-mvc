@@ -5,7 +5,7 @@ class Dashboard extends Controller
 
     public function index()
     {
-        if (!Owner::isAuthenticated()) {
+        if (!Owner::isAuthenticated() && !Agent::isAuthenticated()) {
 
             $this->redirect('/');
         } else {

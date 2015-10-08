@@ -56,4 +56,21 @@ class Agent extends Super_User
       isset($_SESSION['user']));
   }
 
+  public function getProperties()
+  {
+    try {
+      $db = Database::getInstance();
+      $statement = $db->prepare("SELECT * FROM property WHERE agent_id=:agent_id");
+      $statement->execute(['agent_id' => $this->id]);
+      $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+      $result = array_map(function($row) {
+        return new Property($row);
+      }, $result);
+      return $result;
+    } catch (Exception $e) {
+      echo 'Error: ' . $e->getMessage();
+    }
+    return false;
+  }
+
 }
