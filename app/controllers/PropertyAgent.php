@@ -72,6 +72,10 @@ class PropertyAgent extends Controller
     if (!Agent::isAuthenticated()) {
       $this->redirect('/');
     } else {
+      $this->setJavascriptDependencies([
+          WEBDIR . '/js/selectProperty.js'
+
+      ]);
       $this->setCSSDependencies([
           WEBDIR . '/css/module.css'
 

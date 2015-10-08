@@ -60,7 +60,12 @@ class PropertyOwner extends Controller
     if (!Owner::isAuthenticated()) {
       $this->redirect('/');
     } else {
+      $this->setJavascriptDependencies([
+          WEBDIR . '/js/selectProperty.js'
+
+      ]);
       $this->setCSSDependencies([
+
           WEBDIR . '/css/module.css'
 
       ]);

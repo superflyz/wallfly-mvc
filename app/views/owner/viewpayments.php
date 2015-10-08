@@ -19,6 +19,7 @@ require_once '../app/views/templates/interfaceStart.php';
                 <!-- Features Section -->
                 <section id="dash-links">
                     <div class="container-fluid">
+                        <?php if (isset($_SESSION['selectedProperty'])) { ?>
                         <div class="row text-left">
                             <?php
                             $result = $_SESSION['selectedProperty']->getPayments();
@@ -27,6 +28,7 @@ require_once '../app/views/templates/interfaceStart.php';
                             }
                             ?>
                         </div>
+                        <?php }?>
                 </section>
             </div>
         </div>

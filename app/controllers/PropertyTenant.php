@@ -72,6 +72,10 @@ class PropertyTenant extends Controller
         if (!Tenant::isAuthenticated()) {
             $this->redirect('/');
         } else {
+            $this->setJavascriptDependencies([
+                WEBDIR . '/js/selectProperty.js'
+
+            ]);
             $this->setCSSDependencies([
                 WEBDIR . '/css/module.css'
 
