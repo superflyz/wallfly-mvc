@@ -15,9 +15,8 @@ require_once '../app/views/templates/selectProperty.php';
             <section id="dash-links">
                 <div class="container-fluid">
                     <div class="row text-center">
-                        <?php if (isset($_SESSION['selectedProperty'])) { ?>
                         <div class="col-md-3 col-sm-6">
-                            <a href="<?=WEBDIR?>/propertyowner/viewPayments">
+                            <a href="<?=WEBDIR?>/propertytenant/viewPayments">
                                 <div class="dash-link">
                             <span class="icons">
                                 <i class="fa fa-calendar fa-inverse"></i>
@@ -35,7 +34,7 @@ require_once '../app/views/templates/selectProperty.php';
                             </a>
                         </div>
                         <div class="col-md-3 col-sm-6">
-                            <a href="<?=WEBDIR?>/propertyowner/addPayment">
+                            <a href="<?=WEBDIR?>/propertytenant/addPayment">
                                 <div class="dash-link">
                             <span class="icons">
                                 <i class="fa fa-home fa-inverse"></i>
@@ -45,9 +44,7 @@ require_once '../app/views/templates/selectProperty.php';
                                 </div>
                             </a>
                         </div>
-                        <?php } else {?>
-                            <h4 class="link-heading">Please select a property.</h4>
-                        <?php }?>
+
                     </div>
             </section>
         </div>

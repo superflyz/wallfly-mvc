@@ -3,7 +3,7 @@
 class RealEst extends Controller
 {
 
-  public function home()
+  public function index()
   {
     $this->view('realestate/index');
   }
