@@ -11,15 +11,14 @@ require_once '../app/views/templates/interfaceStart.php';
     <div class="row">
         <div class="col-md-12">
             <!-- Features Section -->
-            <section id="dash-links">
                 <div class="container-fluid">
                     <div class="row text-center">
                         <div class="col-md-3 col-sm-6">
                             <a href="">
                                 <div class="dash-link">
-                            <span class="icons">
-                                <i class="fa fa-calendar fa-inverse"></i>
-                            </span>
+                                    <span class="icons">
+                                        <i class="fa fa-calendar fa-inverse"></i>
+                                    </span>
                                     <h4 class="link-heading">Property Details</h4>
                                     <!--                                    <p class="link-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur adipisicing elit.</p>-->
                                 </div>
@@ -28,9 +27,9 @@ require_once '../app/views/templates/interfaceStart.php';
                         <div class="col-md-3 col-sm-6">
                             <a href="">
                                 <div class="dash-link">
-                            <span class="icons">
-                                <i class="fa fa-home fa-inverse"></i>
-                            </span>
+                                    <span class="icons">
+                                        <i class="fa fa-home fa-inverse"></i>
+                                    </span>
                                     <h4 class="link-heading">Documents</h4>
                                     <!--                                    <p class="link-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur adipisicing elit.</p>-->
                                 </div>
@@ -39,9 +38,9 @@ require_once '../app/views/templates/interfaceStart.php';
                         <div class="col-md-3 col-sm-6">
                             <a href="">
                                 <div class="dash-link">
-                            <span class="icons">
-                                <i class="fa fa-home fa-inverse"></i>
-                            </span>
+                                    <span class="icons">
+                                        <i class="fa fa-home fa-inverse"></i>
+                                    </span>
                                     <h4 class="link-heading">Inspections</h4>
                                     <!--                                    <p class="link-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur adipisicing elit.</p>-->
                                 </div>
@@ -50,9 +49,9 @@ require_once '../app/views/templates/interfaceStart.php';
                         <div class="col-md-3 col-sm-6">
                             <a href="">
                                 <div class="dash-link">
-                            <span class="icons">
-                                <i class="fa fa-home fa-inverse"></i>
-                            </span>
+                                    <span class="icons">
+                                        <i class="fa fa-home fa-inverse"></i>
+                                    </span>
                                     <h4 class="link-heading">R.T.A</h4>
                                     <!--                                    <p class="link-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur adipisicing elit.</p>-->
                                 </div>
@@ -60,7 +59,8 @@ require_once '../app/views/templates/interfaceStart.php';
                         </div>
 
                     </div>
-            </section>
+                </div>
+            </div>
         </div>
     </div>
 </div>
