@@ -18,7 +18,7 @@ if (!isset($_SESSION['eventAdded'])) {
 if (isset($_SESSION['selectedProperty'])) {
     $selectedProperty = $_SESSION['selectedProperty'];
     $pID = $_SESSION['selectedProperty']->id;
-    echo $pID;
+
 
 }
 
