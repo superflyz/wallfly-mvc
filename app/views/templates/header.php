@@ -24,6 +24,22 @@
     <?php if(!isset($_SESSION['sidebar'])){
         $_SESSION['sidebar'] = "dashboard";
     }?>
+    
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/wallfly-mvc/public/favicon/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.png">
+    <link rel="icon" sizes="57x57" href="/wallfly-mvc/public/favicon/favicon-32x32.png">
+    <link rel="icon" sizes="57x57" href="/wallfly-mvc/public/favicon/favicon-57x57.png">
+    <link rel="icon" sizes="72x72" href="/wallfly-mvc/public/favicon/favicon-72x72.png">
+    <link rel="icon" sizes="76x76" href="/wallfly-mvc/public/favicon/favicon-76x76.png">
+    <link rel="icon" sizes="114x114" href="/wallfly-mvc/public/favicon/favicon-114x114.png">
+    <link rel="icon" sizes="120x120" href="/wallfly-mvc/public/favicon/favicon-120x120.png">
+    <link rel="icon" sizes="144x144" href="/wallfly-mvc/public/favicon/favicon-144x144.png">
+    <link rel="icon" sizes="152x152" href="/wallfly-mvc/public/favicon/favicon-152x152.png">
+
+    <meta name="msapplication-TileColor" content="#FFFFFF">	
+    <meta name="msapplication-TileImage" content="/wallfly-mvc/public/favicon/favicon-144x144.png">
+    <meta name="application-name" content="Website Title">
 
 </head>
 <body class="ui_body">

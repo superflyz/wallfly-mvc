@@ -28,8 +28,6 @@ $('.navbar-collapse ul li a').click(function () {
 });
 
 
-
-
 $('#tab-nav li').click(function(event){
     event.preventDefault();
      var selected =  this.id;
@@ -112,4 +110,12 @@ $(function(){
       $(".select-p-text:first-child").val($(this).text());
    });
 
+});
+
+
+$("#btn-input-msg").keypress(function(event) {
+    if (event.which == 13) {
+        event.preventDefault();
+         $('#btn-send-msg').click();
+    }
 });

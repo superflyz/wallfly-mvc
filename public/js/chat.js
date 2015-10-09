@@ -18,19 +18,28 @@ function chatLoad(userID,propertyID) {
                 for (var i = 0; i < chatobj.length; i++) {
                     var parseobj = chatobj[i];
                     if (parseobj.super_user_id == userID) {
-                        $("#chatbox ul").append("<li class='left clearfix'>" +
-                            "<span class='chat-img pull-left'><img src='' class='img-circle' /></span>" +
-                            "<div class='chat-body clearfix'><div class='header'><strong class='primary-font'>Me</strong> <small class='pull-right text-muted'>" +
-                            "<span class='glyphicon glyphicon-time'></span>" + parseobj.send_at + "</small></div><p>" + nl2br(parseobj.message) + "</p></div></li>");
+                        $("#chatbox ul").append(
+                            "<li class='current-user pull-right'>" +
+                            "<div class='user-img pull-right'>" + 
+                            "<img src='' class='img-circle' />" +
+                            "<strong>Me</strong></div>" +                                                         "<div class='bubble-arw-right'>" + 
+                            "<div class='msg-txt'><p>" + nl2br(parseobj.message) + "</p></div>" +
+                            "<div class='msg-time pull-right'><p class='time'>" + 
+                            "<i class='fa fa-clock-o'></i>" + parseobj.send_at + "</p></div>" + "</div></li>");
 
 
                     } else {
-                        $("#chatbox ul").append("<li class='left clearfix'>" +
-                            "<span class='chat-img pull-left'><img src='' class='img-circle' /></span>" +
-                            "<div class='chat-body clearfix'><div class='header'><strong class='primary-font'>" + parseobj.user_type + "</strong> <small class='pull-right text-muted'>" +
-                            "<span class='glyphicon glyphicon-time'></span>" + parseobj.send_at + "</small></div><p>" + nl2br(parseobj.message) + "</p></div></li>");
-
-
+                        $("#chatbox ul").append(
+                            "<li class='other-user pull-left'>" +
+                            "<div class='user-img pull-left'>" + 
+                            "<img src='' class='img-circle' />" +
+                            "<strong>" + parseobj.user_type + "</strong></div>" +                                 "<div class='bubble-arw-left'>" + 
+                             "<div class='msg-txt'><p>" + nl2br(parseobj.message) + "</p></div>" +
+                            "<div class='msg-time pull-right'><p class='time'>" + 
+                            "<i class='fa fa-clock-o'></i>" + parseobj.send_at + "</p></div>" + "</div></li>");
+                            
+                            
+                        
                     }
 
                 }
@@ -70,17 +79,25 @@ function chatLoad(userID,propertyID) {
                     for (var i = 0; i < chatobj.length; i++) {
                         var parseobj = chatobj[i];
                         if (parseobj.super_user_id == userID) {
-                            $("#chatbox ul").append("<li class='left clearfix'>" +
-                                "<span class='chat-img pull-left'><img src='' class='img-circle' /></span>" +
-                                "<div class='chat-body clearfix'><div class='header'><strong class='primary-font'>Me</strong> <small class='pull-right text-muted'>" +
-                                "<span class='glyphicon glyphicon-time'></span>" + parseobj.send_at + "</small></div><p>" + nl2br(parseobj.message) + "</p></div></li>");
+                            $("#chatbox ul").append(
+                            "<li class='current-user pull-right'>" +
+                            "<div class='user-img pull-right'>" + 
+                            "<img src='' class='img-circle' />" +
+                            "<strong>Me</strong></div>" +                                                         "<div class='bubble-arw-right'>" + 
+                            "<div class='msg-txt'><p>" + nl2br(parseobj.message) + "</p></div>" +
+                            "<div class='msg-time pull-right'><p class='time'>" + 
+                            "<i class='fa fa-clock-o'></i>" + parseobj.send_at + "</p></div>" + "</div></li>");
 
 
                         } else {
-                            $("#chatbox ul").append("<li class='left clearfix'>" +
-                                "<span class='chat-img pull-left'><img src='' class='img-circle' /></span>" +
-                                "<div class='chat-body clearfix'><div class='header'><strong class='primary-font'>" + parseobj.user_type + "</strong> <small class='pull-right text-muted'>" +
-                                "<span class='glyphicon glyphicon-time'></span>" + parseobj.send_at + "</small></div><p>" + nl2br(parseobj.message) + "</p></div></li>");
+                            $("#chatbox ul").append(
+                            "<li class='other-user pull-left'>" +
+                            "<div class='user-img pull-left'>" + 
+                            "<img src='' class='img-circle' />" +
+                            "<strong>" + parseobj.user_type + "</strong></div>" +                                 "<div class='bubble-arw-left'>" + 
+                             "<div class='msg-txt'><p>" + nl2br(parseobj.message) + "</p></div>" +
+                            "<div class='msg-time pull-right'><p class='time'>" + 
+                            "<i class='fa fa-clock-o'></i>" + parseobj.send_at + "</p></div>" + "</div></li>");
 
 
                         }
@@ -105,7 +122,7 @@ function chatLoad(userID,propertyID) {
 
 function SendMessage(userID, propertyID,userType) {
 
-    var theMessage = $("#btn-input").val();
+    var theMessage = $("#btn-input-msg").val();
     var theUser = userID;
     var thePID = propertyID;
     var theType = userType;
@@ -125,7 +142,7 @@ function SendMessage(userID, propertyID,userType) {
                 type: theType
             },
             success: function (result) {
-                $("#btn-input").val('');
+                $("#btn-input-msg").val('');
 
                 $("#chatbox").scrollTop($("#chatbox")[0].scrollHeight);
 

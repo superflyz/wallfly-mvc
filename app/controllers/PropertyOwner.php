@@ -55,10 +55,10 @@ class PropertyOwner extends Controller
 
         ]);
 
-        $this->setCSSDependencies([
-              WEBDIR . '/css/module.css'
-
-        ]);
+//        $this->setCSSDependencies([
+//              WEBDIR . '/css/module.css'
+//
+//        ]);
 
         $this->view('owner/chat');
     }

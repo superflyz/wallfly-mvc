@@ -1,3 +1,10 @@
+/*
+    https://github.com/brianreavis/selectize.js/issues/470
+    Selectize doesn't display anything to let the user know there are no results.
+    This is a temporary patch to display a no results option when there are no
+    options to select for the user.
+*/
+
 Selectize.define('no_results', function( options ) {
     var KEY_LEFT      = 37;
     var KEY_UP        = 38;

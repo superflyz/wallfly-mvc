@@ -107,9 +107,11 @@ if (isset($_SESSION['selectedProperty'])) {
                         echo '' . $selectedProperty->address;
                     }; ?></p></div>
                             </div>
+<!--
                             <div class="pull-right">
                             right
                             </div>
+-->
                         </div>
                     </div>
                 </div>
