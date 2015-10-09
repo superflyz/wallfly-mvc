@@ -80,7 +80,7 @@ echo '</div>';
                             <div class="event-tobe" data-date="3-14-2014"></div>
 
                             <?php
-                            $count = 0;
+                            //$count = 0;
                             if ($pID == 0) {
 
 
@@ -97,7 +97,7 @@ echo '</div>';
                                         echo '<span class="label eventlabel">Time:</span>' . $event->eventTime . '<br/>';
                                     }
                                     echo '<br/>' . $event->description . '</div>';
-                                    $count++;
+//                                    $count++;
 
 
                                 };
@@ -117,7 +117,7 @@ echo '</div>';
                                         echo '<span class="label">Time:</span>' . $event->eventTime . '<br/>';
                                     }
                                     echo '<br/>' . $event->description . '</div>';
-                                    $count++;
+                                    //$count++;
 
                                 };
                             }
@@ -125,7 +125,7 @@ echo '</div>';
                         </div>
                     </div>
                 </div>
-                <div style="height:  <?php echo ($count * 80)?>px"></div>
+                <div style="height:  <?php //echo ($count * 80)?>px"></div>
             </div>
         </div>
     </div>
@@ -276,6 +276,8 @@ echo '</div>';
 
         });
 
+//       var test =  $('html').prop('scrollHeight')
+//        setInterval(function(){ alert(test); }, 3000);
 
 
     });
