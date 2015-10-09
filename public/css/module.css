@@ -193,7 +193,22 @@ button.btn-primary, a.btn-primary {
 
 .extend {
     margin-bottom: 10%;
+    margin-left: 10%;
 }
+
+.divLeft {
+
+    float: left;
+    /*width: 50%;*/
+
+}
+
+.divRight {
+    float: right;
+
+}
+
+
 .dzscalendar .main-mon .week-day.tag-blue {
     background-color: #46004A;
     color: #fff;
@@ -225,6 +240,8 @@ span{max-width: 250px;}
 .dzscalendar.skin-responsive-galileo .calendar-controls .arrow-left{ opacity:1;}
 
 .dzstooltip.skin-whiteheading.arrow-left:before {border-right: 10px solid #5AD663;}
+
+
 
 
 /*start modal styling*/

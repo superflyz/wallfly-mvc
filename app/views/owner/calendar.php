@@ -30,7 +30,7 @@ require_once '../app/views/templates/interfaceStart.php';
 <?php
 $properties = $_SESSION['user']->getProperties();
 //dropdown for property list
-echo '<div class="container">
+echo '<div class="container" style="width:20%;float:left">
 
             <div class="btn-group">
                 <a class="btn btn-primary dropdown-toggle show-properties selector" data-toggle="dropdown" href="#" style="margin-left: 15px;">Select a Property</a>
