@@ -74,12 +74,10 @@ require_once '../app/views/templates/interfaceStart.php';
                                     class="btn btn-primary submit eventsubmit">Add event
                             </button>
                         </div>
-
                     </form>
-
-
                     <?php }?>
                 </div>
+            </div>
         </div>
     </div>
 </div>

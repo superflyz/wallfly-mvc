@@ -98,6 +98,17 @@ class PropertyTenant extends Controller
         if (!Tenant::isAuthenticated()) {
             $this->redirect('/');
         } else {
+            $this->setJavascriptDependencies([
+                WEBDIR . '/dzscalendar/dzscalendar.js',
+                WEBDIR . '/js/paymentDatePicker.js'
+            ]);
+
+            $this->setCSSDependencies([
+                'http://fonts.googleapis.com/css?family=Carrois+Gothic',
+                WEBDIR . '/dzstooltip/dzstooltip.css',
+                WEBDIR . '/dzscalendar/dzscalendar.css',
+                'http://fonts.googleapis.com/css?family=Open+Sans'
+            ]);
             $this->view('tenant/addpayment');
         }
     }
