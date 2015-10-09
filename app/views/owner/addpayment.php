@@ -71,7 +71,7 @@ require_once '../app/views/templates/interfaceStart.php';
 
                         <div>
                             <button type="submit" name="Submit" value="submit" id="submit-btn"
-                                    class="btn btn-primary submit eventsubmit">Add event
+                                    class="btn btn-primary submit eventsubmit">Add Payment
                             </button>
                         </div>
                     </form>
