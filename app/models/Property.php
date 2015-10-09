@@ -4,7 +4,7 @@ class Property extends Model
 {
 
   public $id, $address, $payment_schedule, $rent_amount, $photo, $real_estate_id,
-    $agent_id, $owner_id;
+    $agent_id, $owner_id, $tenant_id;
 
   public function getAgent()
   {
@@ -32,8 +32,13 @@ class Property extends Model
   {
     try {
       $db = Database::getInstance();
-      $statement = $db->prepare("SELECT * FROM payment WHERE property_id=:property_id ORDER BY timestamp DESC");
-      $statement->execute(['property_id' => $this->id]);
+      if ($_SESSION['usertype'] != USERTYPE_TENANT) {
+        $statement = $db->prepare("SELECT * FROM payment WHERE property_id=:property_id ORDER BY timestamp DESC");
+        $statement->execute(['property_id' => $this->id]);
+      } else {
+        $statement = $db->prepare("SELECT * FROM payment WHERE property_id=:property_id AND tenant_id=:tenant_id ORDER BY timestamp DESC");
+        $statement->execute(['property_id' => $this->id, 'tenant_id' => $_SESSION['user']->id]);
+      }
       $result = Array();
       while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
         $tmp = Array("time" => $row['timestamp'], "amount" => $row['amount']);
@@ -53,10 +58,9 @@ class Property extends Model
   {
     try {
       $db = Database::getInstance();
-      $tenantId = $this->getTenant();
       $statement = $db->prepare("INSERT INTO payment (tenant_id, property_id, timestamp, amount) VALUES
         (:tenant_id, :property_id, :timestamp, :amount)");
-      $statement->execute(['tenant_id' => $tenantId, 'property_id' => $this->id, 'timestamp' => date('Y-m-d G:i:s'), 'amount' => $amount]);
+      $statement->execute(['tenant_id' => $this->tenant_id, 'property_id' => $this->id, 'timestamp' => date('Y-m-d G:i:s'), 'amount' => $amount]);
       return true;
     } catch (Exception $e) {
       echo 'Error: ' . $e->getMessage();
@@ -64,24 +68,4 @@ class Property extends Model
     return false;
   }
 
-  public function getTenant()
-  {
-    try {
-      $db = Database::getInstance();
-      $statement = $db->prepare("SELECT * FROM super_user, property, tenant WHERE property.id=:property_id AND tenant.property_id=property.id AND super_user.id=tenant.super_user_id");
-      $statement->execute(['property_id' => $this->id]);
-      $result = Array();
-      while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
-        $tmp = Array("tenant_id" => $row['super_user_id']);
-        array_push($result, $tmp);
-      }
-      if (count($result) == 0) {
-        return false;
-      }
-      return $result[0]['tenant_id'];
-    } catch (Exception $e) {
-      echo 'Error: ' . $e->getMessage();
-    }
-    return false;
-  }
 }

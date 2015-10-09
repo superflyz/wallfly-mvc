@@ -24,7 +24,7 @@ require_once '../app/views/templates/interfaceStart.php';
                             <?php
                             $result = $_SESSION['selectedProperty']->getPayments();
                             foreach ($result as $row) {
-                                echo "<p>Date: " . $row['time'] . " Amount: $" . $row['amount'];
+                                echo "<p>Date: " . date('d/m/y', strtotime($row['time'])) . " Amount: $" . $row['amount'];
                             }
                             ?>
                         </div>
