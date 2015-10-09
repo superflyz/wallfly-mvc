@@ -24,40 +24,17 @@ if (isset($_SESSION['selectedProperty'])) {
 
 
 ?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <?php
 require_once '../app/views/templates/interfaceStart.php';
 ?>
-
-
-
-
 <?php
-
-
 $properties = $_SESSION['user']->getProperties();
-
 //dropdown for property list
 echo '<div class="container">
 
             <div class="btn-group">
                 <a class="btn btn-primary dropdown-toggle show-properties selector" data-toggle="dropdown" href="#" style="margin-left: 15px;">Select a Property</a>
             </div>';
-
-
 ?>
 <div id="reducedPadding" class="container">
     <div id="propertyHolder">
@@ -90,10 +67,10 @@ echo '</div>';
 <section id="calender">
     <div class="container">
         <div class="row">
-            <div class="col-md-10 extend">
-                <div class="dzscalendar-con  skin-responsive-galileo" style="max-width: 960px; margin: 25px auto;">
-                    <div class="dzscalendar skin-responsive-galileo auto-init" style="" data-options="{
-            design_month_covers : ['http://dummyimage.com/950x350/000000/3c3c3d.jpg','http://dummyimage.com/950x350/000000/3c3c3d.jpg','http://dummyimage.com/950x350/000000/3c3c3d.jpg','http://dummyimage.com/950x350/000000/3c3c3d.jpg','http://dummyimage.com/950x350/000000/3c3c3d.jpg','http://dummyimage.com/950x350/000000/3c3c3d.jpg','http://dummyimage.com/950x350/000000/3c3c3d.jpg','http://dummyimage.com/950x350/000000/3c3c3d.jpg','http://dummyimage.com/950x350/000000/3c3c3d.jpg','http://dummyimage.com/950x350/000000/3c3c3d.jpg','http://dummyimage.com/950x350/000000/3c3c3d.jpg','http://dummyimage.com/950x350/000000/3c3c3d.jpg']
+            <div class="col-md-8 extend">
+                <div class="dzscalendar skin-responsive-galileo mode-normal tooltip_transition-tooltipDef under-240" style="max-width: 960px; margin: 25px auto;">
+                    <div class="dzscalendar skin-responsive-galileo auto-init " style="" data-options="{
+            design_month_covers : ['../images/calendar/jan.jpg','../images/calendar/feb.jpg','../images/calendar/mar.jpg','../images/calendar/apr.jpg','../images/calendar/may.jpg','../images/calendar/jun.jpg','../images/calendar/jul.jpg','../images/calendar/aug.jpg','../images/calendar/sep.jpg','../images/calendar/oct.jpg','../images/calendar/nov.jpg','../images/calendar/dec.jpg']
             ,start_weekday: 'Monday'
             ,header_weekdayStyle: 'responsivefull'
         }">
@@ -101,14 +78,6 @@ echo '</div>';
 
 
                             <div class="event-tobe" data-date="3-14-2014"></div>
-
-                            <div class="event-tobe" data-tag="imgbg" data-eventbg="img/bg.jpg" data-repeat="everymonth"
-                                 data-day="6">
-                                <span class="tooltip-heading">Meeting at Palace@ 3PM</span>
-                                <span class="label">Date</span> 11-8-2012 at 6PM<br/>
-                                <span class="label">Location</span> Bremen, Germany<br>
-                                <br/>Ana is meeting with you in the town square.
-                            </div>
 
                             <?php
                             if ($pID == 0) {
@@ -150,8 +119,6 @@ echo '</div>';
                                 };
                             }
                             ?>
-
-
                         </div>
                     </div>
                 </div>
@@ -163,35 +130,14 @@ echo '</div>';
 <!--end calendar-->
 
 
-<!--select event modal-->
-<div class="modal modal-vcenter fade select-modal-md" tabindex="-1" role="dialog"
-     aria-labelledby="mySmallModalLabel">
-    <div class="modal-dialog modal-md">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <p class="modal-title flabel">Select Event</p>
-            </div>
 
-            <div id="select-modal-body" class="modal-body">
-                <form id="selectEvent" name="addEvent" method="post" action="addevent.php">
-                    <div id="dynamic-edit" class="clearfix">
-
-                    </div>
-
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- end add event modal-->
 
 
 <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-<script src="http://cdn.jsdelivr.net/jquery.validation/1.14.0/jquery.validate.js"></script>
+
+
+
 
 <script>
 
@@ -313,21 +259,9 @@ echo '</div>';
 
         }
 
-//        $('#setEvent').validate({ // initialize the plugin
-//            rules: {
-//                eventName: {
-//                    required: true,
-//                    maxlength: 20
-//                },
-//                date: {
-//                    required: true
-//                },
-//                description: {
-//                    maxlength: 100
-//                }
-//
-//            }
-//        });
+
+
+
 
 
         $('#hidden').bind("DOMSubtreeModified", function () {
@@ -398,7 +332,7 @@ echo '</div>';
                     <div class="form-field">
 
                         <label for="date">Event Date</label>
-                        <input name="date" id="date" type="text" class="form-control" readonly>
+                        <input name="date" id="date" type="text"  class="form-control" >
                         <pre hidden id="hidden" class="event-receiver"></pre>
                         <span class="error"></span>
                         <section style="height:200px">
@@ -413,7 +347,7 @@ echo '</div>';
                     <!-- end date picker -->
                     <div>
                         <button type="submit" name="Submit" value="submit" id="submit-btn"
-                                class="btn btn-primary submit">Add event
+                                class="btn btn-primary submit eventsubmit">Add event
                         </button>
                     </div>
                 </form>
@@ -422,10 +356,58 @@ echo '</div>';
     </div>
 </div>
 <!-- end add event modal-->
+
+<!--select event modal-->
+<div class="modal modal-vcenter fade select-modal-md" tabindex="-1" role="dialog"
+     aria-labelledby="mySmallModalLabel">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <p class="modal-title flabel">Select Event</p>
+            </div>
+
+            <div id="select-modal-body" class="modal-body">
+                <form id="selectEvent" name="addEvent" method="post" action="addevent.php">
+                    <div id="dynamic-edit" class="clearfix">
+
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end add event modal-->
+
 <script>
     jQuery(function($) {
         $("#timepicker").timepicki();
+        $('#setEvent').validate({ // initialize the plugin
+            ignore: [],
+            rules: {
+                eventName: {
+                    required: true,
+                    maxlength: 20
+                },
+                date: {
+                    required: true
+                },
+                description: {
+                    maxlength: 100
+                }
+
+            }
+        });
+
+
+
     });
+</script>
+<script>
+
+
+
 </script>
 
 <?php

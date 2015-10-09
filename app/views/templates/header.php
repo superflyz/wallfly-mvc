@@ -9,6 +9,9 @@
     <title>WallFly</title>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <!--jquery validation    -->
+    <script src="http://cdn.jsdelivr.net/jquery.validation/1.14.0/jquery.validate.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.0/additional-methods.js"></script>
 
     <!-- Bootstrap Core CSS -->
     <link href="/wallfly-mvc/public/css/bootstrap.min.css" rel="stylesheet">
