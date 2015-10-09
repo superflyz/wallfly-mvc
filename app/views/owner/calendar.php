@@ -65,7 +65,7 @@ echo '</div>';
 
 <!--start calendar-->
 <section id="calender">
-    <div class="container">
+    <div class="container scroll-overflow">
         <div class="row">
             <div class="col-md-8 extend">
                 <div class="dzscalendar skin-responsive-galileo mode-normal tooltip_transition-tooltipDef under-240" style="max-width: 960px; margin: 25px auto;">
@@ -80,6 +80,7 @@ echo '</div>';
                             <div class="event-tobe" data-date="3-14-2014"></div>
 
                             <?php
+                            $count = 0;
                             if ($pID == 0) {
 
 
@@ -96,6 +97,7 @@ echo '</div>';
                                         echo '<span class="label eventlabel">Time:</span>' . $event->eventTime . '<br/>';
                                     }
                                     echo '<br/>' . $event->description . '</div>';
+                                    $count++;
 
 
                                 };
@@ -115,6 +117,7 @@ echo '</div>';
                                         echo '<span class="label">Time:</span>' . $event->eventTime . '<br/>';
                                     }
                                     echo '<br/>' . $event->description . '</div>';
+                                    $count++;
 
                                 };
                             }
@@ -122,6 +125,7 @@ echo '</div>';
                         </div>
                     </div>
                 </div>
+                <div style="height:  <?php echo ($count * 80)?>px"></div>
             </div>
         </div>
     </div>

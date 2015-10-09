@@ -335,3 +335,8 @@ body {
 #startDate, #endDate {
     display: none;
 }
+
+.scroll-overflow {
+    height: 600px;
+    overflow: auto;
+}
