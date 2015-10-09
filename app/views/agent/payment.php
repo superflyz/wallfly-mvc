@@ -39,7 +39,7 @@ echo '<div class="container">
     <div class="row">
         <div class="col-md-12">
             <!-- Features Section -->
-            <div class="container-fluid">
+            <div class="container-fluid" id="dash-links">
                 <div class="row text-center">
                     <?php if (isset($_SESSION['selectedProperty'])) { ?>
                     <div class="col-md-3 col-sm-6">

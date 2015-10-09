@@ -17,7 +17,7 @@ require_once '../app/views/templates/interfaceStart.php';
     <div class="row">
         <div class="col-md-12">
             <!-- Features Section -->
-            <div class="container-fluid">
+            <div class="container-fluid" id="dash-links">
                 <div class="row text-center">
                     <div class="col-md-4 col-sm-6">
                         <a href="">

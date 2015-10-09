@@ -16,7 +16,6 @@ require_once '../app/views/templates/interfaceStart.php';
     </div>
     <div class="row">
         <div class="col-md-12">
-            <!-- Features Section -->
                 <div class="container-fluid">
                     <div class="row text-center">
                         <div class="col-md-4 col-sm-6">

@@ -11,7 +11,7 @@ require_once '../app/views/templates/selectProperty.php';
     <!--    </div>-->
     <div class="row">
         <div class="col-md-12">
-            <div class="container-fluid">
+            <div class="container-fluid" id="dash-links">
                 <div class="row text-center">
                     <?php if (isset($_SESSION['selectedProperty'])) { ?>
                     <div class="col-md-3 col-sm-6">

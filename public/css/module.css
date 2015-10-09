@@ -315,3 +315,6 @@ body {
 }
 /*end modal styling*/
 
+#startDate, #endDate {
+    display: none;
+}
