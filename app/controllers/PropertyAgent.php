@@ -107,7 +107,8 @@ class PropertyAgent extends Controller
           'http://fonts.googleapis.com/css?family=Carrois+Gothic',
           WEBDIR . '/dzstooltip/dzstooltip.css',
           WEBDIR . '/dzscalendar/dzscalendar.css',
-          'http://fonts.googleapis.com/css?family=Open+Sans'
+          'http://fonts.googleapis.com/css?family=Open+Sans',
+          WEBDIR . '/css/module.css'
       ]);
       $this->view('agent/addpayment');
     }
