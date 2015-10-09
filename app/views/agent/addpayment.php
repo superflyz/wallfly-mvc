@@ -15,12 +15,12 @@ require_once '../app/views/templates/interfaceStart.php';
     <!--        </div>-->
     <!--    </div>-->
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-4">
             <!-- Features Section -->
             <div class="container-fluid">
                 <div class="row text-center">
                     <?php if (isset($_SESSION['selectedProperty'])) { ?>
-                        <form id="addPayment" method="post" action="<?=WEBDIR?>/propertyowner/processPayment">
+                        <form id="addPayment" method="post" action="<?=WEBDIR?>/propertyagent/processPayment">
                             <div class="form-field">
                                 <label for="payeeName">Payee Name</label>
                                 <input name="payeeName" type="text" class="form-control">

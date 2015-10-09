@@ -139,13 +139,14 @@ class PropertyOwner extends Controller
   {
     if (!Owner::isAuthenticated()) {
       $this->redirect('/');
-    }
-    $result = $_SESSION['selectedProperty']->addPayment($_POST['payeeName'], $_POST['startDate'], $_POST['endDate'],
-        $_POST['amount']);
-    if ($result == false) {
-      $this->view('owner/addpayment');
     } else {
-      $this->view('owner/viewpayments');
+      $result = $_SESSION['selectedProperty']->addPayment($_POST['payeeName'], $_POST['startDate'], $_POST['endDate'],
+          $_POST['amount']);
+      if ($result == false) {
+        $this->view('owner/addpayment');
+      } else {
+        $this->view('owner/viewpayments');
+      }
     }
   }
 

@@ -118,13 +118,14 @@ class PropertyTenant extends Controller
     {
         if (!Tenant::isAuthenticated()) {
             $this->redirect('/');
-        }
-        $result = $_SESSION['selectedProperty']->addPayment($_POST['payeeName'], $_POST['startDate'], $_POST['endDate'],
-            $_POST['amount']);
-        if ($result == false) {
-            $this->view('tenant/addpayment');
         } else {
-            $this->view('tenant/viewpayments');
+            $result = $_SESSION['selectedProperty']->addPayment($_POST['payeeName'], $_POST['startDate'], $_POST['endDate'],
+                $_POST['amount']);
+            if ($result == false) {
+                $this->view('tenant/addpayment');
+            } else {
+                $this->view('tenant/viewpayments');
+            }
         }
     }
 
