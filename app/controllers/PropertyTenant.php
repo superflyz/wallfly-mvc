@@ -232,7 +232,7 @@ class PropertyTenant extends Controller
             }
             $fileName = $_FILES['image']['name'];
             $uploadDir = WEBDIR . '/img/repair/';
-            $target_file = $uploadDir . basename($fileName);
+            $target_file = $uploadDir . uniqid() . basename($fileName);
 
             if ($_FILES['image']['size'] > 0) {
                 function random_string($length)
@@ -281,11 +281,6 @@ class PropertyTenant extends Controller
                 } else {
                     //$this->view('tenant/index');
                     $result_upload = move_uploaded_file($tmpName, '/Applications/XAMPP/htdocs'.$target_file);
-                    if ($result_upload) {
-                        $this->view('tenant/index');
-                    } else {
-                        $this->view('tenant/payment');
-                    }
                 }
             }
 
