@@ -28,9 +28,11 @@ require_once '../app/views/templates/selectProperty.php';
                                         echo "<p>Timestamp: " . $row['timestamp'] . " Subject: " . $row['subject'] .
                                             " Description: " . $row['description'] . " Severity: " . $row['severity_level'] .
                                             " Status: " . $row['status'] . " <image src='" . $row['image'] .
-                                            "'/><button type='submit' name='submit' value='{$row['timestamp']}/approve' id='submit-btn' class='btn btn-primary submit eventsubmit'>Approve
-                                            </button><button type='submit' name='submit' value='{$row['timestamp']}/deny' id='submit-btn' class='btn btn-primary submit eventsubmit'>Deny
-                                            </button></p>";
+                                            "'/></p>";
+                                        ?>
+                                        <button type='submit' name='submit' value='<?php echo $row['timestamp']?>/approve' id='submit-btn' class='btn btn-primary submit eventsubmit'>Approve</button>
+                                        <button type='submit' name='submit' value='<?php echo $row['timestamp']?>/deny' id='submit-btn' class='btn btn-primary submit eventsubmit'>Deny</button>
+                                        <?php
                                     }
                                 }
                                 ?>
