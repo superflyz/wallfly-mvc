@@ -134,7 +134,26 @@ class PropertyAgent extends Controller
     if (!Agent::isAuthenticated()) {
       $this->redirect('/');
     } else {
+      $this->setJavascriptDependencies([
+          WEBDIR . '/js/selectProperty.js'
+
+      ]);
+      $this->setCSSDependencies([
+          WEBDIR . '/css/module.css'
+
+      ]);
       $this->view('agent/repair');
+    }
+  }
+
+  public function processRepairRequest()
+  {
+    if (!Agent::isAuthenticated()) {
+      $this->redirect('/');
+    } else {
+      $tmp = explode("/", $_POST['submit']);
+      $result = $_SESSION['selectedProperty']->processRepairRequest($tmp[0], $tmp[1]);
+      $this->redirect('/propertyagent/repair');
     }
   }
 

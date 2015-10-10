@@ -174,7 +174,7 @@ class PropertyOwner extends Controller
     } else {
       $tmp = explode("/", $_POST['submit']);
       $result = $_SESSION['selectedProperty']->processRepairRequest($tmp[0], $tmp[1]);
-      $this->view('owner/repair');
+      $this->redirect('/propertyowner/repair');
     }
   }
 
