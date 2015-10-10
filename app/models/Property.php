@@ -117,11 +117,11 @@ class Property extends Model
     try {
       $db = Database::getInstance();
       if ($value == "approve") {
-        $statement = $db->prepare("UPDATE repair_request SET status=1 WHERE timestamp=:timestamp");
-        $statement->execute(['timestamp' => $timestamp]);
+        $statement = $db->prepare("UPDATE repair_request SET status=1 WHERE property_id=:property_id AND timestamp=:timestamp");
+        $statement->execute(['property_id' => $this->id, 'timestamp' => $timestamp]);
       } elseif ($value == "deny") {
-        $statement = $db->prepare("UPDATE repair_request SET status=2 WHERE timestamp=:timestamp");
-        $statement->execute(['timestamp' => $timestamp]);
+        $statement = $db->prepare("UPDATE repair_request SET status=2 WHERE property_id=:property_id AND timestamp=:timestamp");
+        $statement->execute(['property_id' => $this->id, 'timestamp' => $timestamp]);
       }
       return true;
     } catch (Exception $e) {
