@@ -29,7 +29,7 @@ $(document).ready(function () {
     $('#hidden').bind("DOMSubtreeModified", function () {
         var date = $('#hidden').html();
         var dateArray = date.split("-");
-        var dateString = dateArray[1] + "/" + dateArray[0] + "/" + dateArray[2];
+        var dateString = dateArray[1] + "-" + dateArray[0] + "-" + dateArray[2];
         $('#startDate').val(dateString);
 
     });
@@ -49,7 +49,7 @@ $(document).ready(function () {
     $('#hidden2').bind("DOMSubtreeModified", function () {
         var date = $('#hidden2').html();
         var dateArray = date.split("-");
-        var dateString = dateArray[1] + "/" + dateArray[0] + "/" + dateArray[2];
+        var dateString = dateArray[1] + "-" + dateArray[0] + "-" + dateArray[2];
         $('#endDate').val(dateString);
 
     });

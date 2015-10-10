@@ -14,6 +14,7 @@ require_once '../app/views/templates/interfaceStart.php';
             <div class="container-fluid center-block">
                 <div class="text-center">
                     <?php if (isset($_SESSION['selectedProperty'])) { ?>
+                        <h4>There was an error with your request. Try again.</h4>
                         <form id="addPayment" method="post" action="<?=WEBDIR?>/propertytenant/processPayment">
                             <div class="form-field">
                                 <label for="payeeName">Payee Name</label>

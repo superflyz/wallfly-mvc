@@ -60,7 +60,7 @@ class Property extends Model
       $db = Database::getInstance();
       $statement = $db->prepare("INSERT INTO payment (tenant_id, property_id, timestamp, rent_period_start, rent_period_end, amount) VALUES
         (:tenant_id, :property_id, :timestamp, :rent_period_start, :rent_period_end, :amount)");
-      $statement->execute(['tenant_id' => $this->tenant_id, 'property_id' => $this->id, 'timestamp' => date('Y-m-d G:i:s'), 'rent_period_start' => $start, 'rent_period_end' => $end, 'amount' => $amount]);
+      $statement->execute(['tenant_id' => $this->tenant_id, 'property_id' => $this->id, 'timestamp' => date('Y-m-d G:i:s'), 'rent_period_start' => date("Y-m-d", strtotime($start)), 'rent_period_end' => date("Y-m-d", strtotime($end)), 'amount' => $amount]);
       return true;
     } catch (Exception $e) {
       echo 'Error: ' . $e->getMessage();

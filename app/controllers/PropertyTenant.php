@@ -100,7 +100,9 @@ class PropertyTenant extends Controller
         } else {
             $this->setJavascriptDependencies([
                 WEBDIR . '/dzscalendar/dzscalendar.js',
-                WEBDIR . '/js/paymentDatePicker.js'
+                WEBDIR . '/js/paymentDatePicker.js',
+                WEBDIR . '/js/jquery.creditCardValidator.js',
+                WEBDIR . '/js/validateCreditCard.js'
             ]);
 
             $this->setCSSDependencies([
@@ -119,13 +121,52 @@ class PropertyTenant extends Controller
         if (!Tenant::isAuthenticated()) {
             $this->redirect('/');
         } else {
-            $result = $_SESSION['selectedProperty']->addPayment($_POST['payeeName'], $_POST['startDate'], $_POST['endDate'],
-                $_POST['amount']);
-            if ($result == false) {
-                $this->view('tenant/addpayment');
+            $startDate = explode('-', $_POST['startDate']);
+            $endDate = explode('-', $_POST['endDate']);
+            if (count($startDate) == 3 && count($endDate) == 3) {
+                $validStartDate = checkdate($startDate[1], $startDate[0], $startDate[2]);
+                $validEndDate = checkdate($endDate[1], $endDate[0], $endDate[2]);
             } else {
-                $this->view('tenant/viewpayments');
+                $validStartDate = false;
+                $validEndDate = false;
             }
+            if ($validStartDate && $validEndDate && isset($_POST['payeeName']) && isset($_POST['startDate']) &&
+                isset($_POST['endDate']) && isset($_POST['amount']) && isset($_POST['ccv']) &&
+                !empty($_POST['payeeName']) && !empty($_POST['startDate']) &&
+                !empty($_POST['endDate']) && !empty($_POST['amount']) && !empty($_POST['ccv'])) {
+                $result = $_SESSION['selectedProperty']->addPayment($_POST['payeeName'], $_POST['startDate'], $_POST['endDate'],
+                    $_POST['amount']);
+            } else {
+                $result = false;
+            }
+            if ($result == false) {
+                $this->redirect('/propertytenant/addpaymenterror');
+            } else {
+                $this->redirect('/propertytenant/viewpayments');
+            }
+        }
+    }
+
+    public function addPaymentError()
+    {
+        if (!Tenant::isAuthenticated()) {
+            $this->redirect('/');
+        } else {
+            $this->setJavascriptDependencies([
+                WEBDIR . '/dzscalendar/dzscalendar.js',
+                WEBDIR . '/js/paymentDatePicker.js',
+                WEBDIR . '/js/jquery.creditCardValidator.js',
+                WEBDIR . '/js/validateCreditCard.js'
+            ]);
+
+            $this->setCSSDependencies([
+                'http://fonts.googleapis.com/css?family=Carrois+Gothic',
+                WEBDIR . '/dzstooltip/dzstooltip.css',
+                WEBDIR . '/dzscalendar/dzscalendar.css',
+                'http://fonts.googleapis.com/css?family=Open+Sans',
+                WEBDIR . '/css/module.css'
+            ]);
+            $this->view('tenant/addpaymenterror');
         }
     }
 
