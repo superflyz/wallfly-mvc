@@ -25,7 +25,7 @@ require_once '../app/views/templates/selectProperty.php';
                             foreach ($result as $row) {
                                 echo "<p>Timestamp: " . $row['timestamp'] . " Subject: " . $row['subject'] .
                                     " Description: " . $row['description'] . " Severity: " . $row['severity_level'] .
-                                    " Status: " . $row['status'] . " Image: " . $row['image'];
+                                    " Status: " . $row['status'] . " <image src='" . $row['image'] . "'/></p>";
                             }
                             ?>
                         </div>

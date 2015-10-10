@@ -280,7 +280,12 @@ class PropertyTenant extends Controller
                     // fie everything is ok, try to uqload file
                 } else {
                     //$this->view('tenant/index');
-                    $result_upload = move_uploaded_file($tmpName, $target_file);
+                    $result_upload = move_uploaded_file($tmpName, '/Applications/XAMPP/htdocs'.$target_file);
+                    if ($result_upload) {
+                        $this->view('tenant/index');
+                    } else {
+                        $this->view('tenant/payment');
+                    }
                 }
             }
 
