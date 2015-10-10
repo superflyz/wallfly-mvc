@@ -72,8 +72,13 @@ class Property extends Model
   {
     try {
       $db = Database::getInstance();
-      $statement = $db->prepare("SELECT * FROM repair_request WHERE property_id=:property_id AND tenant_id=:tenant_id");
-      $statement->execute(['property_id' => $this->id, 'tenant_id' => $_SESSION['user']->id]);
+      if ($_SESSION['usertype'] == USERTYPE_TENANT) {
+        $statement = $db->prepare("SELECT * FROM repair_request WHERE property_id=:property_id AND tenant_id=:tenant_id");
+        $statement->execute(['property_id' => $this->id, 'tenant_id' => $_SESSION['user']->id]);
+      } else {
+        $statement = $db->prepare("SELECT * FROM repair_request WHERE property_id=:property_id");
+        $statement->execute(['property_id' => $this->id]);
+      }
       $result = Array();
       while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
         $tmp = Array("tenant_id" => $row['tenant_id'], "property_id" => $row['property_id'],
@@ -100,6 +105,24 @@ class Property extends Model
         :severity_level, :status, :image)");
       $statement->execute(['tenant_id' => $_SESSION['user']->id, 'property_id' => $this->id, 'timestamp' => date('Y-m-d G:i:s'),
         'subject' => $subject, 'description' => $description, 'severity_level' => $severity, 'status' => 0, 'image' => $image]);
+      return true;
+    } catch (Exception $e) {
+      echo 'Error: ' . $e->getMessage();
+    }
+    return false;
+  }
+
+  public function processRepairRequest($timestamp, $value)
+  {
+    try {
+      $db = Database::getInstance();
+      if ($value == "approve") {
+        $statement = $db->prepare("UPDATE repair_request SET status=1 WHERE timestamp=:timestamp");
+        $statement->execute(['timestamp' => $timestamp]);
+      } elseif ($value == "deny") {
+        $statement = $db->prepare("UPDATE repair_request SET status=2 WHERE timestamp=:timestamp");
+        $statement->execute(['timestamp' => $timestamp]);
+      }
       return true;
     } catch (Exception $e) {
       echo 'Error: ' . $e->getMessage();

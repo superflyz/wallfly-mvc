@@ -155,6 +155,25 @@ class PropertyOwner extends Controller
     if (!Owner::isAuthenticated()) {
       $this->redirect('/');
     } else {
+      $this->setJavascriptDependencies([
+          WEBDIR . '/js/selectProperty.js'
+
+      ]);
+      $this->setCSSDependencies([
+          WEBDIR . '/css/module.css'
+
+      ]);
+      $this->view('owner/repair');
+    }
+  }
+
+  public function processRepairRequest()
+  {
+    if (!Owner::isAuthenticated()) {
+      $this->redirect('/');
+    } else {
+      $tmp = explode("/", $_POST['submit']);
+      $result = $_SESSION['selectedProperty']->processRepairRequest($tmp[0], $tmp[1]);
       $this->view('owner/repair');
     }
   }
