@@ -19,10 +19,11 @@ echo '<div class="container">
         <input placeholder="type to search..." id="box" type="text"/>
         <ul class="navList ">
             <?php
+            if ($result) {
+                for ($i = 0; $i < count($properties); $i++) {
 
-            for($i=0;$i<count($properties);$i++){
-
-                echo '<li id="'.$i.'"><a>' . $properties[$i]->address . '</a></li>';
+                    echo '<li id="' . $i . '"><a>' . $properties[$i]->address . '</a></li>';
+                }
             }
             ?>
         </ul>

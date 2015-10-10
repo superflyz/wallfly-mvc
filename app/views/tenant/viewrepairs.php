@@ -22,10 +22,12 @@ require_once '../app/views/templates/selectProperty.php';
                         <div class="row text-left">
                             <?php
                             $result = $_SESSION['selectedProperty']->getRepairRequests();
-                            foreach ($result as $row) {
-                                echo "<p>Timestamp: " . $row['timestamp'] . " Subject: " . $row['subject'] .
-                                    " Description: " . $row['description'] . " Severity: " . $row['severity_level'] .
-                                    " Status: " . $row['status'] . " <image src='" . $row['image'] . "'/></p>";
+                            if ($result) {
+                                foreach ($result as $row) {
+                                    echo "<p>Timestamp: " . $row['timestamp'] . " Subject: " . $row['subject'] .
+                                        " Description: " . $row['description'] . " Severity: " . $row['severity_level'] .
+                                        " Status: " . $row['status'] . " <image src='" . $row['image'] . "'/></p>";
+                                }
                             }
                             ?>
                         </div>

@@ -18,9 +18,10 @@ require_once '../app/views/templates/selectProperty.php';
                                 <h4 class="link-heading">View Payments</h4>
                                 <?php
                                     $result = $_SESSION['selectedProperty']->getPayments();
-
-                                    for ($i = 0; $i < 1; $i++) {
-                                        echo "<p class='link-text'>Last payment was $".$result[$i]['amount']." payed on ".$result[$i]['time'].".";
+                                    if ($result) {
+                                        for ($i = 0; $i < 1; $i++) {
+                                            echo "<p class='link-text'>Last payment was $" . $result[$i]['amount'] . " payed on " . $result[$i]['time'] . ".";
+                                        }
                                     }
                                 ?>
                                 <p class="link-text">View more payments.</p>

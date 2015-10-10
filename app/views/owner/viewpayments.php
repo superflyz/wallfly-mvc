@@ -20,8 +20,10 @@ require_once '../app/views/templates/interfaceStart.php';
                 <div class="row text-left">
                     <?php
                     $result = $_SESSION['selectedProperty']->getPayments();
-                    foreach ($result as $row) {
-                        echo "<p>Date: " . date('d/m/y', strtotime($row['time'])) . " Amount: $" . $row['amount'];
+                    if ($result) {
+                        foreach ($result as $row) {
+                            echo "<p>Date: " . date('d/m/y', strtotime($row['time'])) . " Amount: $" . $row['amount'];
+                        }
                     }
                     ?>
                 </div>

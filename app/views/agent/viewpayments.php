@@ -21,8 +21,10 @@ require_once '../app/views/templates/selectProperty.php';
                 <div class="row text-left">
                     <?php
                     $result = $_SESSION['selectedProperty']->getPayments();
-                    foreach ($result as $row) {
-                        echo "<p>Date: " . $row['time'] . " Amount: $" . $row['amount'];
+                    if ($result) {
+                        foreach ($result as $row) {
+                            echo "<p>Date: " . $row['time'] . " Amount: $" . $row['amount'];
+                        }
                     }
                     ?>
                 </div>
