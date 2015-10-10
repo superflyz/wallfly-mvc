@@ -91,4 +91,20 @@ class Property extends Model
     return false;
   }
 
+  public function addRepairRequest($subject, $description, $severity, $image)
+  {
+    try {
+      $db = Database::getInstance();
+      $statement = $db->prepare("INSERT INTO repair_request (tenant_id, property_id, timestamp, subject, description,
+        severity_level, status, image) VALUES (:tenant_id, :property_id, :timestamp, :subject, :description,
+        :severity_level, :status, :image)");
+      $statement->execute(['tenant_id' => $_SESSION['user']->id, 'property_id' => $this->id, 'timestamp' => date('Y-m-d G:i:s'),
+        'subject' => $subject, 'description' => $description, 'severity_level' => $severity, 'status' => 0, 'image' => $image]);
+      return true;
+    } catch (Exception $e) {
+      echo 'Error: ' . $e->getMessage();
+    }
+    return false;
+  }
+
 }
