@@ -68,4 +68,27 @@ class Property extends Model
     return false;
   }
 
+  public function getRepairRequests()
+  {
+    try {
+      $db = Database::getInstance();
+      $statement = $db->prepare("SELECT * FROM repair_request WHERE property_id=:property_id AND tenant_id=:tenant_id");
+      $statement->execute(['property_id' => $this->id, 'tenant_id' => $_SESSION['user']->id]);
+      $result = Array();
+      while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
+        $tmp = Array("tenant_id" => $row['tenant_id'], "property_id" => $row['property_id'],
+            "timestamp" => $row['timestamp'], "subject" => $row['subject'], "description" => $row['description'],
+            "severity_level" => $row['severity_level'], "status" => $row['status'], "image" => $row['image']);
+        array_push($result, $tmp);
+      }
+      if (count($result) == 0) {
+        return false;
+      }
+      return $result;
+    } catch (Exception $e) {
+      echo 'Error: ' . $e->getMessage();
+    }
+    return false;
+  }
+
 }

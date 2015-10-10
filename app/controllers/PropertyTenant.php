@@ -175,7 +175,49 @@ class PropertyTenant extends Controller
         if (!Tenant::isAuthenticated()) {
             $this->redirect('/');
         } else {
+            $this->setJavascriptDependencies([
+                WEBDIR . '/js/selectProperty.js'
+
+            ]);
+            $this->setCSSDependencies([
+                WEBDIR . '/css/module.css'
+
+            ]);
             $this->view('tenant/repair');
+        }
+    }
+
+    public function viewRepairs()
+    {
+        if (!Tenant::isAuthenticated()) {
+            $this->redirect('/');
+        } else {
+            $this->setJavascriptDependencies([
+                WEBDIR . '/js/selectProperty.js'
+
+            ]);
+            $this->setCSSDependencies([
+                WEBDIR . '/css/module.css'
+
+            ]);
+            $this->view('tenant/viewrepairs');
+        }
+    }
+
+    public function repairRequest()
+    {
+        if (!Tenant::isAuthenticated()) {
+            $this->redirect('/');
+        } else {
+            $this->setJavascriptDependencies([
+                WEBDIR . '/js/selectProperty.js'
+
+            ]);
+            $this->setCSSDependencies([
+                WEBDIR . '/css/module.css'
+
+            ]);
+            $this->view('tenant/repairrequest');
         }
     }
 }
