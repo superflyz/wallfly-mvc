@@ -31,10 +31,6 @@ if (isset($_SESSION['selectedProperty'])) {
 //}
 
 ?>
-
-<script src="/wallfly-mvc/public/js/dropdown2/dropdown2.js"></script>
-    <link href="/wallfly-mvc/public/js/dropdown2/dropdown2.css" rel="stylesheet">
-
           
 <div class="container-fluid">
     <div class="row no-gutter row-offcanvas row-offcanvas-left">
@@ -105,38 +101,7 @@ if (isset($_SESSION['selectedProperty'])) {
             <div class="container content_body">
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="property-display pull-left">
-                            <div class="pull-left">
-                                <div class="property-label"><p>Property</p></div>
-                                <div class="property-address">
-                                    <!-- create address dropdown list only if agent or owner usertype -->
-                                    <?php if ($userType == 2) {
-                                    //    if ($properties = $_SESSION['user']->getProperties()) {
-                                    //      echo $properties[1]->address;
-                                    //    }
-
-                                          $properties = $_SESSION['user']->getProperties();
-                                    //
-                                    }
-
-                                    ?>
-                                   <select class="ui search dropdown">
-                                        <option value="">Select a property...</option>
-                                        <?php
-                                    for($i=0;$i<count($properties);$i++){
-                                        $selected = '';
-                                        echo value;
-                                        if ($properties[$i]->id === $pID) {
-                                            $selected = 'selected';
-                                        }
-                                        echo '<option value="'.$i.'" ' . $selected . '>' . $properties[$i]->address . '</option>';
-
-                                    } ?>
-                                    </select> 
-                                
-                                </div>
-                            </div>
-                        </div>
+                        
                     </div>
                 </div>
                 

@@ -43,9 +43,18 @@ body {
     background-color: #333333;
     background-color: #ffffff;
     font-family: "Titillium Web", Ubuntu, "Helvetica Neue", Helvetica, Arial, sans-serif;
+/*
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
+*/
 }
+
+/*
+#page-top {
+    
+    overflow: auto;
+}
+*/
 
 title {
     display: block;
@@ -329,24 +338,24 @@ h6 {
 }
 
 /*--- Text below login button ALL screen ---*/
-.text {
+.p-text {
     margin-bottom: 100px;
     color: #ffffff;
     font-size: 16px;
 }
 
-.text p {
+.p-text p {
     font-family: "Titillium Web", Ubuntu, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
     
-.text .s-link {
+.p-text .s-link {
     text-decoration: none;
     color: #5AD663;
 }
     
-.text .s-link:hover,
-.text .s-link:focus,
-.text .s-link:active {
+.p-text .s-link:hover,
+.p-text .s-link:focus,
+.p-text .s-link:active {
     text-decoration: underline;
 }
 
@@ -610,22 +619,26 @@ body {
 /*************************************************************/
 
 .ui_body {
-    overflow-y: hidden;
-    height: 100vh;
+ 
+  overflow: hidden;
+    height: 1000px;
     font-family: "Titillium Web", Ubuntu, "Helvetica Neue", Helvetica, Arial, sans-serif;
+/*
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
+*/
 }
 
 .content_body {
     background-color: #ffffff;
-    overflow-y: scroll;
+    overflow: auto;
+/*    padding-bottom: 75px;*/
     height: 100vh;
-   width:100%;
+    min-height: 100%;
+    width: 100%;
     padding-left: 33px;
     padding-right: 33px;
-    -ms-text-size-adjust: 100%;
-    -webkit-text-size-adjust: 100%;
+
 }
 
 /*---  Top navbar ---*/
@@ -907,46 +920,44 @@ https://groups.google.com/forum/#!topic/twitter-bootstrap-stackoverflow/0Aqzs5s_
 }
 
 .property-display {
-    background: linear-gradient(to top, #ededed, #dedede);
+    background: #333333;
+/*    linear-gradient(to top, #333333, #dedede);*/
+/*    background: radial-gradient(#ededed, #dedede);*/
 /*        background-color: #ebebeb;*/
     border-bottom-left-radius: 4px;
     border-bottom-right-radius: 4px;
-    height: 40px;
+    height: 43px;
 /*
     border: 1px solid #333333;
     border-top: none;
 */
-  
-    margin: 0px 0px 0px 0px;
-    
+
+/*    display: flex;*/
+    width: auto;
 }
 
 .property-display .property-label {
-    background-color:  #333333;
+    background-color:  #5AD663;
     color: #ffffff;
-    height: 25px;
+    height: 33px;
     width: 80px;
     float: left;
     font-size: 14px;
-    font-weight: 400;
-    margin: 7px 0px 0px 10px;
+    font-weight: 600;
+    margin: 5px 0px 0px 5px;
     border-bottom-left-radius: 4px;
     border-top-left-radius: 4px;
-    padding: 0px 0px 0px 4px;
+    padding: 4px 0px 0px 0px;
     
 }
 
 .property-display .property-address {
         float: left;
-    background-color: #ffffff;
-        margin: 7px 0px 0px 0px;
-        border-bottom-right-radius: 4px;
-    border-top-right-radius: 4px;
-       height: 25px;
-    width: inherit;
-        font-size: 14px;
-    font-weight: 200;
-        padding: 0px 15px 0px 10px;
+/*    background-color: red;*/
+        margin: 5px 5px 0px 0px;
+       height: 100%;
+/*    width: 344px;*/
+        padding: 0px 0px 0px 0px;
 }
 
 .property-display .property-label p {
@@ -976,16 +987,23 @@ https://groups.google.com/forum/#!topic/twitter-bootstrap-stackoverflow/0Aqzs5s_
 }
 
 #select_property {
-    background: radial-gradient(#dedede,#f8f8f8);
+    background: radial-gradient(#f8f8f8,#dedede);
     border-radius: 4px;
    height: 250px;
 }
 
+.select-property-dropdown {
+/*    background: red;*/
+    height: 40px;
+    width: 400px;
+    margin: 0 auto;
+
+}
 /*
-#select_property h3 {
-    margin: 0px 0px 0px 25px;  
+.select-property-dropdown h3 {
+    margin: 0px 0px 0px 0px;  
     font-weight: 300;
-    padding: 25px 0px 0px 0px;
+    padding: 0px 0px 0px 0px;
     text-transform: none;
     font-size: 18px;
     color: #333333;
@@ -1430,21 +1448,28 @@ padding: 25px 0px 0px 0px;
 
 /*--- Chat page ---*/
 #chat_system {
-    height: 100%; 
-    margin: 33px 0px 0px 0px;
+    height: auto;
+/*    background: blue;*/
+    margin: 0px 0px 0px 0px;
 }
 
 .panel-primary {
-    border: 0px;
-    border-radius: 4px;
+    border: none;
+    box-shadow: none;
+      height: 522px;
+    border-radius: 5px;
+/*    border: 2px solid #5AD663;*/
+/*        border: 2px solid #5AD663;*/
 }
 
 .panel-primary .panel-heading {
     color: #ffffff;
     height: 50px;
     font-weight: 600;
-    background-color: #5AD663;
-    border-bottom: 2px solid #5AD663;
+    background-color: #333333;
+/*    border: 2px solid #dedede;*/
+    
+    border-bottom: 2px solid #333333;
     border-radius-top-left: 4px;
     border-radius-top-right: 4px;
 }
@@ -1453,17 +1478,44 @@ padding: 25px 0px 0px 0px;
     margin: 4px 0px 0px 4px;
 }
 
-#chatbox {
-    height: 393px;
-    overflow: auto;
-    background: radial-gradient(#dedede,#f8f8f8);
-}
-
 .panel-footer {
     display:inline-block;
     height: auto;
     width: 100%;
+    margin: 0px;
+
     background-color: #dedede;
+}
+
+#chatbox {
+    height: 363px;
+    overflow-y: auto;
+    background: radial-gradient(#dedede,#f8f8f8);
+       border-width: 2px;
+    border-style: solid;
+    -webkit-border-image: 
+      -webkit-gradient(linear, 0 0, 0 100%, from(#333333), to(#dedede)) 1 100%;
+    -webkit-border-image: 
+      -webkit-linear-gradient(#333333, #dedede) 1 100%;
+    -moz-border-image:
+      -moz-linear-gradient(#333333, #dedede) 1 100%;    
+    -o-border-image:
+      -o-linear-gradient(#333333, #dedede) 1 100%;
+    border-image:
+      linear-gradient(to bottom, #333333, #dedede) 1 100%;
+/*
+    border-left: 2px solid #dedede;
+    border-right: 2px solid #dedede;
+*/
+}
+
+ul
+{
+    list-style-type: none;
+}
+
+li{
+	margin-bottom: 10%;
 }
 
 .btn-msg-inpt {
@@ -1557,7 +1609,7 @@ padding: 25px 0px 0px 0px;
 
 .current-user .user-img {
     background: #333333;
-    color: #5AD663;
+    color: #ffffff;
     padding: 4px;
     height: 44px;
     margin: 0px 0px 0px 20px;
@@ -1571,7 +1623,7 @@ padding: 25px 0px 0px 0px;
 
 .current-user .msg-txt {
     margin: 9px 9px 0px 9px;
-    color: #333333;
+    color: #ffffff;
     padding: 0px 0px 0px 0px;
     white-space: normal;
     word-wrap: break-word;
@@ -1602,7 +1654,7 @@ padding: 25px 0px 0px 0px;
     font-size: 9px;   
 }
 
-.current-user  .time {
+.current-user .time {
     color: #f9f9f9;
     font-weight: 100;
     font-size: 9px;  
@@ -1622,7 +1674,7 @@ padding: 25px 0px 0px 0px;
     height: auto;
     margin: 0px 0px 20px 0px;
     padding: 0px;
-    background: #cdcdcd;
+    background: #5AD663;
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
     border-radius: 4px;
@@ -1633,7 +1685,7 @@ padding: 25px 0px 0px 0px;
     position: absolute;
     border-style: solid;
     border-width: 10px 0 10px 10px;
-    border-color: transparent #cdcdcd;
+    border-color: transparent #5AD663;
     display: block;
     width: 0;
     z-index: 1;
@@ -1643,7 +1695,7 @@ padding: 25px 0px 0px 0px;
 
 .other-user .user-img {
     background: #333333;
-    color: #5AD663;
+    color: #ffffff;
     padding: 4px;
     height: 44px;
     margin: 0px 20px 0px 0px;
@@ -1674,6 +1726,90 @@ padding: 25px 0px 0px 0px;
     width: 100%;
     padding: 0px;
     margin: 0px 0px 0px 0px;
+}
+
+/*--- Manage Properties details ---*/
+.manage_properties_pills {
+    
+/*    background-color: red;*/
+    height: auto;
+        margin: 0px 0px 0px 0px;
+    
+}
+
+
+.manage_properties_pills .properties_pills li a {
+    margin: 0px 20px 0px 0px;
+    font-weight: 500;
+    color: #333333;  
+
+    border-bottom: 2px solid #5AD663; 
+    border-left: 0px;
+    border-radius: 4px;
+    font-size: 16px;
+        background-color: #dedede;
+    
+/*    box-shadow: inset 0 0 0 0 #5AD663;*/
+    -webkit-transition: all ease-in-out 0.33s;
+    -moz-transition: all ease-in-out 0.33s;
+    transition: all ease-in-out 0.33s;   
+}
+
+.manage_properties_pills .properties_pills li:last-child a {
+    margin: 0px 0px 0px 0px;
+
+}
+
+.manage_properties_pills .properties_pills li a:hover{
+    background-color: #5AD663;
+      border-left: 0px;
+ color: #ffffff;
+
+}
+
+.manage_properties_pills .properties_pills li.active a{
+    background-color: #5AD663; 
+      border-left: 0px;
+     color: #ffffff;  
+
+}
+
+.manage_properties_view {
+    
+      background: #f8f8f8;
+/*    radial-gradient(#dedede,#f8f8f8);*/
+    border-radius: 4px;
+    margin: 20px 0px 0px 0px;
+/*    height: auto;*/
+
+    
+}
+
+.page_heading {
+/*    background: red;*/
+    height: 100px;
+            margin: 20px 0px -40px 0px;
+    padding: 0px;
+
+}
+
+.page_heading p {
+    font-size: 20px;
+    font-weight: 600;
+    color: #333333;
+/*    border-bottom: 1px solid yellow;*/
+    padding-bottom: 5px;
+
+
+}
+
+.page_heading hr {
+    background: linear-gradient(to left, #f8f8f8, #dedede);
+        border:none;
+    border-radius: 100px;
+        height:1px;
+    margin: -15px 0px 0px 0px;
+    padding: 0px;
 }
 
 

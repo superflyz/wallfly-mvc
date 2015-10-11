@@ -6,6 +6,14 @@
 <!--Content here-->
 <audio id="audiotag1" src="../sounds/messageAlert.mp3" preload="auto"></audio>
 
+<div class="row">
+    <div class="col-md-12">
+        <div class="page_heading">
+            <p>Messages</p>
+            <hr />
+        </div>
+    </div>
+</div>
 
 <!-- Chat box -->
 <div class="row">

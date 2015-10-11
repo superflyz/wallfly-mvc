@@ -65,12 +65,12 @@
             </div>
 
             <div class="row">
-                <div class="col-md-12 text">
+                <div class="col-md-12 p-text">
                     <p>Own a property? <a href="#" class="s-link" data-toggle="modal" data-target=".sign-up-modal-sm">Sign Up</a></p>
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-12 text">
+                <div class="col-md-12 p-text">
                     <a href="#features" class="btn-scroll-down page-scroll" title="Scroll Down">
                     <i class="fa fa-angle-double-down animated"></i>
                     </a>
@@ -219,7 +219,6 @@
                 </div>
             </div>
         </div>
-  </div>
 
 <div class="modal modal-vcenter fade login-modal-sm" id="loginmodal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
         <div class="modal-dialog modal-sm">
@@ -265,5 +264,4 @@
                 </div>
             </div>
         </div>
-    </div>
-</div>
+  </div>
