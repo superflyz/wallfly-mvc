@@ -72,6 +72,10 @@ class PropertyAgent extends Controller
     if (!Agent::isAuthenticated()) {
       $this->redirect('/');
     } else {
+      $this->setJavascriptDependencies([
+          WEBDIR . '/js/selectProperty.js'
+
+      ]);
       $this->setCSSDependencies([
           WEBDIR . '/css/module.css'
 
@@ -94,6 +98,18 @@ class PropertyAgent extends Controller
     if (!Agent::isAuthenticated()) {
       $this->redirect('/');
     } else {
+      $this->setJavascriptDependencies([
+          WEBDIR . '/dzscalendar/dzscalendar.js',
+          WEBDIR . '/js/paymentDatePicker.js'
+      ]);
+
+      $this->setCSSDependencies([
+          'http://fonts.googleapis.com/css?family=Carrois+Gothic',
+          WEBDIR . '/dzstooltip/dzstooltip.css',
+          WEBDIR . '/dzscalendar/dzscalendar.css',
+          'http://fonts.googleapis.com/css?family=Open+Sans',
+          WEBDIR . '/css/module.css'
+      ]);
       $this->view('agent/addpayment');
     }
   }
@@ -102,12 +118,14 @@ class PropertyAgent extends Controller
   {
     if (!Agent::isAuthenticated()) {
       $this->redirect('/');
-    }
-    $result = $_SESSION['selectedProperty']->addPayment($_POST['amount']);
-    if ($result == false) {
-      $this->view('agent/addpayment');
     } else {
-      $this->view('agent/viewpayments');
+      $result = $_SESSION['selectedProperty']->addPayment($_POST['payeeName'], $_POST['startDate'], $_POST['endDate'],
+          $_POST['amount']);
+      if ($result == false) {
+        $this->view('agent/addpayment');
+      } else {
+        $this->view('agent/viewpayments');
+      }
     }
   }
 
@@ -116,7 +134,26 @@ class PropertyAgent extends Controller
     if (!Agent::isAuthenticated()) {
       $this->redirect('/');
     } else {
+      $this->setJavascriptDependencies([
+          WEBDIR . '/js/selectProperty.js'
+
+      ]);
+      $this->setCSSDependencies([
+          WEBDIR . '/css/module.css'
+
+      ]);
       $this->view('agent/repair');
+    }
+  }
+
+  public function processRepairRequest()
+  {
+    if (!Agent::isAuthenticated()) {
+      $this->redirect('/');
+    } else {
+      $tmp = explode("/", $_POST['submit']);
+      $result = $_SESSION['selectedProperty']->processRepairRequest($tmp[0], $tmp[1]);
+      $this->redirect('/propertyagent/repair');
     }
   }
 
