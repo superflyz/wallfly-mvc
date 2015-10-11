@@ -1,17 +1,24 @@
 <?php
     require_once '../app/views/templates/interfaceStartIndex.php';
+
+/**
+ * Created by PhpStorm.
+ * User: jimmykovacevic
+ * Date: 4/10/2015
+ * Time: 6:13 PM
+ */
+
 ?>
 
 <script src="/wallfly-mvc/public/js/dropdown/dropdown.js"></script>
-    <link href="/wallfly-mvc/public/js/dropdown/dropdown.css" rel="stylesheet">
+<link href="/wallfly-mvc/public/js/dropdown/dropdown.css" rel="stylesheet">
           
 
 <!--Content here-->
 <div class="row">
     <div class="col-md-12">
-        <h1 class="wlcm-h1">Welcome <span class="user-color"> User!</span></h1>
-    </div>
-</div>
+        <h1 class="wlcm-h1">Welcome <span class="user-color"><?php echo $_SESSION['user']->firstname?>!</span></h1>
+
 <div class="row">
     <div class="col-md-12">
         <section id="select_property">

@@ -1,0 +1,49 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: jimmykovacevic
+ * Date: 4/10/2015
+ * Time: 6:13 PM
+ */
+require_once '../app/views/templates/interfaceStart.php';
+?>
+<!--Content here-->
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <!-- Features Section -->
+            <div class="container-fluid" id="dash-links">
+                <div class="row text-center">
+                    <div class="col-md-4 col-sm-6">
+                        <a href="<?=WEBDIR?>/propertytenant/viewRepairs">
+                            <div class="dash-link">
+                                    <span class="icons">
+                                        <i class="fa fa-calendar fa-inverse"></i>
+                                    </span>
+                                <h4 class="link-heading">View Repair Requests</h4>
+                                <p class="link-text"></p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <a href="<?=WEBDIR?>/propertytenant/repairRequest">
+                            <div class="dash-link">
+                                    <span class="icons">
+                                        <i class="fa fa-home fa-inverse"></i>
+                                    </span>
+                                <h4 class="link-heading">Make a Repair Request</h4>
+                                <p class="link-text"></p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<?php
+require_once '../app/views/templates/interfaceEnd.php';
+?>
+
+

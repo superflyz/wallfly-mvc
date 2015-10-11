@@ -1779,11 +1779,98 @@ li{
       background: #f8f8f8;
 /*    radial-gradient(#dedede,#f8f8f8);*/
     border-radius: 4px;
-    margin: 20px 0px 0px 0px;
+    margin: 20px 0px 50px 0px;
+/*
+    min-height: 1000px;
+    height: inherit;
+*/
+/*    overflow: auto;*/
+    
 /*    height: auto;*/
+}
 
+
+
+.add_payments {
+    
+/*   background: red; */
+   margin: 0px;
+    padding-bottom: 40px;
     
 }
+
+.payments {
+    
+/*    background: red;*/
+    margin-left: 30px;
+        padding: 20px 0px 40px 0px;
+}
+
+.first_row {
+    
+/*    background: green;*/
+    margin: 0px;
+}
+
+.second_row {
+    
+/*    background: blue;*/
+/*    margin: 0px;*/
+    height: 220px;
+}
+
+
+.zeropad{
+    padding:0;
+}
+
+.ptimestamp {
+    padding: 10px;
+    
+    background: #f8f8f8;
+    color: #333333;
+}
+
+.pbtns {
+/*    background: green;*/
+/*    height: 100px;*/
+    width: 300px;
+  
+    margin: 0px 0px 20px 0px;
+    clear: both;
+
+
+}
+
+.pall {
+border-radius: 4px;
+    background: #dedede;
+}
+
+.pbtns .btn {
+    border-color: red;
+    border: 4px;
+/*    background: #dedede;*/
+}
+
+.pimg {
+/*        background: red;*/
+
+        max-width: 100px;
+}
+.pimg img{
+    
+/*      background: green;*/
+
+
+/*
+    
+    height: 30px;
+    width: 20px;
+*/
+
+}
+
 
 .page_heading {
 /*    background: red;*/
@@ -1812,6 +1899,34 @@ li{
     padding: 0px;
 }
 
+/*--- Calendar_btn ---*/
+#calendar_btn {
+    
+/*background: green;*/
+    height: 50px;
+    padding: 20px 20px 0px 0px;
+    
+}
+
+.calbtn {
+    
+    margin-right: 40px;
+}
+
+#calender {
+/*    background: green;*/
+    height: 750px;
+    margin: 0px;
+    
+}
+
+.paypal {
+    
+/*    background: red;*/
+    margin: -14px 0px 10px 0px;
+    height: 20px;
+    width: 120px;    
+}
 
 /*--- Footer ALL screen ---*/
 #ui_footer p {
@@ -1833,3 +1948,4 @@ li{
 #ui_footer p .diff-font {
     font-family: "Diavlo Light"; 
 }
+

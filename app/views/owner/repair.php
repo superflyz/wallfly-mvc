@@ -1,6 +1,14 @@
 <?php
+/**
+ * Created by PhpStorm.
+ * User: jimmykovacevic
+ * Date: 3/10/2015
+ * Time: 4:51 PM
+ */
 require_once '../app/views/templates/interfaceStart.php';
+//require_once '../app/views/templates/selectProperty.php';
 ?>
+
 <!--Content here-->
 <div class="row">
     <div class="col-md-12">
@@ -13,28 +21,34 @@ require_once '../app/views/templates/interfaceStart.php';
 
 <div class="row">
     <div class="col-md-12">
-        <div class="manage_properties_pills">
-          <!-- Nav pills -->
-          <ul class="nav nav-pills nav-justified properties_pills">
-            <li role="presentation"><a href="#home" aria-controls="home" role="pill" data-toggle="pill">View Repairs</a></li>
-            <li role="presentation"><a href="#profile" aria-controls="profile" role="pill" data-toggle="pill">Repair Request</a></li>
-          </ul>
-        
-        </div>
+         <?php if (isset($_SESSION['selectedProperty'])) { ?>
+      
+                <form id="addPayment" method="post" action="<?=WEBDIR?>/propertyowner/processRepairRequest">
+                    <?php
+                    $result = $_SESSION['selectedProperty']->getRepairRequests();
+                    if ($result) {
+                        foreach ($result as $row) {
+                            echo "<div class='pall'><p class='ptimestamp'>Timestamp: " . $row['timestamp'] . " Subject: " . $row['subject'] .
+                                " Description: " . $row['description'] . " Severity: " . $row['severity_level'] .
+                                " Status: " . $row['status'] . "<div class='pimg'><img height='100' width='100' src='" . $row['image'] .
+                                "'/></div></p>";
+                            ?>
+                        <div class="pbtns">
+                            <button type='submit' name='submit' value='<?php echo $row['timestamp']?>/approve' id='submit-btn' class='btn btn-primary submit eventsubmit'>Approve</button>
+                            <button type='submit' name='submit' value='<?php echo $row['timestamp']?>/deny' id='submit-btn' class='btn btn-primary submit eventsubmit'>Deny</button>
+                        </div>
     </div>
-</div>
+                            <?php
+                        }
+                    }
+                    ?>
+                </form>
+     
+        <?php }?>           
+            
+            </div>
 
-<div class="row">
-    <div class="col-md-12">
-        <!-- Pill panes -->
-        <div class="pill-content manage_properties_view">
-            <div role="pillpanel" class="pill-pane" id="home">1</div>
-            <div role="pillpanel" class="pill-pane" id="profile">2</div>
         </div>
-    </div>
-</div>
-
-
 
 
 
@@ -47,8 +61,7 @@ require_once '../app/views/templates/interfaceStart.php';
     
     document.title = 'Repairs - WallFly';
 </script>
-    
+
 <?php
 require_once '../app/views/templates/interfaceEnd.php';
 ?>
-

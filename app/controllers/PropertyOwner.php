@@ -22,16 +22,7 @@ class PropertyOwner extends Controller
       $data = [];
       $data['properties'] = $_SESSION['user']->getProperties();
       $data['owner'] = $_SESSION['user'];
-      $this->view('owner/manage', $data);
-    }
-  }
-
-  public function home()
-  {
-    if (!Owner::isAuthenticated()) {
-      $this->redirect('/');
-    } else {
-      $this->view('owner/home');
+      $this->view('owner/manageDetails', $data);
     }
   }
 
@@ -40,6 +31,38 @@ class PropertyOwner extends Controller
     if (!Owner::isAuthenticated()) {
       $this->redirect('/');
     } else {
+
+      $this->setJavascriptDependencies([
+
+          WEBDIR . '/dzscalendar/dzscalendar.js',
+          WEBDIR . '/js/sweetalert.min.js',
+          WEBDIR . '/bootstrap/bootstrap.js',
+          WEBDIR . '/clockpicker/js/bootstrap.min.js',
+          WEBDIR . '/clockpicker/js/timepicki.js'
+
+      ]);
+
+      $this->setCSSDependencies([
+
+             WEBDIR . '/css/bootstrap.css',
+           //WEBDIR . '/style/style.css',
+         // 'http://fonts.googleapis.com/css?family=Carrois+Gothic',
+           WEBDIR . '/dzstooltip/dzstooltip.css',
+           WEBDIR . '/dzscalendar/dzscalendar.css',
+          //'http://fonts.googleapis.com/css?family=Open+Sans',
+           // WEBDIR . '/clockpicker/css/bootstrap.css',
+
+          WEBDIR . '/css/sweetalert.css',
+          WEBDIR . '/css/wallfly.css',
+          WEBDIR . '/css/module.css',
+          WEBDIR . '/clockpicker/css/timepicki.css'
+
+
+
+
+      ]);
+
+
       $this->view('owner/calendar');
     }
   }
@@ -64,13 +87,70 @@ class PropertyOwner extends Controller
     }
   }
 
-
   public function payment()
   {
     if (!Owner::isAuthenticated()) {
       $this->redirect('/');
     } else {
+      $this->setJavascriptDependencies([
+          WEBDIR . '/js/selectProperty.js',
+          WEBDIR . '/dzscalendar/dzscalendar.js',
+          WEBDIR . '/js/paymentDatePicker.js'
+
+      ]);
+      $this->setCSSDependencies([
+
+          WEBDIR . '/css/module.css',
+          WEBDIR . '/dzstooltip/dzstooltip.css',
+          WEBDIR . '/dzscalendar/dzscalendar.css'
+
+      ]);
       $this->view('owner/payment');
+    }
+  }
+
+  public function viewPayments()
+  {
+    if (!Owner::isAuthenticated()) {
+      $this->redirect('/');
+    } else {
+      $this->view('owner/viewpayments');
+    }
+  }
+
+  public function addPayment()
+  {
+    if (!Owner::isAuthenticated()) {
+      $this->redirect('/');
+    } else {
+      $this->setJavascriptDependencies([
+          WEBDIR . '/dzscalendar/dzscalendar.js',
+          WEBDIR . '/js/paymentDatePicker.js'
+      ]);
+
+      $this->setCSSDependencies([
+          'http://fonts.googleapis.com/css?family=Carrois+Gothic',
+          WEBDIR . '/dzstooltip/dzstooltip.css',
+          WEBDIR . '/dzscalendar/dzscalendar.css',
+          'http://fonts.googleapis.com/css?family=Open+Sans',
+          WEBDIR . '/css/module.css'
+      ]);
+      $this->view('owner/addpayment');
+    }
+  }
+
+  public function processPayment()
+  {
+    if (!Owner::isAuthenticated()) {
+      $this->redirect('/');
+    } else {
+      $result = $_SESSION['selectedProperty']->addPayment($_POST['payeeName'], $_POST['startDate'], $_POST['endDate'],
+          $_POST['amount']);
+      if ($result == false) {
+        $this->redirect('/propertyowner/payment');
+      } else {
+        $this->redirect('/propertyowner/payment');
+      }
     }
   }
 
@@ -79,7 +159,26 @@ class PropertyOwner extends Controller
     if (!Owner::isAuthenticated()) {
       $this->redirect('/');
     } else {
+      $this->setJavascriptDependencies([
+          WEBDIR . '/js/selectProperty.js'
+
+      ]);
+      $this->setCSSDependencies([
+          WEBDIR . '/css/module.css'
+
+      ]);
       $this->view('owner/repair');
+    }
+  }
+
+  public function processRepairRequest()
+  {
+    if (!Owner::isAuthenticated()) {
+      $this->redirect('/');
+    } else {
+      $tmp = explode("/", $_POST['submit']);
+      $result = $_SESSION['selectedProperty']->processRepairRequest($tmp[0], $tmp[1]);
+      $this->redirect('/propertyowner/repair');
     }
   }
 
