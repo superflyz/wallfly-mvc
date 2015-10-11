@@ -157,19 +157,14 @@ class PropertyOwner extends Controller
     } else {
       $this->setJavascriptDependencies([
           WEBDIR . '/js/selectProperty.js'
-
       ]);
       $this->setCSSDependencies([
           WEBDIR . '/css/module.css'
-
       ]);
       $this->view('owner/repair');
     }
   }
 
-<<<<<<< HEAD
-  public function manageDetails($propertyId)
-=======
   public function processRepairRequest()
   {
     if (!Owner::isAuthenticated()) {
@@ -181,8 +176,7 @@ class PropertyOwner extends Controller
     }
   }
 
-  public function manageDetails()
->>>>>>> master
+  public function manageDetails($propertyId)
   {
     if (!Owner::isAuthenticated()) {
       $this->redirect('/');
@@ -201,7 +195,50 @@ class PropertyOwner extends Controller
     if (!Owner::isAuthenticated()) {
       $this->redirect('/');
     } else {
-      $this->view('owner/addpropertyform');
+      if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $property = Property::create([
+          'address' => $_POST['address'],
+          'payment_schedule' => $_POST['payment_schedule'],
+          'rent_amount' => $_POST['rent_amount'],
+          'owner_id' => $_SESSION['user']->id,
+          'photo' => DUMMY_IMAGE
+        ]);
+        Flash::set('message', 'You added a new property!');
+        $this->redirect('/propertyowner/manage');
+      } else {
+        $this->view('owner/addpropertyform');
+      }
+    }
+  }
+
+  public function removeprop($propertyId)
+  {
+    if (!Owner::isAuthenticated()) {
+      $this->redirect('/');
+    } else {
+      if ($property = Property::get([ 'id' => $propertyId ])[0]) {
+        $property->delete();
+        Flash::set('message', 'You removed a property!');
+        $this->redirect('/propertyowner/manage');
+      } else {
+        Flash::set('message', 'This property does not exist!');
+        $this->redirect('/propertyowner/manage');
+      }
+    }
+  }
+
+  public function addtenant($propertyId)
+  {
+    if (!Owner::isAuthenticated()) {
+      $this->redirect('/');
+    } else {
+      if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+      } else {
+        $this->view('templates/interfaceStart');
+        $this->view('owner/addtenant');
+        $this->view('templates/interfaceEnd');
+      }
     }
   }
 

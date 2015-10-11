@@ -10,6 +10,12 @@ require_once '../app/views/templates/interfaceStart.php';
     <!--    </div>-->
 
     <h1><?=$data['property']->address?></h1>
+    <img src="<?=$data['property']->photo?>">
+    <ul>
+        <li>Your agent: -</li>
+        <li>Your tenant: -</li>
+    </ul>
+    <a href="<?=WEBDIR?>/propertyowner/addtenant/<?=$data['property']->id?>" class="btn btn-success">Add a tenant</a>
 
 
     <div class="row">
@@ -18,18 +24,7 @@ require_once '../app/views/templates/interfaceStart.php';
             <section id="dash-links">
                 <div class="container-fluid">
                     <div class="row text-center">
-                        <div class="col-md-3 col-sm-6">
-                            <a href="">
-                                <div class="dash-link">
-                            <span class="icons">
-                                <i class="fa fa-calendar fa-inverse"></i>
-                            </span>
-                                    <h4 class="link-heading">Property Details</h4>
-                                    <!--                                    <p class="link-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur adipisicing elit.</p>-->
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-md-3 col-sm-6">
+                        <div class="col-md-4 col-sm-8">
                             <a href="">
                                 <div class="dash-link">
                             <span class="icons">
@@ -40,7 +35,7 @@ require_once '../app/views/templates/interfaceStart.php';
                                 </div>
                             </a>
                         </div>
-                        <div class="col-md-3 col-sm-6">
+                        <div class="col-md-4 col-sm-8">
                             <a href="">
                                 <div class="dash-link">
                             <span class="icons">
@@ -51,7 +46,7 @@ require_once '../app/views/templates/interfaceStart.php';
                                 </div>
                             </a>
                         </div>
-                        <div class="col-md-3 col-sm-6">
+                        <div class="col-md-4 col-sm-8">
                             <a href="">
                                 <div class="dash-link">
                             <span class="icons">

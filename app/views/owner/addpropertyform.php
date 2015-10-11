@@ -2,7 +2,7 @@
 require_once '../app/views/templates/interfaceStart.php';
 ?>
 
-<form class="form-horizontal">
+<form class="form-horizontal" method="post" action="<?=WEBDIR . '/propertyowner/addproperty' ?>">
 <fieldset>
 
 <!-- Form Name -->
@@ -22,9 +22,9 @@ require_once '../app/views/templates/interfaceStart.php';
   <label class="col-md-4 control-label" for="payment_schedule">Payment Schedule</label>
   <div class="col-md-4">
     <select id="payment_schedule" name="payment_schedule" class="form-control">
-      <option value="weekly">Weekly</option>
-      <option value="fortnightly">Fortnightly</option>
-      <option value="monthly">Monthly</option>
+      <option value="WEEKLY">Weekly</option>
+      <option value="FORTNIGHTLY">Fortnightly</option>
+      <option value="MONTHLY">Monthly</option>
     </select>
   </div>
 </div>
