@@ -11,7 +11,7 @@ echo '<a id="add-event" class="btn btn-primary dropdown-toggle add-event" data-t
 echo '</div>';
 
 echo '<div class="btn-group calbtn">';
-echo '<a id="select-event" class="btn btn-primary" data-toggle="modal"  href="#">Edit Calander Event</a>';
+echo '<a id="select-event" class="btn btn-primary" data-toggle="modal"  href="#">Remove Calander Event</a>';
 echo '</div>';
 ?>
      </div>
@@ -293,6 +293,39 @@ echo '</div>';
 
 //       var test =  $('html').prop('scrollHeight')
 //        setInterval(function(){ alert(test); }, 3000);
+        $('#pagecontentstart').addClass( "reduce_page_height" );
+
+
+
+        $("body").on('click', ".removeEvent", function(){ var removeID = $(this).parent().attr("id"); swal({   title: "Are you sure?",   text: "This will permanently remove the event!",
+           type: "warning",   showCancelButton: true, confirmButtonColor: "#DD6B55",   confirmButtonText: "Yes, delete it!",   closeOnConfirm: false },
+           function(){
+
+                alert(removeID);
+             jQuery.ajax({
+                    url: '/wallfly-mvc/public/dashboard/removePropertyEvents',
+                    type: "POST",
+                    data: {
+                        remove: removeID
+                    },
+                    success: function (result) {
+                        swal("Deleted!", "The Event has been removed.", "success");
+                        location.reload();
+                    },
+                    error: function(result){
+
+                        sweetAlert("Sorry", "Unable to remove Event!", "error");
+
+                    }
+                });
+
+
+
+
+
+
+
+  })});
 
 
     });
@@ -320,6 +353,9 @@ echo '</div>';
 
             }
         });
+
+
+
 
 
 

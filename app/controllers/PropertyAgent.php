@@ -43,6 +43,37 @@ class PropertyAgent extends Controller
     if (!Agent::isAuthenticated()) {
       $this->redirect('/');
     } else {
+      $this->setJavascriptDependencies([
+
+          WEBDIR . '/dzscalendar/dzscalendar.js',
+          WEBDIR . '/js/sweetalert.min.js',
+          WEBDIR . '/bootstrap/bootstrap.js',
+          WEBDIR . '/clockpicker/js/bootstrap.min.js',
+          WEBDIR . '/clockpicker/js/timepicki.js'
+
+      ]);
+
+      $this->setCSSDependencies([
+
+          WEBDIR . '/css/bootstrap.css',
+        //WEBDIR . '/style/style.css',
+        // 'http://fonts.googleapis.com/css?family=Carrois+Gothic',
+          WEBDIR . '/dzstooltip/dzstooltip.css',
+          WEBDIR . '/dzscalendar/dzscalendar.css',
+        //'http://fonts.googleapis.com/css?family=Open+Sans',
+        // WEBDIR . '/clockpicker/css/bootstrap.css',
+
+          WEBDIR . '/css/sweetalert.css',
+          WEBDIR . '/css/wallfly.css',
+          WEBDIR . '/css/module.css',
+          WEBDIR . '/clockpicker/css/timepicki.css'
+
+
+
+
+      ]);
+
+
       $this->view('agent/calendar');
     }
   }

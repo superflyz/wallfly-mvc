@@ -24,9 +24,29 @@ require_once '../app/views/templates/selectProperty.php';
                             $result = $_SESSION['selectedProperty']->getRepairRequests();
                             if ($result) {
                                 foreach ($result as $row) {
-                                    echo "<p>Timestamp: " . $row['timestamp'] . " Subject: " . $row['subject'] .
-                                        " Description: " . $row['description'] . " Severity: " . $row['severity_level'] .
-                                        " Status: " . $row['status'] . " <image src='" . $row['image'] . "'/></p>";
+                                    if ($row['status'] == 0){
+                                        $row['status']= "Pending";
+                                    }elseif($row['status'] == 1){
+                                        $row['status']= "Approved";
+                                    }else{$row['status']= "Denied";}
+
+                                    if ($row['severity_level'] == "low"){
+                                        $row['severity_level']= WEBDIR."/img/repair/green.jpg";
+                                    }elseif($row['severity_level'] == "medium"){
+                                        $row['severity_level']= WEBDIR."/img/repair/orange.jpg";
+                                    }else{$row['severity_level']= WEBDIR."/img/repair/red.jpg";}
+
+                                    $splitImgSource = explode("/", $row['image']);
+                                    $lastpos = end($splitImgSource);
+                                    $checkIfImageExists= explode(".", $lastpos);
+                                    if($checkIfImageExists[1]){
+                                        $repairPic = "<img height='100' width='100' src='" . $row['image']."'/>";
+                                    }else{  $repairPic = ""; }
+
+
+                                    echo "<p>Timestamp: " . $row['timestamp'] . "<br/> Subject: " . $row['subject'] .
+                                        "<br/>  Description: " . $row['description'] . "<br/>  Severity:  <image height='15' width='15' src='" . $row['severity_level'] . "'/>" .
+                                        "<br/>  Status: " . $row['status'] . "<br/>". $repairPic ."</p>";
                                 }
                             }
                             ?>

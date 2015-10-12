@@ -43,6 +43,37 @@ class PropertyTenant extends Controller
         if (!Tenant::isAuthenticated()) {
             $this->redirect('/');
         } else {
+            $this->setJavascriptDependencies([
+
+                WEBDIR . '/dzscalendar/dzscalendar.js',
+                WEBDIR . '/js/sweetalert.min.js',
+                WEBDIR . '/bootstrap/bootstrap.js',
+                WEBDIR . '/clockpicker/js/bootstrap.min.js',
+                WEBDIR . '/clockpicker/js/timepicki.js'
+
+            ]);
+
+            $this->setCSSDependencies([
+
+                WEBDIR . '/css/bootstrap.css',
+                //WEBDIR . '/style/style.css',
+                // 'http://fonts.googleapis.com/css?family=Carrois+Gothic',
+                WEBDIR . '/dzstooltip/dzstooltip.css',
+                WEBDIR . '/dzscalendar/dzscalendar.css',
+                //'http://fonts.googleapis.com/css?family=Open+Sans',
+                // WEBDIR . '/clockpicker/css/bootstrap.css',
+
+                WEBDIR . '/css/sweetalert.css',
+                WEBDIR . '/css/wallfly.css',
+                WEBDIR . '/css/module.css',
+                WEBDIR . '/clockpicker/css/timepicki.css'
+
+
+
+
+            ]);
+
+
             $this->view('tenant/calendar');
         }
     }
@@ -286,7 +317,10 @@ class PropertyTenant extends Controller
                     // fie everything is ok, try to uqload file
                 } else {
                     //$this->view('tenant/index');
-                    $result_upload = move_uploaded_file($tmpName, '/Applications/XAMPP/htdocs'.$target_file);
+                    //for Mac
+                   // $result_upload = move_uploaded_file($tmpName, '/Applications/XAMPP/htdocs'.$target_file);
+                   // for Windows
+                    $result_upload = move_uploaded_file($tmpName, 'C:/xampp/htdocs'.$target_file);
                 }
             }
 

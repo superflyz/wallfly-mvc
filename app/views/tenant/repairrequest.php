@@ -34,7 +34,11 @@ require_once '../app/views/templates/selectProperty.php';
 
                             <div class="form-field">
                                 <label for="severity">Severity Level</label>
-                                <input name="severity" type="text" class="form-control">
+                                <select name="severity" class="form-control formSelect">
+                                    <option value="low" class="form-control">Low</option>
+                                    <option value="medium" class="form-control">Medium</option>
+                                    <option value="high" class="form-control">High</option>
+                                </select>
                                 <span class="error"></span>
                             </div>
 

@@ -24,8 +24,20 @@ require_once '../app/views/templates/selectProperty.php';
                             $result = $_SESSION['selectedProperty']->getRepairRequests();
                             if ($result) {
                                 foreach ($result as $row) {
+                                    if ($row['status'] == 0){
+                                        $row['status']= "Pending";
+                                    }elseif($row['status'] == 1){
+                                        $row['status']= "Approved";
+                                    }else{$row['status']= "Denied";}
+
+                                    if ($row['severity_level'] == "low"){
+                                        $row['severity_level']= WEBDIR."/img/repair/green.jpg";
+                                    }elseif($row['severity_level'] == "medium"){
+                                        $row['severity_level']= WEBDIR."/img/repair/orange.jpg";
+                                    }else{$row['severity_level']= WEBDIR."/img/repair/red.jpg";}
+
                                     echo "<p>Timestamp: " . $row['timestamp'] . " Subject: " . $row['subject'] .
-                                        " Description: " . $row['description'] . " Severity: " . $row['severity_level'] .
+                                        " Description: " . $row['description'] . " Severity:  <image height='15' width='15' src='" . $row['severity_level'] . "'/>" .
                                         " Status: " . $row['status'] . " <image src='" . $row['image'] . "'/></p>";
                                 }
                             }

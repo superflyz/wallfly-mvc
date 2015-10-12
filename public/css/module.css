@@ -108,8 +108,7 @@ button.btn-primary, a.btn-primary {
     float: right;
 
 }
-<<<<<<< HEAD
-=======
+
 
 .selectStyle{
 
@@ -202,7 +201,15 @@ span{max-width: 250px;}
 
 .dzstooltip.skin-whiteheading.arrow-left:before {border-right: 10px solid #5AD663;}
 
+.reduce_page_height{
+    height: 90vh;
+}
 
+body > div > div > div.col-md-10.col-sm-10 > div.container.content_body{height: 90vh;}
+
+.removeEvent{margin-top: 75px;}
+
+.dzscalendar .dzstooltip > .tooltip-close {display:none;}
 
 
 /*start modal styling*/

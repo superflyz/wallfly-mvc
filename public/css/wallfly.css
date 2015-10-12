@@ -137,6 +137,11 @@ h6 {
     margin-bottom: 10px;
 }
 
+.formSelect{
+    border: 1px solid black;
+    height: 50px;
+}
+
 .close {
     color: #ffffff;
     opacity: 0.4;
@@ -1384,6 +1389,8 @@ background: blue;
     
 }
 
+
+
 .content {
   background: red;  
     
@@ -1444,6 +1451,10 @@ padding: 25px 0px 0px 0px;
     top: 0;
     width: 50%; /* 6 columns */
   }
+}
+
+.negateNav{
+    padding-bottom: 50px;
 }
 
 /*--- Chat page ---*/
@@ -1570,13 +1581,13 @@ li{
 .current-user {
     margin: 0px 0px 0px 0px;
     padding: 0px;
-    width: 525px;   
+    width: 100%;
 }
 
 .other-user {
     margin: 0px 0px 0px 0px;
     padding: 0px;
-    width: 525px;
+    width: 100%;
 }
 
 .bubble-arw-left {

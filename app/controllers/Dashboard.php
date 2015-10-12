@@ -149,8 +149,7 @@ class Dashboard extends Controller
                 echo '<p>Interval: '.$result[$i]->eventInterval.'</p>';
                 if($result[$i]->eventTime != ""){echo '<p>Time: '.$result[$i]->eventTime.'</p>';}
                 if($result[$i]->description != ""){echo '<p>Description: '.$result[$i]->description.'</p>';}
-                echo '</div><div id="selectButtons"><button type="button" id="editEvent" class="btn btn-warning btn-sm">Edit</button><br/>
-        <button type="button" id="removeEvent"class="btn btn-danger btn-sm">Remove</button></div></div>';}
+                echo '</div><button type="button" class="btn btn-danger btn-lg removeEvent">Remove</button></div></div>';}
 
             #close db connection
             $db = NULL;
@@ -161,6 +160,28 @@ class Dashboard extends Controller
 
     }
 
+
+    public function removePropertyEvents()
+    {
+        $eID = $_POST['remove'];
+
+
+        //enter chat message into Database
+        try {
+            $db = Database::getInstance();
+
+
+            $statement = $db->prepare("DELETE FROM calendar WHERE eventID = :eventID ");
+            $statement->bindParam(':eventID', $eID);
+            $statement->execute();
+            #close db connection
+            $db = NULL;
+            exit();
+        } catch (Exception $e) {
+            echo 'Error: ' . $e->getMessage();
+        }
+
+    }
 
 
 
