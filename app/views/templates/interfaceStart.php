@@ -136,16 +136,21 @@ if (isset($_SESSION['selectedProperty'])) {
                                 <div class="property-label"><p>Property</p></div>
                                 <div class="property-address">
                                     <!-- create address dropdown list only if agent or owner usertype -->
-                                    <?php if ($userType == 2) {
+                                    <?php 
+
                                     //    if ($properties = $_SESSION['user']->getProperties()) {
                                     //      echo $properties[1]->address;
                                     //    }
 
                                           $properties = $_SESSION['user']->getProperties();
                                     //
-                                    }
+                                
 
                                     ?>
+                                    
+<!--                              I have taken this out from above:
+                                     if ($userType == 2) {}
+-->
                                    <select class="ui search dropdown">
                                         <option value="">Select a property...</option>
                                         <?php
@@ -165,4 +170,7 @@ if (isset($_SESSION['selectedProperty'])) {
                         </div>
                     </div>
                 </div>
+                
+                
+                
                 

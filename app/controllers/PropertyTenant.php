@@ -25,7 +25,7 @@ class PropertyTenant extends Controller
             $data = [];
             $data['properties'] = $_SESSION['user']->getProperties();
             $data['tenant'] = $_SESSION['user'];
-            $this->view('tenant/manage', $data);
+            $this->view('tenant/managedetails', $data);
         }
     }
 
