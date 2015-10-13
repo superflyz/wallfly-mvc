@@ -6,7 +6,6 @@
  * Time: 4:51 PM
  */
 require_once '../app/views/templates/interfaceStart.php';
-//require_once '../app/views/templates/selectProperty.php';
 ?>
     <!--Content here-->
 <div class="row">
