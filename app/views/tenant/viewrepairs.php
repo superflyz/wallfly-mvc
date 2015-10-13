@@ -34,21 +34,40 @@ require_once '../app/views/templates/selectProperty.php';
                                         $row['severity_level']= WEBDIR."/img/repair/green.jpg";
                                     }elseif($row['severity_level'] == "medium"){
                                         $row['severity_level']= WEBDIR."/img/repair/orange.jpg";
-                                    }else{$row['severity_level']= WEBDIR."/img/repair/red.jpg";}
+                                    }else{
+                                        $row['severity_level']= WEBDIR."/img/repair/red.jpg";
+                                    }
 
                                     $splitImgSource = explode("/", $row['image']);
                                     $lastpos = end($splitImgSource);
                                     $checkIfImageExists= explode(".", $lastpos);
-                                    if($checkIfImageExists[1]){
+                                    if(!empty($checkIfImageExists[1])){
                                         $repairPic = "<img height='100' width='100' src='" . $row['image']."'/>";
                                     }else{  $repairPic = ""; }
-
-
-                                    echo "<p>Timestamp: " . $row['timestamp'] . "<br/> Subject: " . $row['subject'] .
-                                        "<br/>  Description: " . $row['description'] . "<br/>  Severity:  <image height='15' width='15' src='" . $row['severity_level'] . "'/>" .
-                                        "<br/>  Status: " . $row['status'] . "<br/>". $repairPic ."</p>";
+                                        echo "<p>Timestamp: " . $row['timestamp'] . "<br/> Subject: " . $row['subject'] .
+                                            "<br/>  Description: " . $row['description'] . "<br/>  Severity:  <image height='15' width='15' src='" . $row['severity_level'] . "'/>" .
+                                            "<br/>  Status: " . $row['status'] . "<br/>". $repairPic ."</p>";
+                                    ?>
+                                    <form id="changeSeverity" enctype="multipart/form-data" method="post" action="<?=WEBDIR?>/propertytenant/changeSeverity">
+                                        <div class="form-field">
+                                            <label for="severity">Severity Level</label>
+                                            <select name="severity" class="form-control formSelect">
+                                                <option value="" class="form-control">Please select...</option>
+                                                <option value="low" class="form-control">Low</option>
+                                                <option value="medium" class="form-control">Medium</option>
+                                                <option value="high" class="form-control">High</option>
+                                            </select>
+                                            <span class="error"></span>
+                                        </div>
+                                        <div>
+                                            <button type="submit" name="submit" value="<?php echo ($row['timestamp'])?>" id="submit-btn" style="width: 120px;"
+                                                    class="btn btn-primary submit eventsubmit">Change Severity
+                                            </button>
+                                        </div>
+                                    </form>
+                                    <?php
+                                    }
                                 }
-                            }
                             ?>
                         </div>
                     <?php }?>

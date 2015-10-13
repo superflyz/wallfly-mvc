@@ -258,6 +258,25 @@ class PropertyTenant extends Controller
         }
     }
 
+    public function changeSeverity()
+    {
+        if (!Tenant::isAuthenticated()) {
+            $this->redirect('/');
+        } else {
+            //do some checks if post submit is empty blah blah
+            $result = $_SESSION['selectedProperty']->changeSeverity($_POST['submit'], $_POST['severity']);
+            $this->setJavascriptDependencies([
+                WEBDIR . '/js/selectProperty.js'
+
+            ]);
+            $this->setCSSDependencies([
+                WEBDIR . '/css/module.css'
+
+            ]);
+            $this->redirect('/propertytenant/viewRepairs');
+        }
+    }
+
     public function processRepairRequest()
     {
         if (!Tenant::isAuthenticated()) {

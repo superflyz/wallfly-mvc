@@ -130,4 +130,17 @@ class Property extends Model
     return false;
   }
 
+  public function changeSeverity($timestamp, $severity)
+  {
+    try {
+      $db = Database::getInstance();
+      $statement = $db->prepare("UPDATE repair_request SET severity_level=:severity_level WHERE property_id=:property_id AND timestamp=:timestamp");
+      $statement->execute(['severity_level' => $severity, 'property_id' => $this->id, 'timestamp' => $timestamp]);
+      return true;
+    } catch (Exception $e) {
+      echo 'Error: ' . $e->getMessage();
+    }
+    return false;
+  }
+
 }
