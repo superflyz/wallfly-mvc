@@ -177,7 +177,7 @@ class PropertyOwner extends Controller
       $this->redirect('/');
     } else {
       $tmp = explode("/", $_POST['submit']);
-      $result = $_SESSION['selectedProperty']->processRepairRequest($tmp[0], $tmp[1], $_POST['comment']);
+      $result = $_SESSION['selectedProperty']->processRepairRequest($tmp[0], $tmp[1], $_POST[$tmp[2]]);
       $this->redirect('/propertyowner/repair');
     }
   }

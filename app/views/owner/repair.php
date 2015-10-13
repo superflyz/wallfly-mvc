@@ -27,6 +27,7 @@ require_once '../app/views/templates/interfaceStart.php';
                 <?php
                 $result = $_SESSION['selectedProperty']->getRepairRequests();
                 if ($result) {
+                    $count = 0;
                     foreach ($result as $row) {
                         if ($row['status'] == 0){
                             $row['status']= "Pending";
@@ -53,13 +54,13 @@ require_once '../app/views/templates/interfaceStart.php';
                             </div></p>";
                         ?>
                         <div class="form-field">
-                            <label for="comment">Comment</label>
-                            <textarea name="comment" id="comment" rows="5" cols="10" type="text" class="form-control"></textarea>
+                            <label for="<?php echo($count)?>">Comment</label>
+                            <textarea name="<?php echo($count)?>" id="<?php echo($count)?>" rows="5" cols="10" type="text" class="form-control"><?php echo($row['comment'])?></textarea>
                             <span class="error"></span>
                         </div>
                         <div class="pbtns">
-                            <button type='submit' name='submit' value='<?php echo $row['timestamp']?>/approve' id='submit-btn' class='btn btn-primary submit eventsubmit'>Approve</button>
-                            <button type='submit' name='submit' value='<?php echo $row['timestamp']?>/deny' id='submit-btn' class='btn btn-primary submit eventsubmit'>Deny</button>
+                            <button type='submit' name='submit' value='<?php echo $row['timestamp']?>/approve/<?php echo($count)?>' id='submit-btn' class='btn btn-primary submit eventsubmit'>Approve</button>
+                            <button type='submit' name='submit' value='<?php echo $row['timestamp']?>/deny/<?php echo($count++)?>' id='submit-btn' class='btn btn-primary submit eventsubmit'>Deny</button>
                         </div>
                     </div>
                     <?php
