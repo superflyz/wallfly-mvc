@@ -37,13 +37,15 @@ require_once '../app/views/templates/interfaceStart.php';
         <div class="pill-content manage_properties_view">
             <div role="pillpanel" class="pill-pane active" id="home">
               <?php
-                                    $result = $_SESSION['selectedProperty']->getPayments();
-                                    if ($result) {
-                                        for ($i = 0; $i < 1; $i++) {
-                                            echo "<p class='link-text'>Last payment was $" . $result[$i]['amount'] . " payed on " . $result[$i]['time'] . ".";
-                                        }
-                                    }
-                                ?>
+                if (isset($_SESSION['selectedProperty'])) {
+                    $result = $_SESSION['selectedProperty']->getPayments();
+                    if ($result) {
+                        for ($i = 0; $i < 1; $i++) {
+                            echo "<p class='link-text'>Last payment was $" . $result[$i]['amount'] . " payed on " . $result[$i]['time'] . ".";
+                        }
+                    }
+                }
+              ?>
             </div>
          
         

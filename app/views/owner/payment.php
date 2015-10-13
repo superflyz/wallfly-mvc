@@ -36,13 +36,15 @@ require_once '../app/views/templates/interfaceStart.php';
                        
              
                 <?php
-                                    $result = $_SESSION['selectedProperty']->getPayments();
-                                    if ($result) {
-                                        for ($i = 0; $i < 1; $i++) {
-                                            echo "<p class='link-text'>Last payment was $" . $result[$i]['amount'] . " payed on " . $result[$i]['time'] . ".";
-                                        }
-                                    }
-                                ?>
+                    if (isset($_SESSION['selectedProperty'])) {
+                        $result = $_SESSION['selectedProperty']->getPayments();
+                        if ($result) {
+                            for ($i = 0; $i < 1; $i++) {
+                                echo "<p class='link-text'>Last payment was $" . $result[$i]['amount'] . " payed on " . $result[$i]['time'] . ".";
+                            }
+                        }
+                    }
+                ?>
             </div>
          
         
