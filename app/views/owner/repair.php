@@ -43,7 +43,7 @@ require_once '../app/views/templates/interfaceStart.php';
                              $splitImgSource = explode("/", $row['image']);
                              $lastpos = end($splitImgSource);
                              $checkIfImageExists= explode(".", $lastpos);
-                             if($checkIfImageExists[1]){
+                             if(!empty($checkIfImageExists[1])){
                              $repairPic = "<img height='100' width='100' src='" . $row['image']."'/>";
                              }else{  $repairPic = ""; }
 
