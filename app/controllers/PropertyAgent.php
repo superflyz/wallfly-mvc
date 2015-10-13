@@ -183,7 +183,7 @@ class PropertyAgent extends Controller
       $this->redirect('/');
     } else {
       $tmp = explode("/", $_POST['submit']);
-      $result = $_SESSION['selectedProperty']->processRepairRequest($tmp[0], $tmp[1]);
+      $result = $_SESSION['selectedProperty']->processRepairRequest($tmp[0], $tmp[1], $_POST['comment']);
       $this->redirect('/propertyagent/repair');
     }
   }

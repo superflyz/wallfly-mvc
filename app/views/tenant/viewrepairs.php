@@ -46,7 +46,7 @@ require_once '../app/views/templates/selectProperty.php';
                                     }else{  $repairPic = ""; }
                                         echo "<p>Timestamp: " . $row['timestamp'] . "<br/> Subject: " . $row['subject'] .
                                             "<br/>  Description: " . $row['description'] . "<br/>  Severity:  <image height='15' width='15' src='" . $row['severity_level'] . "'/>" .
-                                            "<br/>  Status: " . $row['status'] . "<br/>". $repairPic ."</p>";
+                                            "<br/>  Status: " . $row['status'] . "<br/>". $repairPic ."</p>" . $row['comment'];
                                     ?>
                                     <form id="changeSeverity" enctype="multipart/form-data" method="post" action="<?=WEBDIR?>/propertytenant/changeSeverity">
                                         <div class="form-field">

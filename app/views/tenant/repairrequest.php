@@ -22,7 +22,7 @@ require_once '../app/views/templates/interfaceStart.php';
             <div class="col-md-4">
                 <div class="container-fluid">
                     <?php if (isset($_SESSION['selectedProperty'])) { ?>
-                        <form id="addPayment" enctype="multipart/form-data" method="post" action="<?=WEBDIR?>/propertytenant/processRepairRequest">
+                        <form id="repairRequest" enctype="multipart/form-data" method="post" action="<?=WEBDIR?>/propertytenant/processRepairRequest">
                             <div class="form-field">
                                 <label for="subject">Subject</label>
                                 <input name="subject" type="text" class="form-control">

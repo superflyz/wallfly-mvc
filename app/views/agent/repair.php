@@ -20,7 +20,7 @@ require_once '../app/views/templates/selectProperty.php';
                 <div class="container-fluid">
                     <?php if (isset($_SESSION['selectedProperty'])) { ?>
                         <div class="row text-left">
-                            <form id="addPayment" method="post" action="<?=WEBDIR?>/propertyagent/processRepairRequest">
+                            <form id="repairApproveDeny" method="post" action="<?=WEBDIR?>/propertyagent/processRepairRequest">
                                 <?php
                                 $result = $_SESSION['selectedProperty']->getRepairRequests();
                                 if ($result) {

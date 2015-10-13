@@ -83,7 +83,8 @@ class Property extends Model
       while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
         $tmp = Array("tenant_id" => $row['tenant_id'], "property_id" => $row['property_id'],
             "timestamp" => $row['timestamp'], "subject" => $row['subject'], "description" => $row['description'],
-            "severity_level" => $row['severity_level'], "status" => $row['status'], "image" => $row['image']);
+            "severity_level" => $row['severity_level'], "status" => $row['status'], "image" => $row['image'],
+            "comment" => $row['comment']);
         array_push($result, $tmp);
       }
       if (count($result) == 0) {
@@ -112,16 +113,16 @@ class Property extends Model
     return false;
   }
 
-  public function processRepairRequest($timestamp, $value)
+  public function processRepairRequest($timestamp, $value, $comment)
   {
     try {
       $db = Database::getInstance();
       if ($value == "approve") {
-        $statement = $db->prepare("UPDATE repair_request SET status=1 WHERE property_id=:property_id AND timestamp=:timestamp");
-        $statement->execute(['property_id' => $this->id, 'timestamp' => $timestamp]);
+        $statement = $db->prepare("UPDATE repair_request SET status=1, comment=:comment WHERE property_id=:property_id AND timestamp=:timestamp");
+        $statement->execute(['comment' => $comment, 'property_id' => $this->id, 'timestamp' => $timestamp]);
       } elseif ($value == "deny") {
-        $statement = $db->prepare("UPDATE repair_request SET status=2 WHERE property_id=:property_id AND timestamp=:timestamp");
-        $statement->execute(['property_id' => $this->id, 'timestamp' => $timestamp]);
+        $statement = $db->prepare("UPDATE repair_request SET status=2, comment=:comment WHERE property_id=:property_id AND timestamp=:timestamp");
+        $statement->execute(['comment' => $comment, 'property_id' => $this->id, 'timestamp' => $timestamp]);
       }
       return true;
     } catch (Exception $e) {
