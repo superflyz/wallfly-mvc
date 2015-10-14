@@ -73,4 +73,10 @@ class Agent extends Super_User
     return false;
   }
 
+  public function getRealEstate()
+  {
+    $realest = Real_Estate::get(['id' => $this->real_estate_id]);
+    return $realest ? $realest[0] : false;
+  }
+
 }
