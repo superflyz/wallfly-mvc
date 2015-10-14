@@ -1,3 +1,4 @@
+<script src="<?=WEBDIR?>/js/jquery.js"></script>
 <!-- Bootstrap Core JavaScript -->
 <script src="<?=WEBDIR?>/js/bootstrap.min.js"></script>
 <!-- Plugin JavaScript -->
