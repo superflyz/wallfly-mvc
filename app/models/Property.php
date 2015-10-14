@@ -144,4 +144,16 @@ class Property extends Model
     return false;
   }
 
+  public function getRealEstate()
+  {
+    $realest = Real_Estate::get(['id' => $this->real_estate_id]);
+    return $realest ? $realest[0] : false;
+  }
+
+  public function getTenant()
+  {
+    $tenant = Tenant::get(['id' => $this->tenant_id]);
+    return $tenant ? $tenant[0] : false;
+  }
+
 }
