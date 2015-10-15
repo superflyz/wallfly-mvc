@@ -626,25 +626,315 @@ body {
 .ui_body {
  
   overflow: hidden;
-    height: 1000px;
+   
+/*    background: blue;*/
     font-family: "Titillium Web", Ubuntu, "Helvetica Neue", Helvetica, Arial, sans-serif;
 /*
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
 */
+/*
+    padding: 0xpx;
+    margin: 0px 0px -55px 0px;
+*/
+
 }
 
 .content_body {
-    background-color: #ffffff;
-    overflow: auto;
-/*    padding-bottom: 75px;*/
+/*    background-color: green;*/
+/*    overflow: hidden;*/
+/*    padding-bottom: 55px;*/
     height: 100vh;
-    min-height: 100%;
+        overflow: auto; 
+    margin-bottom: -55px;
     width: 100%;
+/*
     padding-left: 33px;
     padding-right: 33px;
+*/
+    padding-bottom: 55px;
+    
+/*    margin: 0px 0px -px 0px;*/
+/*position: relative;*/
 
 }
+.top-section {
+        padding-left: 33px;
+    padding-right: 33px;
+/*    background: yellow;*/
+}
+
+.bottom-section {
+    padding: 0px 33px 20px 33px;
+/*    padding-top: 20px;*/
+/*    background-color: tan;*/
+/*height: 100%;*/
+    overflow: auto; 
+    
+}
+
+.bd-text .btn_repair_approve {
+    color: #f8f8f8;
+    background-color: #5AD663;
+    height: 40px;
+    font-size: 14px;
+    font-weight: 600;
+    width: 75%;
+    margin: 62px 0px 10px 25px;
+    border: 2px solid transparent;
+        -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    transition: all .3s;
+    
+}
+.bd-text .btn_repair_deny {
+    
+    background-color: #FA4B3E;
+    color: #f8f8f8;
+    height: 40px;
+    font-size: 14px;
+    font-weight: 600;
+     width: 75%;
+    margin: 0px 0px 0px 25px;
+     border: 2px solid transparent;
+        -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    transition: all .3s;
+}
+
+
+.bd-text .btn_repair_approve:hover{
+    border: 2px solid #5AD663;
+    background-color: transparent;
+    color:  #5AD663;
+}
+
+.bd-text .btn_repair_deny:hover {
+       background-color: transparent;
+    border: 2px solid #FA4B3E;
+    color: #FA4B3E;
+}
+
+.repair_view {
+    
+    margin: 0px 0px 10px 0px;
+}
+
+.repair_view_head {
+    height: auto;
+    background-color: #dedede;
+     
+    color: #333333;
+    font-size: 15px;
+    font-weight: 600;
+    text-align: left;
+    border-radius: 4px 4px 0px 0px;
+    border: 0px;
+      border-bottom: 2px solid #5AD663;
+    margin: 20px 0px 0px 0px;
+    padding: 0px 0px 0px 5px;
+    
+
+}
+
+.s_lvl_low {
+    text-align: center;
+    width: 60px;
+    height: auto;
+    font-weight: 500;
+    font-size: 14px;
+    border-radius: 4px;
+    color: #333333;
+    padding: 4px;
+    background-color: #5AD663;
+}
+
+.s_lvl_med {
+    text-align: center;
+    width: 80px;
+    height: auto;
+    font-weight: 500;
+    font-size: 14px;
+    border-radius: 4px;
+    color: #333333;
+    padding: 4px;
+    background-color: #FFF440;
+}
+
+
+.s_lvl_hi {
+    text-align: center;
+    width: 60px;
+    height: auto;
+    font-weight: 500;
+    font-size: 14px;
+    border-radius: 4px;
+    color: #333333;
+    padding: 4px;
+    background-color: #FA4B3E;
+}
+
+
+
+.repair_view_head .hd .hd-text {
+
+
+    padding: 9px 0px 7px 0px;
+/*       background-color: #333333;*/
+ 
+
+}
+
+.repair_view_body .hd .hd-text {
+     height: auto;
+/*    background: green;*/
+/*    width: 300px;*/
+/*    height: auto;*/
+/*   text-decoration: underline;*/
+    padding: 5px 0px 5px 20px;
+/*       background-color: #333333;*/
+    margin: 0px 0px 0px 0px;  
+
+}
+
+.repair_view_body .hd:last-child .hd-text {
+    margin-right: 0px; 
+    font-weight: 400;
+    font-size: 12px;
+/*    background: red;*/
+/*    color: #dedede;*/
+    padding: 10px 0px 0px 35px;
+}
+
+
+.repair_view_body .hd:last-child .bd-text {
+    margin-right: 0px;  
+}
+
+.repair_view_body .hd {
+           height: auto;
+/*        position:absolute; */
+}
+
+.repair_view_body .hd .bd-text {
+
+
+/*    background: red;*/
+/*    width: 300px;*/
+    font-size: 14px;
+       height: auto;
+    font-weight: 400;
+   text-decoration: none;
+    padding: 6px 0px 0px 20px;
+/*       background-color: #333333;*/
+    margin-right: 2px;
+
+}
+
+
+
+.repair_view_body .hd .hd-text-description, .repair_view_body .hd .hd-text-severity, .repair_view_body .hd .hd-text-status {
+     height: auto;
+/*    background: green;*/
+/*    border-bottom: 1px solid #333333;*/
+/*    width: 300px;*/
+/*    height: auto;*/
+/*   text-decoration: underline;*/
+    padding: 12px 0px 5px 20px;
+/*       background-color: #333333;*/
+    margin: 0px 0px 0px 0px;  
+    
+}
+
+
+.repair_hr {
+    
+    background: linear-gradient(to left, #f8f8f8, #dedede);
+        border:none;
+    border-radius: 100px;
+        height:1px;
+    margin: 0px 0px 0px 0px;
+    padding: 0px;
+}
+
+.repair_view_body .hd .bd-text-description, .repair_view_body .hd .bd-text-status {
+     height: auto;
+/*    background: red;*/
+/*    width: 100%;*/
+/*    height: auto;*/
+      font-weight: 400;
+word-wrap: break-word;
+    padding: 0px 0px 0px 22px;
+/*       background-color: #333333;*/
+    margin-right: 2px;  
+    
+}
+
+.repair_view_body .hd .bd-text-severity {
+       height: auto;
+/*    background: red;*/
+/*    width: 100%;*/
+/*    height: auto;*/
+      font-weight: 400;
+word-wrap: break-word;
+    padding: 5px 0px 2px 22px;
+/*       background-color: #333333;*/
+    margin-right: 2px;    
+    
+}
+
+.repair_view_body {
+background-color: #f8f8f8;
+/*    background-color: red;*/
+    color: #333333;
+    
+    height: auto;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: left;
+    border-radius: 0px 0px 4px 4px;
+    border: 0px;
+    margin: 3px 0px 0px 0px;
+    padding: 0px 0px 10px 0px;
+    
+}
+
+.btn-comment-inpt {
+    background-color: #ffffff;   
+    padding: 4px 6px 4px 6px;
+
+        min-height: 75px;
+    max-height: 75px;
+    margin: 0px;
+    border-radius: 4px;
+    width: 100%;
+   resize: none;
+
+   outline:0px !important;
+   -webkit-appearance:none;
+    box-shadow: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    border-color:  #dedede;
+
+}
+
+.btn-comment-inpt:hover {
+    border: 1px solid #5AD663;
+}
+
+.btn-comment-inpt:focus {
+    border: 1px solid #5AD663;
+}
+
+/*
+.btn-comment-inpt::-webkit-input-placeholder {
+    
+    color: #dedede;
+}
+*/
+
+
 
 /*---  Top navbar ---*/
 .navbar-dashboard-main {
@@ -939,6 +1229,13 @@ https://groups.google.com/forum/#!topic/twitter-bootstrap-stackoverflow/0Aqzs5s_
 
 /*    display: flex;*/
     width: auto;
+/*
+        position: fixed;
+    z-index: 1000;
+    top: 55;
+    margin: 0px 0px 0px 0px;
+*/
+
 }
 
 .property-display .property-label {
@@ -1886,10 +2183,11 @@ border-radius: 4px;
 .page_heading {
 /*    background: red;*/
     height: 100px;
-            margin: 20px 0px -40px 0px;
+            margin: 20px 0px -64px 0px;
     padding: 0px;
 
 }
+
 
 .page_heading p {
     font-size: 20px;

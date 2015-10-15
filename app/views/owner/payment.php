@@ -26,7 +26,10 @@ require_once '../app/views/templates/interfaceStart.php';
         </div>
     </div>
 </div>
+</div>
+</div>
 
+<div class="row bottom-section">
 <div class="row">
     <div class="col-md-12">
         <!-- Pill panes -->
@@ -48,7 +51,7 @@ require_once '../app/views/templates/interfaceStart.php';
             </div>
          
         
-            <div role="pillpanel" class="pill-pane" id="home4">
+            <div role="pillpanel" class="pill-pane scrollable" id="home4">
                    
                 <?php if (isset($_SESSION['selectedProperty'])) { ?>
                   <div class="row">
@@ -142,6 +145,7 @@ require_once '../app/views/templates/interfaceStart.php';
             </div>
         </div>
     </div>
+</div>
 </div>
 
 

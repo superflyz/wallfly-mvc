@@ -205,7 +205,7 @@ span{max-width: 250px;}
     height: 90vh;
 }
 
-body > div > div > div.col-md-10.col-sm-10 > div.container.content_body{height: 90vh;}
+/*body > div > div > div.col-md-10.col-sm-10 > div.container.content_body{height: 90vh;}*/
 
 .removeEvent{margin-top: 75px;}
 

@@ -18,7 +18,7 @@
 
     <!-- Custom CSS -->  
     <link href="/wallfly-mvc/public/css/wallfly.css" rel="stylesheet">
-    
+
     <!-- Custom Fonts -->
     <link href="/wallfly-mvc/public/css/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <?php require_once '../app/views/templates/links.php'; ?>
