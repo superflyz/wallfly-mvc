@@ -36,10 +36,14 @@ class Tenant extends Super_User
       $statement = $db->prepare($query);
       $statement->execute($data);
       $result = $statement->fetchAll(PDO::FETCH_ASSOC);
-      $result = array_map(function($row) {
-        return new Tenant($row);
-      }, $result);
-      return $result;
+      if ($result) {
+        $result = array_map(function($row) {
+          return new Tenant($row);
+        }, $result);
+        return $result;
+      } else {
+        return false;
+      }
     } catch (Exception $e) {
       echo 'Error: ' . $e->getMessage();
     }

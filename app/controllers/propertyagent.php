@@ -23,9 +23,9 @@ class PropertyAgent extends Controller
       $this->redirect('/');
     } else {
       $data = [];
-      $data['properties'] = $_SESSION['user']->getProperties();
+      $data['property'] = $data['property'] = isset($_SESSION['selectedProperty']) ? $_SESSION['selectedProperty'] : null;
       $data['agent'] = $_SESSION['user'];
-      $this->view('agent/manage', $data);
+      $this->view('agent/managedetails', $data);
     }
   }
 
@@ -185,6 +185,62 @@ class PropertyAgent extends Controller
       $tmp = explode("/", $_POST['submit']);
       $result = $_SESSION['selectedProperty']->processRepairRequest($tmp[0], $tmp[1], $_POST[$tmp[2]]);
       $this->redirect('/propertyagent/repair');
+    }
+  }
+
+  public function editproperty()
+  {
+    if (!Agent::isAuthenticated()) {
+      $this->redirect('/');
+    } else {
+      if ($_SERVER['REQUEST_METHOD'] === 'POST'){
+
+        $property = $_SESSION['selectedProperty'];
+
+        // ============
+        // IMAGE UPLOAD
+        // ============
+        $file = $_FILES['photo_file'];
+        // 1. check if user uploads an image
+        if ($file['name']) {
+          // 2. check if it's an image
+          if ($file['type'] !== 'image/jpeg') {
+            // TODO: error
+          } else {
+            // 3. store the file
+            $targetDir = '/img/properties';
+            $targetFile = $targetDir . basename($file['name']);
+            if (move_uploaded_file($file['tmp_name'], PUBLIC_ABSOLUTE_PATH . $targetFile)) {
+              // 4. update the property
+              $property->photo = WEBDIR . $targetFile;
+            } else {
+              // TODO: error
+            }
+          }
+        } else {
+          // TODO: error
+        }
+        // ================
+        // END IMAGE UPLOAD
+        // ================
+
+
+        // ====================
+        // UPDATE PROPERTY INFO
+        // ====================
+        $property->address = $_POST['address'];
+        $property->rent_amount = $_POST['rent_amount'];
+        $property->payment_schedule = $_POST['payment_schedule'];
+        $property->update();
+        // ========================
+        // END UPDATE PROPERTY INFO
+        // ========================
+
+        $this->redirect('/propertyagent/manage');
+
+      } else {
+        $this->view('agent/editproperty');
+      }
     }
   }
 

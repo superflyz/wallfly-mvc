@@ -38,10 +38,14 @@ class Real_Estate extends Model
         $statement->execute($data);
       }
       $result = $statement->fetchAll(PDO::FETCH_ASSOC);
-      $result = array_map(function($row) {
-        return new Real_Estate($row);
-      }, $result);
-      return $result;
+      if ($result) {
+        $result = array_map(function($row) {
+          return new Real_Estate($row);
+        }, $result);
+        return $result;
+      } else {
+        return false;
+      }
     } catch (Exception $e) {
       echo 'Error: ' . $e->getMessage();
     }

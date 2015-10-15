@@ -3,7 +3,7 @@
 class Property extends Model
 {
 
-  public $id, $address, $payment_schedule, $rent_amount, $photo, $real_estate_id,
+  public $id, $address, $payment_schedule, $rent_amount, $photo,
     $agent_id, $owner_id, $tenant_id;
 
   public function getAgent()
@@ -142,6 +142,27 @@ class Property extends Model
       echo 'Error: ' . $e->getMessage();
     }
     return false;
+  }
+
+  public function getRealEstate()
+  {
+    if ($agent = $this->getAgent()) {
+      return $agent->getRealEstate();
+    } else {
+      return false;
+    }
+  }
+
+  public function getTenant()
+  {
+    $tenant = Tenant::get(['id' => $this->tenant_id]);
+    return $tenant ? $tenant[0] : false;
+  }
+
+  public function getOwner()
+  {
+    $owner = Owner::get(['id' => $this->owner_id]);
+    return $owner ? $owner[0] : false;
   }
 
 }
