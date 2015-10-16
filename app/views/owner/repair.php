@@ -39,7 +39,6 @@ require_once '../app/views/templates/interfaceStart.php';
 
     <div class="row repair_view_body">
         <div class="col-md-5 hd">
-            <div class="bd-text-description">dsadasdsadasdsadasdsadasdsadasdsadasdsadasdsadasdsadasdsadasdsadasdsadas</div>
             <div class="hd-text-description">Description</div>
             <div class="bd-text-description"></div>
       
@@ -93,7 +92,7 @@ require_once '../app/views/templates/interfaceStart.php';
                          $lastpos = end($splitImgSource);
                          $checkIfImageExists= explode(".", $lastpos);
                          if(!empty($checkIfImageExists[1])){
-                         $repairPic = "<img  data-toggle='modal' class='img-responsive repair_image_enlarge' height='100' width='150' title='Repair image' alt='Repair image' src='" . $row['image']."'/>";
+                         $repairPic = "<img data-toggle='modal' class='img-responsive repair_image_enlarge' height='100' width='165' title='Repair image' alt='Repair image' src='" . $row['image']."'/>";
                          }else{  $repairPic = "<div class='no_repair_img_view' title='Repair image'><p>No image</p></div>"; }
 
                    
@@ -157,15 +156,13 @@ require_once '../app/views/templates/interfaceStart.php';
     </div>
 
 
-<!--
-<div class="modal fade enlarge_repair_img" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+<div class="modal fade enlarge_repair_img modal-vcenter" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
   <div class="modal-dialog modal-sm">
-    <div class="modal-content">
-    <img src="" class="imagepreview" style="width: 400px; height: 264px;" >
+    <div class="modal-content display_enlarged_repair_imgs">
+    <img src="" width="100%" height="100%" >
     </div>
   </div>
 </div>
--->
 
 <script src="/wallfly-mvc/public/js/textarea-autosize.js"></script>
 <script type="text/javascript">
@@ -180,14 +177,16 @@ require_once '../app/views/templates/interfaceStart.php';
         $(document).ready(function () {
      autosize(document.querySelectorAll('textarea'));
             
-//$(".repair_image_enlarge").on("click", function() {
-//    
-//   $('.imagepreview').attr('src', $('.repair_image_enlarge').attr('src'));
-//   $('.imagepreview').modal('show');
-//     
-//});
+$(".repair_image_enlarge").on("click", function() {
+    
+var src = $(this).attr('src'); 
+   $('.enlarge_repair_img img').attr('src', src);
+   $('.enlarge_repair_img').modal('show');
+     
+});
            
  });
+            
 </script>
 
 

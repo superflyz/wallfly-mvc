@@ -14,8 +14,14 @@
 
 /* --- estethic styling */
 .dzscalendar {
-  font-family: 'Carrois Gothic', "Helvetica Neue", Helvetica, Arial, sans-serif; }
-
+           -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+/*  font-family: 'Carrois Gothic', "Helvetica Neue", Helvetica, Arial, sans-serif; */
+}
 .dzscalendar .testimonial span {
   font-size: 2.5em;
   font-family: Courier New, Arial;
@@ -484,8 +490,12 @@
   color: #333; }
   .dzscalendar.skin-aurora .calendar-controls {
     background: #333;
+      cursor: default;
     color: #fff;
-    padding-top: 6px; }
+      border-radius: 4px 4px 0px 0px;
+    padding: 8px 0px 4px 0px; 
+font-weight: 400;
+font-size: 14px;}
     .dzscalendar.skin-aurora .calendar-controls .curr-date {
       padding-top: 5px;
       padding-bottom: 8px; }
@@ -542,7 +552,7 @@
 
 .dzscalendar.skin-aurora .calendar-controls .arrow-left, .dzscalendar.skin-aurora .calendar-controls .arrow-right {
   position: absolute;
-  top: 13px;
+  top: 15px;
   left: 10px;
   background: transparent no-repeat center center url(img/arrowleft.png);
   width: 15px;

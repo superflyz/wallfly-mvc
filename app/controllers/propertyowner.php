@@ -122,7 +122,7 @@ class PropertyOwner extends Controller
       ]);
 
       $this->setCSSDependencies([
-          'http://fonts.googleapis.com/css?family=Carrois+Gothic',
+         
           WEBDIR . '/dzstooltip/dzstooltip.css',
           WEBDIR . '/dzscalendar/dzscalendar.css',
           'http://fonts.googleapis.com/css?family=Open+Sans',
