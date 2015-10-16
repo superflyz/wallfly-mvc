@@ -21,10 +21,6 @@ class PropertyOwner extends Controller
       $data = [];
       $data['property'] = isset($_SESSION['selectedProperty']) ? $_SESSION['selectedProperty'] : null;
       $data['owner'] = $_SESSION['user'];
-      $this->setJavascriptDependencies([
-        WEBDIR . '/js/jquery.jeditable.js',
-        WEBDIR . '/js/editaction.js'
-      ]);
       $this->view('owner/managedetails', $data);
     }
   }
@@ -57,10 +53,6 @@ class PropertyOwner extends Controller
           WEBDIR . '/css/wallfly.css',
           WEBDIR . '/css/module.css',
           WEBDIR . '/clockpicker/css/timepicki.css'
-
-
-
-
       ]);
 
 
@@ -247,6 +239,15 @@ class PropertyOwner extends Controller
       } else {
         $this->view('owner/editproperty');
       }
+    }
+  }
+
+  public function assigntenant()
+  {
+    if (!Owner::isAuthenticated()) {
+      $this->redirect('/');
+    } else {
+      
     }
   }
 

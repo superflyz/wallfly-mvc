@@ -27,5 +27,10 @@
             }
 
     });
+    
+    $(document).ready(function() {
+  $(".bottom-section").css("max-height", ($(".content_body").height()-$(".top-section").height()));
+});
+
 
 </script>

@@ -17,12 +17,61 @@ require_once '../app/views/templates/interfaceStart.php';
         </div>
     </div>
 </div>
+</div>
+</div>
 
+<div class="row bottom-section">
 <div class="row">
     <div class="col-md-12">
-         <?php if (isset($_SESSION['selectedProperty'])) { ?>
+        <?php if (isset($_SESSION['selectedProperty'])) { ?>
       
-            <form id="repairApproveDeny" method="post" action="<?=WEBDIR?>/propertyowner/processRepairRequest">
+        <form id="repairApproveDeny" method="post" action="<?=WEBDIR?>/propertyowner/processRepairRequest">
+                
+        <div class="repair_view">
+
+<!--
+<div class="repair_view">
+    <div class="row repair_view_head">
+        <div class="col-md-12 hd">
+            <div class="hd-text">Subject</div>
+        </div>
+    </div>
+
+    <div class="row repair_view_body">
+        <div class="col-md-5 hd">
+            <div class="bd-text-description">dsadasdsadasdsadasdsadasdsadasdsadasdsadasdsadasdsadasdsadasdsadasdsadas</div>
+            <div class="hd-text-description">Description</div>
+            <div class="bd-text-description"></div>
+      
+        </div>
+        <div class="col-md-5 hd">
+            <div class="row">
+                <div class="col-md-6 hd">
+            <div class="hd-text-severity">Severity</div>
+            <div class="bd-text-severity"></div>
+                </div>
+                <div class="col-md-6 hd">
+                      <div class="hd-text-status">Status</div>
+            <div class="bd-text-status"></div>
+            </div>
+        </div>
+           
+            <div class="hd-text">Comments</div>
+            <div class="bd-text">
+                <textarea class="form-control custom-control btn-comment-inpt" placeholder="Type your comment here..." ></textarea>
+           </div>
+  
+        </div>
+        <div class="col-md-2 hd">
+            <div class="hd-text">Time</div>
+            <div class="bd-text"></div>
+        </div>
+    </div> 
+</div>
+-->
+
+
+
                 <?php
                 $result = $_SESSION['selectedProperty']->getRepairRequests();
                 if ($result) {
@@ -35,47 +84,90 @@ require_once '../app/views/templates/interfaceStart.php';
                         }else{$row['status']= "Denied";}
 
                         if ($row['severity_level'] == "low"){
-                            $row['severity_level']= WEBDIR."/img/repair/green.jpg";
+                            $row['severity_level']= "<div class='s_lvl_low'>LOW</div>";
                         }elseif($row['severity_level'] == "medium"){
-                            $row['severity_level']= WEBDIR."/img/repair/orange.jpg";
-                        }else{$row['severity_level']= WEBDIR."/img/repair/red.jpg";}
+                            $row['severity_level']= "<div class='s_lvl_med'>MEDIUM</div>";
+                        }else{$row['severity_level']= "<div class='s_lvl_hi'>HIGH</div>";}
 
                          $splitImgSource = explode("/", $row['image']);
                          $lastpos = end($splitImgSource);
                          $checkIfImageExists= explode(".", $lastpos);
                          if(!empty($checkIfImageExists[1])){
-                         $repairPic = "<img height='100' width='100' src='" . $row['image']."'/>";
-                         }else{  $repairPic = ""; }
+                         $repairPic = "<img  data-toggle='modal' class='img-responsive repair_image_enlarge' height='100' width='150' title='Repair image' alt='Repair image' src='" . $row['image']."'/>";
+                         }else{  $repairPic = "<div class='no_repair_img_view' title='Repair image'><p>No image</p></div>"; }
 
-                        echo "<div class='pall'><p class='ptimestamp'>Timestamp: " . $row['timestamp'] . " Subject: " . $row['subject'] .
-                            " Description: " . $row['description'] . "Severity:  <image height='15' width='15' src='" . $row['severity_level'] . "'/>" .
-                            " Status: " . $row['status'] . "<div class='pimg'>". $repairPic ."
-                            </div></p>";
+                   
+                        echo "<div class='row repair_view_head'>
+                        <div class='col-md-12 hd'>
+                        <div class='hd-text'>" . $row['subject'] . "</div></div></div>" .
+                             "<div class='row repair_view_body'>
+            <div class='col-md-5 hd'>
+            <div class='row ss'>
+            <div class='col-md-6 hd'>
+            <div class='repair_img_view'>" . $repairPic . "</div>
+            </div>" .
+                        "<div class='col-md-6 hd'>
+                            <div class='hd-text-severity'>Severity<hr class='repair_hr'></div>
+            <div class='bd-text-severity'>". $row['severity_level'] ."</div></div></div>" . 
+                             
+           "<div class='hd-text-description'>Description<hr class='repair_hr'></div><div class='bd-text-description'>" . $row['description'] . "</div>" .
+                            "</div><div class='col-md-5 hd'>
+    
+                        
+                            <div class='hd-text-status'>Status<hr class='repair_hr'></div>
+            <div class='bd-text-status'>" . $row['status'] . "</div>"
+                            ;
+                            
                         ?>
-                        <div class="form-field">
-                            <label for="<?php echo($count)?>">Comment</label>
-                            <textarea name="<?php echo($count)?>" id="<?php echo($count)?>" rows="5" cols="10" type="text" class="form-control"><?php echo($row['comment'])?></textarea>
-                            <span class="error"></span>
-                        </div>
-                        <div class="pbtns">
-                            <button type='submit' name='submit' value='<?php echo $row['timestamp']?>/approve/<?php echo($count)?>' id='submit-btn' class='btn btn-primary submit eventsubmit'>Approve</button>
-                            <button type='submit' name='submit' value='<?php echo $row['timestamp']?>/deny/<?php echo($count++)?>' id='submit-btn' class='btn btn-primary submit eventsubmit'>Deny</button>
-                        </div>
-                    </div>
+                
+                        
+                            <div class="hd-text">Comments<hr class='repair_hr'></div>
+                            <div class="bd-text">
+                                <!-- <?php echo($count)?>-->
+                                <textarea name="<?php echo($count)?>" id="<?php echo($count)?>" class="form-control custom-control btn-comment-inpt" placeholder="Type your comment here..." ><?php echo($row['comment'])?></textarea>
+                           </div>
+                            </div>
+                        
+    
+                         <div class="col-md-2 hd">
+                                    <div class="hd-text repair_dt"><?php echo(date('M, d Y - h:s a', strtotime($row['timestamp'])))?></div>
+                                    <div class="bd-text">
+                               <button type='submit' name='submit' value='<?php echo $row['timestamp']?>/approve/<?php echo($count)?>' class='btn btn_repair_approve'>Approve</button>
+                            <button type='submit' name='submit' value='<?php echo $row['timestamp']?>/deny/<?php echo($count++)?>' class='btn btn_repair_deny'>Deny</button></div>
+                                </div>
+                            </div>
+        
+                       
+     
+           
+                
                     <?php
                     }
                 }
                 ?>
+
+         </div>
             </form>
-     
-        <?php }?>           
-            
-            </div>
 
-        </div>
+        <?php }?>
+
+    
+    </div>
+</div>
+    </div>
 
 
+<!--
+<div class="modal fade enlarge_repair_img" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+    <img src="" class="imagepreview" style="width: 400px; height: 264px;" >
+    </div>
+  </div>
+</div>
+-->
 
+<script src="/wallfly-mvc/public/js/textarea-autosize.js"></script>
 <script type="text/javascript">
     
     $('.manage_properties_pills ul li').click(function (e) {
@@ -84,7 +176,21 @@ require_once '../app/views/templates/interfaceStart.php';
     })
     
     document.title = 'Repairs - WallFly';
+     
+        $(document).ready(function () {
+     autosize(document.querySelectorAll('textarea'));
+            
+//$(".repair_image_enlarge").on("click", function() {
+//    
+//   $('.imagepreview').attr('src', $('.repair_image_enlarge').attr('src'));
+//   $('.imagepreview').modal('show');
+//     
+//});
+           
+ });
 </script>
+
+
 
 <?php
 require_once '../app/views/templates/interfaceEnd.php';

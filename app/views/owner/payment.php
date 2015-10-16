@@ -1,9 +1,8 @@
 <?php
 require_once '../app/views/templates/interfaceStart.php';
-//require_once '../app/views/templates/selectProperty.php';
 ?>
-<!--Content here-->
 
+<!--Content here-->
 <div class="row">
     <div class="col-md-12">
         <div class="page_heading">
@@ -14,33 +13,35 @@ require_once '../app/views/templates/interfaceStart.php';
 </div>
             
  <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-6">
         <div class="manage_properties_pills">
           <!-- Nav pills -->
           <ul class="nav nav-pills nav-justified properties_pills">
    
-             <li role="presentation" id="hi"><a href="#home4" aria-controls="home4" role="pill" data-toggle="pill" >Payment History</a></li>
-              <li role="presentation"><a href="#profile2" aria-controls="profile2" role="pill" data-toggle="pill">Add Payment</a></li>
+             <li role="presentation"><a href="#payment_history" aria-controls="payment_history" role="pill" data-toggle="pill" >Payment History</a></li>
+              <li role="presentation"><a href="#add_payment" aria-controls="add_payment" role="pill" data-toggle="pill">Add Payment</a></li>
           </ul>
         
         </div>
     </div>
 </div>
+</div>
+</div>
 
+<div class="row bottom-section">
 <div class="row">
     <div class="col-md-12">
         <!-- Pill panes -->
         <div class="pill-content manage_properties_view">
-            <div role="pillpanel" class="pill-pane active" id="home">
+            <div role="pillpanel" class="pill-pane">
               
                        
-             
                 <?php
                     if (isset($_SESSION['selectedProperty'])) {
                         $result = $_SESSION['selectedProperty']->getPayments();
                         if ($result) {
                             for ($i = 0; $i < 1; $i++) {
-                                echo "<p class='link-text'>Last payment was $" . $result[$i]['amount'] . " payed on " . $result[$i]['time'] . ".";
+                                echo "<div class='last_payment'><p>Last payment was <b>$" . $result[$i]['amount'] . "</b> payed on <i>" . date('M, d Y - h:s a', strtotime($result[$i]['time'])) . "</i></p></div>";
                             }
                         }
                     }
@@ -48,8 +49,16 @@ require_once '../app/views/templates/interfaceStart.php';
             </div>
          
         
-            <div role="pillpanel" class="pill-pane" id="home4">
-                   
+            <div role="pillpanel" class="pill-pane active" id="payment_history">
+                <div class="row payment_history">
+                    <div class="col-md-6 payment_history_dt">
+                        <div class="">
+                        </div>
+                    </div>
+                    <div class="col-md-6 payment_history_a">
+                    
+                    </div>
+                </div>
                 <?php if (isset($_SESSION['selectedProperty'])) { ?>
                   <div class="row">
                 <div class="col-md-12">
@@ -58,7 +67,7 @@ require_once '../app/views/templates/interfaceStart.php';
                     $result = $_SESSION['selectedProperty']->getPayments();
                     if ($result) {
                         foreach ($result as $row) {
-                            echo "<p>Date: " . date('d/m/y', strtotime($row['time'])) . " Amount: $" . $row['amount'];
+                            echo "<p>Date: " . date('M, d Y - h:s a', strtotime($row['time'])) . " Amount: $" . $row['amount'];
                         }
                     }
                     ?>
@@ -69,7 +78,7 @@ require_once '../app/views/templates/interfaceStart.php';
       
             
             </div>
-            <div role="pillpanel" class="pill-pane" id="profile2">
+            <div role="pillpanel" class="pill-pane" id="add_payment">
                 <div class="add_payments">
                 <?php if (isset($_SESSION['selectedProperty'])) { ?>
                     <form id="addPayment" method="post" action="<?=WEBDIR?>/propertyowner/processPayment">
@@ -142,6 +151,7 @@ require_once '../app/views/templates/interfaceStart.php';
             </div>
         </div>
     </div>
+</div>
 </div>
 
 

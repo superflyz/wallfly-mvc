@@ -87,7 +87,7 @@ if (isset($_SESSION['selectedProperty'])) {
         <div class="col-md-10 col-sm-10">
             <div class="navbar-dashboard-main">
                 <div class="visible-xs pull-left smtog">
-                    <a class="tog" href="" data-toggle="offcanvas">
+                    <a class="tog"  data-toggle="offcanvas">
                         <i class="fa fa-bars"></i>
                     </a>
                 </div>
@@ -128,49 +128,51 @@ if (isset($_SESSION['selectedProperty'])) {
                     </div>
                 </div>
             </div>
-            <div id="pagecontentstart" class="container content_body ">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="property-display pull-left">
-                            <div class="pull-left">
-                                <div class="property-label"><p>Property</p></div>
-                                <div class="property-address">
-                                    <!-- create address dropdown list only if agent or owner usertype -->
-                                    <?php 
+            <div id="pagecontentstart" class="container content_body">
+                <div class="row top-section">
+                    <div clas="col-md-12">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div id="property-display" class="property-display pull-left">
+                                    <div class="pull-left">
+                                        <div class="property-label"><p>Property</p></div>
+                                        <div class="property-address">
+                                            <!-- create address dropdown list only if agent or owner usertype -->
+                                            <?php 
 
-                                    //    if ($properties = $_SESSION['user']->getProperties()) {
-                                    //      echo $properties[1]->address;
-                                    //    }
+                                            //    if ($properties = $_SESSION['user']->getProperties()) {
+                                            //      echo $properties[1]->address;
+                                            //    }
 
-                                          $properties = $_SESSION['user']->getProperties();
-                                    //
-                                
+                                                  $properties = $_SESSION['user']->getProperties();
+                                            //
 
-                                    ?>
-                                    
-<!--                              I have taken this out from above:
-                                     if ($userType == 2) {}
--->
-                                   <select class="ui search dropdown">
-                                        <option value="">Select a property...</option>
-                                        <?php
-                                    for($i=0;$i<count($properties);$i++){
-                                        $selected = '';
-                                        echo value;
-                                        if ($properties[$i]->id === $pID) {
-                                            $selected = 'selected';
-                                        }
-                                        echo '<option value="'.$i.'" ' . $selected . '>' . $properties[$i]->address . '</option>';
 
-                                    } ?>
-                                    </select> 
-                                
+                                            ?>
+
+        <!--                              I have taken this out from above:
+                                             if ($userType == 2) {}
+        -->
+                                           <select class="ui search dropdown">
+                                                <option value="">Select a property...</option>
+                                                <?php
+                                            for($i=0;$i<count($properties);$i++){
+                                                $selected = '';
+                                                echo value;
+                                                if ($properties[$i]->id === $pID) {
+                                                    $selected = 'selected';
+                                                }
+                                                echo '<option value="'.$i.'" ' . $selected . '>' . $properties[$i]->address . '</option>';
+
+                                            } ?>
+                                            </select> 
+
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                
+
                 
                 
                 

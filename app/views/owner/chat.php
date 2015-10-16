@@ -35,8 +35,6 @@
                 <div class="panel-footer">
                     <div class="input-group">
                         <textarea id="btn-input-msg" class="form-control custom-control btn-msg-inpt" placeholder="Type your message here..." ></textarea><span class="input-group-addon btn-msg-snd" type="submit" id="btn-send-msg">Send</span>
-                        
-
                     </div>
                 </div>
             </div>
