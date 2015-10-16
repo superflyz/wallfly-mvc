@@ -107,7 +107,7 @@ h6 {
 }
 
 .btn:focus, .btn:active:focus, .btn.active:focus { 
-    outline: none; ! important; 
+    outline: none ! important;
     outline-style: none; 
 }
 
@@ -291,7 +291,7 @@ h6 {
 
 .navbar-default .nav li a {
     text-transform: uppercase;
-    font-weight: 350;
+    font-weight: 400;
     padding: 16px 18px 11px 18px;
     letter-spacing: 1px;
     color: #ffffff;
@@ -2543,3 +2543,20 @@ overflow-y: scroll;
     font-family: "Diavlo Light"; 
 }
 
+.pdf::-webkit-scrollbar {
+    display: none;
+}
+
+.display_pdf{
+    float:left;
+    width:150px;
+    height:auto;
+    /*border:1px solid red;*/
+    text-wrap: normal;
+    padding: 15px;
+
+}
+
+.display_pdf a{text-decoration: none;}
+
+#pagecontentstart > div:nth-child(4) > div{padding-bottom: 50px}

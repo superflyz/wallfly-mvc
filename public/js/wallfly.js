@@ -120,6 +120,3 @@ $("#btn-input-msg").keypress(function(event) {
     }
 });
 
-       
-       
-     

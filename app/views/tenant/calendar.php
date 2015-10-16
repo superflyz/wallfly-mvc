@@ -199,7 +199,7 @@ require_once '../app/views/templates/interfaceStartCalendar.php';
         dzscal_init("#cal-responsive-galileo2", {
             design_month_covers: design_month_covers
         });
-
+        });
 
 
 

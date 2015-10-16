@@ -332,4 +332,47 @@ class PropertyOwner extends Controller
     }
   }
 
+
+  public function processDocument()
+  {
+    if (!Owner::isAuthenticated()) {
+      $this->redirect('/');
+    } else {
+
+      // ============
+      // PDF UPLOAD
+      // ============
+      $file = $_FILES['image'];
+      // 1. check if user uploads an image
+      if ($file['name']) {
+        // 2. check if it's an image
+        if ($file['type'] !== 'application/pdf') {
+          Flash::set("pdferror","File type not pdf, please check file extention");
+        } else {
+          // 3. store the file
+          $targetDir = '/documents/';
+          $randomcharz = uniqid();
+          $splitval = "@@@@@@";
+          $targetFile = $targetDir .$randomcharz.$splitval. basename($file['name']);
+          if (move_uploaded_file($file['tmp_name'], PUBLIC_ABSOLUTE_PATH . $targetFile)) {
+            HandleDocuments::addDocument($_SESSION['selectedProperty']->id,$targetFile,basename($file['name']));
+          } else {
+
+            Flash::set("pdferror","Could not move file");
+          }
+        }
+      } else {
+        Flash::set("pdferror","Upload Failed, no file specified");
+      }
+      // ================
+      // END PDF UPLOAD
+      // ================
+    }
+  }
+
 }
+
+
+
+
+

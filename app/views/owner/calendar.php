@@ -3,20 +3,7 @@ require_once '../app/views/templates/interfaceStartCalendar.php';
 ?>
 
 <!--Content here-->
-    <div class="col-md-6 pull-right">
-        <div id="calendar_btn">
-<?php
-echo '<div class="btn-group calbtn">';
-echo '<a id="add-event" class="btn btn-primary dropdown-toggle add-event" data-toggle="modal" href="#">Add Calander Event</a>';
-echo '</div>';
 
-echo '<div class="btn-group calbtn">';
-echo '<a id="select-event" class="btn btn-primary" data-toggle="modal"  href="#">Remove Calander Event</a>';
-echo '</div>';
-?>
-     </div>
-    </div>
-</div>
 <div class="row">
     <div class="col-md-12">
         <div class="page_heading">
@@ -28,6 +15,15 @@ echo '</div>';
 
 <div class="row">
     <div class="col-md-12">
+     <div class="manage_properties_pills">
+          <!-- Nav pills -->
+          <ul class="nav nav-pills nav-justified properties_pills">
+
+             <li id="add-event"><a href="#"  data-toggle="modal" >Add Event</a></li>
+              <li id="select-event"><a href="#"  data-toggle="modal">Remove Event</a></li>
+          </ul>
+
+        </div>
         
 <!--start calendar-->
 <section id="calender">
