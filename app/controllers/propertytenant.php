@@ -337,7 +337,7 @@ class PropertyTenant extends Controller
                 } else {
                     //$this->view('tenant/index');
                     //for Mac
-                   // $result_upload = move_uploaded_file($tmpName, '/Applications/XAMPP/htdocs'.$target_file);
+                   $result_upload = move_uploaded_file($tmpName, '/Applications/XAMPP/htdocs'.$target_file);
                    // for Windows
                     $result_upload = move_uploaded_file($tmpName, 'C:/xampp/htdocs'.$target_file);
                 }

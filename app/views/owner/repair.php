@@ -23,17 +23,13 @@ require_once '../app/views/templates/interfaceStart.php';
 <div class="row bottom-section">
 <div class="row">
     <div class="col-md-12">
-
-
-
         <?php if (isset($_SESSION['selectedProperty'])) { ?>
       
         <form id="repairApproveDeny" method="post" action="<?=WEBDIR?>/propertyowner/processRepairRequest">
                 
         <div class="repair_view">
-     
-<!--
 
+<!--
 <div class="repair_view">
     <div class="row repair_view_head">
         <div class="col-md-12 hd">
@@ -43,18 +39,28 @@ require_once '../app/views/templates/interfaceStart.php';
 
     <div class="row repair_view_body">
         <div class="col-md-5 hd">
+            <div class="bd-text-description">dsadasdsadasdsadasdsadasdsadasdsadasdsadasdsadasdsadasdsadasdsadasdsadas</div>
             <div class="hd-text-description">Description</div>
             <div class="bd-text-description"></div>
-            <div class="hd-text-status">Status</div>
-            <div class="bd-text-status"></div>
+      
         </div>
         <div class="col-md-5 hd">
+            <div class="row">
+                <div class="col-md-6 hd">
             <div class="hd-text-severity">Severity</div>
             <div class="bd-text-severity"></div>
+                </div>
+                <div class="col-md-6 hd">
+                      <div class="hd-text-status">Status</div>
+            <div class="bd-text-status"></div>
+            </div>
+        </div>
+           
             <div class="hd-text">Comments</div>
             <div class="bd-text">
                 <textarea class="form-control custom-control btn-comment-inpt" placeholder="Type your comment here..." ></textarea>
            </div>
+  
         </div>
         <div class="col-md-2 hd">
             <div class="hd-text">Time</div>
@@ -87,8 +93,8 @@ require_once '../app/views/templates/interfaceStart.php';
                          $lastpos = end($splitImgSource);
                          $checkIfImageExists= explode(".", $lastpos);
                          if(!empty($checkIfImageExists[1])){
-                         $repairPic = "<img height='100' width='100' src='" . $row['image']."'/>";
-                         }else{  $repairPic = ""; }
+                         $repairPic = "<img  data-toggle='modal' class='img-responsive repair_image_enlarge' height='100' width='150' title='Repair image' alt='Repair image' src='" . $row['image']."'/>";
+                         }else{  $repairPic = "<div class='no_repair_img_view' title='Repair image'><p>No image</p></div>"; }
 
                    
                         echo "<div class='row repair_view_head'>
@@ -96,14 +102,21 @@ require_once '../app/views/templates/interfaceStart.php';
                         <div class='hd-text'>" . $row['subject'] . "</div></div></div>" .
                              "<div class='row repair_view_body'>
             <div class='col-md-5 hd'>
-            <div class='hd-text-description'>Description<hr class='repair_hr'></div>
-                             
-            <div class='bd-text-description'>" . $row['description'] . "</div>      
-            <div class='hd-text-status'>Status<hr class='repair_hr'></div>
-            <div class='bd-text-status'>" . $row['status'] . "</div>" .
-                            "</div><div class='col-md-5 hd'>
+            <div class='row ss'>
+            <div class='col-md-6 hd'>
+            <div class='repair_img_view'>" . $repairPic . "</div>
+            </div>" .
+                        "<div class='col-md-6 hd'>
                             <div class='hd-text-severity'>Severity<hr class='repair_hr'></div>
-            <div class='bd-text-severity'>". $row['severity_level'] ."</div>";
+            <div class='bd-text-severity'>". $row['severity_level'] ."</div></div></div>" . 
+                             
+           "<div class='hd-text-description'>Description<hr class='repair_hr'></div><div class='bd-text-description'>" . $row['description'] . "</div>" .
+                            "</div><div class='col-md-5 hd'>
+    
+                        
+                            <div class='hd-text-status'>Status<hr class='repair_hr'></div>
+            <div class='bd-text-status'>" . $row['status'] . "</div>"
+                            ;
                             
                         ?>
                 
@@ -117,7 +130,7 @@ require_once '../app/views/templates/interfaceStart.php';
                         
     
                          <div class="col-md-2 hd">
-                                    <div class="hd-text repair_dt"><?php echo($row['timestamp'])?></div>
+                                    <div class="hd-text repair_dt"><?php echo(date('M, d Y - h:s a', strtotime($row['timestamp'])))?></div>
                                     <div class="bd-text">
                                <button type='submit' name='submit' value='<?php echo $row['timestamp']?>/approve/<?php echo($count)?>' class='btn btn_repair_approve'>Approve</button>
                             <button type='submit' name='submit' value='<?php echo $row['timestamp']?>/deny/<?php echo($count++)?>' class='btn btn_repair_deny'>Deny</button></div>
@@ -143,7 +156,18 @@ require_once '../app/views/templates/interfaceStart.php';
 </div>
     </div>
 
-<!--<script src="/wallfly-mvc/public/js/textarea-autosize.js"></script>-->
+
+<!--
+<div class="modal fade enlarge_repair_img" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+    <img src="" class="imagepreview" style="width: 400px; height: 264px;" >
+    </div>
+  </div>
+</div>
+-->
+
+<script src="/wallfly-mvc/public/js/textarea-autosize.js"></script>
 <script type="text/javascript">
     
     $('.manage_properties_pills ul li').click(function (e) {
@@ -152,36 +176,18 @@ require_once '../app/views/templates/interfaceStart.php';
     })
     
     document.title = 'Repairs - WallFly';
-    
-  
-//    var $table = $('table');
-//    $table.floatThead({
-//        });
+     
+        $(document).ready(function () {
+     autosize(document.querySelectorAll('textarea'));
+            
+//$(".repair_image_enlarge").on("click", function() {
 //    
-//    $(".sticky-header").floatThead({scrollingTop:150});
-    
-//    var $table = $('table');
-//float the headers
-//$table.floatThead();
-//$table.floatThead('reflow');
-//var $table = $('.mytable');
-////    $table.floatThead('reflow');
-//$table.floatThead({
-//   
-//    scrollContainer: function($table){
-//		return $table.closest('.to-here');
-//	}
+//   $('.imagepreview').attr('src', $('.repair_image_enlarge').attr('src'));
+//   $('.imagepreview').modal('show');
+//     
 //});
-    
-// $("table.table").floatThead();
-//    
-//$('#sidebar').affix({
-//
-//});
-//    
-//        $(document).ready(function () {
-//     autosize(document.querySelectorAll('textarea'));
-// });
+           
+ });
 </script>
 
 
