@@ -119,3 +119,5 @@ $("#btn-input-msg").keypress(function(event) {
          $('#btn-send-msg').click();
     }
 });
+
+

@@ -107,7 +107,7 @@ h6 {
 }
 
 .btn:focus, .btn:active:focus, .btn.active:focus { 
-    outline: none; ! important; 
+    outline: none ! important;
     outline-style: none; 
 }
 
@@ -291,7 +291,7 @@ h6 {
 
 .navbar-default .nav li a {
     text-transform: uppercase;
-    font-weight: 350;
+    font-weight: 400;
     padding: 16px 18px 11px 18px;
     letter-spacing: 1px;
     color: #ffffff;
@@ -581,7 +581,7 @@ header .intro .intro-text-2 {
 }
 
 /*-- Large devices (large desktops, 1200px and up) --*/
-@media (min-width: 1200px) { ... }
+@media (min-width: 1200px) { }
 
 
 /*--- Footer ALL screen ---*/
@@ -806,7 +806,7 @@ body.modal-open {
 
 .nav-pills li a {
     margin-bottom: 10px;
-    font-weight: 350;
+    font-weight: 400;
     color: #333333;  
     border-left: 3px solid transparent;
     border-radius: 0px;
@@ -920,7 +920,7 @@ https://groups.google.com/forum/#!topic/twitter-bootstrap-stackoverflow/0Aqzs5s_
     width: 100%; 
     border: 0px;
     height: 100vh;
-    overflow: none;
+    overflow: hidden;
     padding: 0px 0px 0px 0px;    
 }
 
@@ -1162,7 +1162,7 @@ background: blue;
 
 
 .dropdown-menu {
-    overflow: none;
+    overflow: hidden;
     max-height: 300px;
     width: 300px;   
 }
@@ -1301,7 +1301,7 @@ background: blue;
 @media(min-width:920px) {
 
       .wrap {
-        white-space: wrap;
+        white-space: pre-wrap;
         max-width: 20px;
         margin: 0px 40px 0px 0px;
     }
@@ -1960,3 +1960,20 @@ border-radius: 4px;
     font-family: "Diavlo Light"; 
 }
 
+.pdf::-webkit-scrollbar {
+    display: none;
+}
+
+.display_pdf{
+    float:left;
+    width:150px;
+    height:auto;
+    /*border:1px solid red;*/
+    text-wrap: normal;
+    padding: 15px;
+
+}
+
+.display_pdf a{text-decoration: none;}
+
+#pagecontentstart > div:nth-child(4) > div{padding-bottom: 50px}

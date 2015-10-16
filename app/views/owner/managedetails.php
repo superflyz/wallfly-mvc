@@ -67,7 +67,35 @@ require_once '../app/views/templates/interfaceStart.php';
                     <a href="<?=WEBDIR?>/propertyowner/editproperty" class="btn btn-default">Edit</a> <a href="#" class="btn btn-success">Assign a tenant</a>
                 <?php endif ?>
             </div>
-            <div role="pillpanel" class="pill-pane" id="documents">2</div>
+            <div role="pillpanel" class="pill-pane" id="documents">
+                <form id="repairRequest" enctype="multipart/form-data" method="post" action="<?=WEBDIR?>/propertyowner/processDocument">
+
+                    <label for="image">Upload PDF</label>
+                    <div class="form-field">
+
+                        <input type="file" name="image"
+                               accept="application/pdf" id="image" style="float: left;">
+                        <span class="error"></span>  <button style="width: 120px;margin-top: 0;float: left;margin-left: 20px;" type="submit" name="Submit" value="submit" id="submit-btn" style="width: 120px;"
+                                                             class="btn btn-primary submit eventsubmit">Submit
+                        </button>
+
+                    </div>
+                </form><br/><br/><br/><br/>
+                <?php
+                  if($_SESSION['selectedProperty']) {
+                      $getdocuments = HandleDocuments::loadDocuments($_SESSION['selectedProperty']->id);
+                      if ($getdocuments != null) {
+                          foreach ($getdocuments as $key => $value) {
+                              echo $value;
+                          }
+                      }
+                  }
+
+
+           ?>
+
+
+                </div>
             <div role="pillpanel" class="pill-pane" id="inspections">3</div>
             <div role="pillpanel" class="pill-pane" id="rta">4</div>
         </div>
@@ -86,6 +114,126 @@ require_once '../app/views/templates/interfaceStart.php';
     })
     
     document.title = 'Properties - WallFly';
+</script>
+<script src="<?php echo WEBDIR?>/pdf_js/shared/util.js"></script>
+<script src="<?php echo WEBDIR?>/pdf_js/display/api.js"></script>
+<script src="<?php echo WEBDIR?>/pdf_js/display/metadata.js"></script>
+<script src="<?php echo WEBDIR?>/pdf_js/display/canvas.js"></script>
+<script src="<?php echo WEBDIR?>/pdf_js/display/webgl.js"></script>
+<script src="<?php echo WEBDIR?>/pdf_js/display/pattern_helper.js"></script>
+<script src="<?php echo WEBDIR?>/pdf_js/display/font_loader.js"></script>
+<script src="<?php echo WEBDIR?>/pdf_js/display/annotation_helper.js"></script>
+
+<script>
+    // Specify the main script used to create a new PDF.JS web worker.
+    // In production, leave this undefined or change it to point to the
+    // combined `pdf.worker.js` file.
+    PDFJS.workerSrc = '<?php echo WEBDIR?>/pdf_js/worker_loader.js';
+</script>
+<?php
+  $pdfMagic = HandleDocuments::setPdfThumbs($_SESSION['selectedProperty']->id);
+   foreach ($pdfMagic as $key=>$value ) {
+    //echo "<script>alert('".$key."');</script>";
+       echo "<script>
+                 /* -*- Mode: Java; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
+                 /* vim: set shiftwidth=2 tabstop=2 autoindent cindent expandtab: */
+
+                //
+                // See README for overview
+                //
+
+                'use strict';
+
+                //
+                // Fetch the PDF document from the URL using promises
+                //
+                 PDFJS.getDocument('/wallfly-mvc/public/".$value."').then(function(pdf) {
+        // Using promise to fetch the page
+        pdf.getPage(1).then(function(page) {
+            var scale = 0.2;
+            var viewport = page.getViewport(scale);
+
+            //
+            // Prepare canvas using PDF page dimensions
+            //
+            var canvas = document.getElementById('".$key."');
+            var context = canvas.getContext('2d');
+            canvas.height = viewport.height;
+            canvas.width = viewport.width;
+
+            //
+            // Render PDF page into canvas context
+            //
+            var renderContext = {
+                canvasContext: context,
+                viewport: viewport
+            };
+            page.render(renderContext);
+        });
+    });
+
+             </script>";
+  }
+
+
+?>
+<script>
+
+
+
+        /* -*- Mode: Java; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
+        /* vim: set shiftwidth=2 tabstop=2 autoindent cindent expandtab: */
+
+        //
+        // See README for overview
+        //
+
+        //'use strict';
+
+        //
+        // Fetch the PDF document from the URL using promises
+        //
+
+
+
+
+
+   // PDFJS.getDocument('/wallfly-mvc/public/documents/56211230e1313@@@@@@INFS2244 Assignment Part2 2015.pdf').then(function(pdf) {
+        // Using promise to fetch the page
+//        pdf.getPage(1).then(function(page) {
+//            var scale = 0.2;
+//            var viewport = page.getViewport(scale);
+
+            //
+            // Prepare canvas using PDF page dimensions
+            //
+//            var canvas = document.getElementById('6');
+//            var context = canvas.getContext('2d');
+//            canvas.height = viewport.height;
+//            canvas.width = viewport.width;
+
+            //
+            // Render PDF page into canvas context
+            //
+//            var renderContext = {
+//                canvasContext: context,
+//                viewport: viewport
+//            };
+//            page.render(renderContext);
+//        });
+//    });
+//
+
+
+
+
+    //$.each(thumbs, function (key, value) {
+
+
+
+
+
+
 </script>
     
 <?php

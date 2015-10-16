@@ -54,7 +54,7 @@
                 </div>
                 <div class="row">
                     <div class="col-md-12 intro-text-2">
-                        The rental experience that actually works
+                        The rental experience that works
                     </div>
                 </div>
                 <div class="row">
@@ -88,32 +88,32 @@
                         <i class="fa fa-circle fa-stack-2x text-primary"></i>
                         <i class="fa fa-shopping-cart fa-stack-1x fa-inverse"></i>
                     </span>
-                    <h4 class="feature-heading">E-Commerce</h4>
-                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+                    <h4 class="feature-heading">Property Management</h4>
+                    <p class="text-muted">Manage you property by setting tenants, documents and inspection reports</p>
                 </div>
                 <div class="col-md-3 col-sm-6 feature">
                     <span class="fa-stack fa-3x">
                         <i class="fa fa-circle fa-stack-2x text-primary"></i>
                         <i class="fa fa-laptop fa-stack-1x fa-inverse"></i>
                     </span>
-                    <h4 class="feature-heading">Responsive Design</h4>
-                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+                    <h4 class="feature-heading">Payments</h4>
+                    <p class="text-muted">Make payments quickly and safely through the  payment system powered by PayPal</p>
                 </div>
                 <div class="col-md-3 col-sm-6 feature">
                     <span class="fa-stack fa-3x">
                         <i class="fa fa-circle fa-stack-2x text-primary"></i>
                         <i class="fa fa-lock fa-stack-1x fa-inverse"></i>
                     </span>
-                    <h4 class="feature-heading feature">Web Security</h4>
-                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+                    <h4 class="feature-heading feature">Repairs</h4>
+                    <p class="text-muted">Approve or Deny repair requests after viewing images, severity and description </p>
                 </div>
                 <div class="col-md-3 col-sm-6 feature">
                     <span class="fa-stack fa-3x">
                         <i class="fa fa-circle fa-stack-2x text-primary"></i>
                         <i class="fa fa-laptop fa-stack-1x fa-inverse"></i>
                     </span>
-                    <h4 class="feature-heading">Responsive Design</h4>
-                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+                    <h4 class="feature-heading">Communicate</h4>
+                    <p class="text-muted">Conveniently create and view calender events or send chat messages</p>
                 </div>
             </div>
         </div>

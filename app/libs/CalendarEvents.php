@@ -38,6 +38,7 @@ class CalendarEvents
             } else {
                 $DBH = NULL;
                 return false;
+                exit();
             }
 
 
