@@ -310,12 +310,4 @@ body {
 }
 
 
-#add-event > a{
-    width: 224px;
-    margin-left: 45px;
-}
-
-#select-event > a{
-    width: 224px;
-    margin-left: -375px;
-}
+.pushit{margin-left: 18px;}

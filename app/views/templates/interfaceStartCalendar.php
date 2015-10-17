@@ -120,7 +120,7 @@ if (isset($_SESSION['selectedProperty'])) {
                 </div>
             </div>
             <div class="container content_body">
-                <div class="row">
+                <div class="row pushit">
                     <div class="col-md-6">
                         <div class="property-display pull-left">
                             <div class="pull-left">
