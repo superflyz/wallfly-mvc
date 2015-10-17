@@ -111,6 +111,9 @@ if (isset($_SESSION['selectedProperty'])) {
                                         break;
                                     }
                                 }
+                                if ($count == 0) {
+                                    echo "<li>No new notifications</li>";
+                                }
                                 ?>
                             </ul>
                         </div>

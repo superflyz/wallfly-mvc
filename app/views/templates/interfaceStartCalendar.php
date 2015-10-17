@@ -86,14 +86,26 @@ if (isset($_SESSION['selectedProperty'])) {
                     <div class="btn-group top-navbar-controls">
                         <span class="btn-separator"></span>
                         <div class="btn-group user-btn-focus" data-container="body" data-toggle="tooltip" title="Announcements">
-                            <a class="btn user-btn-t dropdown-toggle"  data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-bell" aria-hidden="true"></span>
-                            <span class="badge anown">3</span></a>
-                            <ul class="dropdown-menu pull-right">
-                                <li><a href=""><i class="i"></i>Payment is due on 19/10/15</a></li>
-                                <li class="divider"></li>
-                                <li><a href=""><i class="i"></i>New message from owner</a></li>
-                                <li class="divider"></li>
-                                <li><a href=""><i class="i"></i>Repair request approved</a></li>
+                            <a class="btn user-btn-t dropdown-toggle"  data-toggle="dropdown" href="#" id="notifications">
+                                <span class="glyphicon glyphicon-bell" aria-hidden="true"></span>
+                                <?php $notifications = Notification::getUnreadNotifications($_SESSION['user']->id); ?>
+                                <span class="badge anown"><?php echo count($notifications);?></span>
+                            </a>
+                            <ul class="dropdown-menu pull-right enable-overflow">
+                                <?php
+                                $count = 0;
+                                foreach ($notifications as $notification) {
+                                    $id = $notification['id'];
+                                    echo ("<li class='notifs' id='{$id}'>" . $notification['message'] . "</li>");
+                                    $count++;
+                                    if ($count == 4) {
+                                        break;
+                                    }
+                                }
+                                if ($count == 0) {
+                                    echo "<li>No new notifications</li>";
+                                }
+                                ?>
                             </ul>
                         </div>
                         <span class="btn-separator"></span>
