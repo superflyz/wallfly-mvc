@@ -2582,3 +2582,7 @@ overflow-y: scroll;
 #pagecontentstart > div:nth-child(4) > div{padding-bottom: 50px}
 
 canvas{    min-height: 169px; max-width: 150px;}
+
+.enable-overflow {
+    overflow: scroll;
+}
