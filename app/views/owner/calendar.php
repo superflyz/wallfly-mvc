@@ -86,7 +86,7 @@ require_once '../app/views/templates/interfaceStartCalendar.php';
     </div>
 </section>
 <!--end calendar-->
-
+    
 <!--add event modal-->
 <div class="modal modal-vcenter fade event-modal-md" tabindex="-1" role="dialog"
      aria-labelledby="mySmallModalLabel">
@@ -324,31 +324,29 @@ require_once '../app/views/templates/interfaceStartCalendar.php';
 
 
 <script>
-    jQuery(function($) {
+$(document).ready(
+    function() {
         $("#timepicker").timepicki();
-        $('#setEvent').validate({ // initialize the plugin
-            ignore: [],
-            rules: {
-                eventName: {
-                    required: true,
-                    maxlength: 20
-                },
-                date: {
-                    required: true
-                },
-                description: {
-                    maxlength: 100
-                }
 
-            }
-        });
+    }
+);
 
+$('#setEvent').validate({ // initialize the plugin
+    ignore: [],
+    rules: {
+        eventName: {
+            required: true,
+            maxlength: 20
+        },
+        date: {
+            required: true
+        },
+        description: {
+            maxlength: 100
+        }
 
-
-
-
-
-    });
+    }
+});
 </script>
     
 <script type="text/javascript">
