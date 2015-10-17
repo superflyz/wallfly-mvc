@@ -287,8 +287,7 @@ require_once '../app/views/templates/interfaceStartCalendar.php';
 
         });
 
-//       var test =  $('html').prop('scrollHeight')
-//        setInterval(function(){ alert(test); }, 3000);
+
         $('#pagecontentstart').addClass( "reduce_page_height" );
 
 
@@ -297,7 +296,7 @@ require_once '../app/views/templates/interfaceStartCalendar.php';
            type: "warning",   showCancelButton: true, confirmButtonColor: "#DD6B55",   confirmButtonText: "Yes, delete it!",   closeOnConfirm: false },
            function(){
 
-                alert(removeID);
+
              jQuery.ajax({
                     url: '/wallfly-mvc/public/dashboard/removePropertyEvents',
                     type: "POST",
@@ -314,14 +313,8 @@ require_once '../app/views/templates/interfaceStartCalendar.php';
 
                     }
                 });
-
-
-
-
-
-
-
-  })});
+             })
+         });
 
 
     });

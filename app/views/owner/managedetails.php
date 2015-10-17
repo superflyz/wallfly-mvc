@@ -88,7 +88,7 @@ require_once '../app/views/templates/interfaceStart.php';
                     </div>
                 </form><br/><br/><br/><br/>
                 <?php
-                  if($_SESSION['selectedProperty']) {
+                  if(isset($_SESSION['selectedProperty'])) {
                       $getdocuments = HandleDocuments::loadDocuments($_SESSION['selectedProperty']->id);
                       if ($getdocuments != null) {
                           foreach ($getdocuments as $key => $value) {
@@ -117,7 +117,7 @@ require_once '../app/views/templates/interfaceStart.php';
                     </div>
                 </form><br/><br/><br/><br/>
                 <?php
-                if($_SESSION['selectedProperty']) {
+                if(isset($_SESSION['selectedProperty'])) {
                     $getinspections = HandleDocuments::loadInspections($_SESSION['selectedProperty']->id);
                     if ($getinspections != null) {
                         foreach ($getinspections as $key => $value) {
@@ -237,10 +237,11 @@ require_once '../app/views/templates/interfaceStart.php';
     PDFJS.workerSrc = '<?php echo WEBDIR?>/pdf_js/worker_loader.js';
 </script>
 <?php
-  $pdfMagic = HandleDocuments::setPdfThumbs($_SESSION['selectedProperty']->id);
-   foreach ($pdfMagic as $key=>$value ) {
-    //echo "<script>alert('".$key."');</script>";
-       echo "<script>
+  if(isset($_SESSION['selectedProperty'])) {
+      $pdfMagic = HandleDocuments::setPdfThumbs($_SESSION['selectedProperty']->id);
+      foreach ($pdfMagic as $key => $value) {
+          //echo "<script>alert('".$key."');</script>";
+          echo "<script>
                  /* -*- Mode: Java; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
                  /* vim: set shiftwidth=2 tabstop=2 autoindent cindent expandtab: */
 
@@ -253,7 +254,7 @@ require_once '../app/views/templates/interfaceStart.php';
                 //
                 // Fetch the PDF document from the URL using promises
                 //
-                 PDFJS.getDocument('/wallfly-mvc/public/".$value."').then(function(pdf) {
+                 PDFJS.getDocument('/wallfly-mvc/public/" . $value . "').then(function(pdf) {
         // Using promise to fetch the page
         pdf.getPage(1).then(function(page) {
             var scale = 0.2;
@@ -262,7 +263,7 @@ require_once '../app/views/templates/interfaceStart.php';
             //
             // Prepare canvas using PDF page dimensions
             //
-            var canvas = document.getElementById('".$key."');
+            var canvas = document.getElementById('" . $key . "');
             var context = canvas.getContext('2d');
             canvas.height = viewport.height;
             canvas.width = viewport.width;
@@ -279,15 +280,17 @@ require_once '../app/views/templates/interfaceStart.php';
     });
 
              </script>";
+      }
   }
 
 
 ?>
 <?php
-$pdfMagic2 = HandleDocuments::setInspectionPdfThumbs($_SESSION['selectedProperty']->id);
-foreach ($pdfMagic2 as $key=>$value ) {
-    //echo "<script>alert('".$key."');</script>";
-    echo "<script>
+if(isset($_SESSION['selectedProperty'])) {
+    $pdfMagic2 = HandleDocuments::setInspectionPdfThumbs($_SESSION['selectedProperty']->id);
+    foreach ($pdfMagic2 as $key => $value) {
+        //echo "<script>alert('".$key."');</script>";
+        echo "<script>
                  /* -*- Mode: Java; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
                  /* vim: set shiftwidth=2 tabstop=2 autoindent cindent expandtab: */
 
@@ -300,7 +303,7 @@ foreach ($pdfMagic2 as $key=>$value ) {
                 //
                 // Fetch the PDF document from the URL using promises
                 //
-        PDFJS.getDocument('/wallfly-mvc/public/".$value."').then(function(pdf) {
+        PDFJS.getDocument('/wallfly-mvc/public/" . $value . "').then(function(pdf) {
         // Using promise to fetch the page
 
         pdf.getPage(1).then(function(page) {
@@ -310,7 +313,7 @@ foreach ($pdfMagic2 as $key=>$value ) {
             //
             // Prepare canvas using PDF page dimensions
             //
-            var canvas = document.getElementById('".$key."');
+            var canvas = document.getElementById('" . $key . "');
             var context = canvas.getContext('2d');
             canvas.height = viewport.height;
             canvas.width = viewport.width;
@@ -328,6 +331,7 @@ foreach ($pdfMagic2 as $key=>$value ) {
     });
 
              </script>";
+    }
 }
 
 

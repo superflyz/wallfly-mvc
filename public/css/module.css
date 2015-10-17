@@ -308,4 +308,14 @@ body {
     height: 550px;
     overflow: auto;
 }
->>>>>>> master
+
+
+#add-event > a{
+    width: 224px;
+    margin-left: 45px;
+}
+
+#select-event > a{
+    width: 224px;
+    margin-left: -375px;
+}
