@@ -674,6 +674,8 @@ body {
 }
 
 
+
+
 /*---  Top navbar ---*/
 .navbar-dashboard-main {
     padding: 0px 0;
@@ -1496,26 +1498,39 @@ padding: 25px 0px 0px 0px;
 #chat_system {
     height: auto;
 /*    background: blue;*/
-    margin: 0px 0px 0px 0px;
+    margin: 20px 0px 0px 0px;
+    padding: 0px;
 }
+
+#chat_system .tooltip.bottom .tooltip-inner {
+    background-color: #dedede;
+    color: #333333;
+    
+  }
+#chat_system .tooltip.bottom .tooltip-arrow {
+          border-bottom-color: #dedede;
+       }  
 
 .panel-primary {
     border: none;
     box-shadow: none;
-      height: 522px;
+      height: auto;
+/*    background: red;*/
+    padding: 0px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
     border-radius: 5px;
 /*    border: 2px solid #5AD663;*/
 /*        border: 2px solid #5AD663;*/
 }
 
 .panel-primary .panel-heading {
-    color: #ffffff;
+    color: #333333;
     height: 50px;
     font-weight: 600;
-    background-color: #333333;
+    background-color: #dedede;
 /*    border: 2px solid #dedede;*/
     
-    border-bottom: 2px solid #333333;
+    border-bottom: 2px solid #dedede;
     border-radius-top-left: 4px;
     border-radius-top-right: 4px;
 }
@@ -1537,6 +1552,8 @@ padding: 25px 0px 0px 0px;
     height: 363px;
     overflow-y: auto;
     background: radial-gradient(#dedede,#f8f8f8);
+    border: 2px solid #dedede;
+/*
        border-width: 2px;
     border-style: solid;
     -webkit-border-image: 
@@ -1549,6 +1566,7 @@ padding: 25px 0px 0px 0px;
       -o-linear-gradient(#333333, #dedede) 1 100%;
     border-image:
       linear-gradient(to bottom, #333333, #dedede) 1 100%;
+*/
 /*
     border-left: 2px solid #dedede;
     border-right: 2px solid #dedede;
@@ -1629,8 +1647,8 @@ li{
     float: left;
     position: relative;
     width: auto;
-    min-width: 150px;
-    max-width: 444px;
+    min-width: auto;
+    max-width: 100%;
     height: auto;
     margin: 0px 0px 20px 0px;
     padding: 0px;
@@ -1692,6 +1710,7 @@ li{
     -ms-user-select: none;
     user-select: none;
     cursor: default;
+        background: red;
 }
 
 .time {
@@ -1715,9 +1734,10 @@ li{
     float: right;
     position: relative;
     width: auto;
-    min-width: 150px;
-    max-width: 444px;
+    min-width: auto;
+    max-width: 100%;
     height: auto;
+/*    min-height: 44px;*/
     margin: 0px 0px 20px 0px;
     padding: 0px;
     background: #5AD663;

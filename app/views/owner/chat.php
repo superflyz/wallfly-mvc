@@ -14,8 +14,11 @@
         </div>
     </div>
 </div>
+</div>
+</div>
 
 <!-- Chat box -->
+<div class="row bottom-section">
 <div class="row">
     <div class="col-md-12">
         <div id="chat_system">
@@ -41,6 +44,8 @@
         </div>
     </div>
 </div>
+</div>
+
 
 
 <!-- End Chatbox -->
@@ -85,6 +90,7 @@
             $("textarea").css('height', 'auto');
         });
  
+
     });
     
 
