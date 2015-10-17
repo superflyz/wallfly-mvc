@@ -205,7 +205,7 @@ echo '</div>';
         var eventAdded = <?php echo "'".$_SESSION['eventAdded']."'";?>;
         if (eventAdded == "true") {
             swal("Success", "You have added an event to the calendar", "success");
-        } else if (eventAdded == "true") {
+        } else if (eventAdded == "false") {
             sweetAlert("Oops...", "Something went wrong with adding that event", "error");
 
         }
