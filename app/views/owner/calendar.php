@@ -38,12 +38,12 @@ require_once '../app/views/templates/interfaceStartCalendar.php';
 
                 <?php
                 //$count = 0;
-                if ($pID == 0) {
+                if (!isset($_SESSION['selectedProperty'])) {
 
 
                     $events = CalendarEvents::getAllEvents($userEmail);
-
-                    foreach ($events as $event) {
+                    if($events != null){
+                        foreach ($events as $event) {
 
                         $interval = $event->eventInterval;
                         $explodeDate = explode("/", $event->eventDate);
@@ -57,13 +57,14 @@ require_once '../app/views/templates/interfaceStartCalendar.php';
 //                                    $count++;
 
 
-                    };
+                        }
+                    }
 
                 } else {
 
                     $events = CalendarEvents::getPropertyEvents($pID);
-
-                    foreach ($events as $event) {
+                    if($events != null){
+                        foreach ($events as $event) {
 
                         $interval = $event->eventInterval;
                         $explodeDate = explode("/", $event->eventDate);
@@ -76,7 +77,8 @@ require_once '../app/views/templates/interfaceStartCalendar.php';
                         echo '<br/>' . $event->description . '</div>';
                         //$count++;
 
-                    };
+                        }
+                    }
                 }
                 ?>
                 </div>

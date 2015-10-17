@@ -142,7 +142,7 @@ if (isset($_SESSION['selectedProperty'])) {
                                         <?php
                                     for($i=0;$i<count($properties);$i++){
                                         $selected = '';
-                                        echo value;
+
                                         if ($properties[$i]->id === $pID) {
                                             $selected = 'selected';
                                         }
