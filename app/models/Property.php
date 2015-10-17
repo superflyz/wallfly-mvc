@@ -77,7 +77,7 @@ class Property extends Model
           ORDER BY update_timestamp DESC");
         $statement->execute(['property_id' => $this->id, 'tenant_id' => $_SESSION['user']->id]);
       } else {
-        $statement = $db->prepare("SELECT * FROM repair_request WHERE property_id=:property_id ORDER BY update_timestamp ASC");
+        $statement = $db->prepare("SELECT * FROM repair_request WHERE property_id=:property_id ORDER BY status ASC");
         $statement->execute(['property_id' => $this->id]);
       }
       $result = Array();

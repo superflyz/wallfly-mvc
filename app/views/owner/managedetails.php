@@ -36,13 +36,13 @@ require_once '../app/views/templates/interfaceStart.php';
             <div role="pillpanel" class="pill-pane" id="detail">
                 <?php if ($property = $data['property']): ?>
                     <!-- This is to get the property address -->
-                    Address: <span class="edit"><?=$data['property']->address?></span> <br>
+                    Address: <span class="edit"><?=$data['property']->address?></span> <br />
 
                     <!-- This is to get the property photo -->
-                    <img src="<?=$data['property']->photo?>" alt="property_photo" width="250" height="200"> <br>
+                    <img src="<?=$data['property']->photo?>" alt="property_photo" width="250" height="200"> <br />
 
                     <!-- This is to get the rent amount -->
-                    Rent amount: $<?=$data['property']->rent_amount?> (<?=$data['property']->payment_schedule?>) <br>
+                    Rent amount: $<?=$data['property']->rent_amount?> (<?=$data['property']->payment_schedule?>) <br />
 
                     <!-- This is to get the real estate -->
                     <?php if ($realest = $data['property']->getRealEstate()):?>
@@ -54,7 +54,7 @@ require_once '../app/views/templates/interfaceStart.php';
 
                     <!-- This is to get the agent -->
                     <?php if ($agent = $data['property']->getAgent()): ?>
-                        Agent: <?=$agent->firstname . ' ' . $agent->lastname?> <br>
+                        Agent: <?=$agent->firstname . ' ' . $agent->lastname?> <br />
                     <?php else: ?>
                         <!-- This is if there is currently no agent assigned to this property -->
                         Agent: - <br>
@@ -62,9 +62,9 @@ require_once '../app/views/templates/interfaceStart.php';
 
                     <!-- This is to get the tenant -->
                     <?php if ($tenant = $data['property']->getTenant()): ?>
-                        Tenant: <?=$tenant->firstname . ' ' . $tenant->lastname?> <br>
+                        Tenant: <?=$tenant->firstname . ' ' . $tenant->lastname?> <br />
                     <?php else: ?>
-                        Tenant: - <br>
+                        Tenant: - <br />
                     <?php endif ?>
 
 
@@ -88,7 +88,7 @@ require_once '../app/views/templates/interfaceStart.php';
                     </div>
                 </form><br/><br/><br/><br/>
                 <?php
-                  if($_SESSION['selectedProperty']) {
+                  if(isset($_SESSION['selectedProperty'])) {
                       $getdocuments = HandleDocuments::loadDocuments($_SESSION['selectedProperty']->id);
                       if ($getdocuments != null) {
                           foreach ($getdocuments as $key => $value) {
@@ -117,7 +117,7 @@ require_once '../app/views/templates/interfaceStart.php';
                     </div>
                 </form><br/><br/><br/><br/>
                 <?php
-                if($_SESSION['selectedProperty']) {
+                if(isset($_SESSION['selectedProperty'])) {
                     $getinspections = HandleDocuments::loadInspections($_SESSION['selectedProperty']->id);
                     if ($getinspections != null) {
                         foreach ($getinspections as $key => $value) {
@@ -237,10 +237,11 @@ require_once '../app/views/templates/interfaceStart.php';
     PDFJS.workerSrc = '<?php echo WEBDIR?>/pdf_js/worker_loader.js';
 </script>
 <?php
-  $pdfMagic = HandleDocuments::setPdfThumbs($_SESSION['selectedProperty']->id);
-   foreach ($pdfMagic as $key=>$value ) {
-    //echo "<script>alert('".$key."');</script>";
-       echo "<script>
+  if(isset($_SESSION['selectedProperty'])) {
+      $pdfMagic = HandleDocuments::setPdfThumbs($_SESSION['selectedProperty']->id);
+      foreach ($pdfMagic as $key => $value) {
+          //echo "<script>alert('".$key."');</script>";
+          echo "<script>
                  /* -*- Mode: Java; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
                  /* vim: set shiftwidth=2 tabstop=2 autoindent cindent expandtab: */
 
@@ -253,7 +254,7 @@ require_once '../app/views/templates/interfaceStart.php';
                 //
                 // Fetch the PDF document from the URL using promises
                 //
-                 PDFJS.getDocument('/wallfly-mvc/public/".$value."').then(function(pdf) {
+                 PDFJS.getDocument('/wallfly-mvc/public/" . $value . "').then(function(pdf) {
         // Using promise to fetch the page
         pdf.getPage(1).then(function(page) {
             var scale = 0.2;
@@ -262,7 +263,7 @@ require_once '../app/views/templates/interfaceStart.php';
             //
             // Prepare canvas using PDF page dimensions
             //
-            var canvas = document.getElementById('".$key."');
+            var canvas = document.getElementById('" . $key . "');
             var context = canvas.getContext('2d');
             canvas.height = viewport.height;
             canvas.width = viewport.width;
@@ -279,15 +280,17 @@ require_once '../app/views/templates/interfaceStart.php';
     });
 
              </script>";
+      }
   }
 
 
 ?>
 <?php
-$pdfMagic2 = HandleDocuments::setInspectionPdfThumbs($_SESSION['selectedProperty']->id);
-foreach ($pdfMagic2 as $key=>$value ) {
-    //echo "<script>alert('".$key."');</script>";
-    echo "<script>
+if(isset($_SESSION['selectedProperty'])) {
+    $pdfMagic2 = HandleDocuments::setInspectionPdfThumbs($_SESSION['selectedProperty']->id);
+    foreach ($pdfMagic2 as $key => $value) {
+        //echo "<script>alert('".$key."');</script>";
+        echo "<script>
                  /* -*- Mode: Java; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
                  /* vim: set shiftwidth=2 tabstop=2 autoindent cindent expandtab: */
 
@@ -300,7 +303,7 @@ foreach ($pdfMagic2 as $key=>$value ) {
                 //
                 // Fetch the PDF document from the URL using promises
                 //
-        PDFJS.getDocument('/wallfly-mvc/public/".$value."').then(function(pdf) {
+        PDFJS.getDocument('/wallfly-mvc/public/" . $value . "').then(function(pdf) {
         // Using promise to fetch the page
 
         pdf.getPage(1).then(function(page) {
@@ -310,7 +313,7 @@ foreach ($pdfMagic2 as $key=>$value ) {
             //
             // Prepare canvas using PDF page dimensions
             //
-            var canvas = document.getElementById('".$key."');
+            var canvas = document.getElementById('" . $key . "');
             var context = canvas.getContext('2d');
             canvas.height = viewport.height;
             canvas.width = viewport.width;
@@ -328,6 +331,7 @@ foreach ($pdfMagic2 as $key=>$value ) {
     });
 
              </script>";
+    }
 }
 
 
