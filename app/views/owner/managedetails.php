@@ -145,7 +145,34 @@ require_once '../app/views/templates/interfaceStart.php';
 
 
 
-            <div role="pillpanel" class="pill-pane" id="rta">4</div>
+            <div role="pillpanel" class="pill-pane" id="rta">
+                <br/>
+                <table width="100%">
+                    <tr>
+                        <td width="45%"><h2>Applying to QCAT</h2></td>
+                        <td width="50px"> </td>
+                        <td width="45%"><h2>RTA Links</h2></td>
+                    </tr>
+                    <tr>
+                        <td>1.	First you should try and resolve your dispute directly. <br><br>
+                            2.	If you cannot reach agreement, you must try to resolve the dispute assisted by the RTAs dispute resolution service (unless your dispute is considered urgent by the legislation). Lodge a Dispute resolution request (Form 16).<br><br>
+                            3.	If you go through the RTAs dispute resolution process and the dispute remains unresolved the RTA will send you a notice of unresolved dispute. You can then choose to lodge an application to have your matter heard at QCAT for an order to be made.<br><br>
+                            4.	Once you have applied to QCAT and paid the application fee notices will be sent to attend a hearing on a set date. When the case is heard a decision will be made by the adjudicator or magistrate and you must follow the order given.<br><br></td>
+                        <td></td>
+                        <td><a href="https://www.rta.qld.gov.au/Disputes/Dispute-resolution/How-to-prevent-disputes">Preventing Disputes</a> <br>
+                            <br><br> <a href="https://www.rta.qld.gov.au/Disputes/Dispute-resolution/How-to-prevent-disputes/Preventing-bond-disputes">Preventing Bond Disputes</a> <br>
+                            <br><br> <a href="https://www.rta.qld.gov.au/Disputes/Dispute-resolution/How-to-resolve-tenancy-issues">Resolving Tenancy Issues:</a> <br>
+                            <br><br><a href="https://www.rta.qld.gov.au/Disputes/Dispute-resolution/Applying-for-dispute-resolution">Dispute Resolution by RTA</a> <br>
+                            <br><br><a href="https://www.rta.qld.gov.au/Disputes/Dispute-resolution/Applying-for-dispute-resolution/Matters-unsuitable-for-conciliation">Matters unsuitable for conciliation</a> <br>
+                            <br><br> <a href="https://www.rta.qld.gov.au/Disputes/Dispute-resolution/Applying-to-QCAT">Queensland Civil and Administrative Tribunal</a> <br>
+                        </td>
+                    </tr>
+                </table>
+
+
+
+
+            </div>
         </div>
     </div>
 </div>
