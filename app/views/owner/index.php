@@ -22,16 +22,12 @@
 <div class="row">
     <div class="col-md-12">
         <section id="select_property">
-        
+
             <!-- create address dropdown list only if agent or owner usertype -->
-            <?php if ($userType == 2) {
-            //    if ($properties = $_SESSION['user']->getProperties()) {
-            //      echo $properties[1]->address;
-            //    }
+            <?php
 
                   $properties = $_SESSION['user']->getProperties();
-            //
-            }
+
 
             ?>
             <div class="select-property-dropdown">

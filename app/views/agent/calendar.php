@@ -1,7 +1,30 @@
 <?php
 require_once '../app/views/templates/interfaceStartCalendar.php';
 ?>
+<div class="row">
+    <div class="col-md-12">
+        <div class="page_heading">
+            <p>Payments</p>
+            <hr />
+        </div>
+    </div>
+</div>
 
+ <div class="row">
+    <div class="col-md-6">
+        <div class="manage_properties_pills">
+          <!-- Nav pills -->
+          <ul class="nav nav-pills nav-justified properties_pills">
+
+             <li role="presentation"><a id="add-event" class="btn btn-primary dropdown-toggle add-event" data-toggle="modal" href="#">Add Calander Event</a></li>
+              <li role="presentation"><a href="#add_payment" aria-controls="add_payment" role="pill" data-toggle="pill">Add Payment</a></li>
+          </ul>
+
+        </div>
+    </div>
+</div>
+</div>
+</div>
 <!--Content here-->
     <div class="col-md-6 pull-right">
         <div id="calendar_btn">

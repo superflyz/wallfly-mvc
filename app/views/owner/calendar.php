@@ -1,10 +1,7 @@
 <?php
 require_once '../app/views/templates/interfaceStart.php';
 ?>
-
-<!--Content here-->
-
-<div class="row">
+<div class="row ">
     <div class="col-md-12">
         <div class="page_heading">
             <p>Calendar</p>
@@ -13,17 +10,42 @@ require_once '../app/views/templates/interfaceStart.php';
     </div>
 </div>
 
-<div class="row">
-    <div class="col-md-12">
-     <div class="manage_properties_pills">
+ <div class="row ">
+    <div class="col-md-6 ">
+        <div class="manage_properties_pills">
           <!-- Nav pills -->
           <ul class="nav nav-pills nav-justified properties_pills">
 
-             <li id="add-event"><a href="#"  data-toggle="modal" >Add Event</a></li>
-              <li id="select-event"><a href="#"  data-toggle="modal">Remove Event</a></li>
+             <li role="presentation" id="add-event"><a href="#"  data-toggle="modal" >Add Event</a></li>
+              <li role="presentation" id="select-event"><a href="#"  data-toggle="modal">Remove Event</a></li>
           </ul>
 
         </div>
+    </div>
+</div>
+
+<!--Content here-->
+
+<!--<div class="row">-->
+<!--    <div class="col-md-12">-->
+<!--        <div class="page_heading">-->
+<!--            <p>Calendar</p>-->
+<!--            <hr />-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+<!---->
+<!--<div class="row">-->
+<!--    <div class="col-md-12">-->
+<!--     <div class="manage_properties_pills">-->
+<!--          <!-- Nav pills -->
+<!--          <ul class="nav nav-pills nav-justified properties_pills">-->
+<!---->
+<!--             <li id="add-event"><a href="#"  data-toggle="modal" >Add Event</a></li>-->
+<!--              <li id="select-event"><a href="#"  data-toggle="modal">Remove Event</a></li>-->
+<!--          </ul>-->
+<!---->
+<!--        </div>-->
         
 <!--start calendar-->
 <section id="calender">
@@ -312,8 +334,8 @@ require_once '../app/views/templates/interfaceStart.php';
                         sweetAlert("Sorry", "Unable to remove Event!", "error");
 
                     }
-                });
-             })
+             });
+           })
          });
 
 
@@ -324,31 +346,29 @@ require_once '../app/views/templates/interfaceStart.php';
 
 
 <script>
-    jQuery(function($) {
+$(document).ready(
+    function() {
         $("#timepicker").timepicki();
-        $('#setEvent').validate({ // initialize the plugin
-            ignore: [],
-            rules: {
-                eventName: {
-                    required: true,
-                    maxlength: 20
-                },
-                date: {
-                    required: true
-                },
-                description: {
-                    maxlength: 100
-                }
 
-            }
-        });
+    }
+);
 
+$('#setEvent').validate({ // initialize the plugin
+    ignore: [],
+    rules: {
+        eventName: {
+            required: true,
+            maxlength: 20
+        },
+        date: {
+            required: true
+        },
+        description: {
+            maxlength: 100
+        }
 
-
-
-
-
-    });
+    }
+});
 </script>
     
 <script type="text/javascript">
