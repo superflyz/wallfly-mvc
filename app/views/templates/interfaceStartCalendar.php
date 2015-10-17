@@ -26,8 +26,6 @@ if (isset($_SESSION['selectedProperty'])) {
 ?>
 
 <script src="/wallfly-mvc/public/js/dropdown2/dropdown2.js"></script>
-    <link href="/wallfly-mvc/public/js/dropdown2/dropdown2.css" rel="stylesheet">
-
           
 <div class="container-fluid">
     <div class="row no-gutter row-offcanvas row-offcanvas-left">

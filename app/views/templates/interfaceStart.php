@@ -33,7 +33,7 @@ if (isset($_SESSION['selectedProperty'])) {
 ?>
 
 <script src="/wallfly-mvc/public/js/dropdown2/dropdown2.js"></script>
-    <link href="/wallfly-mvc/public/js/dropdown2/dropdown2.css" rel="stylesheet">
+
 
           
 <div class="container-fluid">
@@ -156,15 +156,15 @@ if (isset($_SESSION['selectedProperty'])) {
                                            <select class="ui search dropdown">
                                                 <option value="">Select a property...</option>
                                                 <?php
-                                            for($i=0;$i<count($properties);$i++){
-                                                $selected = '';
-                                                echo value;
-                                                if ($properties[$i]->id === $pID) {
-                                                    $selected = 'selected';
-                                                }
-                                                echo '<option value="'.$i.'" ' . $selected . '>' . $properties[$i]->address . '</option>';
+                                                for($i=0;$i<count($properties);$i++){
+                                                    $selected = '';
+                                                    echo value;
+                                                    if ($properties[$i]->id === $pID) {
+                                                        $selected = 'selected';
+                                                    }
+                                                    echo '<option value="'.$i.'" ' . $selected . '>' . $properties[$i]->address . '</option>';
 
-                                            } ?>
+                                                } ?>
                                             </select> 
 
                                         </div>

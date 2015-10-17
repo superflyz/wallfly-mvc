@@ -37,6 +37,7 @@
     <link rel="icon" sizes="120x120" href="localhost/wallfly-mvc/public/favicon/favicon-120x120.png">
     <link rel="icon" sizes="144x144" href="localhost/wallfly-mvc/public/favicon/favicon-144x144.png">
     <link rel="icon" sizes="152x152" href="localhost/wallfly-mvc/public/favicon/favicon-152x152.png">
+    <link href="/wallfly-mvc/public/js/dropdown2/dropdown2.css" rel="stylesheet">
 
     <meta name="msapplication-TileColor" content="#FFFFFF">	
     <meta name="msapplication-TileImage" content="localhost/wallfly-mvc/public/favicon/favicon-144x144.png">
