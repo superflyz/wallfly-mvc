@@ -11,8 +11,7 @@
 ?>
 
 <script src="/wallfly-mvc/public/js/dropdown/dropdown.js"></script>
-<link href="/wallfly-mvc/public/js/dropdown/dropdown.css" rel="stylesheet">
-          
+
 
 <!--Content here-->
 <div class="row">
