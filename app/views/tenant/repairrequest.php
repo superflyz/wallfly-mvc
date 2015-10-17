@@ -48,7 +48,7 @@ require_once '../app/views/templates/interfaceStart.php';
                             <div class="form-field">
                                 <label for="image">Image</label>
                                 <input type="file" name="image" size="2000000"
-                                       accept="image/jpeg, image/x-ms-bmp, image/x-png" id="image">
+                                       accept="image/jpeg, image/x-ms-bmp, image/png" id="image">
                                 <span class="error"></span>
                                 <br />
                             </div>
