@@ -11,6 +11,7 @@ require_once 'libs/Validator.php';
 require_once 'libs/Flash.php';
 require_once 'libs/CalendarEvents.php';
 require_once 'libs/HandleDocuments.php';
+require_once 'libs/Notification.php';
 
 
 require_once 'core/App.php';

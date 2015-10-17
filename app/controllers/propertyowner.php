@@ -179,8 +179,13 @@ class PropertyOwner extends Controller
     if (!Owner::isAuthenticated()) {
       $this->redirect('/');
     } else {
+      $property = $_SESSION['selectedProperty'];
       $tmp = explode("/", $_POST['submit']);
       $result = $_SESSION['selectedProperty']->processRepairRequest($tmp[0], $tmp[1], $_POST[$tmp[2]]);
+      if ($result) {
+        //Notification::addNotification($property->agent_id, "Repair status updated for " . $property->address . ".");
+        //Notification::addNotification($property->tenant_id, "Repair status updated for " . $property->address . ".");
+      }
       $this->redirect('/propertyowner/repair');
     }
   }
