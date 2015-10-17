@@ -18,6 +18,16 @@ class PropertyOwner extends Controller
     if (!Owner::isAuthenticated()) {
       $this->redirect('/');
     } else {
+
+      $this->setJavascriptDependencies([
+
+          WEBDIR . '/js/sweetalert.min.js'
+
+      ]);
+
+      $this->setCSSDependencies([
+          WEBDIR . '/css/sweetalert.css'
+      ]);
       $data = [];
       $data['property'] = isset($_SESSION['selectedProperty']) ? $_SESSION['selectedProperty'] : null;
       $data['owner'] = $_SESSION['user'];
@@ -356,13 +366,64 @@ class PropertyOwner extends Controller
           $targetFile = $targetDir .$randomcharz.$splitval. basename($file['name']);
           if (move_uploaded_file($file['tmp_name'], PUBLIC_ABSOLUTE_PATH . $targetFile)) {
             HandleDocuments::addDocument($_SESSION['selectedProperty']->id,$targetFile,basename($file['name']));
+            $_SESSION['docAdded'] = "true";
+
+            $this->redirect('/propertyowner/manage');
           } else {
 
             Flash::set("pdferror","Could not move file");
+            $_SESSION['docAdded'] = "false";
+            $this->redirect('/propertyowner/manage');
           }
         }
       } else {
         Flash::set("pdferror","Upload Failed, no file specified");
+        $_SESSION['docAdded'] = "false";
+        $this->redirect('/propertyowner/manage');
+      }
+      // ================
+      // END PDF UPLOAD
+      // ================
+    }
+  }
+
+  public function processInspection()
+  {
+    if (!Owner::isAuthenticated()) {
+      $this->redirect('/');
+    } else {
+
+      // ============
+      // PDF UPLOAD
+      // ============
+      $file = $_FILES['image'];
+      // 1. check if user uploads an image
+      if ($file['name']) {
+        // 2. check if it's an image
+        if ($file['type'] !== 'application/pdf') {
+          Flash::set("pdferror","File type not pdf, please check file extention");
+        } else {
+          // 3. store the file
+          $targetDir = '/inspections/';
+          $randomcharz = uniqid();
+          $splitval = "@@@@@@";
+          $targetFile = $targetDir .$randomcharz.$splitval. basename($file['name']);
+          if (move_uploaded_file($file['tmp_name'], PUBLIC_ABSOLUTE_PATH . $targetFile)) {
+            HandleDocuments::addInspection($_SESSION['selectedProperty']->id,$targetFile,basename($file['name']));
+            $_SESSION['docAdded'] = "true";
+
+            $this->redirect('/propertyowner/manage');
+          } else {
+
+            Flash::set("pdferror","Could not move file");
+            $_SESSION['docAdded'] = "false";
+            $this->redirect('/propertyowner/manage');
+          }
+        }
+      } else {
+        Flash::set("pdferror","Upload Failed, no file specified");
+        $_SESSION['docAdded'] = "false";
+        $this->redirect('/propertyowner/manage');
       }
       // ================
       // END PDF UPLOAD

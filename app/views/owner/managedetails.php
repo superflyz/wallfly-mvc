@@ -25,6 +25,9 @@ require_once '../app/views/templates/interfaceStart.php';
         </div>
     </div>
 </div>
+<?php if ($error = Flash::get('pdferror')): ?>
+    <div class="alert alert-default" role="alert" style="color:rgb(159, 221, 94)"><?=$error?>!!!</div>
+<?php endif ?>
 
 <div class="row">
     <div class="col-md-12">
@@ -99,8 +102,77 @@ require_once '../app/views/templates/interfaceStart.php';
 
 
                 </div>
-            <div role="pillpanel" class="pill-pane" id="inspections">3</div>
-            <div role="pillpanel" class="pill-pane" id="rta">4</div>
+            <div role="pillpanel" class="pill-pane" id="inspections">
+                <form id="repairRequest" enctype="multipart/form-data" method="post" action="<?=WEBDIR?>/propertyowner/processInspection">
+
+                    <label for="image">Upload PDF</label>
+                    <div class="form-field">
+
+                        <input type="file" name="image"
+                               accept="application/pdf" id="image" style="float: left;">
+                        <span class="error"></span>  <button style="width: 120px;margin-top: 0;float: left;margin-left: 20px;" type="submit" name="Submit" value="submit" id="submit-btn" style="width: 120px;"
+                                                             class="btn btn-primary submit eventsubmit">Submit
+                        </button>
+
+                    </div>
+                </form><br/><br/><br/><br/>
+                <?php
+                if($_SESSION['selectedProperty']) {
+                    $getinspections = HandleDocuments::loadInspections($_SESSION['selectedProperty']->id);
+                    if ($getinspections != null) {
+                        foreach ($getinspections as $key => $value) {
+                            echo $value;
+                        }
+                    }
+                }
+
+
+                ?>
+
+
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <div role="pillpanel" class="pill-pane" id="rta">
+                <br/>
+                <table width="100%">
+                    <tr>
+                        <td width="45%"><h2>Applying to QCAT</h2></td>
+                        <td width="50px"> </td>
+                        <td width="45%"><h2>RTA Links</h2></td>
+                    </tr>
+                    <tr>
+                        <td>1.	First you should try and resolve your dispute directly. <br><br>
+                            2.	If you cannot reach agreement, you must try to resolve the dispute assisted by the RTAs dispute resolution service (unless your dispute is considered urgent by the legislation). Lodge a Dispute resolution request (Form 16).<br><br>
+                            3.	If you go through the RTAs dispute resolution process and the dispute remains unresolved the RTA will send you a notice of unresolved dispute. You can then choose to lodge an application to have your matter heard at QCAT for an order to be made.<br><br>
+                            4.	Once you have applied to QCAT and paid the application fee notices will be sent to attend a hearing on a set date. When the case is heard a decision will be made by the adjudicator or magistrate and you must follow the order given.<br><br></td>
+                        <td></td>
+                        <td><a href="https://www.rta.qld.gov.au/Disputes/Dispute-resolution/How-to-prevent-disputes">Preventing Disputes</a> <br>
+                            <br><br> <a href="https://www.rta.qld.gov.au/Disputes/Dispute-resolution/How-to-prevent-disputes/Preventing-bond-disputes">Preventing Bond Disputes</a> <br>
+                            <br><br> <a href="https://www.rta.qld.gov.au/Disputes/Dispute-resolution/How-to-resolve-tenancy-issues">Resolving Tenancy Issues:</a> <br>
+                            <br><br><a href="https://www.rta.qld.gov.au/Disputes/Dispute-resolution/Applying-for-dispute-resolution">Dispute Resolution by RTA</a> <br>
+                            <br><br><a href="https://www.rta.qld.gov.au/Disputes/Dispute-resolution/Applying-for-dispute-resolution/Matters-unsuitable-for-conciliation">Matters unsuitable for conciliation</a> <br>
+                            <br><br> <a href="https://www.rta.qld.gov.au/Disputes/Dispute-resolution/Applying-to-QCAT">Queensland Civil and Administrative Tribunal</a> <br>
+                        </td>
+                    </tr>
+                </table>
+
+
+
+
+            </div>
         </div>
     </div>
 </div>
@@ -211,63 +283,79 @@ require_once '../app/views/templates/interfaceStart.php';
 
 
 ?>
-<script>
+<?php
+$pdfMagic2 = HandleDocuments::setInspectionPdfThumbs($_SESSION['selectedProperty']->id);
+foreach ($pdfMagic2 as $key=>$value ) {
+    //echo "<script>alert('".$key."');</script>";
+    echo "<script>
+                 /* -*- Mode: Java; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
+                 /* vim: set shiftwidth=2 tabstop=2 autoindent cindent expandtab: */
 
+                //
+                // See README for overview
+                //
 
+                'use strict';
 
-        /* -*- Mode: Java; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
-        /* vim: set shiftwidth=2 tabstop=2 autoindent cindent expandtab: */
-
-        //
-        // See README for overview
-        //
-
-        //'use strict';
-
-        //
-        // Fetch the PDF document from the URL using promises
-        //
-
-
-
-
-
-   // PDFJS.getDocument('/wallfly-mvc/public/documents/56211230e1313@@@@@@INFS2244 Assignment Part2 2015.pdf').then(function(pdf) {
+                //
+                // Fetch the PDF document from the URL using promises
+                //
+        PDFJS.getDocument('/wallfly-mvc/public/".$value."').then(function(pdf) {
         // Using promise to fetch the page
-//        pdf.getPage(1).then(function(page) {
-//            var scale = 0.2;
-//            var viewport = page.getViewport(scale);
+
+        pdf.getPage(1).then(function(page) {
+            var scale = 0.2;
+            var viewport = page.getViewport(scale);
 
             //
             // Prepare canvas using PDF page dimensions
             //
-//            var canvas = document.getElementById('6');
-//            var context = canvas.getContext('2d');
-//            canvas.height = viewport.height;
-//            canvas.width = viewport.width;
+            var canvas = document.getElementById('".$key."');
+            var context = canvas.getContext('2d');
+            canvas.height = viewport.height;
+            canvas.width = viewport.width;
 
             //
             // Render PDF page into canvas context
             //
-//            var renderContext = {
-//                canvasContext: context,
-//                viewport: viewport
-//            };
-//            page.render(renderContext);
-//        });
-//    });
-//
+            var renderContext = {
+                canvasContext: context,
+                viewport: viewport
+            };
+            page.render(renderContext);
+        });
+
+    });
+
+             </script>";
+}
 
 
+?>
+<script>
+    $(document).ready(function () {
+    var docAdded = <?php if(isset($_SESSION['docAdded'])){echo "'".$_SESSION['docAdded']."'";}else{echo "false";}?>;
+    if (docAdded == "true") {
+        swal("Success", "You have uploaded a document", "success");
+        <?php unset($_SESSION['docAdded']);?>
+    } else if (docAdded == "false") {
+        <?php unset($_SESSION['docAdded']);?>
 
+    }
 
-    //$.each(thumbs, function (key, value) {
+    });
+</script>
+<script>
+    $(document).ready(function () {
+        var inspectionAdded = <?php if(isset($_SESSION['inspectionAdded'])){echo "'".$_SESSION['inspectionAdded']."'";}else{echo "false";}?>;
+        if (inspectionAdded == "true") {
+            swal("Success", "You have uploaded an inspection", "success");
+            <?php unset($_SESSION['inspectionAdded']);?>
+        } else if (inspectionAdded == "false") {
+            <?php unset($_SESSION['inspectionAdded']);?>
 
-
-
-
-
-
+        }
+    });
 </script>
     
 <?php

@@ -287,7 +287,7 @@ class PropertyTenant extends Controller
                 $this->redirect('/propertytenant/repairrequest');
             }
             $fileName = $_FILES['image']['name'];
-            $uploadDir = WEBDIR . '/img/repair/';
+            $uploadDir = '/img/repair/';
             $target_file = $uploadDir . uniqid() . basename($fileName);
 
             if ($_FILES['image']['size'] > 0) {
@@ -337,9 +337,9 @@ class PropertyTenant extends Controller
                 } else {
                     //$this->view('tenant/index');
                     //for Mac
-                   $result_upload = move_uploaded_file($tmpName, '/Applications/XAMPP/htdocs'.$target_file);
+                   $result_upload = move_uploaded_file($tmpName, PUBLIC_ABSOLUTE_PATH .$target_file);
                    // for Windows
-                    $result_upload = move_uploaded_file($tmpName, 'C:/xampp/htdocs'.$target_file);
+                    //$result_upload = move_uploaded_file($tmpName, 'C:/xampp/htdocs'.$target_file);
                 }
             }
 
