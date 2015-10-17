@@ -106,7 +106,7 @@ class Property extends Model
         severity_level, status, image) VALUES (:tenant_id, :property_id, :timestamp, :update_timestamp, :subject, :description,
         :severity_level, :status, :image)");
       $statement->execute(['tenant_id' => $_SESSION['user']->id, 'property_id' => $this->id, 'timestamp' => date('Y-m-d G:i:s'), 'update_timestamp' => date('Y-m-d G:i:s'),
-        'subject' => $subject, 'description' => $description, 'severity_level' => $severity, 'status' => 0, 'image' => $image]);
+        'subject' => $subject, 'description' => $description, 'severity_level' => $severity, 'status' => 0, 'image' => WEBDIR . $image]);
       return true;
     } catch (Exception $e) {
       echo 'Error: ' . $e->getMessage();
