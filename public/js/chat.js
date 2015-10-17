@@ -20,23 +20,19 @@ function chatLoad(userID,propertyID) {
                     if (parseobj.super_user_id == userID) {
                         $("#chatbox ul").append(
                             "<li class='current-user pull-right'>" +
-                            "<div class='user-img pull-right'>" + 
+                            "<div class='user-img pull-right' data-toggle='tooltip' title='" + parseobj.send_at + "'>" + 
                             "<img src='' class='img-circle' />" +
                             "<strong>Me</strong></div>" +                                                         "<div class='bubble-arw-right'>" + 
-                            "<div class='msg-txt'><p>" + nl2br(parseobj.message) + "</p></div>" +
-                            "<div class='msg-time pull-right'><p class='time'>" + 
-                            "<i class='fa fa-clock-o'></i>" + parseobj.send_at + "</p></div>" + "</div></li>");
+                            "<div class='msg-txt'><p>" + nl2br(parseobj.message) + "</p></div>" + "</div></li>");
 
 
                     } else {
                         $("#chatbox ul").append(
                             "<li class='other-user pull-left'>" +
-                            "<div class='user-img pull-left'>" + 
+                            "<div class='user-img pull-left' data-toggle='tooltip' title='" + parseobj.send_at + "'>" + 
                             "<img src='' class='img-circle' />" +
                             "<strong>" + parseobj.user_type + "</strong></div>" +                                 "<div class='bubble-arw-left'>" + 
-                             "<div class='msg-txt'><p>" + nl2br(parseobj.message) + "</p></div>" +
-                            "<div class='msg-time pull-right'><p class='time'>" + 
-                            "<i class='fa fa-clock-o'></i>" + parseobj.send_at + "</p></div>" + "</div></li>");
+                             "<div class='msg-txt'><p>" + nl2br(parseobj.message) + "</p></div>" + "</div></li>");
                             
                             
                         
@@ -81,23 +77,19 @@ function chatLoad(userID,propertyID) {
                         if (parseobj.super_user_id == userID) {
                             $("#chatbox ul").append(
                             "<li class='current-user pull-right'>" +
-                            "<div class='user-img pull-right'>" + 
+                            "<div class='user-img pull-right' data-toggle='tooltip' title='" + parseobj.send_at + "'>" + 
                             "<img src='' class='img-circle' />" +
                             "<strong>Me</strong></div>" +                                                         "<div class='bubble-arw-right'>" + 
-                            "<div class='msg-txt'><p>" + nl2br(parseobj.message) + "</p></div>" +
-                            "<div class='msg-time pull-right'><p class='time'>" + 
-                            "<i class='fa fa-clock-o'></i>" + parseobj.send_at + "</p></div>" + "</div></li>");
+                            "<div class='msg-txt'><p>" + nl2br(parseobj.message) + "</p></div>" + "</div></li>");
 
 
                         } else {
                             $("#chatbox ul").append(
                             "<li class='other-user pull-left'>" +
-                            "<div class='user-img pull-left'>" + 
+                            "<div class='user-img pull-left' data-toggle='tooltip' title='" + parseobj.send_at + "'>" + 
                             "<img src='' class='img-circle' />" +
                             "<strong>" + parseobj.user_type + "</strong></div>" +                                 "<div class='bubble-arw-left'>" + 
-                             "<div class='msg-txt'><p>" + nl2br(parseobj.message) + "</p></div>" +
-                            "<div class='msg-time pull-right'><p class='time'>" + 
-                            "<i class='fa fa-clock-o'></i>" + parseobj.send_at + "</p></div>" + "</div></li>");
+                             "<div class='msg-txt'><p>" + nl2br(parseobj.message) + "</p></div>" + "</div></li>");
 
 
                         }
@@ -174,3 +166,7 @@ function numRowCheck(pid) {
     });
 
 }
+
+$(document).ready(function() {
+    $("body").tooltip({ selector: '[data-toggle=tooltip]', placement: 'bottom' });
+});
