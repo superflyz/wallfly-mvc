@@ -8,7 +8,6 @@ $(document).ready(function() {
             ids.push($(this).attr('id'));
         });
         var jsonString = JSON.stringify(ids);
-        alert(jsonString);
         jQuery.ajax({
             url: '/wallfly-mvc/public/dashboard/setRead',
             type: "POST",
