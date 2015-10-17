@@ -38,12 +38,12 @@ require_once '../app/views/templates/interfaceStartCalendar.php';
 
                 <?php
                 //$count = 0;
-                if (!isset($_SESSION['selectedProperty'])) {
+                if ($pID == 0) {
 
 
                     $events = CalendarEvents::getAllEvents($userEmail);
-                    if($events != null){
-                        foreach ($events as $event) {
+
+                    foreach ($events as $event) {
 
                         $interval = $event->eventInterval;
                         $explodeDate = explode("/", $event->eventDate);
@@ -57,14 +57,13 @@ require_once '../app/views/templates/interfaceStartCalendar.php';
 //                                    $count++;
 
 
-                        }
-                    }
+                    };
 
                 } else {
 
                     $events = CalendarEvents::getPropertyEvents($pID);
-                    if($events != null){
-                        foreach ($events as $event) {
+
+                    foreach ($events as $event) {
 
                         $interval = $event->eventInterval;
                         $explodeDate = explode("/", $event->eventDate);
@@ -77,8 +76,7 @@ require_once '../app/views/templates/interfaceStartCalendar.php';
                         echo '<br/>' . $event->description . '</div>';
                         //$count++;
 
-                        }
-                    }
+                    };
                 }
                 ?>
                 </div>
@@ -88,7 +86,7 @@ require_once '../app/views/templates/interfaceStartCalendar.php';
     </div>
 </section>
 <!--end calendar-->
-    
+
 <!--add event modal-->
 <div class="modal modal-vcenter fade event-modal-md" tabindex="-1" role="dialog"
      aria-labelledby="mySmallModalLabel">
@@ -326,29 +324,31 @@ require_once '../app/views/templates/interfaceStartCalendar.php';
 
 
 <script>
-$(document).ready(
-    function() {
+    jQuery(function($) {
         $("#timepicker").timepicki();
+        $('#setEvent').validate({ // initialize the plugin
+            ignore: [],
+            rules: {
+                eventName: {
+                    required: true,
+                    maxlength: 20
+                },
+                date: {
+                    required: true
+                },
+                description: {
+                    maxlength: 100
+                }
 
-    }
-);
+            }
+        });
 
-$('#setEvent').validate({ // initialize the plugin
-    ignore: [],
-    rules: {
-        eventName: {
-            required: true,
-            maxlength: 20
-        },
-        date: {
-            required: true
-        },
-        description: {
-            maxlength: 100
-        }
 
-    }
-});
+
+
+
+
+    });
 </script>
     
 <script type="text/javascript">

@@ -11,6 +11,7 @@
 ?>
 
 <script src="/wallfly-mvc/public/js/dropdown/dropdown.js"></script>
+<link href="/wallfly-mvc/public/js/dropdown/dropdown.css" rel="stylesheet">
 
 
 <!--Content here-->
@@ -23,10 +24,14 @@
         <section id="select_property">
 
             <!-- create address dropdown list only if agent or owner usertype -->
-            <?php
+            <?php if ($userType == 2) {
+            //    if ($properties = $_SESSION['user']->getProperties()) {
+            //      echo $properties[1]->address;
+            //    }
 
                   $properties = $_SESSION['user']->getProperties();
-
+            //
+            }
 
             ?>
             <div class="select-property-dropdown">
@@ -36,7 +41,7 @@
                     <?php
                 for($i=0;$i<count($properties);$i++){
                     $selected = '';
-
+                    echo value;
                     if ($properties[$i]->id === $pID) {
                         $selected = 'selected';
                     }
