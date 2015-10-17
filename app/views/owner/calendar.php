@@ -324,25 +324,27 @@ require_once '../app/views/templates/interfaceStartCalendar.php';
 
 
 <script>
-jQuery(function($) {
-    $("#timepicker").timepicki();
-    $('#setEvent').validate({ // initialize the plugin
-        ignore: [],
-        rules: {
-            eventName: {
-                required: true,
-                maxlength: 20
-            },
-            date: {
-                required: true
-            },
-            description: {
-                maxlength: 100
-            }
+$(document).ready(
+    function() {
+        $("#timepicker").timepicki();
+        $('#setEvent').validate({ // initialize the plugin
+            ignore: [],
+            rules: {
+                eventName: {
+                    required: true,
+                    maxlength: 20
+                },
+                date: {
+                    required: true
+                },
+                description: {
+                    maxlength: 100
+                }
 
-        }
-    });
-});
+            }
+        });
+    }
+);
 </script>
     
 <script type="text/javascript">
