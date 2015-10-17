@@ -95,14 +95,17 @@ if (isset($_SESSION['selectedProperty'])) {
                     <div class="btn-group top-navbar-controls">
                         <span class="btn-separator"></span>
                         <div class="btn-group user-btn-focus" data-container="body" data-toggle="tooltip" title="Announcements">
-                            <a class="btn user-btn-t dropdown-toggle"  data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-bell" aria-hidden="true"></span>
-                            <span class="badge anown">3</span></a>
+                            <a class="btn user-btn-t dropdown-toggle"  data-toggle="dropdown" href="#" id="notifications">
+                                <span class="glyphicon glyphicon-bell" aria-hidden="true"></span>
+                                <?php $notifications = Notification::getUnreadNotifications($_SESSION['user']->id); ?>
+                                <span class="badge anown"><?php echo count($notifications);?></span>
+                            </a>
                             <ul class="dropdown-menu pull-right enable-overflow">
                                 <?php
-                                $notifications = Notification::getUnreadNotifications($_SESSION['user']->id);
                                 $count = 0;
                                 foreach ($notifications as $notification) {
-                                    echo ("<li>" . $notification['message'] . "</li>");
+                                    $id = $notification['id'];
+                                    echo ("<li class='notifs' id='{$id}'>" . $notification['message'] . "</li>");
                                     $count++;
                                     if ($count == 4) {
                                         break;
@@ -113,8 +116,9 @@ if (isset($_SESSION['selectedProperty'])) {
                         </div>
                         <span class="btn-separator"></span>
                         <div class="btn-group user-btn-focus" data-container="body" data-toggle="tooltip" title="User Info">
-                            <a class="btn user-btn-t dropdown-toggle" data-toggle="dropdown" href="#"><span
-                                    class="glyphicon glyphicon-user"></span></a>
+                            <a class="btn user-btn-t dropdown-toggle" data-toggle="dropdown" href="#">
+                                <span class="glyphicon glyphicon-user"></span>
+                            </a>
                             <ul class="dropdown-menu">
                                 <li><i class="i"></i><span class="user-name"><?php echo $_SESSION['user']->firstname . " " . $_SESSION['user']->lastname?></span></li>
                                 <li class="divider"></li>

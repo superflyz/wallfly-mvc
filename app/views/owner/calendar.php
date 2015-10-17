@@ -312,8 +312,8 @@ require_once '../app/views/templates/interfaceStartCalendar.php';
                         sweetAlert("Sorry", "Unable to remove Event!", "error");
 
                     }
-                });
-             })
+             });
+           })
          });
 
 

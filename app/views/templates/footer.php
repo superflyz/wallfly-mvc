@@ -9,6 +9,7 @@
 <!-- Custom Theme JavaScript -->
 <script src="<?=WEBDIR?>/js/wallfly.js"></script>
 <script src="<?=WEBDIR?>/js/offcanvas.js"></script>
+<script src="<?=WEBDIR?>/js/notificationRead.js"></script>
 
 </body>
 </html>

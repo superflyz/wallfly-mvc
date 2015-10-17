@@ -183,5 +183,12 @@ class Dashboard extends Controller
 
     }
 
+    public function setRead() {
+        $userId = $_SESSION['user']->id;
+        $ids = $_POST['ids'];
+
+        Notification::setRead($userId, $ids);
+    }
+
 
 }
