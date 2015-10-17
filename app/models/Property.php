@@ -73,16 +73,17 @@ class Property extends Model
     try {
       $db = Database::getInstance();
       if ($_SESSION['usertype'] == USERTYPE_TENANT) {
-        $statement = $db->prepare("SELECT * FROM repair_request WHERE property_id=:property_id AND tenant_id=:tenant_id");
+        $statement = $db->prepare("SELECT * FROM repair_request WHERE property_id=:property_id AND tenant_id=:tenant_id
+          ORDER BY update_timestamp DESC");
         $statement->execute(['property_id' => $this->id, 'tenant_id' => $_SESSION['user']->id]);
       } else {
-        $statement = $db->prepare("SELECT * FROM repair_request WHERE property_id=:property_id");
+        $statement = $db->prepare("SELECT * FROM repair_request WHERE property_id=:property_id ORDER BY update_timestamp ASC");
         $statement->execute(['property_id' => $this->id]);
       }
       $result = Array();
       while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
         $tmp = Array("tenant_id" => $row['tenant_id'], "property_id" => $row['property_id'],
-            "timestamp" => $row['timestamp'], "subject" => $row['subject'], "description" => $row['description'],
+            "timestamp" => $row['timestamp'], "update_timestamp" => $row['update_timestamp'], "subject" => $row['subject'], "description" => $row['description'],
             "severity_level" => $row['severity_level'], "status" => $row['status'], "image" => $row['image'],
             "comment" => $row['comment']);
         array_push($result, $tmp);
@@ -101,10 +102,10 @@ class Property extends Model
   {
     try {
       $db = Database::getInstance();
-      $statement = $db->prepare("INSERT INTO repair_request (tenant_id, property_id, timestamp, subject, description,
+      $statement = $db->prepare("INSERT INTO repair_request (tenant_id, property_id, timestamp, update_timestamp, subject, description,
         severity_level, status, image) VALUES (:tenant_id, :property_id, :timestamp, :subject, :description,
         :severity_level, :status, :image)");
-      $statement->execute(['tenant_id' => $_SESSION['user']->id, 'property_id' => $this->id, 'timestamp' => date('Y-m-d G:i:s'),
+      $statement->execute(['tenant_id' => $_SESSION['user']->id, 'property_id' => $this->id, 'timestamp' => date('Y-m-d G:i:s'), 'update_timestamp' => date('Y-m-d G:i:s'),
         'subject' => $subject, 'description' => $description, 'severity_level' => $severity, 'status' => 0, 'image' => $image]);
       return true;
     } catch (Exception $e) {
@@ -118,11 +119,11 @@ class Property extends Model
     try {
       $db = Database::getInstance();
       if ($value == "approve") {
-        $statement = $db->prepare("UPDATE repair_request SET status=1, comment=:comment WHERE property_id=:property_id AND timestamp=:timestamp");
-        $statement->execute(['comment' => $comment, 'property_id' => $this->id, 'timestamp' => $timestamp]);
+        $statement = $db->prepare("UPDATE repair_request SET status=1, comment=:comment, update_timestamp=:update_timestamp WHERE property_id=:property_id AND timestamp=:timestamp");
+        $statement->execute(['comment' => $comment, 'update_timestamp' => date('Y-m-d G:i:s'), 'property_id' => $this->id, 'timestamp' => $timestamp]);
       } elseif ($value == "deny") {
-        $statement = $db->prepare("UPDATE repair_request SET status=2, comment=:comment WHERE property_id=:property_id AND timestamp=:timestamp");
-        $statement->execute(['comment' => $comment, 'property_id' => $this->id, 'timestamp' => $timestamp]);
+        $statement = $db->prepare("UPDATE repair_request SET status=2, comment=:comment, update_timestamp=:update_timestamp WHERE property_id=:property_id AND timestamp=:timestamp");
+        $statement->execute(['comment' => $comment, 'update_timestamp' => date('Y-m-d G:i:s'), 'property_id' => $this->id, 'timestamp' => $timestamp]);
       }
       return true;
     } catch (Exception $e) {
@@ -135,8 +136,8 @@ class Property extends Model
   {
     try {
       $db = Database::getInstance();
-      $statement = $db->prepare("UPDATE repair_request SET severity_level=:severity_level WHERE property_id=:property_id AND timestamp=:timestamp");
-      $statement->execute(['severity_level' => $severity, 'property_id' => $this->id, 'timestamp' => $timestamp]);
+      $statement = $db->prepare("UPDATE repair_request SET severity_level=:severity_level, update_timestamp=:update_timestamp WHERE property_id=:property_id AND timestamp=:timestamp");
+      $statement->execute(['severity_level' => $severity, 'update_timestamp' => date('Y-m-d G:i:s'), 'property_id' => $this->id, 'timestamp' => $timestamp]);
       return true;
     } catch (Exception $e) {
       echo 'Error: ' . $e->getMessage();
