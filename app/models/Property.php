@@ -103,7 +103,7 @@ class Property extends Model
     try {
       $db = Database::getInstance();
       $statement = $db->prepare("INSERT INTO repair_request (tenant_id, property_id, timestamp, update_timestamp, subject, description,
-        severity_level, status, image) VALUES (:tenant_id, :property_id, :timestamp, :subject, :description,
+        severity_level, status, image) VALUES (:tenant_id, :property_id, :timestamp, :update_timestamp, :subject, :description,
         :severity_level, :status, :image)");
       $statement->execute(['tenant_id' => $_SESSION['user']->id, 'property_id' => $this->id, 'timestamp' => date('Y-m-d G:i:s'), 'update_timestamp' => date('Y-m-d G:i:s'),
         'subject' => $subject, 'description' => $description, 'severity_level' => $severity, 'status' => 0, 'image' => $image]);
