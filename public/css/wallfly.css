@@ -581,7 +581,7 @@ header .intro .intro-text-2 {
 }
 
 /*-- Large devices (large desktops, 1200px and up) --*/
-@media (min-width: 1200px) { ... }
+@media (min-width: 1200px) {  }
 
 
 /*--- Footer ALL screen ---*/
@@ -834,7 +834,7 @@ body.modal-open {
 
 .nav-pills li a {
     margin-bottom: 10px;
-    font-weight: 350;
+    font-weight: 400;
     color: #333333;  
     border-left: 3px solid transparent;
     border-radius: 0px;
@@ -948,7 +948,7 @@ https://groups.google.com/forum/#!topic/twitter-bootstrap-stackoverflow/0Aqzs5s_
     width: 100%; 
     border: 0px;
     height: 100vh;
-    overflow: none;
+    overflow: hidden;
     padding: 0px 0px 0px 0px;    
 }
 
@@ -1197,7 +1197,7 @@ background: blue;
 
 
 .dropdown-menu {
-    overflow: none;
+    overflow: hidden;
     max-height: 300px;
     width: 300px;   
 }
@@ -1336,7 +1336,7 @@ background: blue;
 @media(min-width:920px) {
 
       .wrap {
-        white-space: wrap;
+        white-space: pre-wrap;
         max-width: 20px;
         margin: 0px 40px 0px 0px;
     }
@@ -2560,3 +2560,5 @@ overflow-y: scroll;
 .display_pdf a{text-decoration: none;}
 
 #pagecontentstart > div:nth-child(4) > div{padding-bottom: 50px}
+
+canvas{    min-height: 169px; max-width: 150px;}

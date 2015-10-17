@@ -102,7 +102,8 @@ require_once '../app/views/templates/interfaceStart.php';
 
 
                 </div>
-            <div role="pillpanel" class="pill-pane" id="inspections"><form id="repairRequest" enctype="multipart/form-data" method="post" action="<?=WEBDIR?>/propertyowner/processInspection">
+            <div role="pillpanel" class="pill-pane" id="inspections">
+                <form id="repairRequest" enctype="multipart/form-data" method="post" action="<?=WEBDIR?>/propertyowner/processInspection">
 
                     <label for="image">Upload PDF</label>
                     <div class="form-field">
@@ -272,8 +273,9 @@ foreach ($pdfMagic2 as $key=>$value ) {
                 //
                 // Fetch the PDF document from the URL using promises
                 //
-                 PDFJS.getDocument('/wallfly-mvc/public/".$value."').then(function(pdf) {
+        PDFJS.getDocument('/wallfly-mvc/public/".$value."').then(function(pdf) {
         // Using promise to fetch the page
+
         pdf.getPage(1).then(function(page) {
             var scale = 0.2;
             var viewport = page.getViewport(scale);
@@ -295,6 +297,7 @@ foreach ($pdfMagic2 as $key=>$value ) {
             };
             page.render(renderContext);
         });
+
     });
 
              </script>";
@@ -304,24 +307,20 @@ foreach ($pdfMagic2 as $key=>$value ) {
 ?>
 <script>
     $(document).ready(function () {
-    var docAdded = <?php echo "'".$_SESSION['docAdded']."'";?>;
+    var docAdded = <?php if(isset($_SESSION['docAdded'])){echo "'".$_SESSION['docAdded']."'";}else{echo "false";}?>;
     if (docAdded == "true") {
         swal("Success", "You have uploaded a document", "success");
         <?php unset($_SESSION['docAdded']);?>
-    } else if (eventAdded == "false") {
+    } else if (docAdded == "false") {
         <?php unset($_SESSION['docAdded']);?>
 
     }
-
-
-
-
 
     });
 </script>
 <script>
     $(document).ready(function () {
-        var inspectionAdded = <?php echo "'".$_SESSION['inspectionAdded']."'";?>;
+        var inspectionAdded = <?php if(isset($_SESSION['inspectionAdded'])){echo "'".$_SESSION['inspectionAdded']."'";}else{echo "false";}?>;
         if (inspectionAdded == "true") {
             swal("Success", "You have uploaded an inspection", "success");
             <?php unset($_SESSION['inspectionAdded']);?>
@@ -329,11 +328,6 @@ foreach ($pdfMagic2 as $key=>$value ) {
             <?php unset($_SESSION['inspectionAdded']);?>
 
         }
-
-
-
-
-
     });
 </script>
     

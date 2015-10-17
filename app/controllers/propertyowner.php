@@ -410,19 +410,19 @@ class PropertyOwner extends Controller
           $targetFile = $targetDir .$randomcharz.$splitval. basename($file['name']);
           if (move_uploaded_file($file['tmp_name'], PUBLIC_ABSOLUTE_PATH . $targetFile)) {
             HandleDocuments::addInspection($_SESSION['selectedProperty']->id,$targetFile,basename($file['name']));
-            $_SESSION['inspectionAdded'] = "true";
+            $_SESSION['docAdded'] = "true";
 
             $this->redirect('/propertyowner/manage');
           } else {
 
             Flash::set("pdferror","Could not move file");
-            $_SESSION['inspectionAdded'] = "false";
+            $_SESSION['docAdded'] = "false";
             $this->redirect('/propertyowner/manage');
           }
         }
       } else {
         Flash::set("pdferror","Upload Failed, no file specified");
-        $_SESSION['inspectionAdded'] = "false";
+        $_SESSION['docAdded'] = "false";
         $this->redirect('/propertyowner/manage');
       }
       // ================
