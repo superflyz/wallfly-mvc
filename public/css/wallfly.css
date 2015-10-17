@@ -1647,10 +1647,10 @@ li{
     float: left;
     position: relative;
     width: auto;
-    min-width: auto;
+    min-width: 30px;
     max-width: 100%;
     height: auto;
-    margin: 0px 0px 20px 0px;
+    margin: 3px 0px 20px 0px;
     padding: 0px;
     background: #FFFFFF;
     -webkit-border-radius: 4px;
@@ -1662,13 +1662,13 @@ li{
     content: '';
     position: absolute;
     border-style: solid;
-    border-width: 10px 10px 10px 0;
+    border-width: 6px 10px 1px 0;
     border-color: transparent #FFFFFF;
     display: block;
     width: 0;
     z-index: 1;
     left: -10px;
-    top: 10px;
+    top: 6px;
 }
 
 .current-user .user-img {
@@ -1686,7 +1686,7 @@ li{
 }
 
 .current-user .msg-txt {
-    margin: 9px 9px 0px 9px;
+    margin: 3px 6px -7px 6px;
     color: #ffffff;
     padding: 0px 0px 0px 0px;
     white-space: normal;
@@ -1734,11 +1734,11 @@ li{
     float: right;
     position: relative;
     width: auto;
-    min-width: auto;
+    min-width: 30px;
     max-width: 100%;
     height: auto;
 /*    min-height: 44px;*/
-    margin: 0px 0px 20px 0px;
+    margin: 3px 0px 20px 0px;
     padding: 0px;
     background: #5AD663;
     -webkit-border-radius: 4px;
@@ -1750,13 +1750,13 @@ li{
     content: '';
     position: absolute;
     border-style: solid;
-    border-width: 10px 0 10px 10px;
+    border-width: 6px 0 1px 10px;
     border-color: transparent #5AD663;
     display: block;
     width: 0;
     z-index: 1;
     right: -10px;
-    top: 10px;
+    top: 6px;
     }
 
 .other-user .user-img {
@@ -1774,7 +1774,7 @@ li{
 }
 
 .other-user .msg-txt {
-    margin: 9px 9px 0px 9px;
+    margin: 3px 6px -7px 6px;
     color: #333333;
     padding: 0px 0px 0px 0px;
     white-space: normal;
