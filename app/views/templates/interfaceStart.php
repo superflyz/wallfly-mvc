@@ -12,23 +12,20 @@ $selectedProperty = "";
 $pID = '';
 
 
+if (!isset($_SESSION['eventAdded'])) {
+
+    $_SESSION['eventAdded'] = "";
+}
+
+
+
 //set the propertyID from the $_SESSION['selectedChatProperty'] if set
 if (isset($_SESSION['selectedProperty'])) {
     $selectedProperty = $_SESSION['selectedProperty'];
-    //$pID = PropertyFunctions::GetPropertyID($userName, $userType, $selectedProperty);
     $pID = $_SESSION['selectedProperty']->id;
-    //unset($_SESSION['selectedChatProperty']);
+
 
 }
-
-//set pID if a tenant because only has one property to display
-//if ($userType == 'TENANT') {
-//    $tenantArray = [];
-//    $tenantArray = PropertyFunctions::GetProperties($userName, $userType);
-//    $selectedProperty = $tenantArray[0];
-//    $pID = PropertyFunctions::GetPropertyID($userName, $userType, $selectedProperty);
-//
-//}
 
 ?>
 

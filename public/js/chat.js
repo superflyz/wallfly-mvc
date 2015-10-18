@@ -22,7 +22,7 @@ function chatLoad(userID,propertyID) {
                             "<li class='current-user pull-right'>" +
                             "<div class='user-img pull-right' data-toggle='tooltip' title='" + parseobj.send_at + "'>" + 
                             "<img src='' class='img-circle' />" +
-                            "<strong>Me</strong></div>" +                                                         "<div class='bubble-arw-right'>" + 
+                            "<strong>ME</strong></div>" +                                                         "<div class='bubble-arw-right'>" + 
                             "<div class='msg-txt'><p>" + nl2br(parseobj.message) + "</p></div>" + "</div></li>");
 
 
@@ -79,7 +79,7 @@ function chatLoad(userID,propertyID) {
                             "<li class='current-user pull-right'>" +
                             "<div class='user-img pull-right' data-toggle='tooltip' title='" + parseobj.send_at + "'>" + 
                             "<img src='' class='img-circle' />" +
-                            "<strong>Me</strong></div>" +                                                         "<div class='bubble-arw-right'>" + 
+                            "<strong>ME</strong></div>" +                                                         "<div class='bubble-arw-right'>" + 
                             "<div class='msg-txt'><p>" + nl2br(parseobj.message) + "</p></div>" + "</div></li>");
 
 

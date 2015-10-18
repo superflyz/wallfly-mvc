@@ -123,10 +123,9 @@ require_once '../app/views/templates/interfaceStart.php';
                         <div class="col-md-6">
                             <div class="add_payment_cal1">
                                 <label for="startDate">Rent Start Week</label>
-                                <input name="startDate" id="startDate" type="text"  class="form-control" />
                                 <pre hidden id="hidden" class="event-receiver"></pre>
                                 <span class="error"></span>
-                             <div class="dzscalendar skin-aurora" id="trauroradatepicker" style="height:160px">
+                             <div class="dzscalendar skin-aurora" id="trauroradatepicker" style="max-height:160px">
                                         </div>
 
                             </div>
@@ -140,7 +139,7 @@ require_once '../app/views/templates/interfaceStart.php';
                                 <pre hidden id="hidden2" class="event-receiver2"></pre>
                                 <span class="error"></span>
                                     
-                                <div class="dzscalendar skin-aurora" id="trauroradatepicker2" style="height:160px">
+                                <div class="dzscalendar skin-aurora" id="trauroradatepicker2" style="max-height:160px">
                                     
                             </div>
                         </div>                  

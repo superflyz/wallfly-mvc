@@ -16,7 +16,7 @@ require_once '../app/views/templates/interfaceStart.php';
         <div class="manage_properties_pills">
           <!-- Nav pills -->
           <ul class="nav nav-pills nav-justified properties_pills">
-            <li role="presentation"><a href="#detail" aria-controls="detail" role="pill" data-toggle="pill">Property Details</a></li>
+            <li role="presentation" class="active"><a href="#detail" aria-controls="detail" role="pill" data-toggle="pill">Property Details</a></li>
             <li role="presentation"><a href="#documents" aria-controls="documents" role="pill" data-toggle="pill">Documents</a></li>
             <li role="presentation"><a href="#inspections" aria-controls="inspections" role="pill" data-toggle="pill">Inspections</a></li>
             <li role="presentation"><a href="#rta" aria-controls="rta" role="pill" data-toggle="pill">R.T.A</a></li>
@@ -33,7 +33,7 @@ require_once '../app/views/templates/interfaceStart.php';
     <div class="col-md-12">
         <!-- Pill panes -->
         <div class="pill-content manage_properties_view">
-            <div role="pillpanel" class="pill-pane" id="detail">
+            <div role="pillpanel" class="pill-pane active" id="detail">
                 <?php if ($property = $data['property']): ?>
                     <!-- This is to get the property address -->
                     Address: <span class="edit"><?=$data['property']->address?></span> <br />

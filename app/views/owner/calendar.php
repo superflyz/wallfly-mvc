@@ -15,41 +15,21 @@ require_once '../app/views/templates/interfaceStart.php';
         <div class="manage_properties_pills">
           <!-- Nav pills -->
           <ul class="nav nav-pills nav-justified properties_pills">
-
-             <li role="presentation" id="add-event"><a href="#"  data-toggle="modal" >Add Event</a></li>
-              <li role="presentation" id="select-event"><a href="#"  data-toggle="modal">Remove Event</a></li>
+             <li role="presentation" id="add-event"><a href=""  data-toggle="modal">Add Event</a></li>
+              <li role="presentation" id="select-event"><a href=""  data-toggle="modal">Remove Event</a></li>
           </ul>
-
         </div>
     </div>
 </div>
+</div>
+</div>
 
 <!--Content here-->
-
-<!--<div class="row">-->
-<!--    <div class="col-md-12">-->
-<!--        <div class="page_heading">-->
-<!--            <p>Calendar</p>-->
-<!--            <hr />-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</div>-->
-<!---->
-<!--<div class="row">-->
-<!--    <div class="col-md-12">-->
-<!--     <div class="manage_properties_pills">-->
-<!--          <!-- Nav pills -->
-<!--          <ul class="nav nav-pills nav-justified properties_pills">-->
-<!---->
-<!--             <li id="add-event"><a href="#"  data-toggle="modal" >Add Event</a></li>-->
-<!--              <li id="select-event"><a href="#"  data-toggle="modal">Remove Event</a></li>-->
-<!--          </ul>-->
-<!---->
-<!--        </div>-->
-        
+<div class="row bottom-section">
+    <div class="col-md-12">
 <!--start calendar-->
-<section id="calender">
-    <div class="dzscalendar skin-responsive-galileo mode-normal tooltip_transition-tooltipDef" style="max-width: 960px; margin: 25px auto;">
+<div id="calender">
+    <div class="dzscalendar skin-responsive-galileo mode-normal tooltip_transition-tooltipDef">
         <div class="dzscalendar skin-responsive-galileo auto-init " style="" data-options="{
             design_month_covers : ['../images/calendar/jan.jpg','../images/calendar/feb.jpg','../images/calendar/mar.jpg','../images/calendar/apr.jpg','../images/calendar/may.jpg','../images/calendar/jun.jpg','../images/calendar/jul.jpg','../images/calendar/aug.jpg','../images/calendar/sep.jpg','../images/calendar/oct.jpg','../images/calendar/nov.jpg','../images/calendar/dec.jpg']
             ,start_weekday: 'Monday'
@@ -71,7 +51,7 @@ require_once '../app/views/templates/interfaceStart.php';
                         $explodeDate = explode("/", $event->eventDate);
                         echo ' <div class="event-tobe" data-tag="blue" data-repeat=' . $interval . ' data-day="' . $explodeDate[0] . '" data-month="' . $explodeDate[1] . '"
                             data-year="' . $explodeDate[2] . '" data-type="link" data-href="#">
-                            <span class="tooltip-heading ">' . $event->eventName . '</span>';
+                            <span class="tooltip-heading">' . $event->eventName . '</span>';
                         if ($event->eventTime != "") {
                             echo '<span class="label eventlabel">Time:</span>' . $event->eventTime . '<br/>';
                         }
@@ -93,9 +73,9 @@ require_once '../app/views/templates/interfaceStart.php';
                             data-year="' . $explodeDate[2] . '" data-type="link" data-href="#">
                             <span class="tooltip-heading">' . $event->eventName . '</span>';
                         if ($event->eventTime != "") {
-                            echo '<span class="label">Time:</span>' . $event->eventTime . '<br/>';
+                            echo '<div class="event_time">Time<hr class="repair_hr"><div class="event_time_p"><p>' . $event->eventTime . '</p></div></div>';
                         }
-                        echo '<br/>' . $event->description . '</div>';
+                        echo '<div class="event_description">Description<hr class="repair_hr"><div class="event_description_p"><p>' . $event->description . '</p></div></div></div>';
                         //$count++;
 
                     };
@@ -106,49 +86,70 @@ require_once '../app/views/templates/interfaceStart.php';
         </div>
         <div style="height:  <?php //echo ($count * 80)?>px"></div>
     </div>
-</section>
+</div>
 <!--end calendar-->
     
 <!--add event modal-->
-<div class="modal modal-vcenter fade event-modal-md" tabindex="-1" role="dialog"
+<div class="modal modal-vcenter fade add-event-modal-md" tabindex="-1" role="dialog"
      aria-labelledby="mySmallModalLabel">
     <div class="modal-dialog modal-md">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <p class="modal-title flabel">Add Event</p>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></button>
+                <p class="modal-title">Add Event</p>
             </div>
 
             <div class="modal-body">
                 <form id="setEvent" name="addEvent" method="post" action="../dashboard/addevent">
-                    <div class="form-field ff1">
+                    <div class="add_event_field_n">
                         <label for="eventName">Event Name</label>
                         <input name="eventName" type="text" class="form-control">
                         <span class="error"></span>
                     </div>
-                    <div class="form-field">
-                        <label for="time">Time</label>
-                        <br/>
-                        <input id='timepicker' type='text' name='timepicker1'/>
-
-                    </div>
-                    <div class="form-field">
-                        </br>
-                        <label for="interval">Select Interval</label>
-                        <select name="interval" class="form-control">
-                            <option value="onetime">One Time</option>
-                            <option value="everyweek">Weekly</option>
-                            <option value="everyotherweek">Fortnightly</option>
-                            <option value="everymonth">Monthly</option>
-                        </select>
-                        <span class="error"></span>
-                    </div>
-                    <div class="form-field">
-                        </br>
+                    <div class="add_event_field_d">
                         <label for="description">Description</label>
-                        <input name="description" type="text" id="description" class="form-control">
+                        <textarea name="description" id="description" class="form-control"></textarea>
                         <span class="error"></span>
                     </div>
+                    <div class="row add_event_field_t">
+                 
+                        <div class="col-md-6">
+                            <div class="timepick">
+                            <label for="time">Time</label>
+                            <input id='timepicker' type='text' name='timepicker1' class="form-control"/>
+                                </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="interval">
+                            <label for="interval">Select Interval</label>
+                            <select name="interval" class="form-control">
+                                <option value="" hidden>Please select...</option>
+                                <option value="onetime">One Time</option>
+                                <option value="everyweek">Weekly</option>
+                                <option value="everyotherweek">Fortnightly</option>
+                                <option value="everymonth">Monthly</option>
+                            </select>
+                            <span class="error"></span>
+                                 </div>
+                        </div>
+                    </div>
+                    <div class="add_event_field_e">
+                        <label for="date">Event Date</label>
+                        <input name="date" id="date" type="hidden"  class="form-control" >
+                        <pre hidden id="hidden" class="event-receiver"></pre>
+                        
+               
+                        <div class="dzscalendar skin-aurora" id="trauroradatepicker">
+                                </div>
+                    
+         <span class="error"></span>
+                    </div>
+                    <div class="add_event_field_btn">
+                        <button type="submit" name="Submit" id="submit-btn" class="btn btn-add-event pull-right">Add event
+                        </button>
+                    </div>
+                    
+                   
                     <div class="form-field">
                         <input type="hidden" name="propertyID" id="propertyID" class="form-control"
                                value="<?php echo $pID; ?> ">
@@ -159,27 +160,10 @@ require_once '../app/views/templates/interfaceStart.php';
                     </div>
                     <!-- date picker -->
 
-                    <div class="form-field">
 
-                        <label for="date">Event Date</label>
-                        <input name="date" id="date" type="text"  class="form-control" >
-                        <pre hidden id="hidden" class="event-receiver"></pre>
-                        <span class="error"></span>
-                        <section style="height:200px">
-                            <div class="col-md-12">
-                                <div class="dzscalendar skin-aurora" id="trauroradatepicker" style="height:200px">
-                                </div>
-                            </div>
-                        </section>
-
-                    </div>
 
                     <!-- end date picker -->
-                    <div>
-                        <button type="submit" name="Submit" value="submit" id="submit-btn"
-                                class="btn btn-primary submit eventsubmit">Add event
-                        </button>
-                    </div>
+
                 </form>
             </div>
         </div>
@@ -188,18 +172,17 @@ require_once '../app/views/templates/interfaceStart.php';
 <!-- end add event modal-->
 
 <!--select event modal-->
-<div class="modal modal-vcenter fade select-modal-md" tabindex="-1" role="dialog"
+<div class="modal modal-vcenter fade remove-event-modal-md" tabindex="-1" role="dialog"
      aria-labelledby="mySmallModalLabel">
     <div class="modal-dialog modal-md">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <p class="modal-title flabel">Select Event</p>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></button>
+                <p class="modal-title">Remove Event</p>
             </div>
-
-            <div id="select-modal-body" class="modal-body">
+            <div class="modal-body">
                 <form id="selectEvent" name="addEvent" method="post" action="addevent.php">
-                    <div id="dynamic-edit" class="clearfix">
+                    <div id="dynamic-edit" class="remove_events">
 
                     </div>
 
@@ -210,8 +193,10 @@ require_once '../app/views/templates/interfaceStart.php';
 </div>
 <!-- end add event modal-->
 
-  </div>
 </div>
+</div>
+</div>
+
 
 <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
@@ -235,7 +220,7 @@ require_once '../app/views/templates/interfaceStart.php';
             if (checkID == 0) {
                 swal("Just a reminder", "To please select a property first to add an event");
             } else {
-                $('.event-modal-md').modal('show');
+                $('.add-event-modal-md').modal('show');
             }
 
         });
@@ -255,7 +240,7 @@ require_once '../app/views/templates/interfaceStart.php';
                     success: function (result) {
                         $("#dynamic-edit").empty();
                         $("#dynamic-edit").append(result);
-                        $('.select-modal-md').modal('show');
+                        $('.remove-event-modal-md').modal('show');
 
                     }
                 });
@@ -310,7 +295,7 @@ require_once '../app/views/templates/interfaceStart.php';
         });
 
 
-        $('#pagecontentstart').addClass( "reduce_page_height" );
+//        $('#pagecontentstart').addClass( "reduce_page_height" );
 
 
 

@@ -61,7 +61,7 @@ class PropertyOwner extends Controller
 
           WEBDIR . '/css/sweetalert.css',
           WEBDIR . '/css/wallfly.css',
-          WEBDIR . '/css/module.css',
+      //    WEBDIR . '/css/module.css',
           WEBDIR . '/clockpicker/css/timepicki.css'
       ]);
 
