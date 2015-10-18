@@ -146,7 +146,7 @@ class Dashboard extends Controller
                 <div class="re_event_name">
                <p>'.$result[$i]->eventName.'</p></div><div class="remove_event_info">';
                 if($result[$i]->eventTime != ""){echo '<div class="col-md-4"><div class="re_event_time">Time<hr class="repair_hr"><p>'.$result[$i]->eventTime.'</p></div></div>';}
-                echo '<div class="col-md-4"><div class="re_event_date">Date set<hr class="repair_hr"><p>'.$result[$i]->eventDate.'</p></div></div>';
+                echo '<div class="col-md-4"><div class="re_event_date">Date<hr class="repair_hr"><p>'.$result[$i]->eventDate.'</p></div></div>';
                 echo '<div class="col-md-4"><div class="re_event_interval">Interval<hr class="repair_hr"><p>'.$result[$i]->eventInterval.'</p></div></div>';
                 if($result[$i]->description != ""){echo '<div class="col-md-10"><div class="re_event_description">Description<hr class="repair_hr"><p>'.$result[$i]->description.'</p></div></div>';}
                 echo '<div class="col-md-2"><div class="re_event_btn"><button type="button" class="btn btn-remove-event removeEvent pull-right">Remove</button></div></div></div></div>';}

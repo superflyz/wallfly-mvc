@@ -1846,6 +1846,7 @@ li{
 /*    radial-gradient(#dedede,#f8f8f8);*/
     border-radius: 4px;
     margin: 0px 0px 0px 0px;
+    padding: 0px;
 /*
     min-height: 1000px;
     height: inherit;
@@ -2054,6 +2055,66 @@ border-radius: 4px;
         height:1px;
     margin: -15px 0px 0px 0px;
     padding: 0px;
+}
+
+/*--- RTA page ---*/
+
+.p_rta {
+/*   background: red; */
+    margin: 0px 0px 0px 0px;
+    padding: 12px;
+    height: auto;
+          font-size: 14px;
+    font-weight: 400;
+}
+
+.p_rta p {
+/*   background: yellow; */
+    color: #333333;
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0px;
+    padding: 10px 0px 10px 22px;
+    height: auto;
+}
+
+
+
+.p_rta_1 {
+       margin: 0px 6px 0px 0px;
+    padding: 0px;
+/*     background: blue;  */
+}
+
+.p_rta_1 ul {
+    list-style-type: decimal;
+/*    background: orange;*/
+}
+
+.p_rta_1 ul li {
+           margin: 2px 0px 12px 0px;
+    padding: 0px;
+/*    background: green;*/
+
+}
+
+.p_rta_2 {
+        margin: 0px 0px 0px 6px;
+    padding: 0px;
+/*     background: green;  */
+    
+}
+
+.p_rta_2 ul {
+    list-style-type: disc;
+/*    background: orange;*/
+}
+
+.p_rta_2 ul li {
+           margin: 2px 0px 12px 0px;
+    padding: 0px;
+/*    background: green;*/
+
 }
 
 /*--- Calendar page ---*/
@@ -2417,122 +2478,11 @@ overflow-y: scroll;
     color: #FA4B3E;
 }
 
-#selectButtons{
-    margin-top: 50px;
-    display: inline-block;
-}
-
-#selectButtons .btn-sm{
-
-    padding: 15px 20px;
-    font-size: 12px;
-    line-height: 1.5;
-    border-radius: 3px;
-    width: 100px;
-    margin-bottom: 10px;
-}
-
-/*
-.clearfix:after {
-    content: " ";
-    display: block;
-    height: 0;
-    clear: both;
-}
-*/
-
-.extend {
-    margin-bottom: 10%;
-    margin-left: 10%;
-}
-
-.dzscalendar .dzstooltip > .tooltip-close {display:none;}
-/*
-.dzscalendar.skin-responsive-galileo .main-mon .mon-body .week-day {
-    text-align: right;
-    font-size: 1.5rem;
-}
-*/
-
-/*
-.dzscalendar .main-mon .week-day.tag-blue {
-    background-color: #5AD663;
-    color: #ffffff;
-}
-
-#date{
- display:none;
-}
-
-.dzscalendar .dzstooltip {
-    min-width: 250px; 
-    width: auto;
-    background-color: #ffffff;
-    border: 1px solid #5AD663;
-    border-radius: 0px 4px 4px 0px;
-    font-size: 1em;  
-    word-wrap: break-word; }
-
-span{
-    max-width: 250px;}
-
-
-.dzscalendar.skin-responsive-galileo .headerRow{
-    background-color: #dedede;
-    color: #333333;
-    font-weight: 600;
-    font-size: 14px;
-}
-
-
-.dzscalendar.skin-responsive-galileo.under-240 .main-mon .week-day {font-size: 1em;}
-
-.dzstooltip.skin-whiteheading .tooltip-heading { 
-    
-    background-color:#5AD663;  }
-
-.dzscalendar.skin-responsive-galileo .curr-date {
-    
-    background-color: #5AD663;
-color: #ffffff;
-
-}
-
-.dzscalendar.skin-responsive-galileo .calendar-controls .arrow-right:hover { opacity:1;}
-.dzscalendar.skin-responsive-galileo .calendar-controls .arrow-left:hover { opacity:1;}
-
-
-.dzscalendar.skin-responsive-galileo .calendar-controls .arrow-right { opacity:1;}
-.dzscalendar.skin-responsive-galileo .calendar-controls .arrow-left{ opacity:1;}
-
-.dzstooltip.skin-whiteheading.arrow-left:before {border-right: 10px solid #5AD663;}
-
-.reduce_page_height{
-    height: 90vh;
-}
-
-.removeEvent{margin-top: 75px;}
 
 .dzscalendar .dzstooltip > .tooltip-close {display:none;}
 
-.eventsubmit{
-
-    margin-top: 0;
-}
-end modal styling
-
-#startDate, #endDate {
-    display: none;
-}
-
-.scroll-overflow {
-    height: 550px;
-    overflow: auto;
-}
 
 
-.pushit{margin-left: 18px;}
-*/
 
 /*--- Payments Page ---*/
 

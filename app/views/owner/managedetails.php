@@ -25,15 +25,19 @@ require_once '../app/views/templates/interfaceStart.php';
         </div>
     </div>
 </div>
+</div>
+</div>
+
 <?php if ($error = Flash::get('pdferror')): ?>
     <div class="alert alert-default" role="alert" style="color:rgb(159, 221, 94)"><?=$error?>!!!</div>
 <?php endif ?>
 
-<div class="row">
+<div class="row bottom-section">
+    <div class="row">
     <div class="col-md-12">
         <!-- Pill panes -->
         <div class="pill-content manage_properties_view">
-            <div role="pillpanel" class="pill-pane active" id="detail">
+            <div role="pillpanel" class="pill-pane" id="detail">
                 <?php if ($property = $data['property']): ?>
                     <!-- This is to get the property address -->
                     Address: <span class="edit"><?=$data['property']->address?></span> <br />
@@ -134,45 +138,39 @@ require_once '../app/views/templates/interfaceStart.php';
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-            <div role="pillpanel" class="pill-pane" id="rta">
-                <br/>
-                <table width="100%">
-                    <tr>
-                        <td width="45%"><h2>Applying to QCAT</h2></td>
-                        <td width="50px"> </td>
-                        <td width="45%"><h2>RTA Links</h2></td>
-                    </tr>
-                    <tr>
-                        <td>1.	First you should try and resolve your dispute directly. <br><br>
-                            2.	If you cannot reach agreement, you must try to resolve the dispute assisted by the RTAs dispute resolution service (unless your dispute is considered urgent by the legislation). Lodge a Dispute resolution request (Form 16).<br><br>
-                            3.	If you go through the RTAs dispute resolution process and the dispute remains unresolved the RTA will send you a notice of unresolved dispute. You can then choose to lodge an application to have your matter heard at QCAT for an order to be made.<br><br>
-                            4.	Once you have applied to QCAT and paid the application fee notices will be sent to attend a hearing on a set date. When the case is heard a decision will be made by the adjudicator or magistrate and you must follow the order given.<br><br></td>
-                        <td></td>
-                        <td><a href="https://www.rta.qld.gov.au/Disputes/Dispute-resolution/How-to-prevent-disputes">Preventing Disputes</a> <br>
-                            <br><br> <a href="https://www.rta.qld.gov.au/Disputes/Dispute-resolution/How-to-prevent-disputes/Preventing-bond-disputes">Preventing Bond Disputes</a> <br>
-                            <br><br> <a href="https://www.rta.qld.gov.au/Disputes/Dispute-resolution/How-to-resolve-tenancy-issues">Resolving Tenancy Issues:</a> <br>
-                            <br><br><a href="https://www.rta.qld.gov.au/Disputes/Dispute-resolution/Applying-for-dispute-resolution">Dispute Resolution by RTA</a> <br>
-                            <br><br><a href="https://www.rta.qld.gov.au/Disputes/Dispute-resolution/Applying-for-dispute-resolution/Matters-unsuitable-for-conciliation">Matters unsuitable for conciliation</a> <br>
-                            <br><br> <a href="https://www.rta.qld.gov.au/Disputes/Dispute-resolution/Applying-to-QCAT">Queensland Civil and Administrative Tribunal</a> <br>
-                        </td>
-                    </tr>
-                </table>
-
-
-
-
+            <div role="pillpanel" class="pill-pane active" id="rta">
+                <div class="row p_rta">
+                    <div class="col-md-8">
+                        <div class="p_rta_1">
+                            <p>Applying to QCAT</p>
+                            <ul>
+                                <li>First you should try and resolve your dispute directly. </li>
+                                <li>If you cannot reach agreement, you must try to resolve the dispute assisted by the RTAs dispute resolution service (unless your dispute is considered urgent by the legislation). Lodge a Dispute resolution request (Form 16).</li>
+                                <li>If you go through the RTAs dispute resolution process and the dispute remains unresolved the RTA will send you a notice of unresolved dispute. You can then choose to lodge an application to have your matter heard at QCAT for an order to be made.</li>
+                            <li>Once you have applied to QCAT and paid the application fee notices will be sent to attend a hearing on a set date. When the case is heard a decision will be made by the adjudicator or magistrate and you must follow the order given.</li>
+                            </ul>
+                        </div>              
+                    </div>
+                    <div class="col-md-4">
+                        <div class="p_rta_2">
+                            <p>RTA Links</p>
+                            <ul>
+                                <a href="https://www.rta.qld.gov.au/Disputes/Dispute-resolution/How-to-prevent-disputes"><li>Preventing Disputes</li></a>
+                                <a href="https://www.rta.qld.gov.au/Disputes/Dispute-resolution/How-to-prevent-disputes/Preventing-bond-disputes"><li>Preventing Bond Disputes</li></a>
+                                <a href="https://www.rta.qld.gov.au/Disputes/Dispute-resolution/How-to-resolve-tenancy-issues"><li>Resolving Tenancy Issues</li></a>
+                                <a href="https://www.rta.qld.gov.au/Disputes/Dispute-resolution/Applying-for-dispute-resolution"><li>Dispute Resolution by RTA</li></a>
+                                <a href="https://www.rta.qld.gov.au/Disputes/Dispute-resolution/Applying-for-dispute-resolution/Matters-unsuitable-for-conciliation"><li>Matters unsuitable for conciliation</li></a>
+                                <a href="https://www.rta.qld.gov.au/Disputes/Dispute-resolution/Applying-to-QCAT"><li>Queensland Civil and Administrative Tribunal</li></a>
+                            </ul>
+                        </div>              
+                    </div>
+                </div>
             </div>
+
+
+
+
+           
         </div>
     </div>
 </div>
