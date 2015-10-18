@@ -37,7 +37,7 @@ require_once '../app/views/templates/interfaceStart.php';
     <div class="col-md-12">
         <!-- Pill panes -->
         <div class="pill-content manage_properties_view">
-            <div role="pillpanel" class="pill-pane" id="detail">
+            <div role="pillpanel" class="pill-pane active" id="detail">
                 <?php if ($property = $data['property']): ?>
                     <!-- This is to get the property address -->
                     Address: <span class="edit"><?=$data['property']->address?></span> <br />
@@ -138,7 +138,7 @@ require_once '../app/views/templates/interfaceStart.php';
 
 
 
-            <div role="pillpanel" class="pill-pane active" id="rta">
+            <div role="pillpanel" class="pill-pane" id="rta">
                 <div class="row p_rta">
                     <div class="col-md-8">
                         <div class="p_rta_1">
