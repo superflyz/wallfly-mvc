@@ -2057,6 +2057,164 @@ border-radius: 4px;
     padding: 0px;
 }
 
+/*--- Inspections page & Document page ---*/
+
+.d_upload_pdf {
+/*    background: red;*/
+    height: auto;
+    margin: 0px;
+    padding: 0px;
+    
+}
+
+
+.pdf_upload { 
+ background-color: #dedede;
+    border-radius: 4px 4px 0px 0px;
+      margin: 0px 0px 0px 0px;
+    padding:  25px 0px 15px 25px;
+    border-bottom: 2px solid #5AD663;
+}
+
+.fileinput {
+/*       background-color: red;*/
+}
+
+.fileinput-filename {
+    border-radius: 0px 4px 4px 0px;
+    background-color: #ffffff;
+    padding: 10px 15px 10px 15px;
+    color: #333333;
+    margin: 0px 0px 0px -3px;
+    font-size: 14px;
+    font-weight: 400;
+    width: auto;
+}
+
+.pdf_upload input {
+        font-weight: 400;
+    font-size: 14px;
+    height: 40px;
+/*    padding: 0px 0px 0px 0px;*/
+    padding: 9px 10px 8px 10px;
+    margin: 0px;
+    color: #333333;
+    border: 1px solid #dedede;
+        outline: 0;
+    border-radius: 4px;
+    background-color: #ffffff;
+    cursor: pointer;
+}
+
+.pdf_upload input:hover, .pdf_upload input:focus {
+    border: 1px solid #5AD663;
+        outline: 0;
+    box-shadow: none;
+}
+
+.btn-choose {
+    color: #ffffff;
+    background-color: #333333;
+    height: 40px;
+    border-radius: 4px 0px 0px 4px;
+    font-size: 14px;
+    padding: 8.5px 10px 10px 10px;
+    font-weight: 600;
+    margin: 0px 0px 0px 0px;
+        cursor: pointer;
+        -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    transition: all .3s;  
+    
+}
+
+::-webkit-file-upload-button { cursor:pointer; }
+
+.btn-choose:hover, .btn-choose:focus {
+/*    border: 2px solid #5AD663;*/
+    background-color: #5AD663;
+    color:  #ffffff;
+}
+
+.btn-upload-pdf {
+
+    color: #f8f8f8;
+    background-color: #5AD663;
+    height: 40px;
+    font-size: 14px;
+    font-weight: 600;
+/*    width: 75%;*/
+    margin: 0px 0px 0px 15px;
+    border: 2px solid transparent;
+        -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    transition: all .3s;
+    
+}
+
+
+.btn-upload-pdf:hover{
+    border: 2px solid #5AD663;
+    background-color: transparent;
+    color:  #5AD663;
+    
+}
+
+.pdf_view{ 
+/* background: green;*/
+   margin: 0px 0px 0px 0px;
+    padding: 20px 14px 8px 14px;
+}
+
+.display_pdf {
+      margin: 0px 6px 12px 6px;
+    padding: 4px;
+    background-color: #dedede;
+    border-radius: 4px;
+/*      width: 120px;*/
+      height:auto;
+}
+
+canvas {
+      width: 100%;
+/*    max-width: 120px;*/
+    min-height: 169px;
+    height: 169px;
+    margin: 0px;
+     border-radius: 4px 4px 0px 0px;
+    padding: 0px;
+    border: 2px solid #5AD663;
+}
+
+.pdf_name {
+    margin: -5px 0px 0px 0px;
+    padding: 2px 10px 4px 10px;
+width: inherit;
+    background-color: #5AD663;
+    color: #ffffff;
+/*    word-wrap: break-word;*/
+    overflow: hidden;
+white-space: nowrap; /* Don't forget this one */
+text-overflow: ellipsis;
+      border-radius: 0px 0px 4px 4px;
+}
+
+
+
+.pdf::-webkit-scrollbar {
+    display: none;
+}
+
+
+.display_pdf a{text-decoration: none;
+color: #ffffff;}
+
+
+
+.enable-overflow {
+    overflow: scroll;
+}
+
 /*--- RTA page ---*/
 
 .p_rta {
@@ -2074,7 +2232,7 @@ border-radius: 4px;
     font-size: 16px;
     font-weight: 600;
     margin: 0px;
-    padding: 10px 0px 10px 22px;
+    padding: 10px 0px 22px 22px;
     height: auto;
 }
 
@@ -2971,26 +3129,4 @@ overflow-y: scroll;
     font-family: "Diavlo Light"; 
 }
 
-.pdf::-webkit-scrollbar {
-    display: none;
-}
 
-.display_pdf{
-    float:left;
-    width:150px;
-    height:auto;
-    /*border:1px solid red;*/
-    text-wrap: normal;
-    padding: 15px;
-
-}
-
-.display_pdf a{text-decoration: none;}
-
-#pagecontentstart > div:nth-child(4) > div{padding-bottom: 50px}
-
-canvas{    min-height: 169px; max-width: 150px;}
-
-.enable-overflow {
-    overflow: scroll;
-}

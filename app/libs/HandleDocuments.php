@@ -21,7 +21,14 @@ class HandleDocuments
             if ($result != null) {
                 $all_documents = array();
                 while ($row = $statement->fetch(PDO::FETCH_OBJ)) {
-                    $all_documents[$row->doc_id] = "<div class='display_pdf'><a  target='_blank' href='" .WEBDIR. $row->unique_id . "' > <canvas id='" . $row->doc_id . "' style='border:1px solid black;'/></a><div><a target='_blank' href='" .WEBDIR. $row->unique_id . "'>".$row->real_id."</a></div></div>";
+                    $all_documents[$row->doc_id] = "
+                  
+                    
+                  <div class='col-md-2'>
+                    <div class='display_pdf'>
+                  <a target='_blank' href='" .WEBDIR. $row->unique_id . "' >
+                    <canvas id='" . $row->doc_id . "'/></a>
+                    <div class='pdf_name'><a target='_blank' href='" .WEBDIR. $row->unique_id . "' >".$row->real_id."</a></div></div></div>";
 
 
                 }
@@ -114,7 +121,14 @@ class HandleDocuments
             if ($result != null) {
                 $all_documents = array();
                 while ($row = $statement->fetch(PDO::FETCH_OBJ)) {
-                    $all_documents[$row->doc_id] = "<div class='display_pdf'><a  target='_blank' href='" .WEBDIR. $row->unique_id . "' > <canvas id='" . $row->doc_id . "' style='border:1px solid black;'/></a><div><a target='_blank' href='" .WEBDIR. $row->unique_id . "'>".$row->real_id."</a></div></div>";
+                    $all_documents[$row->doc_id] = "
+                    
+                    
+                    <div class='col-md-2'>
+                    <div class='display_pdf'>
+                  <a target='_blank' href='" .WEBDIR. $row->unique_id . "' >
+                    <canvas id='" . $row->doc_id . "'/></a>
+                    <div class='pdf_name'><a target='_blank' href='" .WEBDIR. $row->unique_id . "' >".$row->real_id."</a></div></div></div>";
 
 
                 }

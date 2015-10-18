@@ -28,10 +28,6 @@ require_once '../app/views/templates/interfaceStart.php';
 </div>
 </div>
 
-<?php if ($error = Flash::get('pdferror')): ?>
-    <div class="alert alert-default" role="alert" style="color:rgb(159, 221, 94)"><?=$error?>!!!</div>
-<?php endif ?>
-
 <div class="row bottom-section">
     <div class="row">
     <div class="col-md-12">
@@ -77,21 +73,34 @@ require_once '../app/views/templates/interfaceStart.php';
                     <button class="btn btn-success" id="triggermodal" data-toggle="modal" data-target="#tenantForm">Assign a tenant</button>
                 <?php endif ?>
             </div>
+            
+            
+            
             <div role="pillpanel" class="pill-pane" id="documents">
+                
+                <div class="row d_upload_pdf">
                 <form id="repairRequest" enctype="multipart/form-data" method="post" action="<?=WEBDIR?>/propertyowner/processDocument">
-
-                    <label for="image">Upload PDF</label>
-                    <div class="form-field">
-
-                        <input type="file" name="image"
-                               accept="application/pdf" id="image" style="float: left;">
-                        <span class="error"></span>  <button style="width: 120px;margin-top: 0;float: left;margin-left: 20px;" type="submit" name="Submit" value="submit" id="submit-btn" style="width: 120px;"
-                                                             class="btn btn-primary submit eventsubmit">Submit
+                    <div class="col-md-12 pdf_upload">
+                        
+                        <div class="fileinput fileinput-new" data-provides="fileinput">
+    <span class="btn btn-choose btn-file"><span>Choose file</span><input  type="file" name="image"
+                               accept="application/pdf" id="image"  /></span>
+    <span class="fileinput-filename"><span class="fileinput-new">No file chosen</span></span>
+                             <button type="submit" name="Submit" class="btn btn-upload-pdf">Upload PDF
                         </button>
+                                <span class="error"></span>  
+</div>
+          
+                        </div>
+                </form>
+                    <?php if ($error = Flash::get('pdferror')): ?>
+    <div class="alert alert-default" role="alert" style="color:rgb(159, 221, 94)"><?=$error?>!!!</div>
+<?php endif ?>
+                    <div class="col-md-12">
+                        <div class="row pdf_view">
+                      
 
-                    </div>
-                </form><br/><br/><br/><br/>
-                <?php
+                        <?php
                   if(isset($_SESSION['selectedProperty'])) {
                       $getdocuments = HandleDocuments::loadDocuments($_SESSION['selectedProperty']->id);
                       if ($getdocuments != null) {
@@ -103,23 +112,34 @@ require_once '../app/views/templates/interfaceStart.php';
 
 
            ?>
-
-
-                </div>
-            <div role="pillpanel" class="pill-pane" id="inspections">
-                <form id="repairRequest" enctype="multipart/form-data" method="post" action="<?=WEBDIR?>/propertyowner/processInspection">
-
-                    <label for="image">Upload PDF</label>
-                    <div class="form-field">
-
-                        <input type="file" name="image"
-                               accept="application/pdf" id="image" style="float: left;">
-                        <span class="error"></span>  <button style="width: 120px;margin-top: 0;float: left;margin-left: 20px;" type="submit" name="Submit" value="submit" id="submit-btn" style="width: 120px;"
-                                                             class="btn btn-primary submit eventsubmit">Submit
-                        </button>
-
+                          
+                      </div>
                     </div>
-                </form><br/><br/><br/><br/>
+                </div>
+            </div>
+            
+            <div role="pillpanel" class="pill-pane" id="inspections">
+                <div class="row d_upload_pdf">
+                    <form id="repairRequest" enctype="multipart/form-data" method="post" action="<?=WEBDIR?>/propertyowner/processInspection">
+                <div class="col-md-12 pdf_upload">
+                        
+                        <div class="fileinput fileinput-new" data-provides="fileinput">
+    <span class="btn btn-choose btn-file"><span>Choose file</span><input  type="file" name="image"
+                               accept="application/pdf" id="image"  /></span>
+    <span class="fileinput-filename"><span class="fileinput-new">No file chosen</span></span>
+                             <button type="submit" name="Submit" class="btn btn-upload-pdf">Upload PDF
+                        </button>
+                                <span class="error"></span>  
+</div>
+          
+                        </div>
+                            
+                    </form>
+           <?php if ($error = Flash::get('pdferror')): ?>
+    <div class="alert alert-default" role="alert" style="color:rgb(159, 221, 94)"><?=$error?>!!!</div>
+<?php endif ?>
+                    <div class="col-md-12">
+                        <div class="row pdf_view">
                 <?php
                 if(isset($_SESSION['selectedProperty'])) {
                     $getinspections = HandleDocuments::loadInspections($_SESSION['selectedProperty']->id);
@@ -134,6 +154,9 @@ require_once '../app/views/templates/interfaceStart.php';
                 ?>
 
 
+                     </div>
+                    </div>
+                </div>
             </div>
 
 
@@ -334,6 +357,7 @@ if(isset($_SESSION['selectedProperty'])) {
 
 
 ?>
+    <script src="/wallfly-mvc/public/js/jasny-bootstrap.js"></script>
 <script>
     $(document).ready(function () {
     var docAdded = <?php if(isset($_SESSION['docAdded'])){echo "'".$_SESSION['docAdded']."'";}else{echo "false";}?>;
@@ -358,6 +382,8 @@ if(isset($_SESSION['selectedProperty'])) {
 
         }
     });
+    
+    document.title = 'Properties - WallFly';
 </script>
     
 <?php
