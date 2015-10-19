@@ -27,8 +27,9 @@ require_once '../app/views/templates/interfaceStart.php';
 </div>
 </div>
 <?php if ($error = Flash::get('pdferror')): ?>
-<div class="alert alert-default" role="alert" style="color:rgb(159, 221, 94)"><?=$error?>!!!</div>
+    <div class="alert alert-default" role="alert" style="color:rgb(159, 221, 94)"><?=$error?>!!!</div>
 <?php endif ?>
+
 <div class="row bottom-section">
 <div class="row">
 <div class="col-md-12">
@@ -285,6 +286,7 @@ page.render(renderContext);
 }
 }
 ?>
+    <script src="/wallfly-mvc/public/js/jasny-bootstrap.js"></script>
 <script>
 $(document).ready(function () {
 var docAdded = <?php if(isset($_SESSION['docAdded'])){echo "'".$_SESSION['docAdded']."'";}else{echo "false";}?>;
@@ -297,15 +299,18 @@ swal("Success", "You have uploaded a document", "success");
 });
 </script>
 <script>
-$(document).ready(function () {
-var inspectionAdded = <?php if(isset($_SESSION['inspectionAdded'])){echo "'".$_SESSION['inspectionAdded']."'";}else{echo "false";}?>;
-if (inspectionAdded == "true") {
-swal("Success", "You have uploaded an inspection", "success");
-<?php unset($_SESSION['inspectionAdded']);?>
-} else if (inspectionAdded == "false") {
-<?php unset($_SESSION['inspectionAdded']);?>
-}
-});
+    $(document).ready(function () {
+        var inspectionAdded = <?php if(isset($_SESSION['inspectionAdded'])){echo "'".$_SESSION['inspectionAdded']."'";}else{echo "false";}?>;
+        if (inspectionAdded == "true") {
+            swal("Success", "You have uploaded an inspection", "success");
+            <?php unset($_SESSION['inspectionAdded']);?>
+        } else if (inspectionAdded == "false") {
+            <?php unset($_SESSION['inspectionAdded']);?>
+
+        }
+    });
+    
+    document.title = 'Properties - WallFly';
 </script>
 
 <?php

@@ -15,6 +15,8 @@
 
     <!-- Bootstrap Core CSS -->
     <link href="/wallfly-mvc/public/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/wallfly-mvc/public/css/jasny-bootstrap.css" rel="stylesheet">
+    
 
     <!-- Custom CSS -->  
     <link href="/wallfly-mvc/public/css/wallfly.css" rel="stylesheet">
