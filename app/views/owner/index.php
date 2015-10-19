@@ -17,7 +17,10 @@
 <!--Content here-->
 <div class="row">
     <div class="col-md-12">
-        <h1 class="wlcm-h1">Welcome <span class="user-color"><?php echo $_SESSION['user']->firstname?>!</span></h1>
+        <h1 class="wlcm-h1">Welcome <span class="user-color"><?php echo $_SESSION['user']->firstname?>!
+             <button class="btn btn-default" data-toggle="modal" data-target="#addpropertyform">+ Add property</button></span></h1>
+    </div>
+</div>
 
 <div class="row">
     <div class="col-md-12">
@@ -45,10 +48,55 @@
 
                 } ?>
                 </select>
+
             </div>
         </section>
     </div>
-</div>	
+</div>  
+
+
+<div class="row">
+<div class="col-md-12">
+    <!-- Modal -->
+    <div class="modal fade" id="addpropertyform" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Add a new property</h4>
+                </div>
+                <!-- FORM STARTS HERE -->
+                <form action="<?=WEBDIR?>/propertyowner/assigntenant" method="post">
+                    <div class="modal-body">
+                        
+                        <div class="form-field">
+                            <label for="address">Address</label>
+                            <input type="text" class="form-control" id="address" name="address" required>
+                        </div>
+                        <div class="form-field">
+                            <label for="payment">Payment Schedule</label>
+                            <select name="payment_schedule" id="payment" class="form-control">
+                                <option value="WEEKLY">Weekly</option>
+                                <option value="FORTNIGHTLY">Fortnightly</option>
+                                <option value="MONTHLY">Monthly</option>
+                            </select>
+                        </div>
+                        <div class="form-field">
+                            <label for="rent_amount">Rent Amount ($)</label>
+                            <input type="text" class="form-control" id="rent_amount" name="rent_amount" required>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save changes</button>
+                    </div>
+                </form>
+                <!-- FORM ENDS HERE -->
+            </div>
+        </div>
+    </div>
+</div>
+</div>
  
 
 

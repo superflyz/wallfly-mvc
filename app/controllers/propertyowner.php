@@ -262,7 +262,32 @@ class PropertyOwner extends Controller
     if (!Owner::isAuthenticated()) {
       $this->redirect('/');
     } else {
-      
+      if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        // 1. get the post variables
+        $data = $_POST;
+
+        // 2. generate a temporary password
+        $password = 'changethislaterok?';
+
+        // 3. create a new tenant
+        $tenant = Tenant::create([
+          'email' => $data['email'],
+          'firstname' => $data['firstname'],
+          'lastname' => $data['lastname'],
+          'phone' => $data['phone'],
+          'password' => $password,
+          'photo' => 'http://dummyimage.com/250x200/000/fff.jpg'
+        ]);
+
+        // 4. assign the tenant to the property
+        $_SESSION['selectedProperty']->setTenant($tenant);
+
+        // 5. set success message
+        Flash::set('message', "{$tenant->firstname} {$tenant->lastname} has been added to this property");
+
+        // 6. redirect to property page
+        $this->redirect('/propertyowner/manage');
+      }
     }
   }
 
