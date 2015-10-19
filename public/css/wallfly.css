@@ -1650,7 +1650,7 @@ li{
     min-width: 30px;
     max-width: 444px;
     height: auto;
-    margin: 3px 0px 20px 0px;
+    margin: 8px 0px 20px 0px;
     padding: 0px;
     background: #FFFFFF;
     -webkit-border-radius: 4px;
@@ -1666,6 +1666,7 @@ li{
     border-color: transparent #FFFFFF;
     display: block;
     width: 0;
+/*    border-radius: 0px 0px 0px 0px;*/
     z-index: 1;
     left: -10px;
     top: 6px;
@@ -2057,6 +2058,275 @@ border-radius: 4px;
     padding: 0px;
 }
 
+/*--- Properties page ---*/
+
+.property_details {
+/*    background: red;*/
+    height: auto;
+    margin: 0px;
+    padding: 25px;
+    
+}
+
+
+.pd_img {
+/*    background: blue;*/
+        margin: 0px 25px 0px 0px;
+
+        border: 2px solid #dedede;
+    padding: 2px;
+    height: auto;
+          border-radius: 4px; 
+    
+}
+
+.img-responsive {
+      border-radius: 2px;  
+    
+}
+
+.pd_img img {
+    width: 100%;
+    height: auto;
+    max-height: 250px;
+
+
+}
+
+.pd_hd {
+    
+    font-weight: 600;
+    font-size: 14px;
+    padding: 0px 0px 0px 0px;
+    margin: 0px 0px 0px 0px
+}
+
+.pd_bd {
+    
+    font-weight: 400;
+    font-size: 14px;
+    padding: 4px 0px 0px 2px;
+    margin: 0px 0px 0px 0px
+}
+
+.pd_address {
+/*        background: green;*/
+    margin: 0px 0px 10px 0px;
+    padding: 0px;
+    
+}
+
+.pd_rent_amount {
+/*        background: red;*/
+        margin: 0px 0px 10px 0px;
+    padding: 0px 0px 0px 0px;
+    
+}
+
+.pd_realest {
+/*        background: yellow;*/
+        margin: 0px 0px 10px 0px;
+    padding: 0px 0px 0px 0px;
+    
+}
+
+.pd_agent {
+/*        background: green;*/
+        margin: 0px 0px 10px 0px;
+    padding: 0px 0px 0px 0px;
+    
+}
+
+.pd_tenant {
+/*        background: red;*/
+        margin: 0px 0px 15px 0px;
+    padding: 0px 0px 0px 0px;
+    
+}
+
+.pd_btns {
+/*        background: orange;*/
+        margin: 0px 0px 0px 0px;
+    padding: 0px 0px 0px 0px;
+    
+}
+
+.btn-edit_property, .btn-edit_property:focus {
+    color: #ffffff;
+    background-color: #FA4B3E;
+/*    height: 40px;*/
+    font-size: 14px;
+    font-weight: 600;
+/*    width: 20%;*/
+    margin: 0px 10px 0px 0px;
+    border: 2px solid transparent;
+        -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    transition: all .3s;
+    
+}
+
+
+.btn-edit_property:hover {
+    border: 2px solid #FA4B3E;
+    background-color: transparent;
+    color: #FA4B3E;
+}
+
+.btn-add-tenant, .btn-add-tenant:focus {
+     color: #ffffff;
+    background-color: #5AD663;
+/*    height: 40px;*/
+    font-size: 14px;
+    font-weight: 600;
+/*    width: 40%;*/
+    margin: 0px 0px 0px 0px;
+    border: 2px solid transparent;
+        -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    transition: all .3s;
+    
+}
+
+
+.btn-add-tenant:hover {
+    border: 2px solid #5AD663;
+    background-color: transparent;
+    color:  #5AD663;
+}
+
+.pd_hr {
+    
+    background: linear-gradient(to left, #f8f8f8, #dedede);
+        border:none;
+    border-radius: 100px;
+        height:1px;
+    margin: 0px 0px 0px 0px;
+    padding: 0px;
+}
+
+.ep_field_a {
+/*        background: green;*/
+        height: auto;
+    padding: 0px;
+margin: 0px 0px 10px 0px;
+}
+
+.ep_field_ra {
+        height: auto;
+/*    background: red;*/
+    padding: 0px;
+    margin: 0px 30px 0px 0px;
+}
+
+.ep_field_ps {
+        margin: 0px 0px 0px 0px;
+        height: auto;
+    padding: 0px;
+/*    background: yellow;*/
+}
+
+.ep_field_img{
+            margin: 10px 0px 20px 0px;
+        height: auto;
+  padding: 0px;
+
+ 
+/*     background: green;*/
+}
+
+.ep_border {
+    
+    border: 1px solid #dedede;
+}
+
+.ep_field_img img {
+   padding: 0px;
+
+
+/*        height: 100px; */
+}
+
+.ep_field_img .row {
+          margin: 0px;
+        padding: 0px; 
+    
+}
+
+.ep_field_img_img {
+        margin: 0px 100px 0px 0px;
+    
+        padding: 0px 0px 0px 0px;
+/*        background: yellow;*/
+}
+
+.ep_field_img_file {
+/*    background: red;*/
+           margin: -10px 0px 0px 0px;
+        padding: 0px;
+}
+
+.ep_field_img_file .fileinput-filename {
+    color: #333333;
+    background-color: #f8f8f8;
+}
+
+.ep_field_img_file .btn-choose {
+    color: #333333;
+    background-color: #dedede;
+}
+
+.ep_btnz {
+        height: auto;
+            margin: 0px 0px 0px 0px;
+        padding: 0px;
+/*    background: yellow;*/
+
+}
+
+.btn-save-changes {
+     color: #ffffff;
+    background-color: #5AD663;
+/*    height: 40px;*/
+    font-size: 14px;
+    font-weight: 600;
+/*    width: 40%;*/
+    margin: 0px 0px 0px 0px;
+    border: 2px solid transparent;
+        -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    transition: all .3s;
+    
+}
+
+
+.btn-save-changes:hover {
+    border: 2px solid #5AD663;
+    background-color: transparent;
+    color:  #5AD663;
+}
+
+.at_field_fn{
+            margin: 0px 10px 0px 0px;
+    
+        padding: 0px 0px 0px 0px;
+/*    background: red;*/
+}
+
+.at_field_ln {
+            margin: 0px 0px 0px 10px;
+    
+        padding: 0px 0px 0px 0px;
+/*        background: green;*/
+}
+
+.at_btnz {
+/*     background: blue;*/
+              margin: 15px 0px 0px 0px;
+    
+        padding: 0px 0px 0px 0px;
+}
+
 /*--- Inspections page & Document page ---*/
 
 .d_upload_pdf {
@@ -2089,6 +2359,7 @@ border-radius: 4px;
     font-size: 14px;
     font-weight: 400;
     width: auto;
+
 }
 
 .pdf_upload input {
@@ -2138,7 +2409,7 @@ border-radius: 4px;
 
 .btn-upload-pdf {
 
-    color: #f8f8f8;
+     color: #ffffff;
     background-color: #5AD663;
     height: 40px;
     font-size: 14px;
@@ -2149,7 +2420,8 @@ border-radius: 4px;
         -webkit-transition: all .3s;
     -moz-transition: all .3s;
     transition: all .3s;
-    
+
+
 }
 
 
@@ -2173,6 +2445,7 @@ border-radius: 4px;
     border-radius: 4px;
 /*      width: 120px;*/
       height:auto;
+     cursor: pointer;
 }
 
 canvas {
@@ -2183,20 +2456,23 @@ canvas {
     margin: 0px;
      border-radius: 4px 4px 0px 0px;
     padding: 0px;
-    border: 2px solid #5AD663;
+    border: 2px solid #f8f8f8;
+    cursor: pointer;
 }
 
 .pdf_name {
     margin: -5px 0px 0px 0px;
     padding: 2px 10px 4px 10px;
 width: inherit;
-    background-color: #5AD663;
-    color: #ffffff;
+    background-color: #f8f8f8;
+    color: #333333;
 /*    word-wrap: break-word;*/
     overflow: hidden;
 white-space: nowrap; /* Don't forget this one */
 text-overflow: ellipsis;
       border-radius: 0px 0px 4px 4px;
+    cursor: pointer;
+    
 }
 
 
@@ -2207,9 +2483,20 @@ text-overflow: ellipsis;
 
 
 .display_pdf a{text-decoration: none;
-color: #ffffff;}
+color: #333333;}
+
+.display_pdf:hover canvas{
+    border: 2px solid #5AD663;
+}
+.display_pdf:hover a{
+    color: #ffffff;
+}
 
 
+.display_pdf:hover .pdf_name{
+     background-color: #5AD663;
+    color: #ffffff;
+}
 
 .enable-overflow {
     overflow: scroll;
@@ -2517,7 +2804,7 @@ overflow-y: scroll;
 
 
 .add_event_field_btn .btn-add-event {
-    color: #f8f8f8;
+     color: #ffffff;
     background-color: #5AD663;
     height: 40px;
     font-size: 14px;
@@ -2616,7 +2903,7 @@ overflow-y: scroll;
 
 .btn-remove-event,.btn-remove-event:focus {    
     background-color: #FA4B3E;
-    color: #f8f8f8;
+     color: #ffffff;
     height: 40px;
     font-size: 14px;
     font-weight: 600;
@@ -2749,7 +3036,7 @@ overflow-y: scroll;
 /*--- Repair page ---*/
 
 .bd-text .btn_repair_approve {
-    color: #f8f8f8;
+     color: #ffffff;
     background-color: #5AD663;
     height: 40px;
     font-size: 14px;

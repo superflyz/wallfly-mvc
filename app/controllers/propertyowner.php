@@ -103,7 +103,7 @@ class PropertyOwner extends Controller
       ]);
       $this->setCSSDependencies([
 
-          WEBDIR . '/css/module.css',
+        //  WEBDIR . '/css/module.css',
           WEBDIR . '/dzstooltip/dzstooltip.css',
           WEBDIR . '/dzscalendar/dzscalendar.css'
 
@@ -135,8 +135,8 @@ class PropertyOwner extends Controller
          
           WEBDIR . '/dzstooltip/dzstooltip.css',
           WEBDIR . '/dzscalendar/dzscalendar.css',
-          'http://fonts.googleapis.com/css?family=Open+Sans',
-          WEBDIR . '/css/module.css'
+      //    'http://fonts.googleapis.com/css?family=Open+Sans',
+       //   WEBDIR . '/css/module.css'
       ]);
       $this->view('owner/addpayment');
     }

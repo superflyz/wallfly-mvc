@@ -25,7 +25,7 @@ class HandleDocuments
                   
                     
                   <div class='col-md-2'>
-                    <div class='display_pdf'>
+                    <div class='display_pdf' title='".$row->real_id."'>
                   <a target='_blank' href='" .WEBDIR. $row->unique_id . "' >
                     <canvas id='" . $row->doc_id . "'/></a>
                     <div class='pdf_name'><a target='_blank' href='" .WEBDIR. $row->unique_id . "' >".$row->real_id."</a></div></div></div>";
@@ -125,7 +125,7 @@ class HandleDocuments
                     
                     
                     <div class='col-md-2'>
-                    <div class='display_pdf'>
+                    <div class='display_pdf' title='".$row->real_id."'>
                   <a target='_blank' href='" .WEBDIR. $row->unique_id . "' >
                     <canvas id='" . $row->doc_id . "'/></a>
                     <div class='pdf_name'><a target='_blank' href='" .WEBDIR. $row->unique_id . "' >".$row->real_id."</a></div></div></div>";

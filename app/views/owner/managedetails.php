@@ -34,44 +34,72 @@ require_once '../app/views/templates/interfaceStart.php';
         <!-- Pill panes -->
         <div class="pill-content manage_properties_view">
             <div role="pillpanel" class="pill-pane active" id="detail">
-                <?php if ($property = $data['property']): ?>
-                    <!-- This is to get the property address -->
-                    Address: <span class="edit"><?=$data['property']->address?></span> <br />
+                
 
-                    <!-- This is to get the property photo -->
-                    <img src="<?=$data['property']->photo?>" alt="property_photo" width="250" height="200"> <br />
+                <div class="row property_details">
+                    <?php if ($property = $data['property']): ?>
+                    <div class="col-md-4">
+                        <div class="pd_img">
+                        <!-- This is to get the property photo -->
+                        <img src="<?=$data['property']->photo?>" class="img-responsive" alt="property_photo" title="Property photo">
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-8">
+                        <div class="pd_address">
+                        <!-- This is to get the property address -->
+                            <div class="pd_hd">Address<hr class='pd_hr'></div>
+                           <div class="pd_bd"> <span class="edit"><?=$data['property']->address?></span></div>
+                        </div>
+                        <div class="pd_rent_amount">
+                       <!-- This is to get the rent amount -->
+                            <div class="pd_hd">Rent amount<hr class='pd_hr'></div>
+                            <div class="pd_bd">$<?=$data['property']->rent_amount?> (<?=$data['property']->payment_schedule?>)</div>
+                        </div>
 
-                    <!-- This is to get the rent amount -->
-                    Rent amount: $<?=$data['property']->rent_amount?> (<?=$data['property']->payment_schedule?>) <br />
-
-                    <!-- This is to get the real estate -->
-                    <?php if ($realest = $data['property']->getRealEstate()):?>
-                        Real Estate: <?=$realest->name?> <br>
-                    <?php else: ?>
-                        <!-- This is if this property does not belong to any real estate -->
-                        Real Estate: - <br>
-                    <?php endif ?>
-
-                    <!-- This is to get the agent -->
-                    <?php if ($agent = $data['property']->getAgent()): ?>
-                        Agent: <?=$agent->firstname . ' ' . $agent->lastname?> <br />
-                    <?php else: ?>
-                        <!-- This is if there is currently no agent assigned to this property -->
-                        Agent: - <br>
-                    <?php endif ?>
-
-                    <!-- This is to get the tenant -->
-                    <?php if ($tenant = $data['property']->getTenant()): ?>
-                        Tenant: <?=$tenant->firstname . ' ' . $tenant->lastname?> <br />
-                    <?php else: ?>
-                        Tenant: - <br />
-                    <?php endif ?>
-
-
-
-                    <a href="<?=WEBDIR?>/propertyowner/editproperty" class="btn btn-default">Edit</a>
-                    <button class="btn btn-success" id="triggermodal" data-toggle="modal" data-target="#tenantForm">Assign a tenant</button>
+                    <div class="pd_realest">
+                        <!-- This is to get the real estate -->
+                        <?php if ($realest = $data['property']->getRealEstate()):?>
+                     <div class="pd_hd">Real Estate<hr class='pd_hr'></div>
+                     <div class="pd_bd"><?=$realest->name?></div>
+                <?php else: ?>
+                    
+                       <!-- This is if this property does not belong to any real estate -->
+                    <div class="pd_hd">Real Estate<hr class='pd_hr'></div>              <div class="pd_bd_not">Not assigned</div>
                 <?php endif ?>
+                        </div>
+
+                <div class="pd_agent">
+                      <!-- This is to get the agent -->
+                    <?php if ($agent = $data['property']->getAgent()): ?>
+                     <div class="pd_hd">Agent<hr class='pd_hr'></div>
+                   <div class="pd_bd"> <?=$agent->firstname . ' ' . $agent->lastname?></div>
+                <?php else: ?>
+                    <!-- This is if there is currently no agent assigned to this property -->
+                     <div class="pd_hd">Agent<hr class='pd_hr'></div>                        <div class="pd_bd_not">Not assigned</div>
+                <?php endif ?>
+                        </div>
+
+                         <div class="pd_tenant">
+                       <!-- This is to get the tenant -->
+                <?php if ($tenant = $data['property']->getTenant()): ?>
+                    <div class="pd_hd">Tenant<hr class='pd_hr'></div>
+                             <div class="pd_bd"><?=$tenant->firstname . ' ' . $tenant->lastname?></div>
+                <?php else: ?>
+                    <div class="pd_hd">Tenant<hr class='pd_hr'></div>                        <div class="pd_bd_not">Not assigned</div> 
+        
+                <?php endif ?>
+                        </div>
+                        <div class="pd_btns">
+                            <div class="pull-right">
+
+                                <button class="btn btn-edit_property" id="triggermodal" data-toggle="modal" data-target="#editPropertyForm">Edit</button>
+                <button class="btn btn-add-tenant" id="triggermodal" data-toggle="modal" data-target="#tenantForm">Assign a tenant</button>
+            <?php endif ?>
+                                </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             
             
@@ -135,9 +163,8 @@ require_once '../app/views/templates/interfaceStart.php';
                         </div>
                             
                     </form>
-           <?php if ($error = Flash::get('pdferror')): ?>
-    <div class="alert alert-default" role="alert" style="color:rgb(159, 221, 94)"><?=$error?>!!!</div>
-<?php endif ?>
+      
+
                     <div class="col-md-12">
                         <div class="row pdf_view">
                 <?php
@@ -197,44 +224,137 @@ require_once '../app/views/templates/interfaceStart.php';
         </div>
     </div>
 </div>
+  
+          <!-- edit property modal -->
+        <div class="modal modal-vcenter fade" id="editPropertyForm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></button>
+                <p class="modal-title">Edit Property</p>
+            </div>
 
-<div class="row">
-    <div class="col-md-12">
-        <!-- Modal -->
-        <div class="modal fade" id="tenantForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-              </div>
               <div class="modal-body">
-                <!-- FORM STARTS HERE -->
-                <form>
-                    
-                    <div class="form-field">
-                        <label for="firstname">First name</label>
-                        <input type="text" class="form-control" id="firstname" name="firstname">
-                    </div>
+               
+                <?php
+	$selected = array_map(function($value) {
+		return $value === $_SESSION['selectedProperty']->payment_schedule ? 'selected' : '';
+	}, ['WEEKLY', 'FORTNIGHTLY', 'MONTHLY']);
+?>
 
-                    <div class="form-field">
-                        <label for="lastname">Last name</label>
-                        <input type="text" class="form-control" id="lastname" name="lastname">
+<form action="<?=WEBDIR?>/propertyowner/editproperty" method="post" enctype="multipart/form-data">
+                    <div class="ep_field_a">
+                        <label for="address">Address</label>
+                       <input type="text" class="form-control" name="address" value="<?=$_SESSION['selectedProperty']->address?>">
+                        <span class="error"></span>
                     </div>
+                        <div class="col-md-6">
+                    <div class="ep_field_ra">
+                        <label for="rent_amount">Rent amount</label>
+                       <input type="text" name="rent_amount" class="form-control" value="<?=$_SESSION['selectedProperty']->rent_amount?>">
+                        <span class="error"></span>
+                    </div>
+                    </div>
+                    <div class="col-md-6">
+                    <div class="ep_field_ps">
+                        <label for="payment_schedule">Payment schedule</label>
+                       <select name="payment_schedule" class="form-control">
+                                <option value="" hidden>Please select...</option>
+                                <option value="WEEKLY" <?=$selected[0]?>>Weekly</option>
+		<option value="FORTNIGHTLY" <?=$selected[1]?>>Fortnightly</option>
+		<option value="MONTHLY" <?=$selected[2]?>>Monthly</option>
+	</select>
+                            </select>
+                        <span class="error"></span>
+                    </div>
+                    </div>
+                    <div class="col-md-8">
+                    <div class="ep_field_img">
+                        <label for="photo_file">Change image</label>
+                        
+                     
+                        <div class="ep_field_img_img">  
+                        <img src="<?=$_SESSION['selectedProperty']->photo?>" class="img-responsive" alt="property_photo" title="Property photo">                 </div>
+  
+                        
+                   
+                    </div>  
+                    </div>
+                  
+                  
+                   <div class="col-md-8">
+                   <div class="ep_field_img_file"> 
+                        <div class="fileinput fileinput-new" data-provides="fileinput">
+    <span class="btn btn-choose btn-file"><span>Choose file</span><input  type="file" name="photo_file"
+                      /></span>
+    <span class="fileinput-filename"><span class="fileinput-new">No file chosen</span></span>
+                            
+                            <span class="error"></span>
+</div>                      </div> </div>    
+                            <div class="col-md-4">
+                               <div class="ep_btnz pull-right">
+                       <button type="submit" class="btn btn-save-changes">Save changes</button>
+                        </div>
+                       
+                         </div>
+                  
 
-                </form>
+
+</form>
+                  
                 <!-- FORM ENDS HERE -->
               </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-              </div>
+        
             </div>
           </div>
         </div>
-    </div>
-</div>
 
+
+        <!-- assign tenant modal -->
+        <div class="modal modal-vcenter fade" id="tenantForm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></button>
+                <p class="modal-title">Assign Tenant</p>
+            </div>
+
+              <div class="modal-body">
+               
+                <form>
+                    <div class="col-md-6">
+                   <div class="at_field_fn">
+                        <label for="firstname">First name</label>
+                       <input type="text" class="form-control" id="firstname" name="firstname">
+                        <span class="error"></span>
+                    </div>
+                        </div>
+                    <div class="col-md-6">
+                    <div class="at_field_ln">
+                        <label for="lastname">Last name</label>
+                        <input type="text" class="form-control" id="lastname" name="lastname">
+                        <span class="error"></span>
+                    </div> 
+  </div>
+                    <div class="col-md-12">
+  <div class="at_btnz">
+                       <button type="button" class="btn btn-save-changes pull-right">Save changes</button>
+                        </div>
+                          </div>
+
+                </form>
+                
+                <!-- FORM ENDS HERE -->
+              </div>
+
+    
+           
+        
+            </div>
+          </div>
+        </div>
+
+    
 
 
 
