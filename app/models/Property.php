@@ -166,4 +166,19 @@ class Property extends Model
     return $owner ? $owner[0] : false;
   }
 
+  public function setTenant($tenant)
+  {
+    try {
+      $db = Database::getInstance();
+      $statement = $db->prepare('UPDATE property SET tenant_id=:tenant_id WHERE id=:id');
+      $result = $statement->execute([
+        'tenant_id' => $tenant->id,
+        'id' => $this->id
+      ]);
+      return $result ? true : false;
+    } catch (Exception $e) {
+
+    }
+  }
+
 }

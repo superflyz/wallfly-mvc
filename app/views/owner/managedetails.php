@@ -151,10 +151,10 @@ require_once '../app/views/templates/interfaceStart.php';
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                    <h4 class="modal-title" id="myModalLabel">Add a new tenant</h4>
                 </div>
                 <!-- FORM STARTS HERE -->
-                <form action="#" method="post">
+                <form action="<?=WEBDIR?>/propertyowner/assigntenant" method="post">
                     <div class="modal-body">
                         
                         <div class="form-field">
@@ -173,13 +173,13 @@ require_once '../app/views/templates/interfaceStart.php';
                             <label for="phone">Phone</label>
                             <input type="text" class="form-control" id="phone" name="phone" required>
                         </div>
-                        <!-- FORM ENDS HERE -->
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                         <button type="submit" class="btn btn-primary">Save changes</button>
                     </div>
                 </form>
+                <!-- FORM ENDS HERE -->
             </div>
         </div>
     </div>
