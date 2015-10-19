@@ -53,50 +53,61 @@
         </section>
     </div>
 </div>  
+    </div>
+</div>  
 
 
-<div class="row">
-<div class="col-md-12">
-    <!-- Modal -->
-    <div class="modal fade" id="addpropertyform" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="myModalLabel">Add a new property</h4>
-                </div>
+    <!-- add property modal -->
+    <div class="modal modal-vcenter fade" id="addpropertyform" tabindex="-1" role="dialog"  aria-labelledby="mySmallModalLabel">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></button>
+                <p class="modal-title">Add Property</p>
+            </div>
+
+              <div class="modal-body">
+               
                 <!-- FORM STARTS HERE -->
-                <form action="<?=WEBDIR?>/propertyowner/assigntenant" method="post">
-                    <div class="modal-body">
-                        
-                        <div class="form-field">
+                <form action="<?=WEBDIR?>/propertyowner/assigntenant" method="post">            
+                        <div class="add_property">
+                        <div class="ap_field_a">
                             <label for="address">Address</label>
                             <input type="text" class="form-control" id="address" name="address" required>
                         </div>
-                        <div class="form-field">
-                            <label for="payment">Payment Schedule</label>
-                            <select name="payment_schedule" id="payment" class="form-control">
+                    <div class="row">
+                        <div class="col-md-6">
+                        <div class="ap_field_r">
+                            <label for="rent_amount">Rent amount ($)</label>
+                            <input type="text" class="form-control" id="rent_amount" name="rent_amount" required>
+                        </div></div>
+                            <div class="col-md-6">
+                        <div class="ap_field_ps">
+                            <label for="payment_schedule">Payment schedule</label>
+                            <select name="payment_schedule" id="payment" class="form-control">      
+                                <option value="" hidden>Please select...</option>
                                 <option value="WEEKLY">Weekly</option>
                                 <option value="FORTNIGHTLY">Fortnightly</option>
                                 <option value="MONTHLY">Monthly</option>
                             </select>
                         </div>
-                        <div class="form-field">
-                            <label for="rent_amount">Rent Amount ($)</label>
-                            <input type="text" class="form-control" id="rent_amount" name="rent_amount" required>
                         </div>
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Save changes</button>
+                            
+                        <div class="col-md-12">
+                            <div class="ap_btnz">
+                       <button type="submit" class="btn btn-save-changes pull-right">Save changes</button>
+                        </div>
+                        </div>
                     </div>
+                     
                 </form>
                 <!-- FORM ENDS HERE -->
             </div>
         </div>
     </div>
 </div>
-</div>
+    
  
 
 

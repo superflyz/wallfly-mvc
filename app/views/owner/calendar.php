@@ -1,7 +1,7 @@
 <?php
 require_once '../app/views/templates/interfaceStart.php';
 ?>
-<div class="row ">
+<div class="row">
     <div class="col-md-12">
         <div class="page_heading">
             <p>Calendar</p>
@@ -10,7 +10,7 @@ require_once '../app/views/templates/interfaceStart.php';
     </div>
 </div>
 
- <div class="row ">
+ <div class="row">
     <div class="col-md-6 ">
         <div class="manage_properties_pills">
           <!-- Nav pills -->

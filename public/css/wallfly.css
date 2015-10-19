@@ -1650,7 +1650,7 @@ li{
     min-width: 30px;
     max-width: 444px;
     height: auto;
-    margin: 8px 0px 20px 0px;
+    margin: 3px 0px 20px 0px;
     padding: 0px;
     background: #FFFFFF;
     -webkit-border-radius: 4px;
@@ -1658,6 +1658,7 @@ li{
     border-radius: 4px;
 }
 
+/*
 .bubble-arw-left:after {
     content: '';
     position: absolute;
@@ -1666,10 +1667,25 @@ li{
     border-color: transparent #FFFFFF;
     display: block;
     width: 0;
-/*    border-radius: 0px 0px 0px 0px;*/
     z-index: 1;
     left: -10px;
     top: 6px;
+}
+*/
+
+.bubble-arw-left:after {
+    
+           transform: scaleX(-1);
+      border: 8px solid transparent;
+
+  border-bottom-color: #ffffff; /* arrow color */
+  top: 0px;
+  left: -8px;
+      border-radius: 10px 10px 10px 0px;
+  content: '';
+       width: 0;
+  display: block;
+  position: absolute;
 }
 
 .current-user .user-img {
@@ -1677,7 +1693,7 @@ li{
     color: #ffffff;
     padding: 2px;
     height: 40px;
-    margin: 0px 0px 0px 20px;
+    margin: 0px 0px 0px 15px;
     width: 40px;
     float: right;
     font-size: 10px;
@@ -1747,6 +1763,7 @@ li{
     border-radius: 4px;
 }
 
+/*
 .bubble-arw-right:after {
     content: '';
     position: absolute;
@@ -1759,13 +1776,29 @@ li{
     right: -10px;
     top: 6px;
     }
+*/
+
+.bubble-arw-right:after {
+     
+  border: 8px solid transparent;
+
+  border-bottom-color: #5AD663; /* arrow color */
+  top: 0px;
+  right: -8px;
+      border-radius: 10px 10px 10px 0px;
+  content: '';
+       width: 0;
+  display: block;
+  position: absolute;
+}
+
 
 .other-user .user-img {
     background: #333333;
     color: #ffffff;
     padding: 2px;
     height: 40px;
-    margin: 0px 20px 0px 0px;
+    margin: 0px 15px 0px 0px;
     width: 40px;
     float: left;
     font-size: 10px;
@@ -2243,7 +2276,7 @@ margin: 0px 0px 10px 0px;
 .ep_field_img img {
    padding: 0px;
 
-
+border-radius: 3px;
 /*        height: 100px; */
 }
 
@@ -2255,15 +2288,18 @@ margin: 0px 0px 10px 0px;
 
 .ep_field_img_img {
         margin: 0px 100px 0px 0px;
-    
-        padding: 0px 0px 0px 0px;
+    border: 1px solid #dedede;
+    border-radius: 4px;
+        padding: 2px;
+      height: auto;
 /*        background: yellow;*/
 }
 
 .ep_field_img_file {
 /*    background: red;*/
            margin: -10px 0px 0px 0px;
-        padding: 0px;
+        padding: 5px 0px 0px 0px;
+      height: auto;
 }
 
 .ep_field_img_file .fileinput-filename {
@@ -2326,6 +2362,40 @@ margin: 0px 0px 10px 0px;
     
         padding: 0px 0px 0px 0px;
 }
+
+.ap_field_a {
+/*        background: green;*/
+        height: auto;
+    padding: 0px;
+margin: 0px 0px 10px 0px;
+}
+
+.ap_field_r {
+        height: auto;
+/*    background: red;*/
+    padding: 0px;
+    margin: 0px 10px 0px 0px;
+}
+
+.ap_field_ps {
+        margin: 0px 0px 0px 10px;
+        height: auto;
+    padding: 0px;
+/*    background: yellow;*/
+}
+
+.add_property .row {
+       padding: 0px;
+      margin: 0px 0px 0px 0px;
+}
+
+.ap_btnz {
+/*     background: blue;*/
+              margin: 15px 0px 0px 0px;
+    
+        padding: 0px 0px 0px 0px;
+}
+
 
 /*--- Inspections page & Document page ---*/
 

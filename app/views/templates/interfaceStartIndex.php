@@ -83,7 +83,7 @@ if (isset($_SESSION['selectedProperty'])) {
         <div class="col-md-10 col-sm-10">
             <div class="navbar-dashboard-main">
                 <div class="visible-xs pull-left smtog">
-                    <a class="tog" href="" data-toggle="offcanvas">
+                    <a class="tog" data-toggle="offcanvas">
                         <i class="fa fa-bars"></i>
                     </a>
                 </div>
@@ -136,6 +136,7 @@ if (isset($_SESSION['selectedProperty'])) {
                     </div>
                 </div>
             </div>
-            <div class="container content_body">
-    
+            <div id="pagecontentstart" class="container content_body">
+                <div class="row top-section">
+            <div clas="col-md-12">
                 
