@@ -1,9 +1,9 @@
 // Reference:(http://startbootstrap.com)
 
 
-$( document ).ready(function() {
-    
-});
+//$( document ).ready(function() {
+//    
+//});
 
 
 // jQuery for page scrolling feature - requires jQuery Easing plugin
@@ -24,7 +24,7 @@ $('body').scrollspy({
 
 // Closes the Responsive Menu on Menu Item Click
 $('.navbar-collapse ul li a').click(function () {
-    $('.navbar-toggle:visible').click();
+    $('.navbar-toggle:visibsle').click();
 });
 
 
