@@ -1,4 +1,5 @@
-<div id="page-top" class="index">
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<body id="page-top" class="index home_body">
     <!-- Navigation -->
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
@@ -71,8 +72,9 @@
             </div>
             <div class="row">
                 <div class="col-md-12 p-text">
-                    <a href="#features" class="btn-scroll-down page-scroll" title="Scroll Down">
-                    <i class="fa fa-angle-double-down animated"></i>
+                    <a href="#features" class="btn-scroll-down page-scroll" title="Scroll down">
+                    <i class="fa fa-angle-double-down"></i>
+                   
                     </a>
                 </div>
             </div>
@@ -83,34 +85,34 @@
     <section id="features">
         <div class="container">
             <div class="row text-center">
-                <div class="col-md-3 col-sm-6 feature">
-                    <span class="fa-stack fa-3x">
-                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                        <i class="fa fa-shopping-cart fa-stack-1x fa-inverse"></i>
+                <div class="col-md-3 col-sm-6 feature1">
+                    <span class="fa-stack fa-4x">
+                        <i class="fa fa-square fa-stack-2x text-primary"></i>
+                        <i class="fa fa-home fa-stack-1x fa-inverse"></i>
                     </span>
                     <h4 class="feature-heading">Property Management</h4>
                     <p class="text-muted">Manage you property by setting tenants, documents and inspection reports</p>
                 </div>
-                <div class="col-md-3 col-sm-6 feature">
-                    <span class="fa-stack fa-3x">
-                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                        <i class="fa fa-laptop fa-stack-1x fa-inverse"></i>
+                <div class="col-md-3 col-sm-6 feature2">
+                    <span class="fa-stack fa-4x">
+                        <i class="fa fa-square fa-stack-2x text-primary"></i>
+                        <i class="fa fa-credit-card fa-stack-1x fa-inverse"></i>
                     </span>
                     <h4 class="feature-heading">Payments</h4>
                     <p class="text-muted">Make payments quickly and safely through the  payment system powered by PayPal</p>
                 </div>
-                <div class="col-md-3 col-sm-6 feature">
-                    <span class="fa-stack fa-3x">
-                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                        <i class="fa fa-lock fa-stack-1x fa-inverse"></i>
+                <div class="col-md-3 col-sm-6 feature1">
+                    <span class="fa-stack fa-4x">
+                        <i class="fa fa-square fa-stack-2x text-primary"></i>
+                        <i class="fa fa-wrench fa-stack-1x fa-inverse"></i>
                     </span>
                     <h4 class="feature-heading feature">Repairs</h4>
                     <p class="text-muted">Approve or Deny repair requests after viewing images, severity and description </p>
                 </div>
-                <div class="col-md-3 col-sm-6 feature">
-                    <span class="fa-stack fa-3x">
-                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                        <i class="fa fa-laptop fa-stack-1x fa-inverse"></i>
+                <div class="col-md-3 col-sm-6 feature2">
+                    <span class="fa-stack fa-4x">
+                        <i class="fa fa-square fa-stack-2x text-primary"></i>
+                        <i class="fa fa-comments-o fa-stack-1x fa-inverse"></i>
                     </span>
                     <h4 class="feature-heading">Communicate</h4>
                     <p class="text-muted">Conveniently create and view calender events or send chat messages</p>
@@ -264,4 +266,11 @@
                 </div>
             </div>
         </div>
-  </div>
+
+<!-- <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script> -->
+<!--
+<script src="/wallfly-mvc/public/js/classie.js"></script>
+<script src="/wallfly-mvc/public/js/cbpAnimatedHeader.js"></script>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+-->
+    

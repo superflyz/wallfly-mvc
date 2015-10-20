@@ -107,9 +107,6 @@
         </div>
     </div>
 </div>
-    
- 
-
 
 <script>
         $('.ui.search.dropdown').dropdown({
@@ -134,8 +131,11 @@
             }
 
     });
+    
+ document.title = 'Dashboard - WallFly';
 
 </script>
+
 
 <?php
 require_once '../app/views/templates/interfaceEnd.php';

@@ -1,3 +1,4 @@
+<body class="ui_body">
 <?php
 
 //include(__DIR__ . "/../classes/PropertyFunctions.php");
