@@ -225,8 +225,6 @@ class PropertyOwner extends Controller
               // 4. update the property
               $property->photo = WEBDIR . $targetFile;
             } else {
-          var_dump($file);
-          exit();
               // TODO: error
             }
           }
