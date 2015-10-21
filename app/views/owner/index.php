@@ -85,7 +85,7 @@
                         <div class="ap_field_ps">
                             <label for="payment_schedule">Payment schedule</label>
                             <select name="payment_schedule" id="payment" class="form-control">      
-                                <option value="" hidden>Please select...</option>
+                                <option disabled selected hidden>Please select...</option>
                                 <option value="WEEKLY">Weekly</option>
                                 <option value="FORTNIGHTLY">Fortnightly</option>
                                 <option value="MONTHLY">Monthly</option>

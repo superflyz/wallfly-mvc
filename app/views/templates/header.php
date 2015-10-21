@@ -16,7 +16,9 @@
     
 
     <!-- Custom CSS -->  
+     <link href="/wallfly-mvc/public/css/normalize.css" rel="stylesheet">
     <link href="/wallfly-mvc/public/css/wallfly.css" rel="stylesheet">
+    
 
     <!-- Custom Fonts -->
     <link href="/wallfly-mvc/public/css/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">

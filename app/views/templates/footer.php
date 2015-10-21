@@ -4,7 +4,7 @@
 <!-- Bootstrap Core JavaScript -->
 <script src="<?=WEBDIR?>/js/bootstrap.min.js"></script>
 
- <!--jquery validation    -->
+ <!-- jquery validation -->
     <script src="http://cdn.jsdelivr.net/jquery.validation/1.14.0/jquery.validate.js"></script>
     <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.0/additional-methods.js"></script>
 

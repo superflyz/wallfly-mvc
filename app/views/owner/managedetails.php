@@ -224,7 +224,7 @@ require_once '../app/views/templates/interfaceStart.php';
         </div>
     </div>
 </div>
-  
+ </div> 
           <!-- edit property modal -->
         <div class="modal modal-vcenter fade" id="editPropertyForm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
     <div class="modal-dialog modal-md">
@@ -259,7 +259,7 @@ require_once '../app/views/templates/interfaceStart.php';
                     <div class="ep_field_ps">
                         <label for="payment_schedule">Payment schedule</label>
                        <select name="payment_schedule" class="form-control">
-                                <option value="" hidden>Please select...</option>
+                                <option disabled selected hidden>Please select...</option>
                                 <option value="WEEKLY" <?=$selected[0]?>>Weekly</option>
 		<option value="FORTNIGHTLY" <?=$selected[1]?>>Fortnightly</option>
 		<option value="MONTHLY" <?=$selected[2]?>>Monthly</option>

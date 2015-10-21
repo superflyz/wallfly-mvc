@@ -57,6 +57,9 @@ title {
 
 .text-muted {
     color: #333333;
+    font-size: 15px;
+    font-weight: 400;
+    padding: 0px 6px 0px 6px;
 }
 
 .text-primary {
@@ -106,134 +109,313 @@ h6 {
     outline-style: none; 
 }
 
-/*------ Login & Sign Up forms ALL screen ------*/
-/*
+
+
 .modal-header {
-    color: #ffffff;
-    background-color: #333333;
-    border-top-left-radius: 4px;  
-    border-top-right-radius: 4px; 
-    margin: 2px 2px 0px 2px;
+    background-color: #dedede;
+    margin: 0px;
+    height: 58px;
     border-bottom: 2px solid #5AD663;
+    border-radius: 4px 4px 4px 4px;
+    padding: 14px 20px 12px 20px;
+    color: #333333;
 }
 
 .modal-title {
-    font-size: 20px;
+        font-size: 20px;
     font-weight: 600;
-    font-family: "Titillium Web", Ubuntu, "Helvetica Neue", Helvetica, Arial, sans-serif;
-    margin: 2px 0px 0px 3px;
-}  
+    color: #333333;
+  
+}
+
+.modal-header .close {
+    color: #ffffff;
+    opacity: 1;
+    box-shadow: none;
+    text-shadow: none;
+    font-size: 25px;
+    border: none;
+    margin: 2px 0px 0px 0px;
+    padding: 0px;
+    outline: none;
+}
+
+.modal-header .close:hover,
+.modal-header .close:active {
+    color: #FA4B3E;
+    opacity: 1;
+    -webkit-transition: background .3s ease-in-out;
+    -moz-transition: background .3s ease-in-out;
+    transition: background .3s ease-in-out;
+}
 
 .modal-body {
-    border-bottom-left-radius: 4px;  
-    border-bottom-right-radius: 4px; 
-}
-
-.form-control {
-    margin-bottom: 10px;
-}
-
-.formSelect{
-    border: 1px solid black;
-    height: 50px;
-}
-
-.close {
-    color: #ffffff;
-    opacity: 0.4;
-    box-shadow: none;
-    font-size: 35px;
-    border: none;
-}
-
-.close:hover,
-.close:active {
-    color: #ffffff;
-    opacity: 0.8;
-    -webkit-transition: background .2s ease-in-out;
-    -moz-transition: background .2s ease-in-out;
-    transition: background .2s ease-in-out;
-}
-*/
-
-/*
-.form-field {
-    margin: 16px 0px 0px 0px;
-}
-
-.ff1 {
-    margin: 6px 0px 0px 0px;
-}
-
-.form-field label {
-    color: #333333;
-    font-size: 16px;
-    font-weight: 400;
-}
-
-.form-field input {
-    border: 1px solid #333333;
-    outline: 0;
-    padding: 14px 6px 10px 6px;
-    font-size: 14px;
-    box-shadow: none;
-    height: 100%;
-}
-*/
-
-/*
-.form-field input:hover {
-    border: 1px solid #5AD663;
-    outline: 0;
-}
-
-.form-field input:focus {
-    border: 2px solid #5AD663;
-    outline: 0;
-    box-shadow: none;
-}
-
-.select-style {
-    border: 1px solid #333333;
-    outline: 0;
-    border-radius: 4px;
-    background: #ffffff url('../images/dropdown.svg') no-repeat 97% 55%;
-    background-size: 12px 12px;
-    padding: 3px 6px 0px 6px;
-    outline: 0;
-    box-shadow: none;
-    -webkit-appearance: none;
-}
-
-.select-style:hover,
-.select-style:active{
-    border: 1px solid #5AD663;
-    outline: 0;
-}
-
-.select-style:focus {
-    box-shadow: none;
-    border: 2px solid #5AD663;
+    max-height: 500px;
+    overflow: auto;
+    padding: 20px;
+    margin: 0px 0px 0px 0px;
 }
 
 
-*/
-
-.submit {
-    color: #ffffff;
-    margin: 30px 0px 0px 0px;
-    background-color: #5AD663;
-    border: 2px solid transparent;
-    padding: 12px 6px 8px 6px;
-    font-size: 16px;
+/*------ Modal style ALL screen ------*/
+.modal-body label {
+    
     font-weight: 600;
+    font-size: 14px;
+    padding: 0px;
+    margin: 0px 0px 6px 0px;
+    color: #333333;
 }
 
-.submit:hover,
-.submit:active{
-    color: #5AD663;
+.modal-body input {
+        font-weight: 400;
+    font-size: 14px;
+    height: 40px;
+/*    padding: 0px 0px 0px 0px;*/
+    padding-left: 8px;
+    margin: 0px;
+    border: 1px solid #dedede;
+        outline: 0;
+}
+
+.modal-body input:hover, .modal-body input:focus {
+    border: 1px solid #5AD663;
+        outline: 0;
+    box-shadow: none;
+}
+
+.modal-body textarea {
+        font-weight: 400;
+    font-size: 14px;
+/*    height: 40px;*/
+/*    padding: 0px 0px 0px 0px;*/
+    padding-left: 8px;
+    margin: 0px;
+    border: 1px solid #dedede;
+        outline: 0;
+    
+        background-color: #ffffff;   
+/*    padding: 4px 6px 4px 6px;*/
+overflow-y: scroll;
+        height: 50px;
+/*    height: auto;*/
+/*    max-height: 25px;*/
+    border-radius: 4px;
+    width: 100%;
+   resize: none;
+}
+
+.modal-body textarea:hover, .modal-body textarea:focus {
+    border: 1px solid #5AD663;
+        outline: 0;
+    box-shadow: none;
+}
+
+.modal-body select {
+        font-weight: 400;
+    font-size: 14px;
+    height: 40px;
+/*    padding: 0px 0px 0px 0px;*/
+    padding-left: 8px;
+    margin: 0px;
+
+    border: 1px solid #dedede;
+        outline: 0;
+        box-shadow: none;
+}
+
+.modal-body select:hover, .modal-body select:focus {
+    border: 1px solid #5AD663;
+        outline: 0;
+    box-shadow: none;
+}
+
+
+
+/*------ Login & Sign Up forms ALL screen ------*/
+
+.l_field_ut {
+/*        background: green;*/
+        height: auto;
+    padding: 0px;
+margin: 0px 0px 10px 0px;
+}
+
+.l_field_em {
+/*        background: green;*/
+        height: auto;
+    padding: 0px;
+margin: 0px 0px 10px 0px;
+}
+
+.l_field_pass {
+/*        background: green;*/
+        height: auto;
+    padding: 0px;
+margin: 0px 0px 5px 0px;
+}
+
+.l_p {
+   margin: 0px 0px 5px 0px; 
+/*    background: red;*/
+    font-size: 12px;
+    font-weight: 300;
+}
+
+.btn-login {
+     color: #ffffff;
+    background-color: #5AD663;
+    height: 40px;
+    font-size: 14px;
+    font-weight: 600;
+    width: 100%;
+    margin: 10px 0px 0px 0px;
+    border: 2px solid transparent;
+        -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    transition: all .3s;
+    
+}
+
+
+.btn-login:hover {
     border: 2px solid #5AD663;
-    background-color: transparent; 
+    background-color: transparent;
+    color:  #5AD663;
+}
+
+.su_field_img_file .fileinput-filename {
+    color: #333333;
+    background-color: #f8f8f8;
+}
+
+.su_field_img_file .btn-choose {
+    color: #333333;
+    background-color: #dedede;
+}
+
+
+.su_field_img_file {
+/*    background: red;*/
+           margin: 5px 0px 0px 0px;
+        padding: 0px 0px 0px 0px;
+      height: auto;
+}
+
+
+
+.su_field_fn {
+/*        background: green;*/
+        height: auto;
+    padding: 0px;
+margin: 0px 0px 10px 0px;
+}
+
+
+.su_field_ln {
+/*        background: red;*/
+        height: auto;
+    padding: 0px;
+margin: 0px 0px 10px 0px;
+}
+
+.su_field_em {
+/*        background: green;*/
+        height: auto;
+    padding: 0px;
+margin: 0px 0px 10px 0px;
+}
+
+
+.su_field_ph {
+/*        background: red;*/
+        height: auto;
+    padding: 0px;
+margin: 0px 0px 10px 0px;
+}
+
+.su_field_pass {
+/*        background: green;*/
+        height: auto;
+    padding: 0px;
+margin: 0px 0px 10px 0px;
+}
+
+
+.su_field_repass {
+/*        background: red;*/
+        height: auto;
+    padding: 0px;
+margin: 0px 0px 10px 0px;
+}
+
+.su_field_add1 {
+/*        background: red;*/
+        height: auto;
+    padding: 0px;
+margin: 0px 0px 10px 0px;
+}
+
+.su_field_add2 {
+/*        background: red;*/
+        height: auto;
+    padding: 0px;
+margin: 0px 0px 10px 0px;
+}
+
+.su_field_ulogo {
+/*        background: red;*/
+        height: auto;
+    padding: 0px;
+margin: 0px 0px 0px 0px;
+}
+
+.su_p {
+   margin: 10px 0px 0px 0px; 
+/*    background: red;*/
+    font-size: 14px;
+    font-weight: 300;
+}
+
+.re_p {
+   margin: -5px 0px 10px 0px; 
+/*    background: red;*/
+    font-size: 14px;
+    font-weight: 300;
+}
+
+.req {
+    
+    color: #FA4B3E;
+}
+
+.opt {
+    font-weight: 300;
+    opacity: 0.75;
+}
+
+
+.btn-sign-up {
+     color: #ffffff;
+    background-color: #5AD663;
+/*    height: 40px;*/
+    font-size: 14px;
+    font-weight: 600;
+/*    width: 20%;*/
+    text-align: center;
+    margin: 0px 0px 0px 0px;
+    border: 2px solid transparent;
+        -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    transition: all .3s;
+    
+}
+
+
+.btn-sign-up:hover {
+    border: 2px solid #5AD663;
+    background-color: transparent;
+    color:  #5AD663;
 }
 
 .error {
@@ -247,7 +429,7 @@ h6 {
 }
 
 #signup_form input.error {
-    border: 2px solid #ef3719;
+    border: 1px solid #ef3719;
 }
 
 /*-- Extra small devices (phones, less than 768px) --*/
@@ -259,7 +441,7 @@ h6 {
     background-color: #333333;
     padding: 0px;
     margin: 0px;
-    height: 69px;
+/*    height: 69px;*/
 }
 
 .navbar-default .navbar-brand {
@@ -278,31 +460,42 @@ h6 {
     border-color: #5AD663;
 }
 
-.navbar-default .navbar-toggle {
-    border-color: #5AD663;
-    background-color: #5AD663;
-}
-
-.navbar-default .navbar-toggle .icon-bar {
-    background-color: #ffffff;
-}
-
-.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle,
 .navbar-default .navbar-toggle:focus {
+    color: #ffffff;
+    background-color: #5AD663;
+    padding: 4px;
+    border: 1px solid #5AD663;
+    cursor: pointer;
+
+           -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    transition: all .3s;
+}
+
+
+.navbar-default .navbar-toggle:hover {
     background-color: transparent;
-    -webkit-transition: .2s ease-in-out;
-    -moz-transition: .2s ease-in-out;
-    transition: .2s ease-in-out;
+        color: #5AD663;
+
+}
+
+.navbar-toggle .fa-bars {
+    font-size: 20px;
+        padding: 1px 6px 0px 6px;
+    margin: 0px;
+    
 }
 
 .navbar-default .nav li a {
     text-transform: uppercase;
-    font-weight: 500;
+    font-weight: 600;
     font-size: 14px; 
-    margin: 1.5px 0px 0px 0px;
+    margin: 2px 0px 0px 0px;
     padding: 12.5px 16px 11px 16px;
     letter-spacing: 1px;
     color: #ffffff;
+    -webkit-font-smoothing: antialiased;
 }
 
 .navbar-default .nav li a:hover,
@@ -310,6 +503,20 @@ h6 {
     outline: 0;
     color: #5AD663;
 }
+
+.navbar-default .nav li.re_link a:focus{
+    outline: 0;
+    color: #ffffff;
+}
+
+/*
+.navbar-nav .re_link:hover,
+.navbar-nav .re_link:focus {
+    outline: 0;
+    color: red;
+}
+    
+*/
 
 .navbar-default .navbar-nav>.active>a {
     border-radius: 0;
@@ -343,12 +550,6 @@ h6 {
     border-color: #5AD663;
     background-color: transparent;
     color: #5AD663;
-/*
-    -webkit-transition: .3s ease-in-out;
-    -moz-transition: .3s ease-in-out;
-    transition: .3s ease-in-out;
-*/
-/*    transition-duration: 0.25s;*/
 }
 
 /*--- Text below login button ALL screen ---*/
@@ -368,21 +569,22 @@ font-weight: 400;
 }
     
 .p-text .s-link:hover{
-    textnavbar-header-decoration: underline;
+        text-decoration: underline;
 }
 
 /*-- Scroll down button ALL screen --*/
-.btn-scroll-down {
+.btn-scroll-down, .btn-scroll-down:focus {
+
     font-size: 30px;
     color: #ffffff;
     border: 1px solid #5AD663;
-    border-radius: 20px;
+    border-radius: 25px;
 
     background-color: transparent;
         -webkit-transition: all .3s;
     -moz-transition: all .3s;
     transition: all .3s;
-        padding: 2.5px 12.5px 0px 12.5px;
+        padding: 2.25px 12.5px 0px 12.5px;
     display: inline-block;
 
 
@@ -394,18 +596,188 @@ font-weight: 400;
     background-color: #5AD663;  
 }
 
-.fa-circle-thin {
-          padding: 0px;
-    margin: 0px;  
+
+
+/*--- Header XS screen ---*/ 
+header {
+    text-align: center;
+    color: #ffffff;
+    background-attachment: scroll;
+    background-image: url(../images/header-bg.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+    height: 100vh;
+}
+
+ header .intro {
+        padding-top: 195px;
+    }   
+
+    header .intro .intro-text-1 {
+        margin-bottom: 20px;
+        font-weight: 400;
+        font-size: 33px;
+        color: #5AD663;
+        font-family: "Diavlo Medium";
+    }
+
+    header .intro .intro-text-2 {
+        margin-bottom: 66px;
+        text-transform: uppercase;
+        font-size: 20px;
+        font-weight: 500;
+        color: #ffffff;
+    }
+    
+           .navbar-nav li{
+        padding: 0px 0px 0px 0px;
+        margin: 0px 0px 0px 0px;
+/*        background: red;*/
+    }
+
+
+/*--- Features section XS screen ---*/    
+#features {
+    background-color: #ffffff; 
+    padding: 35px 0;
+}
+
+#features .feature-heading {
+    margin: 0px 0px 15px 0px;
+        font-size: 16px;
+        font-weight: 600;
+    color: #5AD663;
+}
+
+.feature {
+    margin: 30px 0px 0px 0px;
+    background-color: #f8f8f8;
+    padding: 10px 10px 10px 10px;
+/*    height: auto;*/
+    height: 260px;
+    border-radius: 4px;
+}
+
+.feature .fa-stack-2x {
+  font-size: 90px;
+        margin: 11px 0px 0px 0px;
     
 }
 
-.fa-angle-double-down {
-          padding: 0px;
-    margin: -20px 0px 0px 0px;  
+.feature .fa-stack-1x {
     
+    font-size: 40px;
+}
+
+.feature .fa-home{
+    
+    font-size: 50px;
+}
+
+
+/*--- About Information Ecosystems Section XS screen ---*/
+#about-i-e {
+    background-color: #f8f8f8; 
+    padding: 150px 0;
+}
+
+#about-i-e img {
+    margin: 10px 0px 60px 0px;
+    width: 100%;
+/*    background: red;*/
+}
+
+
+
+/*-- xSmall devices (tablets, 450px and up) --*/
+@media(min-width:450px) {
+    
+    /*--- Global nav SM & MD screen ---*/ 
+    
+    /*--- Header SM screen ---*/ 
+    header .intro {
+        padding-top: 190px;
+    }   
+
+    header .intro .intro-text-1 {
+        margin-bottom: 20px;
+        font-weight: 400;
+        font-size: 43px;
+        color: #5AD663;
+        font-family: "Diavlo Medium";
+    }
+
+    header .intro .intro-text-2 {
+        margin-bottom: 66px;
+        text-transform: uppercase;
+        font-size: 33px;
+        font-weight: 500;
+        color: #ffffff;
+    }
+    
+           .navbar-nav li{
+        padding: 0px 0px 0px 0px;
+        margin: 0px 0px 0px 0px;
+/*        background: red;*/
+    }
+    
+    .login-btn {
+    padding: 8px 60px;
+
+}
+ 
+    /*--- Features section SM screen ---*/   
+        #features {
+        background-color: #ffffff; 
+        padding: 70px 0;
+    }
+
+    #features .feature-heading {
+        margin: 3px 0px 16px 0px;
+        color: #5AD663;
+
+    }
+    
+        .feature .fa-stack-2x {
+      font-size: 90px;
+            margin: 11px 0px 0px 0px;
+
+    }
+
+    .feature .fa-stack-1x {
+
+        font-size: 40px;
+    }
+
+    .feature .fa-home{
+
+        font-size: 50px;
+    }
+    
+    /*--- About Information Ecosystems Section SM screen ---*/
+        #about-i-e {
+        background-color: #f2f2f2; 
+        padding: 165px 0;
+    }
+    
+    #about-i-e img {
+        margin: 0px 0px 60px 0px;
+    }
+    
+    #about-i-e p {
+        font-size: 15px;
+        color: #333333;
+        font-weight: 400;
+/*        background: red;*/
+    }
     
 }
+
+
 
 /*-- Small devices (tablets, 768px and up) --*/
 @media(min-width:768px) {
@@ -418,6 +790,9 @@ font-weight: 400;
         -webkit-transition: background .5s ease-in-out,padding .5s ease-in-out;
         -moz-transition: background .5s ease-in-out,padding .5s ease-in-out;
         transition: background .5s ease-in-out,padding .5s ease-in-out;
+           
+    height: 69px;
+ 
     }
 
     .navbar-default .navbar-brand {
@@ -442,72 +817,98 @@ font-weight: 400;
     .navbar-default.navbar-shrink .navbar-brand img {
         
     }
-}
-
-/*--- Header XS screen ---*/ 
-header {
-    text-align: center;
-    color: #ffffff;
-    background-attachment: scroll;
-    background-image: url(../images/header-bg.png);
-    background-position: center center;
-    background-repeat: no-repeat;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    background-size: cover;
-    -o-background-size: cover;
-    height: 100vh;
-}
-
-header .intro {
-    padding-top: 165px;
-
-}
-
-header .intro .intro-text-1 {
-    margin-bottom: 30px;
-    font-size: 60px;
-    color: #5AD663;
-    font-weight: 600;
-    font-family: "Titillium Web", Ubuntu, "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-
-header .intro .intro-text-2 {
-    margin-bottom: 65px;
-    text-transform: uppercase;
-    font-size: 35px;
-    font-weight: 400;
-    color: #ffffff;
-    font-family: "Titillium Web", Ubuntu, "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-
-/*-- Small devices (tablets, 768px and up) --*/
-@media(min-width:768px) {
-
+    
     /*--- Header SM screen ---*/ 
     header .intro {
-        padding-top: 175px;
+        padding-top: 200px;
     }   
 
     header .intro .intro-text-1 {
-        margin-bottom: 25px;
+        margin-bottom: 20px;
         font-weight: 500;
-        font-size: 52px;
+        font-size: 45px;
         color: #5AD663;
+        font-family: "Diavlo Medium";
     }
 
     header .intro .intro-text-2 {
-        margin-bottom: 50px;
+        margin-bottom: 66px;
         text-transform: uppercase;
-        font-size: 32px;
-        font-weight: 300;
+        font-size: 35px;
+        font-weight: 500;
         color: #ffffff;
     }
-}  
+    
+    /*--- Features section SM screen ---*/   
+        #features {
+        background-color: #ffffff; 
+        padding: 70px 0;
+    }
+
+    #features .feature-heading {
+        margin: 3px 0px 16px 0px;
+        color: #5AD663;
+
+    }
+    
+        .feature .fa-stack-2x {
+      font-size: 90px;
+            margin: 11px 0px 0px 0px;
+
+    }
+
+    .feature .fa-stack-1x {
+
+        font-size: 40px;
+    }
+
+    .feature .fa-home{
+
+        font-size: 50px;
+    }
+    
+    /*--- About Information Ecosystems Section SM screen ---*/
+        #about-i-e {
+        background-color: #f2f2f2; 
+        padding: 165px 0;
+    }
+    
+    #about-i-e img {
+        margin: 0px 0px 60px 0px;
+        width: auto;
+    }
+    
+    #about-i-e p {
+        font-size: 15px;
+        color: #333333;
+        font-weight: 400;
+/*        background: red;*/
+    }
+    
+    .btn-sign-up {
+     color: #ffffff;
+    background-color: #5AD663;
+/*    height: 40px;*/
+    font-size: 14px;
+    font-weight: 600;
+    width: 20%;
+    text-align: center;
+    margin: 0px 0px 0px 0px;
+    border: 2px solid transparent;
+        -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    transition: all .3s;
+    
+}
+}
 
 /*-- Medium devices (desktops, 992px and up) --*/
 @media(min-width:992px) {
 
+    
+    .navbar-default {
+    height: 69px;
+    }
     /*--- Header MD screen ---*/ 
     header .intro {
 /*            background: red;*/
@@ -529,79 +930,33 @@ header .intro .intro-text-2 {
         font-weight: 500;
         color: #ffffff;
     }
-}
-
-/*--- Features section XS screen ---*/    
-#features {
-    background-color: #ffffff; 
-    padding: 90px 0;
-}
-
-#features .feature-heading {
-    margin: 20px 0px 15px 0px;
-    font-weight: 600;
-    font-size: 16px;
-    color: #5AD663;
-}
-
-.feature1 {
-    margin: 0px 0px 0px 0px;
-    background: red;
-}
-
-.feature2 {
-    margin: 222px 0px 0px 0px;
-    background: green;
-}
-
-/*--- About Information Ecosystems Section XS screen ---*/
-#about-i-e {
-    background-color: #f2f2f2; 
-    padding: 150px 0;
-}
-
-#about-i-e img {
-    margin: 10px 0px 60px 0px;
-}
-
-/*-- Small devices (tablets, 768px and up) --*/
-@media(min-width:768px) {
-    
-    /*--- Features section SM screen ---*/   
-    #features {
-        background-color: #ffffff; 
-        padding: 130px 0;
-    }
-
-    #features .feature-heading {
-        margin: 20px 0px 15px 0px;
-        color: #5AD663;
-    }
-    
-    /*--- About Information Ecosystems Section SM screen ---*/
-    #about-i-e {
-        background-color: #f2f2f2; 
-        padding: 180px 0;
-    }
-    
-    #about-i-e img {
-        margin: 0px 0px 60px 0px;
-    }
-    
-}
-
-/*-- Medium devices (desktops, 992px and up) --*/
-@media(min-width:992px) {
     
     /*--- Features section MD screen ---*/   
     #features {
         background-color: #ffffff; 
-        padding: 232px 0;
+        padding: 222px 0;
     }
 
     #features .feature-heading {
-        margin: 20px 0px 15px 0px;
+        margin: 3px 0px 16px 0px;
         color: #5AD663;
+
+    }
+    
+        .feature .fa-stack-2x {
+      font-size: 90px;
+            margin: 11px 0px 0px 0px;
+
+    }
+
+    .feature .fa-stack-1x {
+
+        font-size: 40px;
+    }
+
+    .feature .fa-home{
+
+        font-size: 50px;
     }
     
     /*--- About Information Ecosystems Section MD screen ---*/
@@ -612,17 +967,39 @@ header .intro .intro-text-2 {
     
     #about-i-e img {
         margin: 0px 0px 0px 0px;
+        width: auto;
     }
     
+    #about-i-e p {
+        font-size: 15px;
+        color: #333333;
+        font-weight: 400;
+/*        background: red;*/
+    }
+    
+    .btn-sign-up {
+     color: #ffffff;
+    background-color: #5AD663;
+/*    height: 40px;*/
+    font-size: 14px;
+    font-weight: 600;
+    width: 20%;
+    text-align: center;
+    margin: 0px 0px 0px 0px;
+    border: 2px solid transparent;
+        -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    transition: all .3s;
+    
+}
 }
 
 /*-- Large devices (large desktops, 1200px and up) --*/
 @media (min-width: 1200px) {  }
 
-
 /*--- Footer ALL screen ---*/
 footer {
-    padding: 25px 0px 10px 0px;
+    padding: 12px 0px 10px 0px;
     font-size: 15px;
     font-weight: 200;
     background-color: #333333;
@@ -631,6 +1008,14 @@ footer {
 
 footer .diff-color {
    color: #5AD663;
+    font-family: "Diavlo Light";
+}
+
+footer p {  
+/*     background-color: red;*/
+    margin: 0px 0px 0px 0px;
+    font-size: 12px;
+    font-weight: 200;
 }
 
 ::-moz-selection {
@@ -2743,126 +3128,6 @@ padding: 0px 0px 0px 0px;
     margin: 0px 0px 0px 0px;
     padding: 0px;
 }
-
-
-.modal-header {
-    background-color: #dedede;
-    margin: 0px;
-    height: 60px;
-    border-bottom: 2px solid #5AD663;
-    border-radius: 4px 4px 4px 4px;
-    padding: 14px 20px 12px 20px;
-    color: #333333;
-}
-
-.modal-title {
-        font-size: 20px;
-    font-weight: 600;
-    color: #333333;
-  
-}
-
-.modal-header .close {
-    color: #ffffff;
-    opacity: 1;
-    box-shadow: none;
-    text-shadow: none;
-    font-size: 25px;
-    border: none;
-    margin: 2px 0px 0px 0px;
-    padding: 0px;
-    outline: none;
-}
-
-.modal-header .close:hover,
-.modal-header .close:active {
-    color: #FA4B3E;
-    opacity: 1;
-    -webkit-transition: background .3s ease-in-out;
-    -moz-transition: background .3s ease-in-out;
-    transition: background .3s ease-in-out;
-}
-
-.modal-body {
-    max-height: 500px;
-    overflow: auto;
-    padding: 20px;
-    margin: 0px 0px 0px 0px;
-}
-
-
-
-.modal-body label {
-    
-    font-weight: 600;
-    font-size: 14px;
-    padding: 0px;
-    margin: 0px 0px 6px 0px;
-    color: #333333;
-}
-
-.modal-body input {
-        font-weight: 400;
-    font-size: 14px;
-    height: 40px;
-/*    padding: 0px 0px 0px 0px;*/
-    padding-left: 8px;
-    margin: 0px;
-    border: 1px solid #dedede;
-        outline: 0;
-}
-
-.modal-body input:hover, .modal-body input:focus {
-    border: 1px solid #5AD663;
-        outline: 0;
-    box-shadow: none;
-}
-
-.modal-body textarea {
-        font-weight: 400;
-    font-size: 14px;
-/*    height: 40px;*/
-/*    padding: 0px 0px 0px 0px;*/
-    padding-left: 8px;
-    margin: 0px;
-    border: 1px solid #dedede;
-        outline: 0;
-    
-        background-color: #ffffff;   
-/*    padding: 4px 6px 4px 6px;*/
-overflow-y: scroll;
-        height: 50px;
-/*    height: auto;*/
-/*    max-height: 25px;*/
-    border-radius: 4px;
-    width: 100%;
-   resize: none;
-}
-
-.modal-body textarea:hover, .modal-body textarea:focus {
-    border: 1px solid #5AD663;
-        outline: 0;
-    box-shadow: none;
-}
-
-.modal-body select {
-        font-weight: 400;
-    font-size: 14px;
-    height: 40px;
-/*    padding: 0px 0px 0px 0px;*/
-    padding-left: 8px;
-    margin: 0px;
-    border: 1px solid #dedede;
-        outline: 0;
-        box-shadow: none;
-}
-
-.modal-body select:hover, .modal-body select:focus {
-    border: 1px solid #5AD663;
-        outline: 0;
-    box-shadow: none;
-}
-
 
 
 .add_event_field_n {
