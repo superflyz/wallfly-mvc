@@ -70,13 +70,13 @@ require_once '../app/views/templates/interfaceStart.php';
                         </div>
 
                 <div class="pd_agent">
-                      <!-- This is to get the agent -->
-                    <?php if ($agent = $data['property']->getAgent()): ?>
-                     <div class="pd_hd">Agent<hr class='pd_hr'></div>
-                   <div class="pd_bd"> <?=$agent->firstname . ' ' . $agent->lastname?></div>
+                      <!-- This is to get the owner -->
+                    <?php if ($owner = $data['property']->getOwner()): ?>
+                     <div class="pd_hd">Owner<hr class='pd_hr'></div>
+                   <div class="pd_bd"> <?=$owner->firstname . ' ' . $owner->lastname?></div>
                 <?php else: ?>
                     <!-- This is if there is currently no agent assigned to this property -->
-                     <div class="pd_hd">Agent<hr class='pd_hr'></div>                        <div class="pd_bd_not">Not assigned</div>
+                     <div class="pd_hd">Owner<hr class='pd_hr'></div>                        <div class="pd_bd_not">Not assigned</div>
                 <?php endif ?>
                         </div>
 

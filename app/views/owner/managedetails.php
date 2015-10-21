@@ -11,6 +11,10 @@ require_once '../app/views/templates/interfaceStart.php';
     </div>
 </div>
 
+
+<?php
+if(isset($_SESSION['selectedProperty'])) {
+?>
 <div class="row">
     <div class="col-md-12">
         <div class="manage_properties_pills">
@@ -34,7 +38,7 @@ require_once '../app/views/templates/interfaceStart.php';
         <!-- Pill panes -->
         <div class="pill-content manage_properties_view">
             <div role="pillpanel" class="pill-pane active" id="detail">
-                
+
 
                 <div class="row property_details">
                     <?php if ($property = $data['property']): ?>
@@ -101,7 +105,6 @@ require_once '../app/views/templates/interfaceStart.php';
                     </div>
                 </div>
             </div>
-            
             
             
             <div role="pillpanel" class="pill-pane" id="documents">
@@ -499,6 +502,8 @@ if(isset($_SESSION['selectedProperty'])) {
     
     document.title = 'Properties - WallFly';
 </script>
+
+    <?php }?>
     
 <?php
 require_once '../app/views/templates/interfaceEnd.php';
