@@ -8,6 +8,7 @@ class PropertyOwner extends Controller
     if (!Owner::isAuthenticated()) {
       $this->redirect('/');
     } else {
+      $_SESSION['sidebar'] = "dashboard";
       $this->view('owner/index', $_SESSION['user']);
     }
   }
@@ -31,6 +32,7 @@ class PropertyOwner extends Controller
       $data = [];
       $data['property'] = isset($_SESSION['selectedProperty']) ? $_SESSION['selectedProperty'] : null;
       $data['owner'] = $_SESSION['user'];
+      $_SESSION['sidebar'] = "manage";
       $this->view('owner/managedetails', $data);
     }
   }
@@ -65,7 +67,7 @@ class PropertyOwner extends Controller
           WEBDIR . '/clockpicker/css/timepicki.css'
       ]);
 
-
+      $_SESSION['sidebar'] = "calendar";
       $this->view('owner/calendar');
     }
   }
@@ -79,14 +81,14 @@ class PropertyOwner extends Controller
       $this->setJavascriptDependencies([
               WEBDIR . '/js/chat.js'
 
-        ]);
+      ]);
 
 //        $this->setCSSDependencies([
 //              WEBDIR . '/css/module.css'
 //
 //        ]);
-
-        $this->view('owner/chat');
+      $_SESSION['sidebar'] = "chat";
+      $this->view('owner/chat');
     }
   }
 
@@ -108,6 +110,7 @@ class PropertyOwner extends Controller
           WEBDIR . '/dzscalendar/dzscalendar.css'
 
       ]);
+      $_SESSION['sidebar'] = "payment";
       $this->view('owner/payment');
     }
   }
@@ -117,6 +120,7 @@ class PropertyOwner extends Controller
     if (!Owner::isAuthenticated()) {
       $this->redirect('/');
     } else {
+      $_SESSION['sidebar'] = "payment";
       $this->view('owner/viewpayments');
     }
   }
@@ -138,6 +142,7 @@ class PropertyOwner extends Controller
       //    'http://fonts.googleapis.com/css?family=Open+Sans',
        //   WEBDIR . '/css/module.css'
       ]);
+      $_SESSION['sidebar'] = "payment";
       $this->view('owner/addpayment');
     }
   }
@@ -150,8 +155,10 @@ class PropertyOwner extends Controller
       $result = $_SESSION['selectedProperty']->addPayment($_POST['payeeName'], $_POST['startDate'], $_POST['endDate'],
           $_POST['amount']);
       if ($result == false) {
+        $_SESSION['sidebar'] = "payment";
         $this->redirect('/propertyowner/payment');
       } else {
+        $_SESSION['sidebar'] = "payment";
         $this->redirect('/propertyowner/payment');
       }
     }
@@ -170,6 +177,7 @@ class PropertyOwner extends Controller
           WEBDIR . '/css/module.css'
 
       ]);
+      $_SESSION['sidebar'] = "repair";
       $this->view('owner/repair');
     }
   }
@@ -186,6 +194,7 @@ class PropertyOwner extends Controller
         //Notification::addNotification($property->agent_id, "Repair status updated for " . $property->address . ".");
         //Notification::addNotification($property->tenant_id, "Repair status updated for " . $property->address . ".");
       }
+      $_SESSION['sidebar'] = "repair";
       $this->redirect('/propertyowner/repair');
     }
   }
@@ -195,6 +204,7 @@ class PropertyOwner extends Controller
     if (!Owner::isAuthenticated()) {
       $this->redirect('/');
     } else {
+      $_SESSION['sidebar'] = "manage";
       $this->view('owner/managedetails');
     }
   }
@@ -248,10 +258,11 @@ class PropertyOwner extends Controller
         // ========================
         // END UPDATE PROPERTY INFO
         // ========================
-
+        $_SESSION['sidebar'] = "manage";
         $this->redirect('/propertyowner/manage');
 
       } else {
+        $_SESSION['sidebar'] = "manage";
         $this->view('owner/editproperty');
       }
     }
@@ -284,7 +295,7 @@ class PropertyOwner extends Controller
 
         // 5. set success message
         Flash::set('message', "{$tenant->firstname} {$tenant->lastname} has been added to this property");
-
+        $_SESSION['sidebar'] = "manage";
         // 6. redirect to property page
         $this->redirect('/propertyowner/manage');
       }
@@ -397,10 +408,10 @@ class PropertyOwner extends Controller
           if (move_uploaded_file($file['tmp_name'], PUBLIC_ABSOLUTE_PATH . $targetFile)) {
             HandleDocuments::addDocument($_SESSION['selectedProperty']->id,$targetFile,basename($file['name']));
             $_SESSION['docAdded'] = "true";
-
+            $_SESSION['sidebar'] = "manage";
             $this->redirect('/propertyowner/manage');
           } else {
-
+            $_SESSION['sidebar'] = "manage";
             Flash::set("pdferror","Could not move file");
             $_SESSION['docAdded'] = "false";
             $this->redirect('/propertyowner/manage');
@@ -409,6 +420,7 @@ class PropertyOwner extends Controller
       } else {
         Flash::set("pdferror","Upload Failed, no file specified");
         $_SESSION['docAdded'] = "false";
+        $_SESSION['sidebar'] = "manage";
         $this->redirect('/propertyowner/manage');
       }
       // ================
@@ -441,10 +453,10 @@ class PropertyOwner extends Controller
           if (move_uploaded_file($file['tmp_name'], PUBLIC_ABSOLUTE_PATH . $targetFile)) {
             HandleDocuments::addInspection($_SESSION['selectedProperty']->id,$targetFile,basename($file['name']));
             $_SESSION['docAdded'] = "true";
-
+            $_SESSION['sidebar'] = "manage";
             $this->redirect('/propertyowner/manage');
           } else {
-
+            $_SESSION['sidebar'] = "manage";
             Flash::set("pdferror","Could not move file");
             $_SESSION['docAdded'] = "false";
             $this->redirect('/propertyowner/manage');
@@ -453,6 +465,7 @@ class PropertyOwner extends Controller
       } else {
         Flash::set("pdferror","Upload Failed, no file specified");
         $_SESSION['docAdded'] = "false";
+        $_SESSION['sidebar'] = "manage";
         $this->redirect('/propertyowner/manage');
       }
       // ================
