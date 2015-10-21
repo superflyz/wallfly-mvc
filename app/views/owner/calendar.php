@@ -133,22 +133,24 @@ require_once '../app/views/templates/interfaceStart.php';
                                  </div>
                         </div>
                     </div>
+                    <div class="col-md-8">
                     <div class="add_event_field_e">
                         <label for="date">Event Date</label>
-                        <input name="date" id="date" type="hidden"  class="form-control" >
+                        <input name="date" id="date" type="hidden" class="form-control" >
                         <pre hidden id="hidden" class="event-receiver"></pre>
                         
                
-                        <div class="dzscalendar skin-aurora" id="trauroradatepicker">
-                                </div>
+                        <div class="dzscalendar skin-aurora" id="trauroradatepicker"> </div>
                     
          <span class="error"></span>
                     </div>
+                         </div>
+                    <div class="col-md-4">
                     <div class="add_event_field_btn">
                         <button type="submit" name="Submit" id="submit-btn" class="btn btn-add-event pull-right">Add event
                         </button>
                     </div>
-                    
+                      </div>
                    
                     <div class="form-field">
                         <input type="hidden" name="propertyID" id="propertyID" class="form-control"

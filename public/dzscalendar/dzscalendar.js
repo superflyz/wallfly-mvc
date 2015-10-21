@@ -644,7 +644,7 @@ var dzstlt_arr_tooltips = [];
                         cthis.addClass('under-240');
                         break;
                     }
-                    if(tw<=480){
+                    if(tw<=580){
                         cthis.addClass('under-480');
                         break;
                     }

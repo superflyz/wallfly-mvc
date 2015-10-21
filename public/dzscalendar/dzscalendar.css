@@ -129,7 +129,7 @@
     background-size: cover;
     background-position: center center; }
   .dzscalendar .mon-row, .dzscalendar .headerRow {
-    white-space: nowrap; }
+    white-space: nowrap;}
   .dzscalendar .hasEvent, .dzscalendar .hasEventForHover {
     color: #6fb6ce;
     cursor: pointer;
@@ -593,13 +593,13 @@ background-color: #5AD663;
   margin-top: 15px;
   margin-bottom: 20px;
   width: 100%;
-  height: auto; }
+  height: 210px; }
 
 .dzscalendar.skin-responsive .calendar-controls {
   margin-bottom: 8px; }
 
 .dzscalendar.skin-responsive .theMonths {
-  height: auto; }
+  height: 100%; }
 
 .dzscalendar.skin-responsive .theMonths > * {
   width: 100%;
