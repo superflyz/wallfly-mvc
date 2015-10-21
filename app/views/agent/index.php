@@ -1,63 +1,137 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: jimmykovacevic
- * Date: 4/10/2015
- * Time: 6:13 PM
- */
-require_once '../app/views/templates/interfaceStart.php';
+    require_once '../app/views/templates/interfaceStartIndex.php';
 ?>
+
+<script src="/wallfly-mvc/public/js/dropdown/dropdown.js"></script>
+<link href="/wallfly-mvc/public/js/dropdown/dropdown.css" rel="stylesheet">
+          
+
 <!--Content here-->
-<div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <h1 class="wlcm-h1">Welcome <span class="user-color"> <?php echo $_SESSION['user']->firstname?></span></h1>
-        </div>
+<div class="row">
+    <div class="col-md-12">
+        <h1 class="wlcm-h1">Welcome <span class="user-color"><?php echo $_SESSION['user']->firstname?>!
+             <button class="btn btn-default" data-toggle="modal" data-target="#addpropertyform">+ Add property</button></span></h1>
     </div>
-    <div class="row">
-        <div class="col-md-12">
-            <div class="container-fluid" id="dash-links">
-                <div class="row text-center">
-                    <div class="col-md-4 col-sm-6">
-                        <a href="">
-                            <div class="dash-link">
-                                <span class="icons">
-                                    <i class="fa fa-calendar fa-inverse"></i>
-                                </span>
-                                <h4 class="link-heading">Calendar</h4>
-                                <p class="link-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur adipisicing elit.</p>
-                            </div>
-                        </a>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <section id="select_property">
+
+            <!-- create address dropdown list only if agent or owner usertype -->
+            <?php
+
+                  $properties = $_SESSION['user']->getProperties();
+
+
+            ?>
+            <div class="select-property-dropdown">
+<!--                 <h3>Please select a property:</h3>-->
+                <select class="ui search dropdown">
+                    <option value="">Select a property...</option>
+                    <?php
+                for($i=0;$i<count($properties);$i++){
+                    $selected = '';
+                    echo value;
+                    if ($properties[$i]->id === $pID) {
+                        $selected = 'selected';
+                    }
+                    echo '<option value="'.$i.'" ' . $selected . '>' . $properties[$i]->address . '</option>';
+
+                } ?>
+                </select>
+
+            </div>
+        </section>
+    </div>
+</div>  
+    </div>
+</div>  
+
+
+    <!-- add property modal -->
+    <div class="modal modal-vcenter fade" id="addpropertyform" tabindex="-1" role="dialog"  aria-labelledby="mySmallModalLabel">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></button>
+                <p class="modal-title">Add Property</p>
+            </div>
+
+              <div class="modal-body">
+               
+                <!-- FORM STARTS HERE -->
+                <form action="<?=WEBDIR?>/propertyagent/addproperty" method="post">            
+                        <div class="add_property">
+                        <div class="ap_field_a">
+                            <label for="address">Address</label>
+                            <input type="text" class="form-control" id="address" name="address" required>
+                        </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                        <div class="ap_field_r">
+                            <label for="rent_amount">Rent amount ($)</label>
+                            <input type="text" class="form-control" id="rent_amount" name="rent_amount" required>
+                        </div></div>
+                            <div class="col-md-6">
+                        <div class="ap_field_ps">
+                            <label for="payment_schedule">Payment schedule</label>
+                            <select name="payment_schedule" id="payment" class="form-control">      
+                                <option value="" hidden>Please select...</option>
+                                <option value="WEEKLY">Weekly</option>
+                                <option value="FORTNIGHTLY">Fortnightly</option>
+                                <option value="MONTHLY">Monthly</option>
+                            </select>
+                        </div>
+                        </div>
                     </div>
-                    <div class="col-md-4 col-sm-6">
-                        <a href="">
-                            <div class="dash-link">
-                                <span class="icons">
-                                    <i class="fa fa-home fa-inverse"></i>
-                                </span>
-                                <h4 class="link-heading">Manage Properties</h4>
-                                <p class="link-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur adipisicing elit.</p>
-                            </div>
-                        </a>
+                            
+                        <div class="col-md-12">
+                            <div class="ap_btnz">
+                       <button type="submit" class="btn btn-save-changes pull-right">Save changes</button>
+                        </div>
+                        </div>
                     </div>
-                    <div class="col-md-4 col-sm-6">
-                        <a href="">
-                            <div class="dash-link">
-                                <span class="icons">
-                                    <i class="fa fa-comments-o fa-inverse"></i>
-                                </span>
-                                <h4 class="link-heading">Messages</h4>
-                                <p class="link-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur adipisicing elit.</p>
-                            </div>
-                        </a>
-                    </div>
-                </div>
+                     
+                </form>
+                <!-- FORM ENDS HERE -->
             </div>
         </div>
     </div>
 </div>
+
+<script>
+        $('.ui.search.dropdown').dropdown({
+            fullTextSearch: true, 
+            sortSelect: true, 
+            match:'text',
+            onChange: function(value) {
+                var arraypos = value;
+                jQuery.ajax({
+                    url: '/wallfly-mvc/public/dashboard/selectedProperty',
+                    type: "POST",
+                    data: {
+                        selected: arraypos
+                    },
+                    success: function (result) {
+                        window.location.reload();
+                    },
+                    error: function (result) {
+                        alert('Exeption:' + exception);
+                    }
+                });
+            }
+
+    });
+    
+ document.title = 'Dashboard - WallFly';
+
+</script>
+
+
 <?php
 require_once '../app/views/templates/interfaceEnd.php';
 ?>
+
 
 

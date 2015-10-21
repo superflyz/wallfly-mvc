@@ -1,13 +1,5 @@
 <?php
     require_once '../app/views/templates/interfaceStartIndex.php';
-
-/**
- * Created by PhpStorm.
- * User: jimmykovacevic
- * Date: 4/10/2015
- * Time: 6:13 PM
- */
-
 ?>
 
 <script src="/wallfly-mvc/public/js/dropdown/dropdown.js"></script>

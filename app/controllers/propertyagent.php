@@ -11,9 +11,10 @@ class PropertyAgent extends Controller
   public function index()
   {
     if (!Agent::isAuthenticated()) {
-      $this->redirect("/");
+      $this->redirect('/');
     } else {
-      $this->view("agent/index", $_SESSION['user']);
+      $_SESSION['sidebar'] = "dashboard";
+      $this->view('agent/index', $_SESSION['user']);
     }
   }
 
@@ -241,6 +242,152 @@ class PropertyAgent extends Controller
       } else {
         $this->view('agent/editproperty');
       }
+    }
+  }
+
+  public function processInspection()
+  {
+    if (!Agent::isAuthenticated()) {
+      $this->redirect('/');
+    } else {
+
+      // ============
+      // PDF UPLOAD
+      // ============
+      $file = $_FILES['image'];
+      // 1. check if user uploads an image
+      if ($file['name']) {
+        // 2. check if it's an image
+        if ($file['type'] !== 'application/pdf') {
+          Flash::set("pdferror","File type not pdf, please check file extention");
+        } else {
+          // 3. store the file
+          $targetDir = '/inspections/';
+          $randomcharz = uniqid();
+          $splitval = "@@@@@@";
+          $targetFile = $targetDir .$randomcharz.$splitval. basename($file['name']);
+          if (move_uploaded_file($file['tmp_name'], PUBLIC_ABSOLUTE_PATH . $targetFile)) {
+            HandleDocuments::addInspection($_SESSION['selectedProperty']->id,$targetFile,basename($file['name']));
+            $_SESSION['docAdded'] = "true";
+            $_SESSION['sidebar'] = "manage";
+            $this->redirect('/propertyagent/manage');
+          } else {
+            $_SESSION['sidebar'] = "manage";
+            Flash::set("pdferror","Could not move file");
+            $_SESSION['docAdded'] = "false";
+            $this->redirect('/propertyagent/manage');
+          }
+        }
+      } else {
+        Flash::set("pdferror","Upload Failed, no file specified");
+        $_SESSION['docAdded'] = "false";
+        $_SESSION['sidebar'] = "manage";
+        $this->redirect('/propertyagent/manage');
+      }
+      // ================
+      // END PDF UPLOAD
+      // ================
+    }
+  }
+
+  public function addproperty()
+  {
+    if (!Agent::isAuthenticated()) {
+      $this->redirect('/');
+    } else {
+      if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $property = Property::create([
+          'address' => $_POST['address'],
+          'payment_schedule' => $_POST['payment_schedule'],
+          'rent_amount' => $_POST['rent_amount'],
+          'agent_id' => $_SESSION['user']->id,
+          'photo' => DUMMY_IMAGE
+        ]);
+        Flash::set('message', 'You added a new property!');
+        $_SESSION['selectedProperty'] = $property;
+        $this->redirect('/propertyagent/manage');
+      } else {
+        $this->view('agent/index');
+      }
+    }
+  }
+
+  public function assigntenant()
+  {
+    if (!Agent::isAuthenticated()) {
+      $this->redirect('/');
+    } else {
+      if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        // 1. get the post variables
+        $data = $_POST;
+
+        // 2. generate a temporary password
+        $password = 'changethislaterok?';
+
+        // 3. create a new tenant
+        $tenant = Tenant::create([
+          'email' => $data['email'],
+          'firstname' => $data['firstname'],
+          'lastname' => $data['lastname'],
+          'phone' => $data['phone'],
+          'password' => create_hash($password),
+          'photo' => 'http://dummyimage.com/250x200/000/fff.jpg'
+        ]);
+
+        // 4. assign the tenant to the property
+        $_SESSION['selectedProperty']->setTenant($tenant);
+
+        // 5. set success message
+        Flash::set('message', "{$tenant->firstname} {$tenant->lastname} has been added to this property");
+        $_SESSION['sidebar'] = "manage";
+        // 6. redirect to property page
+        $this->redirect('/propertyagent/manage');
+      }
+    }
+  }
+
+  public function processDocument()
+  {
+    if (!Agent::isAuthenticated()) {
+      $this->redirect('/');
+    } else {
+
+      // ============
+      // PDF UPLOAD
+      // ============
+      $file = $_FILES['image'];
+      // 1. check if user uploads an image
+      if ($file['name']) {
+        // 2. check if it's an image
+        if ($file['type'] !== 'application/pdf') {
+          Flash::set("pdferror","File type not pdf, please check file extention");
+        } else {
+          // 3. store the file
+          $targetDir = '/documents/';
+          $randomcharz = uniqid();
+          $splitval = "@@@@@@";
+          $targetFile = $targetDir .$randomcharz.$splitval. basename($file['name']);
+          if (move_uploaded_file($file['tmp_name'], PUBLIC_ABSOLUTE_PATH . $targetFile)) {
+            HandleDocuments::addDocument($_SESSION['selectedProperty']->id,$targetFile,basename($file['name']));
+            $_SESSION['docAdded'] = "true";
+            $_SESSION['sidebar'] = "manage";
+            $this->redirect('/propertyagent/manage');
+          } else {
+            $_SESSION['sidebar'] = "manage";
+            Flash::set("pdferror","Could not move file");
+            $_SESSION['docAdded'] = "false";
+            $this->redirect('/propertyagent/manage');
+          }
+        }
+      } else {
+        Flash::set("pdferror","Upload Failed, no file specified");
+        $_SESSION['docAdded'] = "false";
+        $_SESSION['sidebar'] = "manage";
+        $this->redirect('/propertyagent/manage');
+      }
+      // ================
+      // END PDF UPLOAD
+      // ================
     }
   }
 
