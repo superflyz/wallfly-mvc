@@ -86,7 +86,6 @@ class Model
     }
     $statement .= "WHERE id=:id";
     $statement = $db->prepare($statement);
-    print_r($statement);
     foreach ($this as $key => $value)
     {
       $statement->bindParam(":" . $key, $variables[$key]);

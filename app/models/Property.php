@@ -168,6 +168,7 @@ class Property extends Model
 
   public function setTenant($tenant)
   {
+    $this->tenant_id = $tenant->id;
     try {
       $db = Database::getInstance();
       $statement = $db->prepare('UPDATE property SET tenant_id=:tenant_id WHERE id=:id');
