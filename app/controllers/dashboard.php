@@ -50,10 +50,10 @@ class Dashboard extends Controller
 
     public function sendChatMessage()
     {
-        $userID = $_POST['user'];
-        $message = $_POST['message'];
-        $pID = $_POST['pID'];
-        $type = $_POST['type'];
+        $userID = strip_tags($_POST['user']);
+        $message = strip_tags($_POST['message']);
+        $pID = strip_tags($_POST['pID']);
+        $type = strip_tags($_POST['type']);
 
         //enter chat message into Database
         try {
@@ -104,13 +104,13 @@ class Dashboard extends Controller
 
     public function addEvent()
     {
-        $pID = $_POST['propertyID'];
-        $eventName = $_POST['eventName'];
-        $eventTime = $_POST['timepicker1'];
-        $eventInterval = $_POST['interval'];
-        $description = $_POST['description'];
-        $eventDate = $_POST['date'];
-        $email = $_POST['email'];
+        $pID = strip_tags($_POST['propertyID']);
+        $eventName = strip_tags($_POST['eventName']);
+        $eventTime = strip_tags($_POST['timepicker1']);
+        $eventInterval = strip_tags($_POST['interval']);
+        $description = strip_tags($_POST['description']);
+        $eventDate = strip_tags($_POST['date']);
+        $email = strip_tags($_POST['email']);
 
         $addEvent = CalendarEvents::addEvent($pID, $eventName, $eventTime, $eventInterval, $description, $eventDate, $email);
 

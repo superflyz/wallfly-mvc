@@ -14,35 +14,38 @@ require_once '../app/views/templates/interfaceStart.php';
         </div>
     </div>
 </div>
+</div>
+</div>
 
 <!-- Chat box -->
-<div class="row">
-    <div class="col-md-12">
-        <div id="chat_system">
-            <div class="panel panel-primary">
-                <div class="panel-heading">
-                    <p>
-                        Chat for <?php if ($selectedProperty != "") {
-                            echo '' . $selectedProperty->address;
-                        }; ?>
-                    </p>
-                </div>
-                <div id="chatbox" class="panel-body">
-                    <ul id="chatlist">
+<div class="row bottom-section">
+    <div class="row">
+        <div class="col-md-12">
+            <div id="chat_system">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <p>
+                            Chat for <?php if ($selectedProperty != "") {
+                                echo '' . $selectedProperty->address;
+                            }; ?>
+                        </p>
+                    </div>
+                    <div id="chatbox" class="panel-body">
+                        <ul id="chatlist">
 
-                    </ul>
-                </div>
-                <div class="panel-footer">
-                    <div class="input-group">
-                        <textarea id="btn-input-msg" class="form-control custom-control btn-msg-inpt" placeholder="Type your message here..." ></textarea><span class="input-group-addon btn-msg-snd" type="submit" id="btn-send-msg">Send</span>
-
-
+                        </ul>
+                    </div>
+                    <div class="panel-footer">
+                        <div class="input-group">
+                            <textarea id="btn-input-msg" class="form-control custom-control btn-msg-inpt" placeholder="Type your message here..." ></textarea><span class="input-group-addon btn-msg-snd" type="submit" id="btn-send-msg">Send</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
 
 
 <!-- End Chatbox -->
@@ -86,6 +89,7 @@ require_once '../app/views/templates/interfaceStart.php';
         $(".btn-msg-snd").click(function() {
             $("textarea").css('height', 'auto');
         });
+
 
     });
 

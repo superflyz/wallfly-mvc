@@ -23,7 +23,7 @@ class PropertyTenant extends Controller
             $this->redirect('/');
         } else {
             $data = [];
-            $data['properties'] = $_SESSION['user']->getProperties();
+            $data['property'] = $_SESSION['selectedProperty'];
             $data['tenant'] = $_SESSION['user'];
             $this->view('tenant/managedetails', $data);
         }

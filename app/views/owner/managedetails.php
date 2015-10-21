@@ -224,135 +224,129 @@ require_once '../app/views/templates/interfaceStart.php';
         </div>
     </div>
 </div>
+
  </div> 
-          <!-- edit property modal -->
-        <div class="modal modal-vcenter fade" id="editPropertyForm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+  
+<!-- edit property modal -->
+<div class="modal modal-vcenter fade" id="editPropertyForm" tabindex="-1" role="dialog" aria-labelledby="editPropertyForm">
+
     <div class="modal-dialog modal-md">
         <div class="modal-content">
             <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></button>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></button>
                 <p class="modal-title">Edit Property</p>
             </div>
-
-              <div class="modal-body">
-               
+            <div class="modal-body">
                 <?php
-	$selected = array_map(function($value) {
-		return $value === $_SESSION['selectedProperty']->payment_schedule ? 'selected' : '';
-	}, ['WEEKLY', 'FORTNIGHTLY', 'MONTHLY']);
-?>
-
-<form action="<?=WEBDIR?>/propertyowner/editproperty" method="post" enctype="multipart/form-data">
+                    $selected = array_map(function($value) {
+                        return $value === $_SESSION['selectedProperty']->payment_schedule ? 'selected' : '';
+                    }, ['WEEKLY', 'FORTNIGHTLY', 'MONTHLY']);
+                ?>
+                <form action="<?=WEBDIR?>/propertyowner/editproperty" method="post" enctype="multipart/form-data">
                     <div class="ep_field_a">
                         <label for="address">Address</label>
-                       <input type="text" class="form-control" name="address" value="<?=$_SESSION['selectedProperty']->address?>">
+                        <input type="text" class="form-control" name="address" value="<?=$_SESSION['selectedProperty']->address?>">
                         <span class="error"></span>
-                    </div>
-                        <div class="col-md-6">
-                    <div class="ep_field_ra">
-                        <label for="rent_amount">Rent amount</label>
-                       <input type="text" name="rent_amount" class="form-control" value="<?=$_SESSION['selectedProperty']->rent_amount?>">
-                        <span class="error"></span>
-                    </div>
                     </div>
                     <div class="col-md-6">
-                    <div class="ep_field_ps">
-                        <label for="payment_schedule">Payment schedule</label>
-                       <select name="payment_schedule" class="form-control">
-                                <option disabled selected hidden>Please select...</option>
-                                <option value="WEEKLY" <?=$selected[0]?>>Weekly</option>
-		<option value="FORTNIGHTLY" <?=$selected[1]?>>Fortnightly</option>
-		<option value="MONTHLY" <?=$selected[2]?>>Monthly</option>
-	</select>
-                            </select>
-                        <span class="error"></span>
+                        <div class="ep_field_ra">
+                            <label for="rent_amount">Rent amount</label>
+                            <input type="text" name="rent_amount" class="form-control" value="<?=$_SESSION['selectedProperty']->rent_amount?>">
+                            <span class="error"></span>
+                        </div>
                     </div>
+                    <div class="col-md-6">
+
+                
+                        <div class="ep_field_ps">
+                            <label for="payment_schedule">Payment schedule</label>
+                            <select name="payment_schedule" class="form-control">
+                               <option disabled selected hidden>Please select...</option>
+
+                                <option value="WEEKLY" <?=$selected[0]?>>Weekly</option>
+                                <option value="FORTNIGHTLY" <?=$selected[1]?>>Fortnightly</option>
+                                <option value="MONTHLY" <?=$selected[2]?>>Monthly</option>
+                            </select>
+                 
+                            <span class="error"></span>
+                        </div>
                     </div>
                     <div class="col-md-8">
-                    <div class="ep_field_img">
-                        <label for="photo_file">Change image</label>
-                        
-                     
-                        <div class="ep_field_img_img">  
-                        <img src="<?=$_SESSION['selectedProperty']->photo?>" class="img-responsive" alt="property_photo" title="Property photo">                 </div>
-  
-                        
-                   
-                    </div>  
-                    </div>
-                  
-                  
-                   <div class="col-md-8">
-                   <div class="ep_field_img_file"> 
-                        <div class="fileinput fileinput-new" data-provides="fileinput">
-    <span class="btn btn-choose btn-file"><span>Choose file</span><input  type="file" name="photo_file"
-                      /></span>
-    <span class="fileinput-filename"><span class="fileinput-new">No file chosen</span></span>
-                            
-                            <span class="error"></span>
-</div>                      </div> </div>    
-                            <div class="col-md-4">
-                               <div class="ep_btnz pull-right">
-                       <button type="submit" class="btn btn-save-changes">Save changes</button>
+                        <div class="ep_field_img">
+                            <label for="photo_file">Change image</label>
+                            <div class="ep_field_img_img">
+                                <img src="<?=$_SESSION['selectedProperty']->photo?>" class="img-responsive" alt="property_photo" title="Property photo"> </div>
                         </div>
-                       
-                         </div>
-                  
-
-
-</form>
-                  
+                    </div>
+                    <div class="col-md-8">
+                        <div class="ep_field_img_file">
+                            <div class="fileinput fileinput-new" data-provides="fileinput">
+                                <span class="btn btn-choose btn-file"><span>Choose file</span>
+                                <input type="file" name="photo_file" />
+                                </span>
+                                <span class="fileinput-filename"><span class="fileinput-new">No file chosen</span></span>
+                                <span class="error"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="ep_btnz pull-right">
+                            <button type="submit" class="btn btn-save-changes">Save changes</button>
+                        </div>
+                    </div>
+                </form>
                 <!-- FORM ENDS HERE -->
-              </div>
-        
             </div>
-          </div>
         </div>
+    </div>
+</div>
 
 
-        <!-- assign tenant modal -->
-        <div class="modal modal-vcenter fade" id="tenantForm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+
+<!-- assign tenant modal -->
+<div class="modal modal-vcenter fade" id="tenantForm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
     <div class="modal-dialog modal-md">
         <div class="modal-content">
             <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></button>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></button>
                 <p class="modal-title">Assign Tenant</p>
             </div>
-
-              <div class="modal-body">
-               
-                <form>
+            <div class="modal-body">
+                <form action="<?=WEBDIR?>/propertyowner/assigntenant" method="post">
                     <div class="col-md-6">
-                   <div class="at_field_fn">
-                        <label for="firstname">First name</label>
-                       <input type="text" class="form-control" id="firstname" name="firstname">
-                        <span class="error"></span>
+                        <div class="at_field_fn">
+                            <label for="firstname">First name</label>
+                            <input type="text" class="form-control" id="firstname" name="firstname" required>
+                            <span class="error"></span>
+                        </div>
                     </div>
-                        </div>
                     <div class="col-md-6">
-                    <div class="at_field_ln">
-                        <label for="lastname">Last name</label>
-                        <input type="text" class="form-control" id="lastname" name="lastname">
-                        <span class="error"></span>
-                    </div> 
-  </div>
-                    <div class="col-md-12">
-  <div class="at_btnz">
-                       <button type="button" class="btn btn-save-changes pull-right">Save changes</button>
+                        <div class="at_field_ln">
+                            <label for="lastname">Last name</label>
+                            <input type="text" class="form-control" id="lastname" name="lastname" required>
+                            <span class="error"></span>
                         </div>
-                          </div>
-
+                    </div>
+                    <div class="form-field">
+                        <label for="email">Email address</label>
+                        <input type="email" class="form-control" id="email" name="email" required>
+                    </div>
+                    <div class="form-field">
+                        <label for="phone">Phone</label>
+                        <input type="text" class="form-control" id="phone" name="phone" required>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="at_btnz">
+                            <button type="submit" class="btn btn-save-changes pull-right">Save changes</button>
+                        </div>
+                    </div>
                 </form>
-                
                 <!-- FORM ENDS HERE -->
-              </div>
-
-    
-           
-        
             </div>
-          </div>
         </div>
+    </div>
+</div>
+
 
     
 
