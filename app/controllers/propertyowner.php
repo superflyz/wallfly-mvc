@@ -152,8 +152,11 @@ class PropertyOwner extends Controller
     if (!Owner::isAuthenticated()) {
       $this->redirect('/');
     } else {
-      $result = $_SESSION['selectedProperty']->addPayment($_POST['payeeName'], $_POST['startDate'], $_POST['endDate'],
-          $_POST['amount']);
+      $payeeName = strip_tags($_POST['payeeName']);
+      $startDate = strip_tags($_POST['startDate']);
+      $endDate = strip_tags($_POST['endDate']);
+      $amount = strip_tags($_POST['amount']);
+      $result = $_SESSION['selectedProperty']->addPayment($payeeName, $startDate, $endDate, $amount);
       if ($result == false) {
         $_SESSION['sidebar'] = "payment";
         $this->redirect('/propertyowner/payment');
@@ -187,9 +190,11 @@ class PropertyOwner extends Controller
     if (!Owner::isAuthenticated()) {
       $this->redirect('/');
     } else {
-      $property = $_SESSION['selectedProperty'];
       $tmp = explode("/", $_POST['submit']);
-      $result = $_SESSION['selectedProperty']->processRepairRequest($tmp[0], $tmp[1], $_POST[$tmp[2]]);
+      $timeStamp = strip_tags($tmp[0]);
+      $value = strip_tags($tmp[1]);
+      $comment = strip_tags($_POST[$tmp[2]]);
+      $result = $_SESSION['selectedProperty']->processRepairRequest($timeStamp, $value, $comment);
       if ($result) {
         //Notification::addNotification($property->agent_id, "Repair status updated for " . $property->address . ".");
         //Notification::addNotification($property->tenant_id, "Repair status updated for " . $property->address . ".");
@@ -249,9 +254,9 @@ class PropertyOwner extends Controller
         // ====================
         // UPDATE PROPERTY INFO
         // ====================
-        $property->address = $_POST['address'];
-        $property->rent_amount = $_POST['rent_amount'];
-        $property->payment_schedule = $_POST['payment_schedule'];
+        $property->address = strip_tags($_POST['address']);
+        $property->rent_amount = strip_tags($_POST['rent_amount']);
+        $property->payment_schedule = strip_tags($_POST['payment_schedule']);
         $property->update();
         // ========================
         // END UPDATE PROPERTY INFO
@@ -306,18 +311,20 @@ class PropertyOwner extends Controller
       $this->redirect('/');
     } else {
       if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        $property = Property::create([
-          'address' => $_POST['address'],
-          'payment_schedule' => $_POST['payment_schedule'],
-          'rent_amount' => $_POST['rent_amount'],
-          'owner_id' => $_SESSION['user']->id,
-          'photo' => DUMMY_IMAGE
-        ]);
-        Flash::set('message', 'You added a new property!');
-        $_SESSION['selectedProperty'] = $property;
-        $this->redirect('/propertyowner/manage');
-      } else {
-        $this->view('owner/index');
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+          $property = Property::create([
+            'address' => strip_tags($_POST['address']),
+            'payment_schedule' => strip_tags($_POST['payment_schedule']),
+            'rent_amount' => strip_tags($_POST['rent_amount']),
+            'owner_id' => $_SESSION['user']->id,
+            'photo' => DUMMY_IMAGE
+          ]);
+          Flash::set('message', 'You added a new property!');
+          $_SESSION['selectedProperty'] = $property;
+          $this->redirect('/propertyowner/manage');
+        } else {
+          $this->view('owner/index');
+        }
       }
     }
   }
