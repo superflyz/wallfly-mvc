@@ -69,7 +69,7 @@
               <div class="modal-body">
                
                 <!-- FORM STARTS HERE -->
-                <form action="<?=WEBDIR?>/propertyowner/assigntenant" method="post">            
+                <form action="<?=WEBDIR?>/propertyowner/addproperty" method="post">            
                         <div class="add_property">
                         <div class="ap_field_a">
                             <label for="address">Address</label>

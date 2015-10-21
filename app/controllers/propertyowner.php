@@ -289,6 +289,28 @@ class PropertyOwner extends Controller
     }
   }
 
+  public function addproperty()
+    {
+      if (!Owner::isAuthenticated()) {
+        $this->redirect('/');
+      } else {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+          $property = Property::create([
+            'address' => $_POST['address'],
+            'payment_schedule' => $_POST['payment_schedule'],
+            'rent_amount' => $_POST['rent_amount'],
+            'owner_id' => $_SESSION['user']->id,
+            'photo' => DUMMY_IMAGE
+          ]);
+          Flash::set('message', 'You added a new property!');
+          $_SESSION['selectedProperty'] = $property;
+          $this->redirect('/propertyowner/manage');
+        } else {
+          $this->view('owner/index');
+        }
+      }
+    }
+
   public function submit()
   {
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
