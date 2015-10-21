@@ -289,7 +289,7 @@ class PropertyOwner extends Controller
           'firstname' => $data['firstname'],
           'lastname' => $data['lastname'],
           'phone' => $data['phone'],
-          'password' => $password,
+          'password' => create_hash($password),
           'photo' => 'http://dummyimage.com/250x200/000/fff.jpg'
         ]);
 
@@ -306,10 +306,11 @@ class PropertyOwner extends Controller
   }
 
   public function addproperty()
-    {
-      if (!Owner::isAuthenticated()) {
-        $this->redirect('/');
-      } else {
+  {
+    if (!Owner::isAuthenticated()) {
+      $this->redirect('/');
+    } else {
+      if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           $property = Property::create([
             'address' => strip_tags($_POST['address']),
@@ -326,6 +327,7 @@ class PropertyOwner extends Controller
         }
       }
     }
+  }
 
   public function submit()
   {
