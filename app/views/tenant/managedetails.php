@@ -105,7 +105,7 @@ require_once '../app/views/templates/interfaceStart.php';
                 <div role="pillpanel" class="pill-pane" id="documents">
 
                     <div class="row d_upload_pdf">
-                        
+
                         <?php if ($error = Flash::get('pdferror')): ?>
                             <div class="alert alert-default" role="alert" style="color:rgb(159, 221, 94)"><?=$error?>!!!</div>
                         <?php endif ?>
