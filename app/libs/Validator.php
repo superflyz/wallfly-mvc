@@ -76,38 +76,6 @@ class Validator
         'field' => 'phone'
       ];
     }
-    // 7. check password strength
-    if (strlen($data['password']) < '8') {
-      return [
-        'valid' => false,
-        'error_code' => ERROR_PASSWORD_LESS_THAN_EIGHT_CHARS,
-        'field' => 'password'
-      ];
-    }
-    if (!preg_match("#[0-9]+#", $data['password'])) {
-      // should contain at least 1 number
-      return [
-        'valid' => false,
-        'error_code' => ERROR_PASSWORD_NOT_CONTAIN_ANY_NUMERIC,
-        'field' => 'password'
-      ];
-    }
-    if (!preg_match("#[A-Z]+#", $data['password'])) {
-      // should contain at least 1 capital letter
-      return [
-        'valid' => false,
-        'error_code' => ERROR_PASSWORD_NOT_CONTAIN_ANY_CAPITAL,
-        'field' => 'password'
-      ];
-    }
-    if (!preg_match("#[a-z]+#", $data['password'])) {
-      // should contain at least 1 lowercase letter
-      return [
-        'valid' => false,
-        'error_code' => ERROR_PASSWORD_NOT_CONTAIN_ANY_LOWERCASE,
-        'field' => 'password'
-      ];
-    }
     return ['valid' => true];
   }
 

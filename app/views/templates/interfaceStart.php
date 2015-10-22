@@ -113,6 +113,17 @@ if (isset($_SESSION['selectedProperty'])) {
                                     echo "<li>No new notifications</li>";
                                 }
                                 ?>
+                                <?php
+                                    if ($userType == USERTYPE_TENANT) {
+                                        echo ("<a href='" . WEBDIR . "/propertytenant/viewnotifications'>View all notifications</a>");
+                                    } else if ($userType == USERTYPE_AGENT) {
+                                        echo ("<a href='" . WEBDIR . "/propertyagent/viewnotifications'>View all notifications</a>");
+                                    } else if ($userType == USERTYPE_OWNER) {
+                                        echo ("<a href='" . WEBDIR . "/propertyowner/viewnotifications'>View all notifications</a>");
+                                    } else if ($userType == USERTYPE_REALESTATE) {
+                                        echo ("<a href='" . WEBDIR . "/propertyrealestate/viewnotifications'>View all notifications</a>");
+                                    }
+                                ?>
                             </ul>
                         </div>
                         <span class="btn-separator"></span>
