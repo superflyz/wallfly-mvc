@@ -377,7 +377,6 @@
 ---------------*/
 
 /* Displays like a select box */
-
 .ui.selection.dropdown {
   cursor: pointer;
   word-wrap: break-word;
@@ -404,7 +403,18 @@
   -webkit-transition: box-shadow 0.1s ease, width 0.1s ease;
   transition: box-shadow 0.1s ease, width 0.1s ease;
     margin: 0px 0px 0px -6px;
-    width: auto;
+    width: 333px;
+}
+
+@media(max-width:464px) { 
+.ui.selection.dropdown {
+      border-radius: 0px 0px 4px 4px;
+    margin: -5px 0px 0px 5px;
+      padding: 9px 38px 0px 12px;
+    }
+    
+    .ui.selection.dropdown {
+    
 }
 
 /*-- Small devices (tablets, 768px and up) --*/
