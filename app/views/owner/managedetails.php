@@ -330,13 +330,17 @@ if(isset($_SESSION['selectedProperty'])) {
                             <span class="error"></span>
                         </div>
                     </div>
-                    <div class="form-field">
-                        <label for="email">Email address</label>
-                        <input type="email" class="form-control" id="email" name="email" required>
+                    <div class="col-md-6">
+                        <div class="at_field_em">
+                            <label for="email">Email address</label>
+                            <input type="email" class="form-control" id="email" name="email" required>
+                        </div>
                     </div>
-                    <div class="form-field">
-                        <label for="phone">Phone</label>
-                        <input type="text" class="form-control" id="phone" name="phone" required>
+                    <div class="col-md-6">
+                        <div class="at_field_ph">
+                            <label for="phone">Phone</label>
+                            <input type="text" class="form-control" id="phone" name="phone" required>
+                        </div>
                     </div>
                     <div class="col-md-12">
                         <div class="at_btnz">

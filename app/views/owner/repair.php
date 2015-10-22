@@ -77,10 +77,10 @@ require_once '../app/views/templates/interfaceStart.php';
                     $count = 0;
                     foreach ($result as $row) {
                         if ($row['status'] == 0){
-                            $row['status']= "Pending";
+                            $row['status']= "<div class='status_p'><i class='fa fa-question'></i></div>";
                         }elseif($row['status'] == 1){
-                            $row['status']= "Approved";
-                        }else{$row['status']= "Denied";}
+                            $row['status']= "<div class='status_a'><i class='fa fa-check'></i></div>";
+                        }else{$row['status']= "<div class='status_d'><i class='fa fa-times'></i></div>";}
 
                         if ($row['severity_level'] == "low"){
                             $row['severity_level']= "<div class='s_lvl_low'>LOW</div>";
@@ -92,7 +92,7 @@ require_once '../app/views/templates/interfaceStart.php';
                          $lastpos = end($splitImgSource);
                          $checkIfImageExists= explode(".", $lastpos);
                          if(!empty($checkIfImageExists[1])){
-                         $repairPic = "<img data-toggle='modal' class='img-responsive repair_image_enlarge' height='100' width='165' title='Repair image' alt='Repair image' src='" . $row['image']."'/>";
+                         $repairPic = "<img data-toggle='modal' class='img-responsive repair_image_enlarge' title='Repair image' alt='Repair image' src='" . $row['image']."'/>";
                          }else{  $repairPic = "<div class='no_repair_img_view' title='Repair image'><p>No image</p></div>"; }
 
                    
@@ -102,8 +102,9 @@ require_once '../app/views/templates/interfaceStart.php';
                              "<div class='row repair_view_body'>
             <div class='col-md-5 hd'>
             <div class='row ss'>
+       
             <div class='col-md-6 hd'>
-            <div class='repair_img_view'>" . $repairPic . "</div>
+            <div class='repair_img_view'><div class='repair_img_view_img'>" . $repairPic . "</div></div>
             </div>" .
                         "<div class='col-md-6 hd'>
                             <div class='hd-text-severity'>Severity<hr class='repair_hr'></div>
