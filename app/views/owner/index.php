@@ -16,33 +16,23 @@
 
 <div class="row">
     <div class="col-md-12">
-        <section id="select_property">
-
-            <!-- create address dropdown list only if agent or owner usertype -->
-            <?php
-
-                  $properties = $_SESSION['user']->getProperties();
-
-
-            ?>
-            <div class="select-property-dropdown">
-<!--                 <h3>Please select a property:</h3>-->
-                <select class="ui search dropdown">
-                    <option value="">Select a property...</option>
-                    <?php
-                for($i=0;$i<count($properties);$i++){
-                    $selected = '';
-                    echo value;
-                    if ($properties[$i]->id === $pID) {
-                        $selected = 'selected';
-                    }
-                    echo '<option value="'.$i.'" ' . $selected . '>' . $properties[$i]->address . '</option>';
-
-                } ?>
-                </select>
-
+        <!-- create address dropdown list only if agent or owner usertype -->
+        <?php
+        $properties = $_SESSION['user']->getProperties();
+        $count = 0;
+        foreach ($properties as $property) {
+        ?>
+            <div>
+                <form id="viewDetails" method="post" action="<?=WEBDIR?>/propertyowner/viewDetails">
+                    <img src="<?php echo $property->photo?>">
+                    <p><?php echo $property->address?></p>
+                    <button type="submit" name="submit" value="<?php echo $count;?>" class="btn btn-upload-pdf">Details</button>
+                </form>
             </div>
-        </section>
+        <?php
+            $count++;
+        }
+        ?>
     </div>
 </div>  
     </div>
