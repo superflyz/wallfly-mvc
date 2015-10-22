@@ -516,6 +516,15 @@ class PropertyOwner extends Controller
     }
   }
 
+  public function viewNotifications()
+  {
+    if (!Owner::isAuthenticated()) {
+      $this->redirect('/');
+    } else {
+      $this->view('owner/notifications');
+    }
+  }
+
 }
 
 
