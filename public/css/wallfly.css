@@ -1065,11 +1065,13 @@ body {
 .top-section {
     padding-left: 33px;
     padding-right: 33px;
+/*    background: red;*/
 }
 
 .bottom-section {
-    padding: 0px 33px 0px 33px;
-    overflow: auto;    
+    padding: 0px 33px 20px 33px;
+    overflow: auto; 
+/*     background: yellow;*/
 }
 
 /*-- Small devices (tablets, 768px and up) --*/
@@ -1236,6 +1238,7 @@ body {
     margin-bottom: 10px;
     font-weight: 500;
     color: #333333;  
+    cursor: pointer;
     border-left: 3px solid transparent;
     border-radius: 0px;
 /*    background-color: transparent;*/
@@ -1364,6 +1367,8 @@ https://groups.google.com/forum/#!topic/twitter-bootstrap-stackoverflow/0Aqzs5s_
     padding: 0px 0px 0px 0px;    
 }
 
+
+
 .property-display {
     background: #333333;
 /*    linear-gradient(to top, #333333, #dedede);*/
@@ -1378,7 +1383,7 @@ https://groups.google.com/forum/#!topic/twitter-bootstrap-stackoverflow/0Aqzs5s_
 */
 
 /*    display: flex;*/
-    width: 424px;
+    width: 428px;
 /*
         position: fixed;
     z-index: 1000;
@@ -1387,6 +1392,7 @@ https://groups.google.com/forum/#!topic/twitter-bootstrap-stackoverflow/0Aqzs5s_
 */
 
 }
+
 
 
 .property-display .property-label {
@@ -1407,10 +1413,10 @@ https://groups.google.com/forum/#!topic/twitter-bootstrap-stackoverflow/0Aqzs5s_
 .property-display .property-address {
         float: left;
 /*    background-color: red;*/
-        margin: 5px 5px 0px 0px;
+        margin: 5px 0px 0px 0px;
        height: 100%;
-/*    width: 344px;*/
-        padding: 0px 0px 0px 0px;
+/*    width: 600px;*/
+        padding: 0px 0px 0px 1px;
 }
 
 .property-display .property-label p {
@@ -1422,7 +1428,7 @@ https://groups.google.com/forum/#!topic/twitter-bootstrap-stackoverflow/0Aqzs5s_
 @media(max-width:464px) {
     .property-display {
         width: 333px;
-        height: 83px;
+        height: 76px;
     }
     
     .property-display .property-label {
@@ -1459,25 +1465,19 @@ https://groups.google.com/forum/#!topic/twitter-bootstrap-stackoverflow/0Aqzs5s_
 
 /*-- Small devices (tablets, 768px and up) --*/
 @media(min-width:768px) {
-    .property-display {
-            width: 424px;
-    }
+
 }
  /*-- Medium devices (desktops, 992px and up) --*/
 @media(min-width:992px) {   
-    .property-display {
-            width: 424px;
-    }
+
+    
 }
 /*-- Large devices (large desktops, 1200px and up) --*/
 @media (min-width: 1200px) { 
 
-    .property-display {
-            width: 424px;
-    }
+
 
 }
-
 
 
 /*
@@ -1494,11 +1494,54 @@ https://groups.google.com/forum/#!topic/twitter-bootstrap-stackoverflow/0Aqzs5s_
 /*dashboard-select css*/
 
 .wlcm-h1 {
-    margin: 75px 0px 50px 0px;  
+    margin: 75px 0px 20px 0px;  
     font-weight: 500;
     color: #333333;
 /*    background: blue;*/
 }
+
+.btn-add-property, .btn-add-property:focus {
+ 
+
+        color: #ffffff;
+    background-color: #333333;
+    height: 40px;
+    font-size: 14px;
+    font-weight: 600;
+    width: 150px;
+
+       margin: 66px 0px 20px 0px;  
+    padding: 0px;
+    border: 2px solid #333333;
+        -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    transition: all .3s;
+}
+
+
+.btn-add-property:hover{
+    border: 2px solid #333333;
+    background-color: transparent;
+    color: #333333;
+}
+
+/*
+.btn-add-property span {
+    margin: 0px 0px 0px 0px;
+    padding: 0px 0px 0px 0px;
+    background: red;
+       text-align: center;
+    
+}
+*/
+
+.btn-add-property .fa-plus-square {
+/*    background: blue;*/
+    font-size: 16px;
+        margin: -3px 8px 0px 0px;
+  vertical-align: middle;
+}
+
 
 #select_property {
     background: radial-gradient(#f8f8f8,#dedede);
@@ -1976,6 +2019,125 @@ padding: 25px 0px 0px 0px;
 
 .negateNav{
     padding-bottom: 50px;
+}
+
+
+.dash_p_p {
+    
+    padding: 0px;
+    margin: 0px 0px 10px 0px;
+/*    background: green;*/
+/*    height: 300px;*/
+    
+    
+}
+
+.dash_p_add_btn {
+        border-radius: 0px 0px 4px 4px;
+            background-color: #f8f8f8;
+        margin: 0px 3px 0px 3px;
+    padding: 6px 0px 0px 0px;
+}
+
+.dash_p {
+          margin: 0px 6px 12px 6px;
+        padding: 0px 0px 3px 0px;
+    border-radius: 4px;
+    background-color: #dedede;
+        height: auto;
+        vertical-align: middle; 
+/*
+
+    width: 100%;
+*/
+}
+
+/*
+.dash_p:last-child {
+        background: orange;
+}
+*/
+
+/*
+.dash_p_list .col-md-3 {
+    
+    margin: 0px 10px 10px 0px;
+}
+*/
+
+.dash_p_img img {
+       border-radius: 3px 3px 0px 0px;
+/*      height: 190px;*/
+    width: 100%;
+    height: 160px;
+    max-height: 160px
+}
+
+
+
+.dash_p_img {
+    height: 160px;
+         border-radius: 2px;
+    margin: 0px 0px 0px 0px;
+/*    background-color: #dedede;*/
+}
+
+
+.dash_p_add {
+    margin: 0px 0px 6px 0px;
+    padding: 0px 6px 0px 6px;
+
+       height: 50px;
+    max-height: 60px;
+    overflow-y: auto;
+        word-wrap: break-word; 
+
+}
+
+.dash_p_add p {
+    margin: 0px;
+    padding: 0px;
+/*    background: yellow;*/
+
+         font-size: 14px;
+    font-weight: 500;
+           height: auto;
+}
+
+.dash_p_list {
+/*     background: blue;  */
+margin-left: -21px;
+    margin-right: -21px;
+    padding: 10px 0px 0px 0px;
+/*    margin: 0px;*/
+    
+}
+
+
+.btn-view-details {
+
+     color: #ffffff;
+    background-color: #5AD663;
+    height: 40px;
+    font-size: 14px;
+    border-radius: 0px 0px 4px 4px;
+    font-weight: 600;
+    width: 100%;
+    margin: 0px 0px 0px 0px;
+    border: 2px solid transparent;
+        -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    transition: all .3s;
+
+
+}
+
+
+.btn-view-details:hover{
+    border: 2px solid #5AD663;
+    background-color: transparent;
+    color:  #5AD663;
+    
 }
 
 /*--- Chat page ---*/

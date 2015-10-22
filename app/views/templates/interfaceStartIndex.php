@@ -139,5 +139,5 @@ if (isset($_SESSION['selectedProperty'])) {
             </div>
             <div id="pagecontentstart" class="container content_body">
                 <div class="row top-section">
-            <div clas="col-md-12">
-                
+                    <div clas="col-md-12">
+                  

@@ -162,7 +162,7 @@ if (isset($_SESSION['selectedProperty'])) {
                                             ?>
 
         <!--                              I have taken this out from above:
-                                             if ($userType == 2) {}
+                                             if ($userTye == 2) {}
         -->
                                            <select class="ui search dropdown">
                                                 <option value="">Select a property...</option>

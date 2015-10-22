@@ -81,7 +81,7 @@
                             <i class="fa fa-home fa-stack-1x fa-inverse"></i>
                         </span>
                         <h4 class="feature-heading">Property Management</h4>
-                        <p class="text-muted">Manage you property by setting tenants, documents and inspection reports</p>
+                        <p class="text-muted">Manage your property by setting tenants, documents and inspection reports</p>
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-6">
@@ -197,15 +197,15 @@
                           <div class="row">
                         <div class="col-md-6 col-sm-6">
                          <div class="su_field_pass">
-                             <label for="email">Password<span class="req"> *</span></label>
-                            <input class="form-control" type="email" name="email" maxlength="50" size="12" value="" id="email" />
+                             <label for="password">Password<span class="req"> *</span></label>
+                            <input class="form-control" type="password" size="12" name="password" value="" id="password" />
                             <span class="error"></span>
                               </div>
                                 </div>
                         
                            <div class="col-md-6 col-sm-6">
                          <div class="su_field_repass">
-                             <label for="password">Re-enter Password<span class="req"> *</span></label>
+                             <label for="passwordrepeat">Re-enter Password<span class="req"> *</span></label>
                             <input class="form-control" type="password" size="12" name="password" value="" id="password" />
                             <span class="error"></span>
                            </div>

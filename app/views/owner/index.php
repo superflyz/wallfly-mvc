@@ -9,34 +9,63 @@
 <!--Content here-->
 <div class="row">
     <div class="col-md-12">
-        <h1 class="wlcm-h1">Welcome <span class="user-color"><?php echo $_SESSION['user']->firstname?>!
-             <button class="btn btn-default" data-toggle="modal" data-target="#addpropertyform">+ Add property</button></span></h1>
+        <div class="col-md-8">
+        <h1 class="wlcm-h1">Welcome <span class="user-color"><?php echo $_SESSION['user']->firstname?>!</span></h1>
+    </div>   
+            <div class="col-md-4">
+             <button class="btn btn-add-property" data-toggle="modal" data-target="#addpropertyform"><i class="fa fa-plus-square"></i>Add property</button>
     </div>
+         </div>
+</div>
+</div>
 </div>
 
-<div class="row">
+<div class="row bottom-section">
     <div class="col-md-12">
+        <div class="row dash_p_list">
+      
         <!-- create address dropdown list only if agent or owner usertype -->
+              
         <?php
         $properties = $_SESSION['user']->getProperties();
         $count = 0;
         foreach ($properties as $property) {
         ?>
-            <div>
+        
+          
+            <div class="col-md-3">
+                         
+             
                 <form id="viewDetails" method="post" action="<?=WEBDIR?>/propertyowner/viewDetails">
-                    <img src="<?php echo $property->photo?>">
+                    
+             <div class="dash_p">
+                    <div class="dash_p_img">
+                    <img class="img-responsive" src="<?php echo $property->photo?>">
+                    </div>
+                    <div class="dash_p_add_btn">
+                    <div class="dash_p_add">
                     <p><?php echo $property->address?></p>
-                    <button type="submit" name="submit" value="<?php echo $count;?>" class="btn btn-upload-pdf">Details</button>
+                    </div>
+                 <div class="dash_p_btn">
+                    <button type="submit" name="submit" value="<?php echo $count;?>" class="btn btn-view-details">View Details</button>
+                    </div>
+                   </div>
+                 </div>
                 </form>
-            </div>
+            
+                     </div>
+                             
+       
         <?php
             $count++;
         }
         ?>
+               
+      </div>      
+        
     </div>
 </div>  
-    </div>
-</div>  
+ 
 
 
     <!-- add property modal -->
