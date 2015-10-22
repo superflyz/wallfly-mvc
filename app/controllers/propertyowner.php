@@ -501,6 +501,21 @@ class PropertyOwner extends Controller
     }
   }
 
+  public function viewDetails()
+  {
+    if (!Owner::isAuthenticated()) {
+      $this->redirect('/');
+    } else {
+      if (!isset($_POST['submit'])) {
+        $this->redirect("/propertyowner/index");
+      }
+      $properties = $_SESSION['user']->getProperties();
+      $_SESSION['selectedProperty'] = $properties[$_POST['submit']];
+      $_SESSION['sidebar'] = "manage";
+      $this->redirect('/propertyowner/manage');
+    }
+  }
+
 }
 
 
