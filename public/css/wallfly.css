@@ -1378,7 +1378,7 @@ https://groups.google.com/forum/#!topic/twitter-bootstrap-stackoverflow/0Aqzs5s_
 */
 
 /*    display: flex;*/
-    width: auto;
+    width: 424px;
 /*
         position: fixed;
     z-index: 1000;
@@ -1387,6 +1387,7 @@ https://groups.google.com/forum/#!topic/twitter-bootstrap-stackoverflow/0Aqzs5s_
 */
 
 }
+
 
 .property-display .property-label {
     background-color:  #5AD663;
@@ -1417,6 +1418,67 @@ https://groups.google.com/forum/#!topic/twitter-bootstrap-stackoverflow/0Aqzs5s_
 /*    padding: 10px;*/
     
 }
+
+@media(max-width:464px) {
+    .property-display {
+        width: 333px;
+        height: 83px;
+    }
+    
+    .property-display .property-label {
+    background-color: #5AD663;
+    color: #ffffff;
+    height: 33px;
+    width: 323px;
+/*    float: left;*/
+    font-size: 14px;
+    font-weight: 600;
+        text-align: center;
+    margin: 5px 0px 0px 5px;
+    border-radius: 4px 4px 0px 0px;
+    padding: 4px 0px 0px 0px;
+    
+}
+    
+    .property-display .property-address {
+/*        float: left;*/
+/*    background-color: red;*/
+        margin: 5px 0px 0px 0px;
+       height: 100%;
+/*    width: 344px;*/
+        padding: 0px 0px 0px 0px;
+}
+
+.property-display .property-label p {
+    margin: 0px 0px 0px 0px;
+    padding: 0px;
+    
+}
+
+}
+
+/*-- Small devices (tablets, 768px and up) --*/
+@media(min-width:768px) {
+    .property-display {
+            width: 424px;
+    }
+}
+ /*-- Medium devices (desktops, 992px and up) --*/
+@media(min-width:992px) {   
+    .property-display {
+            width: 424px;
+    }
+}
+/*-- Large devices (large desktops, 1200px and up) --*/
+@media (min-width: 1200px) { 
+
+    .property-display {
+            width: 424px;
+    }
+
+}
+
+
 
 /*
 #dashboard {
@@ -1613,8 +1675,8 @@ background: blue;
     max-height: 300px;
     width: 300px;   
 }
-/*
 
+/*
 .div-nomargin {
     
    margin: -10px 0px 0px 0px;
