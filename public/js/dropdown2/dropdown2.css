@@ -403,7 +403,7 @@
   -webkit-transition: box-shadow 0.1s ease, width 0.1s ease;
   transition: box-shadow 0.1s ease, width 0.1s ease;
     margin: 0px 0px 0px -6px;
-    width: 333px;
+    width: auto;
 }
 
 @media(max-width:464px) { 
@@ -415,6 +415,7 @@
     
     .ui.selection.dropdown {
     
+    }
 }
 
 /*-- Small devices (tablets, 768px and up) --*/
