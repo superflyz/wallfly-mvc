@@ -36,6 +36,11 @@ $('body').scrollspy({
     $(".navbar-collapse").collapse('hide');
   });
 
+// Change color of toggle button onclick
+$('.tog').on("click",function(){  
+  $(this).toggleClass('tog-focus');
+  
+  });
 
 $('#tab-nav li').click(function(event){
     event.preventDefault();

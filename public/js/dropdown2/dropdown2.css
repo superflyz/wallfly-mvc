@@ -407,6 +407,80 @@
     width: auto;
 }
 
+/*-- Small devices (tablets, 768px and up) --*/
+/*
+@media(min-width:768px) {
+    
+}
+
+ /*-- Medium devices (desktops, 992px and up) --*/
+@media(min-width:950px) {   
+
+    .ui.selection.dropdown {
+  cursor: pointer;
+  word-wrap: break-word;
+  line-height: 1em;
+  white-space: normal;
+  outline: 0;
+  -webkit-transform: rotateZ(0deg);
+  transform: rotateZ(0deg);
+/*  min-width: 400px;*/
+  min-height: 33px;
+  background: #ffffff;
+  display: inline-block;
+  padding: 9px 36px 0px 12px;
+/*padding: 0.78571429em 2.6em 0.78571429em 1em;*/
+  color: #333333;
+    font-size: 14px;
+    height: 33px;
+    font-weight: 400;
+/*  color: rgba(0, 0, 0, 0.87);*/
+  box-shadow: none;
+/*  border: 1px solid rgba(34, 36, 38, 0.15);*/
+       border: 1px solid #ffffff;
+  border-radius: 0px 4px 4px 0px;
+  -webkit-transition: box-shadow 0.1s ease, width 0.1s ease;
+  transition: box-shadow 0.1s ease, width 0.1s ease;
+    margin: 0px 0px 0px -6px;
+    width: inherit;
+}
+    
+}
+/*-- Large devices (large desktops, 1200px and up) --*/
+@media (min-width: 1090px) { 
+
+    .ui.selection.dropdown {
+  cursor: pointer;
+  word-wrap: break-word;
+  line-height: 1em;
+  white-space: normal;
+  outline: 0;
+  -webkit-transform: rotateZ(0deg);
+  transform: rotateZ(0deg);
+  min-width: 300px;
+  min-height: 33px;
+  background: #ffffff;
+  display: inline-block;
+  padding: 9px 36px 0px 12px;
+/*padding: 0.78571429em 2.6em 0.78571429em 1em;*/
+  color: #333333;
+    font-size: 14px;
+    height: 33px;
+    font-weight: 400;
+/*  color: rgba(0, 0, 0, 0.87);*/
+  box-shadow: none;
+/*  border: 1px solid rgba(34, 36, 38, 0.15);*/
+       border: 1px solid #ffffff;
+  border-radius: 0px 4px 4px 0px;
+  -webkit-transition: box-shadow 0.1s ease, width 0.1s ease;
+  transition: box-shadow 0.1s ease, width 0.1s ease;
+    margin: 0px 0px 0px -6px;
+    width: inherit;
+}
+    
+}
+
+
 .ui.selection.dropdown.visible,
 .ui.selection.dropdown.active {
   z-index: 10;
@@ -636,6 +710,7 @@ select.ui.dropdown {
 /*    border-color: #5AD663;*/
 /*    background: #333333;*/
 /*    margin-top: 105px;*/
+
   
 }
 

@@ -1020,11 +1020,13 @@ footer p {
 
 ::-moz-selection {
     text-shadow: none;
+    color: #ffffff;
     background: #5AD663;
 }
 
 ::selection {
     text-shadow: none;
+    color: #ffffff;
     background: #5AD663;
 }
 
@@ -1036,65 +1038,50 @@ img::-moz-selection {
     background: #5AD663;
 }
 
+/*
 body {
     webkit-tap-highlight-color: #5AD663;
 }
+*/
 
 /*************************************************************/
 /************************* DASHBOARD *************************/  
 /*************************************************************/
-
-.ui_body {
- 
-  overflow: hidden;
    
-/*    background: blue;*/
+.ui_body {
+    overflow: hidden;
     font-family: "Titillium Web", Ubuntu, "Helvetica Neue", Helvetica, Arial, sans-serif;
-/*
-    -ms-text-size-adjust: 100%;
-    -webkit-text-size-adjust: 100%;
-*/
-/*
-    padding: 0xpx;
-    margin: 0px 0px -55px 0px;
-*/
 
 }
 
 .content_body {
-/*    background-color: green;*/
-/*    overflow: hidden;*/
-/*    padding-bottom: 55px;*/
     height: 100vh;
-        overflow: auto; 
+    overflow: auto; 
     margin-bottom: -55px;
     width: 100%;
-/*
+    padding-bottom: 55px;
+}
+
+.top-section {
     padding-left: 33px;
     padding-right: 33px;
-*/
-    padding-bottom: 55px;
-    
-/*    margin: 0px 0px -px 0px;*/
-/*position: relative;*/
-
-}
-.top-section {
-        padding-left: 33px;
-    padding-right: 33px;
-/*    background: yellow;*/
 }
 
 .bottom-section {
-    padding: 0px 33px 20px 33px;
-/*    padding-top: 20px;*/
-/*    background-color: tan;*/
-/*height: 100%;*/
-    overflow: auto; 
-    
+    padding: 0px 33px 0px 33px;
+    overflow: auto;    
 }
 
+/*-- Small devices (tablets, 768px and up) --*/
+@media(min-width:768px) {
+    
+}
+ /*-- Medium devices (desktops, 992px and up) --*/
+@media(min-width:992px) {   
 
+}
+/*-- Large devices (large desktops, 1200px and up) --*/
+@media (min-width: 1200px) {  }
 
 
 /*---  Top navbar ---*/
@@ -1110,7 +1097,6 @@ body {
     margin: 0px 0px 50px 0px;
     height: 55px;
     background-color: #333333;
-/*    border-bottom: 1px solid #444444;*/
 }
 
 #ui_logo img {
@@ -1125,28 +1111,19 @@ body {
 .tog {
     color: #ffffff;
     font-size: 1.75em;
-}
-
-/*
-.highlight {
-        color: #5AD663;
-}
-*/
-
-.tog:hover,
-.tog:focus {
-    color: #5AD663;
-    font-size: 1.75em;
+    cursor: pointer;
     -webkit-transition: all ease-in-out 0.25s;
     -moz-transition: all ease-in-out 0.25s;
     transition: all ease-in-out 0.25s;
 }
-/*
 
-body.modal-open {
-    overflow: visible;
+.tog:hover {
+    color: #5AD663;
 }
-*/
+
+.tog-focus {
+    color: #5AD663;
+}
 
 .btn-group {
     margin: 0px;
@@ -1257,7 +1234,7 @@ body.modal-open {
 
 .nav-pills li a {
     margin-bottom: 10px;
-    font-weight: 400;
+    font-weight: 500;
     color: #333333;  
     border-left: 3px solid transparent;
     border-radius: 0px;
@@ -1270,44 +1247,56 @@ body.modal-open {
 }
 
 .nav-pills li a i {
-    padding: 0px 1px 0px 0px;
+    padding: 0px 0px 0px 0px;
 }
 
 .nav-pills li a .fa-desktop {
     font-size: 15px;
-    margin: 4px 0px 0px 0px;
+
+
+    margin: 4px 3px 0px 0px;
 }
 
 .nav-pills li a .fa-home {
     font-size: 18px;
-    margin: 4px 0px 0px 0px;
+
+
+    margin: 3px 3px 0px 0px;
 }
 
 .nav-pills li a .fa-calendar {  
-    font-size: 15.5px;
-    margin: 3px 0px 0px 0px;
+    font-size: 16.5px;
+
+
+    margin: 3.5px 3px 0px 0px;
 }
 
 .nav-pills li a .fa-comments-o { 
     font-size: 17px;
-    margin: 2px 0px 0px 0px;
+  
+
+    margin: 2px 3px 0px 0px;
 }
 
 .nav-pills li a .fa-credit-card {
     font-size: 15px;
-    margin: 3.5px 0px 0px 0px;
+      
+    margin: 4px 3px 0px 0px;
 }
 
 .nav-pills li a .fa-wrench { 
     font-size: 16px;
-    margin: 3px 0px 0px 0px;
+      
+    margin: 3px 3px 0px 0px;
 }
 
+/*
 .wrap {
     white-space: pre-wrap;
     width: 50%;
     margin: 0px 0px 0px 0px;
 }
+*/
 
 .nav-pills li a:hover{
     background-color: transparent;
@@ -1643,10 +1632,6 @@ background: blue;
     text-decoration: none;
 }
 
-.icons .fa-home {
-    font-size: 40px;
-    padding-top: -5px;
-}
 
 #dash-links .link-heading {
     font-size: 20px;
@@ -1747,7 +1732,12 @@ background: blue;
 }
 
 /*end home css*/
-
+/*
+    .icons .fa-home {
+    font-size: 40px;
+    margin-top: -5px;
+}
+*/
 
 @media(min-width: 768px) {
     /*--- Global nav SM & MD screen ---*/ 
@@ -1758,11 +1748,15 @@ background: blue;
     /*-- Medium devices (desktops, 992px and up) --*/
 @media(min-width:920px) {
 
+
+
+/*
       .wrap {
         white-space: pre-wrap;
-        max-width: 20px;
+        max-width: 30px;
         margin: 0px 40px 0px 0px;
     }
+*/
 
 
     
@@ -1773,12 +1767,14 @@ background: blue;
     /*-- Medium devices (desktops, 992px and up) --*/
 @media(min-width:1200px) {
 
+/*
  .wrap {
     white-space: nowrap;
     width: 100%;
     margin: 0px;
         
     }
+*/
 
  .container-fluid {
     padding: 0px;
@@ -1802,6 +1798,7 @@ background: blue;
 */
 
 
+/*
 .nav-pills li a i {
     padding: 0px 5px 0px 0px;
 }
@@ -1841,6 +1838,7 @@ background: blue;
     font-size: 16px;
      margin: 3px 0px 0px 0px;
 }
+*/
 
     
 
@@ -1849,6 +1847,7 @@ background: blue;
 
 
 
+/*
 .content {
   background: red;  
     
@@ -1862,6 +1861,8 @@ padding: 25px 0px 0px 0px;
     
      background: green;  
 }
+*/
+
 /*
  * Off Canvas
  * --------------------------------------------------
