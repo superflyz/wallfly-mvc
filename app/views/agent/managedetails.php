@@ -306,7 +306,16 @@ require_once '../app/views/templates/interfaceStart.php';
                 <p class="modal-title">Assign Tenant</p>
             </div>
             <div class="modal-body">
-                <form action="<?=WEBDIR?>/propertyagent/assigntenant" method="post">
+                <div class="row">
+                    <div class="col-md-12">
+                        <label for="assignmode">Select action</label>
+                        <select id="assignmode" class="form-control">
+                            <option value="new">Create a new tenant account</option>
+                            <option value="existing">Assign existing tenant</option>
+                        </select>
+                    </div>
+                </div>
+                <form action="<?=WEBDIR?>/propertyagent/assigntenant" id="assignNewForm" method="post">
                     <div class="col-md-6">
                         <div class="at_field_fn">
                             <label for="firstname">First name</label>
@@ -335,12 +344,23 @@ require_once '../app/views/templates/interfaceStart.php';
                         </div>
                     </div>
                 </form>
+                <form action="<?=WEBDIR?>/propertyagent/assignexistingtenant" id="assignExistingForm" method="post">
+                    <div class="form-field">
+                        <label for="email2">Email address</label>
+                        <input type="email" class="form-control" id="email2" name="email" required>
+                        <p id="tenantError" style="color: red"></p>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="at_btnz">
+                            <button type="submit" id="submit2" class="btn btn-save-changes pull-right">Save changes</button>
+                        </div>
+                    </div>
+                </form>
                 <!-- FORM ENDS HERE -->
             </div>
         </div>
     </div>
 </div>
-
 
     
 
