@@ -290,7 +290,7 @@ class PropertyOwner extends Controller
           'lastname' => $data['lastname'],
           'phone' => $data['phone'],
           'password' => create_hash($password),
-          'photo' => '<div>ds</div>'
+          'photo' => 'img/noimage.png'
         ]);
 
         // 4. assign the tenant to the property
@@ -387,7 +387,7 @@ class PropertyOwner extends Controller
             'firstname' => $_POST['first_name'],
             'lastname' => $_POST['last_name'],
             'phone' => $_POST['phone'],
-            'photo' => '<div>ssd</div>'
+            'photo' => 'img/noimage.png'
         ]);
 
         Flash::set('success_message', 'Your account has been created, you can now ');

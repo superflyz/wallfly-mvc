@@ -98,7 +98,7 @@ $(".btn").mouseup(function(){
 
 
 $('[rel=tooltip]').tooltip() 
-$("[data-toggle=tooltip]").tooltip({ placement: 'bottom'});
+$("[data-toggle=tooltip]").tooltip();
 
 
 // http://stackoverflow.com/questions/13233304/how-to-make-jqueryui-tooltip-apply-only-on-focus

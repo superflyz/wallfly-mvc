@@ -6,9 +6,8 @@
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header page-scroll">
                 <a class="navbar-toggle toggled" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                 <i class="fa fa-bars"></i>
+                 <i class="fa fa-bars visible-xs"></i>
                 </a>
- <i class="fa fa-bars"></i>
                 <a class="navbar-brand page-scroll" href="#page-top"><img id="logo" src="images/wallfly_logo.svg" alt="WallFly logo" title="Go Top"></a>
             </div>
 

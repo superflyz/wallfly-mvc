@@ -92,7 +92,7 @@ if (isset($_SESSION['selectedProperty'])) {
                 <div class="user pull-right">
                     <div class="btn-group top-navbar-controls">
                         <span class="btn-separator"></span>
-                        <div class="btn-group user-btn-focus" data-container="body" data-toggle="tooltip" title="Announcements">
+                        <div class="btn-group user-btn-focus" data-container="body" data-toggle="tooltip" data-placement="bottom" title="Announcements">
                             <a class="btn user-btn-t dropdown-toggle"  data-toggle="dropdown" href="#" id="notifications">
                                 <span class="glyphicon glyphicon-bell" aria-hidden="true"></span>
                                 <?php $notifications = Notification::getUnreadNotifications($_SESSION['user']->id); ?>
@@ -127,7 +127,7 @@ if (isset($_SESSION['selectedProperty'])) {
                             </ul>
                         </div>
                         <span class="btn-separator"></span>
-                        <div class="btn-group user-btn-focus" data-container="body" data-toggle="tooltip" title="User Info">
+                        <div class="btn-group user-btn-focus" data-container="body" data-toggle="tooltip" data-placement="bottom" title="User Info">
                             <a class="btn user-btn-t dropdown-toggle" data-toggle="dropdown" href="#">
                                 <span class="glyphicon glyphicon-user"></span>
                             </a>
@@ -139,11 +139,11 @@ if (isset($_SESSION['selectedProperty'])) {
                             </ul>
                         </div>
                         <span class="btn-separator"></span>
-                        <button type="button" class="btn user-btn inc" aria-label="Left Align" data-container="body" data-toggle="tooltip" title="Help">
+                        <button type="button" class="btn user-btn inc" aria-label="Left Align" data-container="body" data-toggle="tooltip" data-placement="bottom" title="Help">
                             <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
                         </button>
                         <span class="btn-separator"></span>
-                        <a href="<?=WEBDIR?>/home/logout"><button type="button" class="btn user-btn-diff inc" aria-label="Left Align" data-container="body" data-toggle="tooltip" title="Logout">
+                        <a href="<?=WEBDIR?>/home/logout"><button type="button" class="btn user-btn-diff inc" aria-label="Left Align" data-container="body" data-toggle="tooltip" data-placement="bottom" title="Logout">
                             <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
                         </button></a>
 

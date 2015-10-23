@@ -11,7 +11,7 @@ require_once '../app/views/templates/interfaceStart.php';
 </div>
 
  <div class="row">
-    <div class="col-md-6 ">
+    <div class="col-md-6 col-sm-6 col-xs-12">
         <div class="manage_properties_pills">
           <!-- Nav pills -->
           <ul class="nav nav-pills nav-justified properties_pills">

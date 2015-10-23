@@ -42,6 +42,7 @@ References:
     overflow-x: hidden;
     background-color: #333333;
     font-family: "Titillium Web", Ubuntu, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    text-rendering: optimizeLegibility; 
 }
 
 /*
@@ -465,6 +466,7 @@ margin: 0px 0px 0px 0px;
     color: #ffffff;
     background-color: #5AD663;
     padding: 4px;
+text-decoration: none;
     border: 1px solid #5AD663;
     cursor: pointer;
 
@@ -482,7 +484,7 @@ margin: 0px 0px 0px 0px;
 
 .navbar-toggle .fa-bars {
     font-size: 20px;
-        padding: 1px 6px 0px 6px;
+        padding: 2px 6px 1px 6px;
     margin: 0px;
     
 }
@@ -781,7 +783,7 @@ header {
 
 /*-- Small devices (tablets, 768px and up) --*/
 @media(min-width:768px) {
-    
+
     /*--- Global nav SM & MD screen ---*/ 
     .navbar-default {
         padding: 25px 0;
@@ -1051,7 +1053,7 @@ body {
 .ui_body {
     overflow: hidden;
     font-family: "Titillium Web", Ubuntu, "Helvetica Neue", Helvetica, Arial, sans-serif;
-
+text-rendering: optimizeLegibility; 
 }
 
 .content_body {
@@ -1066,6 +1068,12 @@ body {
     padding-left: 33px;
     padding-right: 33px;
 /*    background: red;*/
+}
+
+.bottom-section {
+    padding: 0px 33px 20px 33px;
+    overflow: auto; 
+/*     background: yellow;*/
 }
 
 .bottom-section {
@@ -1588,14 +1596,20 @@ https://groups.google.com/forum/#!topic/twitter-bootstrap-stackoverflow/0Aqzs5s_
     
 }
 
-.tooltip.bottom .tooltip-inner {
-    background-color: #5AD663;
-    color: #ffffff;
-    
+.tooltip .tooltip-inner {
+    background-color: #dedede;
+    color: #333333;
+    font-size: 12px;
+    font-weight: 500;
   }
 .tooltip.bottom .tooltip-arrow {
-          border-bottom-color: #5AD663;
+          border-bottom-color: #dedede;
        }  
+
+.tooltip.right .tooltip-arrow {
+    
+        border-right-color: #dedede;
+}
 
 /*
 #div-fixed-top {
@@ -2171,11 +2185,11 @@ margin-left: -21px;
 
 .panel-primary .panel-heading {
     color: #333333;
-    height: 50px;
+    height: auto;
     font-weight: 600;
     background-color: #dedede;
 /*    border: 2px solid #dedede;*/
-    
+    padding: 6px 12px 4px 12px;
     border-bottom: 2px solid #dedede;
     border-radius-top-left: 4px;
     border-radius-top-right: 4px;
@@ -2195,28 +2209,10 @@ margin-left: -21px;
 }
 
 #chatbox {
-    height: 363px;
+    height: 293px;
     overflow-y: auto;
     background: radial-gradient(#dedede,#f8f8f8);
     border: 2px solid #dedede;
-/*
-       border-width: 2px;
-    border-style: solid;
-    -webkit-border-image: 
-      -webkit-gradient(linear, 0 0, 0 100%, from(#333333), to(#dedede)) 1 100%;
-    -webkit-border-image: 
-      -webkit-linear-gradient(#333333, #dedede) 1 100%;
-    -moz-border-image:
-      -moz-linear-gradient(#333333, #dedede) 1 100%;    
-    -o-border-image:
-      -o-linear-gradient(#333333, #dedede) 1 100%;
-    border-image:
-      linear-gradient(to bottom, #333333, #dedede) 1 100%;
-*/
-/*
-    border-left: 2px solid #dedede;
-    border-right: 2px solid #dedede;
-*/
 }
 
 ul
@@ -2294,7 +2290,7 @@ li{
     position: relative;
     width: auto;
     min-width: 30px;
-    max-width: 444px;
+    max-width: 190px;
     height: auto;
     margin: 3px 0px 20px 0px;
     padding: 0px;
@@ -2398,7 +2394,7 @@ li{
     position: relative;
     width: auto;
     min-width: 30px;
-    max-width: 444px;
+    max-width: 190px;
     height: auto;
 /*    min-height: 44px;*/
     margin: 3px 0px 20px 0px;
@@ -2479,6 +2475,7 @@ li{
     
 /*    background-color: red;*/
     height: auto;
+
         margin: 20px 0px 20px 0px;
     
 }
@@ -2488,7 +2485,7 @@ li{
     margin: 0px 20px 0px 0px;
     font-weight: 500;
     color: #333333;  
-
+/*    width: 50%;*/
     border-bottom: 2px solid #5AD663; 
     border-left: 0px;
     border-radius: 4px;
@@ -2518,6 +2515,11 @@ li{
       border-left: 0px;
      color: #ffffff;  
 
+}
+
+      .nav-justified > li {
+    display: table-cell; 
+    width: 1%
 }
 
 .manage_properties_view {
@@ -2552,7 +2554,7 @@ li{
     
 /*   background: red; */
    margin: 0px;
-    padding: 20px;
+    padding: 30px 30px 30px 30px;
     
 }
 .add_payment_inpt {
@@ -2565,16 +2567,16 @@ li{
 .add_payment_inpt1 {
     
 /*    background: blue;*/
-    margin: 0px 20px 0px 0px;
+    margin: 0px 0px 10px 0px;
 }
 
 .add_payment_inpt2 {
-        margin: 0px 0px 0px 0px;
+        margin: 10px 0px 0px 0px;
 /*    background: purple;*/
 }
 
 .add_payment_inpt1 label, .add_payment_inpt2 label, .add_payment_cal1 label, .add_payment_cal2 label {
-    
+/*        background: orange;*/
     font-weight: 600;
     font-size: 14px;
     padding: 0px;
@@ -2602,7 +2604,7 @@ li{
 .add_payment_cal {
     
 /*    background: blue;*/
-    margin: 0px 0px 40px 0px;
+    margin: 0px 0px 25px 0px;
     padding: 0px;
     height: auto;
 }
@@ -2610,23 +2612,24 @@ li{
 .add_payment_cal1 {
     
 /*        background: yellow;*/
-    margin: 0px 20px 0px 0px;
+    margin: 0px 0px 10px 0px;
 }
 
 .add_payment_cal2 {
     
-/*        background: orange;*/
-    margin: 0px 0px 0px 0px;
+/*        background: green;*/
+    margin: 10px 0px 0px 0px;
 }
 
 .add_payment_btn {
         margin: 0px;
     padding: 0px;
     height: auto;
+    width: 100%;
 /*    background: green;*/
 }
 
-.add_payment_btn .col-md-12 {
+.add_payment_btn .col-md-12, .add_payment_btn .col-sm-12, .add_payment_btn .col-xs-12  {
     
        padding: 0px;
     
@@ -2638,9 +2641,9 @@ li{
     height: 45px;
     font-size: 14px;
     font-weight: 600;
-    width: 20%;
+/*    width: 50%;*/
     margin: 0px 0px 0px 0px;
-    padding: 0px;
+    padding: 4px 14px 4px 14px;
     border: 2px solid transparent;
         -webkit-transition: all .3s;
     -moz-transition: all .3s;
@@ -3646,37 +3649,52 @@ padding: 0px 0px 0px 0px;
 
 
 /*--- Repair page ---*/
+/*
 
-.bd-text .btn_repair_approve {
+.repair_dt {
+       margin: 0px 0px 0px 20px;
+    background: red;
+    
+}
+*/
+.btn-text {
+/*    background-color: green;*/
+    padding: 0px 0px 0px 0px;
+    margin: 0px 15px 0px 10px;
+}
+
+.btn-text .btn_repair_approve {
      color: #ffffff;
     background-color: #5AD663;
     height: 40px;
+          max-width: 100%;
     font-size: 14px;
+     width: 100%;
     font-weight: 600;
-    width: 75%;
-    margin: 80px 0px 10px 15px;
+    text-align: center;
+    margin: 16px 0px 10px 0px;
     border: 2px solid transparent;
         -webkit-transition: all .3s;
     -moz-transition: all .3s;
     transition: all .3s;
-    
+
 }
 
 
-.bd-text .btn_repair_approve:hover{
+.btn-text .btn_repair_approve:hover{
     border: 2px solid #5AD663;
     background-color: transparent;
     color:  #5AD663;
 }
-.bd-text .btn_repair_deny {
+.btn-text .btn_repair_deny {
     
     background-color: #FA4B3E;
     color: #f8f8f8;
     height: 40px;
     font-size: 14px;
     font-weight: 600;
-     width: 75%;
-    margin: 0px 0px 10px 15px;
+     width: 100%;
+    margin: 0px 0px 10px 0px;
      border: 2px solid transparent;
         -webkit-transition: all .3s;
     -moz-transition: all .3s;
@@ -3685,7 +3703,7 @@ padding: 0px 0px 0px 0px;
 
 
 
-.bd-text .btn_repair_deny:hover {
+.btn-text .btn_repair_deny:hover {
        background-color: transparent;
     border: 2px solid #FA4B3E;
     color: #FA4B3E;
@@ -3723,7 +3741,7 @@ padding: 0px 0px 0px 0px;
       padding: 8px 0px 5px 0px;
     text-align: center;
      height: auto;
-    margin: 0px 10px 0px 0px;
+    margin: 0px 10px 0px 10px;
 /*    background: red;*/
 
 }
@@ -3732,11 +3750,11 @@ padding: 0px 0px 0px 0px;
 /*        margin: 0 auto;*/
                                            
 /*background-color: aqua;*/
-    padding: 0px 10px 0px 20px;
+    padding: 0px 10px 0px 10px;
     margin: 7px 0px 0px 0px;
     border-radius: 4px;
   height: 110px;
-    width: inherit;
+
 
 
 /*    height: auto;*/
@@ -3749,7 +3767,9 @@ padding: 0px 0px 0px 0px;
     padding: 0px 0px 0px 0px;
     margin: 7px 0px 0px 0px;
     border-radius: 4px;
-  height: 110px;
+  height: auto;
+
+    max-height: 110px;
     width: 180px;
 
 
@@ -3763,6 +3783,8 @@ padding: 0px 0px 0px 0px;
     text-align: center;
     background-color: #dedede;
     height: 110px;
+      
+ 
     width: inherit;
     border-radius: 4px;
 }
@@ -3886,20 +3908,20 @@ padding: 0px 0px 0px 0px;
 /*    width: 300px;*/
 /*    height: auto;*/
 /*   text-decoration: underline;*/
-    padding: 10px 0px 5px 20px;
+    padding: 10px 0px 5px 0px;
 /*       background-color: #333333;*/
-    margin: 0px 2px 0px 0px;  
+    margin: 0px 10px 0px 10px;  
 
 }
 
-.repair_view_body .hd:last-child .hd-text {
-    margin-right: 0px; 
+.repair_view_body .hd .repair_dt {
+/*    width: 100%;*/
     font-weight: 400;
     font-size: 12px;
-    
+    margin: 55px 15px 0px px;
 /*    background: red;*/
 /*    color: #dedede;*/
-    padding: 20px 0px 0px 15px;
+    padding: 20px 0px 0px 0px;
 }
 
 
@@ -3922,15 +3944,15 @@ padding: 0px 0px 0px 0px;
     font-weight: 400;
 
    text-decoration: none;
-    padding: 5px 0px 0px 22px;
+    padding: 5px 0px 0px 2px;
 /*       background-color: #333333;*/
-    margin-right: 2px;
+     margin: 0px 10px 0px 10px;
 
 }
 
 
 
-.repair_view_body .hd .hd-text-description, .repair_view_body .hd .hd-text-status {
+.repair_view_body .hd .hd-text-description {
      height: auto;
       color: #333333;
 /*    background: green;*/
@@ -3938,9 +3960,24 @@ padding: 0px 0px 0px 0px;
 /*    width: 300px;*/
 /*    height: auto;*/
 /*   text-decoration: underline;*/
-    padding: 12px 0px 5px 20px;
+    padding: 12px 0px 5px 0px;
 /*       background-color: #333333;*/
-    margin: 0px 2px 0px 0px;  
+    margin: 0px 10px 0px 20px;  
+    
+}
+
+.repair_view_body .hd .hd-text-status {
+       height: auto;
+      color: #333333;
+/*    background: green;*/
+/*    border-bottom: 1px solid #333333;*/
+/*    width: 300px;*/
+/*    height: auto;*/
+/*   text-decoration: underline;*/
+    padding: 12px 0px 5px 0px;
+/*       background-color: #333333;*/
+    margin: 0px 10px 0px 10px;    
+    
     
 }
 
@@ -3954,7 +3991,7 @@ padding: 0px 0px 0px 0px;
 /*   text-decoration: underline;*/
     padding: 12px 0px 5px 0px;
 /*       background-color: #333333;*/
-    margin: 0px 2px 0px 0px;     
+    margin: 0px 10px 0px 0px;     
     
 }
 
@@ -3977,9 +4014,9 @@ padding: 0px 0px 0px 0px;
 /*    height: auto;*/
       font-weight: 400;
 word-wrap: break-word;
-    padding: 0px 0px 0px 22px;
+    padding: 0px 0px 0px 2px;
 /*       background-color: #333333;*/
-    margin: 0px 2px 0px 0px;   
+    margin: 0px 10px 0px 20px;   
     
     
 }
@@ -3987,13 +4024,10 @@ word-wrap: break-word;
 .repair_view_body .hd .bd-text-status {
       height: auto;
 /*    background: red;*/
-/*    width: 100%;*/
-/*    height: auto;*/
       font-weight: 400;
 word-wrap: break-word;
-    padding: 4px 0px 10px 22px;
-/*       background-color: #333333;*/
-    margin: 0px 2px 0px 0px;   
+    padding: 4px 0px 59px 2px;
+    margin: 0px 10px 0px 10px;   
        
     
 } 
@@ -4007,7 +4041,7 @@ word-wrap: break-word;
 word-wrap: break-word;
     padding: 5px 0px 59px 2px;
 /*       background-color: #333333;*/
-     margin: 0px 2px 0px 0px;   
+     margin: 0px 10px 0px 0px;   
     
 }
 
@@ -4057,6 +4091,12 @@ overflow-y: scroll;
     border: 1px solid #5AD663;
 }
 
+.xsbtnz {
+    
+    margin: 0px;
+    padding: 0px;
+}
+
 /*
 .btn-comment-inpt::-webkit-input-placeholder {
     
@@ -4087,3 +4127,452 @@ overflow-y: scroll;
 }
 
 
+/*-- Small devices (tablets, 768px and up) --*/
+@media(min-width:768px) {
+.btn-text .btn_repair_approve {
+     color: #ffffff;
+    background-color: #5AD663;
+    height: 40px;
+          max-width: 100%;
+    font-size: 14px;
+     width: 100%;
+    font-weight: 600;
+    text-align: center;
+    margin: 66px 0px 10px 0px;
+    border: 2px solid transparent;
+        -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    transition: all .3s;
+
+}
+    
+    .repair_view_body .hd .bd-text-status {
+      height: auto;
+/*    background: red;*/
+      font-weight: 400;
+word-wrap: break-word;
+    padding: 4px 0px 10px 2px;
+    margin: 0px 10px 0px 10px;   
+       
+    
+} 
+    .repair_view_body .hd .repair_dt {
+/*    width: 100%;*/
+    font-weight: 400;
+    font-size: 12px;
+    margin: 0px 15px 0px 10px;
+/*    background: red;*/
+/*    color: #dedede;*/
+    padding: 20px 0px 0px 0px;
+}
+  
+    .add_payments {
+    
+/*   background: red; */
+   margin: 0px;
+    padding: 30px 30px 30px 30px;
+    
+}
+.add_payment_inpt {
+    
+/*    background: green;*/
+    margin: 0px 0px 20px 0px;
+    height: auto;
+}
+
+.add_payment_inpt1 {
+    
+/*    background: blue;*/
+    margin: 0px 20px 0px 0px;
+}
+
+.add_payment_inpt2 {
+        margin: 0px 0px 0px 20px;
+/*    background: purple;*/
+}
+
+.add_payment_inpt1 label, .add_payment_inpt2 label, .add_payment_cal1 label, .add_payment_cal2 label {
+/*        background: orange;*/
+    font-weight: 600;
+    font-size: 14px;
+    padding: 0px;
+    margin: 0px 0px 6px 0px;
+    color: #333333;
+}
+
+.add_payment_inpt1 input, .add_payment_inpt2 input {
+        font-weight: 400;
+    font-size: 14px;
+    height: 40px;
+/*    padding: 0px 0px 0px 0px;*/
+    padding-left: 8px;
+    margin: 0px;
+    border: 1px solid #dedede;
+        outline: 0;
+}
+
+.add_payment_inpt1 input:hover, .add_payment_inpt2 input:hover, .add_payment_inpt1 input:focus, .add_payment_inpt2 input:focus {
+    border: 1px solid #5AD663;
+        outline: 0;
+    box-shadow: none;
+}
+
+.add_payment_cal {
+    
+/*    background: blue;*/
+    margin: 0px 0px 25px 0px;
+    padding: 0px;
+    height: auto;
+}
+
+.add_payment_cal1 {
+    
+/*        background: yellow;*/
+    margin: 0px 20px 0px 0px;
+}
+
+.add_payment_cal2 {
+    
+/*        background: green;*/
+    margin: 0px 0px 0px 20px;
+}
+
+ #chatbox {
+    height: 353px;
+    overflow-y: auto;
+    background: radial-gradient(#dedede,#f8f8f8);
+    border: 2px solid #dedede;
+}
+
+.bubble-arw-left {
+    float: left;
+    position: relative;
+    width: auto;
+    min-width: 30px;
+    max-width: 444px;
+    height: auto;
+    margin: 3px 0px 20px 0px;
+    padding: 0px;
+    background: #FFFFFF;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
+
+.bubble-arw-right{
+    float: right;
+    position: relative;
+    width: auto;
+    min-width: 30px;
+    max-width: 444px;
+    height: auto;
+/*    min-height: 44px;*/
+    margin: 3px 0px 20px 0px;
+    padding: 0px;
+    background: #5AD663;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+} 
+ 
+}
+ /*-- Medium devices (desktops, 992px and up) --*/
+@media(min-width:1100px) {   
+.btn-text .btn_repair_approve {
+     color: #ffffff;
+    background-color: #5AD663;
+    height: 40px;
+          max-width: 100%;
+    font-size: 14px;
+     width: 100%;
+    font-weight: 600;
+    text-align: center;
+    margin: 84px 0px 10px 0px;
+    border: 2px solid transparent;
+        -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    transition: all .3s;
+
+}
+    
+    .repair_view_body .hd .bd-text-status {
+      height: auto;
+/*    background: red;*/
+      font-weight: 400;
+word-wrap: break-word;
+    padding: 4px 0px 10px 2px;
+    margin: 0px 10px 0px 10px;   
+       
+    
+} 
+    
+    .repair_view_body .hd .repair_dt {
+/*    width: 100%;*/
+    font-weight: 400;
+    font-size: 12px;
+    margin: 0px 15px 0px 10px;
+/*    background: red;*/
+/*    color: #dedede;*/
+    padding: 20px 0px 0px 0px;
+}
+    
+  
+    .add_payments {
+    
+/*   background: red; */
+   margin: 0px;
+    padding: 30px 30px 30px 30px;
+    
+}
+.add_payment_inpt {
+    
+/*    background: green;*/
+    margin: 0px 0px 20px 0px;
+    height: auto;
+}
+
+.add_payment_inpt1 {
+    
+/*    background: blue;*/
+    margin: 0px 20px 0px 0px;
+}
+
+.add_payment_inpt2 {
+        margin: 0px 0px 0px 20px;
+/*    background: purple;*/
+}
+
+.add_payment_inpt1 label, .add_payment_inpt2 label, .add_payment_cal1 label, .add_payment_cal2 label {
+/*        background: orange;*/
+    font-weight: 600;
+    font-size: 14px;
+    padding: 0px;
+    margin: 0px 0px 6px 0px;
+    color: #333333;
+}
+
+.add_payment_inpt1 input, .add_payment_inpt2 input {
+        font-weight: 400;
+    font-size: 14px;
+    height: 40px;
+/*    padding: 0px 0px 0px 0px;*/
+    padding-left: 8px;
+    margin: 0px;
+    border: 1px solid #dedede;
+        outline: 0;
+}
+
+.add_payment_inpt1 input:hover, .add_payment_inpt2 input:hover, .add_payment_inpt1 input:focus, .add_payment_inpt2 input:focus {
+    border: 1px solid #5AD663;
+        outline: 0;
+    box-shadow: none;
+}
+
+.add_payment_cal {
+    
+/*    background: blue;*/
+    margin: 0px 0px 25px 0px;
+    padding: 0px;
+    height: auto;
+}
+
+.add_payment_cal1 {
+    
+/*        background: yellow;*/
+    margin: 0px 20px 0px 0px;
+}
+
+.add_payment_cal2 {
+    
+/*        background: green;*/
+    margin: 0px 0px 0px 20px;
+}
+#chatbox {
+    height: 353px;
+    overflow-y: auto;
+    background: radial-gradient(#dedede,#f8f8f8);
+    border: 2px solid #dedede;
+}
+
+.bubble-arw-left {
+    float: left;
+    position: relative;
+    width: auto;
+    min-width: 30px;
+    max-width: 444px;
+    height: auto;
+    margin: 3px 0px 20px 0px;
+    padding: 0px;
+    background: #FFFFFF;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
+
+.bubble-arw-right{
+    float: right;
+    position: relative;
+    width: auto;
+    min-width: 30px;
+    max-width: 444px;
+    height: auto;
+/*    min-height: 44px;*/
+    margin: 3px 0px 20px 0px;
+    padding: 0px;
+    background: #5AD663;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
+
+}
+/*-- Large devices (large desktops, 1200px and up) --*/
+@media (min-width: 1200px) { 
+.btn-text .btn_repair_approve {
+     color: #ffffff;
+    background-color: #5AD663;
+    height: 40px;
+          max-width: 100%;
+    font-size: 14px;
+     width: 100%;
+    font-weight: 600;
+    text-align: center;
+    margin: 84px 0px 10px 0px;
+    border: 2px solid transparent;
+        -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    transition: all .3s;
+
+}
+    
+    .repair_view_body .hd .bd-text-status {
+      height: auto;
+/*    background: red;*/
+      font-weight: 400;
+word-wrap: break-word;
+    padding: 4px 0px 10px 2px;
+    margin: 0px 10px 0px 10px;   
+       
+    
+} 
+
+    .repair_view_body .hd .repair_dt {
+/*    width: 100%;*/
+    font-weight: 400;
+    font-size: 12px;
+    margin: 0px 15px 0px 10px;
+/*    background: red;*/
+/*    color: #dedede;*/
+    padding: 20px 0px 0px 0px;
+}
+    
+    .add_payments {
+    
+/*   background: red; */
+   margin: 0px;
+    padding: 30px 30px 30px 30px;
+    
+}
+.add_payment_inpt {
+    
+/*    background: green;*/
+    margin: 0px 0px 20px 0px;
+    height: auto;
+}
+
+.add_payment_inpt1 {
+    
+/*    background: blue;*/
+    margin: 0px 20px 0px 0px;
+}
+
+.add_payment_inpt2 {
+        margin: 0px 0px 0px 20px;
+/*    background: purple;*/
+}
+
+.add_payment_inpt1 label, .add_payment_inpt2 label, .add_payment_cal1 label, .add_payment_cal2 label {
+/*        background: orange;*/
+    font-weight: 600;
+    font-size: 14px;
+    padding: 0px;
+    margin: 0px 0px 6px 0px;
+    color: #333333;
+}
+
+.add_payment_inpt1 input, .add_payment_inpt2 input {
+        font-weight: 400;
+    font-size: 14px;
+    height: 40px;
+/*    padding: 0px 0px 0px 0px;*/
+    padding-left: 8px;
+    margin: 0px;
+    border: 1px solid #dedede;
+        outline: 0;
+}
+
+.add_payment_inpt1 input:hover, .add_payment_inpt2 input:hover, .add_payment_inpt1 input:focus, .add_payment_inpt2 input:focus {
+    border: 1px solid #5AD663;
+        outline: 0;
+    box-shadow: none;
+}
+
+.add_payment_cal {
+    
+/*    background: blue;*/
+    margin: 0px 0px 25px 0px;
+    padding: 0px;
+    height: auto;
+}
+
+.add_payment_cal1 {
+    
+/*        background: yellow;*/
+    margin: 0px 20px 0px 0px;
+}
+
+.add_payment_cal2 {
+    
+/*        background: green;*/
+    margin: 0px 0px 0px 20px;
+}
+    
+    #chatbox {
+    height: 353px;
+    overflow-y: auto;
+    background: radial-gradient(#dedede,#f8f8f8);
+    border: 2px solid #dedede;
+}
+
+.bubble-arw-left {
+    float: left;
+    position: relative;
+    width: auto;
+    min-width: 30px;
+    max-width: 444px;
+    height: auto;
+    margin: 3px 0px 20px 0px;
+    padding: 0px;
+    background: #FFFFFF;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
+
+.bubble-arw-right{
+    float: right;
+    position: relative;
+    width: auto;
+    min-width: 30px;
+    max-width: 444px;
+    height: auto;
+/*    min-height: 44px;*/
+    margin: 3px 0px 20px 0px;
+    padding: 0px;
+    background: #5AD663;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
+
+}
