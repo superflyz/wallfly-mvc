@@ -205,7 +205,7 @@
                            <div class="col-md-6 col-sm-6">
                          <div class="su_field_repass">
                              <label for="passwordrepeat">Re-enter Password<span class="req"> *</span></label>
-                            <input class="form-control" type="password" size="12" name="password" value="" id="password" />
+                            <input class="form-control" type="password" size="12" name="password_repeat" value="" id="password_repeat" />
                             <span class="error"></span>
                            </div>
                             </div>
