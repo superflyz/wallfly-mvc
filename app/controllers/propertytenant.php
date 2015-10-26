@@ -47,13 +47,11 @@ class PropertyTenant extends Controller
             $this->redirect('/');
         } else {
             $this->setJavascriptDependencies([
-
                 WEBDIR . '/dzscalendar/dzscalendar.js',
                 WEBDIR . '/js/sweetalert.min.js',
                 WEBDIR . '/bootstrap/bootstrap.js',
                 WEBDIR . '/clockpicker/js/bootstrap.min.js',
                 WEBDIR . '/clockpicker/js/timepicki.js'
-
             ]);
             $this->setCSSDependencies([
                 WEBDIR . '/css/bootstrap.css',
@@ -61,7 +59,6 @@ class PropertyTenant extends Controller
                 WEBDIR . '/dzscalendar/dzscalendar.css',
                 WEBDIR . '/css/sweetalert.css',
                 WEBDIR . '/css/wallfly.css',
-                WEBDIR . '/css/module.css',
                 WEBDIR . '/clockpicker/css/timepicki.css'
             ]);
             $_SESSION['sidebar'] = "calendar";
@@ -322,11 +319,7 @@ class PropertyTenant extends Controller
                     echo "Sorry, your file was not uqloaded.";
                     // fie everything is ok, try to uqload file
                 } else {
-                    //$this->view('tenant/index');
-                    //for Mac
-                   $result_upload = move_uploaded_file($tmpName, PUBLIC_ABSOLUTE_PATH .$target_file);
-                   // for Windows
-                    //$result_upload = move_uploaded_file($tmpName, 'C:/xampp/htdocs'.$target_file);
+                    $result_upload = move_uploaded_file($tmpName, PUBLIC_ABSOLUTE_PATH .$target_file);
                 }
             }
 
