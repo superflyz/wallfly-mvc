@@ -13,6 +13,7 @@ class PropertyTenant extends Controller
         if (!Tenant::isAuthenticated()) {
             $this->redirect("/");
         } else {
+            $_SESSION['sidebar'] = "dashboard";
             $this->view("tenant/index", $_SESSION["user"]);
         }
     }
@@ -25,6 +26,7 @@ class PropertyTenant extends Controller
             $data = [];
             $data['property'] = $_SESSION['selectedProperty'];
             $data['tenant'] = $_SESSION['user'];
+            $_SESSION['sidebar'] = "manage";
             $this->view('tenant/managedetails', $data);
         }
     }
@@ -34,6 +36,7 @@ class PropertyTenant extends Controller
         if (!Tenant::isAuthenticated()) {
             $this->redirect('/');
         } else {
+            $_SESSION['sidebar'] = "manage";
             $this->view('tenant/managedetails');
         }
     }
@@ -52,28 +55,16 @@ class PropertyTenant extends Controller
                 WEBDIR . '/clockpicker/js/timepicki.js'
 
             ]);
-
             $this->setCSSDependencies([
-
                 WEBDIR . '/css/bootstrap.css',
-                //WEBDIR . '/style/style.css',
-                // 'http://fonts.googleapis.com/css?family=Carrois+Gothic',
                 WEBDIR . '/dzstooltip/dzstooltip.css',
                 WEBDIR . '/dzscalendar/dzscalendar.css',
-                //'http://fonts.googleapis.com/css?family=Open+Sans',
-                // WEBDIR . '/clockpicker/css/bootstrap.css',
-
                 WEBDIR . '/css/sweetalert.css',
                 WEBDIR . '/css/wallfly.css',
                 WEBDIR . '/css/module.css',
                 WEBDIR . '/clockpicker/css/timepicki.css'
-
-
-
-
             ]);
-
-
+            $_SESSION['sidebar'] = "calendar";
             $this->view('tenant/calendar');
         }
     }
@@ -86,14 +77,12 @@ class PropertyTenant extends Controller
 
             $this->setJavascriptDependencies([
                 WEBDIR . '/js/chat.js'
-
             ]);
 
             $this->setCSSDependencies([
                 WEBDIR . '/css/module.css'
-
             ]);
-
+            $_SESSION['sidebar'] = "chat";
             $this->view('tenant/chat');
         }
     }
@@ -109,14 +98,13 @@ class PropertyTenant extends Controller
                 WEBDIR . '/js/paymentDatePicker.js',
                 WEBDIR . '/js/jquery.creditCardValidator.js',
                 WEBDIR . '/js/validateCreditCard.js'
-
             ]);
             $this->setCSSDependencies([
                 WEBDIR . '/css/module.css',
                 WEBDIR . '/dzstooltip/dzstooltip.css',
                 WEBDIR . '/dzscalendar/dzscalendar.css'
-
             ]);
+            $_SESSION['sidebar'] = "payment";
             $this->view('tenant/payment');
         }
     }
@@ -126,6 +114,7 @@ class PropertyTenant extends Controller
         if (!Tenant::isAuthenticated()) {
             $this->redirect('/');
         } else {
+            $_SESSION['sidebar'] = "payment";
             $this->view('tenant/viewpayments');
         }
     }
@@ -149,6 +138,7 @@ class PropertyTenant extends Controller
                 'http://fonts.googleapis.com/css?family=Open+Sans',
                 WEBDIR . '/css/module.css'
             ]);
+            $_SESSION['sidebar'] = "payment";
             $this->view('tenant/addpayment');
         }
     }
@@ -177,8 +167,10 @@ class PropertyTenant extends Controller
                 $result = false;
             }
             if ($result == false) {
-                $this->redirect('/propertytenant/addpaymenterror');
+                $_SESSION['sidebar'] = "payment";
+                $this->redirect('/propertytenant/payment');
             } else {
+                $_SESSION['sidebar'] = "payment";
                 $this->redirect('/propertytenant/payment');
             }
         }
@@ -195,7 +187,6 @@ class PropertyTenant extends Controller
                 WEBDIR . '/js/jquery.creditCardValidator.js',
                 WEBDIR . '/js/validateCreditCard.js'
             ]);
-
             $this->setCSSDependencies([
                 'http://fonts.googleapis.com/css?family=Carrois+Gothic',
                 WEBDIR . '/dzstooltip/dzstooltip.css',
@@ -203,6 +194,7 @@ class PropertyTenant extends Controller
                 'http://fonts.googleapis.com/css?family=Open+Sans',
                 WEBDIR . '/css/module.css'
             ]);
+            $_SESSION['sidebar'] = "payment";
             $this->view('tenant/addpaymenterror');
         }
     }
@@ -214,12 +206,11 @@ class PropertyTenant extends Controller
         } else {
             $this->setJavascriptDependencies([
                 WEBDIR . '/js/selectProperty.js'
-
             ]);
             $this->setCSSDependencies([
                 WEBDIR . '/css/module.css'
-
             ]);
+            $_SESSION['sidebar'] = "repair";
             $this->view('tenant/repair');
         }
     }
@@ -231,12 +222,11 @@ class PropertyTenant extends Controller
         } else {
             $this->setJavascriptDependencies([
                 WEBDIR . '/js/selectProperty.js'
-
             ]);
             $this->setCSSDependencies([
                 WEBDIR . '/css/module.css'
-
             ]);
+            $_SESSION['sidebar'] = "repair";
             $this->view('tenant/viewrepairs');
         }
     }
@@ -248,12 +238,11 @@ class PropertyTenant extends Controller
         } else {
             $this->setJavascriptDependencies([
                 WEBDIR . '/js/selectProperty.js'
-
             ]);
             $this->setCSSDependencies([
                 WEBDIR . '/css/module.css'
-
             ]);
+            $_SESSION['sidebar'] = "repair";
             $this->view('tenant/repairrequest');
         }
     }
@@ -267,12 +256,11 @@ class PropertyTenant extends Controller
             $result = $_SESSION['selectedProperty']->changeSeverity($_POST['submit'], $_POST['severity']);
             $this->setJavascriptDependencies([
                 WEBDIR . '/js/selectProperty.js'
-
             ]);
             $this->setCSSDependencies([
                 WEBDIR . '/css/module.css'
-
             ]);
+            $_SESSION['sidebar'] = "repair";
             $this->redirect('/propertytenant/viewRepairs');
         }
     }
@@ -282,7 +270,6 @@ class PropertyTenant extends Controller
         if (!Tenant::isAuthenticated()) {
             $this->redirect('/');
         } else {
-
             if (!isset($_FILES['image']) || empty($_FILES['image'])) {
                 $this->redirect('/propertytenant/repairrequest');
             }
@@ -347,9 +334,11 @@ class PropertyTenant extends Controller
                 $_POST['severity'], $target_file);
 
             if ($result) {
-                $this->redirect('/propertytenant/viewRepairs');
+                $_SESSION['sidebar'] = "repair";
+                $this->redirect('/propertytenant/repair');
             } else {
-                $this->redirect('/propertytenant/repairRequest');
+                $_SESSION['sidebar'] = "repair";
+                $this->redirect('/propertytenant/repair');
             }
         }
     }

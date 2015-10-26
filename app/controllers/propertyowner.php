@@ -78,16 +78,10 @@ class PropertyOwner extends Controller
     if (!Owner::isAuthenticated()) {
       $this->redirect('/');
     } else {
-
       $this->setJavascriptDependencies([
               WEBDIR . '/js/chat.js'
 
       ]);
-
-//        $this->setCSSDependencies([
-//              WEBDIR . '/css/module.css'
-//
-//        ]);
       $_SESSION['sidebar'] = "chat";
       $this->view('owner/chat');
     }
@@ -102,14 +96,10 @@ class PropertyOwner extends Controller
           WEBDIR . '/js/selectProperty.js',
           WEBDIR . '/dzscalendar/dzscalendar.js',
           WEBDIR . '/js/paymentDatePicker.js'
-
       ]);
       $this->setCSSDependencies([
-
-        //  WEBDIR . '/css/module.css',
           WEBDIR . '/dzstooltip/dzstooltip.css',
           WEBDIR . '/dzscalendar/dzscalendar.css'
-
       ]);
       $_SESSION['sidebar'] = "payment";
       $this->view('owner/payment');
@@ -135,13 +125,10 @@ class PropertyOwner extends Controller
           WEBDIR . '/dzscalendar/dzscalendar.js',
           WEBDIR . '/js/paymentDatePicker.js'
       ]);
-
       $this->setCSSDependencies([
          
           WEBDIR . '/dzstooltip/dzstooltip.css',
-          WEBDIR . '/dzscalendar/dzscalendar.css',
-      //    'http://fonts.googleapis.com/css?family=Open+Sans',
-       //   WEBDIR . '/css/module.css'
+          WEBDIR . '/dzscalendar/dzscalendar.css'
       ]);
       $_SESSION['sidebar'] = "payment";
       $this->view('owner/addpayment');
@@ -175,11 +162,9 @@ class PropertyOwner extends Controller
     } else {
       $this->setJavascriptDependencies([
           WEBDIR . '/js/selectProperty.js'
-
       ]);
       $this->setCSSDependencies([
           WEBDIR . '/css/module.css'
-
       ]);
       $_SESSION['sidebar'] = "repair";
       $this->view('owner/repair');
