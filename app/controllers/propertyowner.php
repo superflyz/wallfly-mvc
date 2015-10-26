@@ -19,7 +19,6 @@ class PropertyOwner extends Controller
     if (!Owner::isAuthenticated()) {
       $this->redirect('/');
     } else {
-
       $this->setJavascriptDependencies([
           WEBDIR . '/js/sweetalert.min.js',
           WEBDIR . '/js/assigntenantformhandler.js'
@@ -112,7 +111,6 @@ class PropertyOwner extends Controller
           WEBDIR . '/js/paymentDatePicker.js'
       ]);
       $this->setCSSDependencies([
-         
           WEBDIR . '/dzstooltip/dzstooltip.css',
           WEBDIR . '/dzscalendar/dzscalendar.css'
       ]);

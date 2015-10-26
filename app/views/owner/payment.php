@@ -128,25 +128,19 @@ require_once '../app/views/templates/interfaceStart.php';
                         </div>
                     </div>
                 </form>
-                    <?php }?>
+                <?php }?>
             </div>
-
         </div>
     </div>
 </div>
 </div>
 </div>
 
-
-
-
 <script type="text/javascript">
-    
     $('.manage_properties_pills ul li').click(function (e) {
         e.preventDefault()
         $(this).pill('show')
     })
-
     document.title = 'Payments - WallFly';
 </script>
 

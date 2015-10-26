@@ -92,10 +92,13 @@ class PropertyAgent extends Controller
       $this->redirect('/');
     } else {
       $this->setJavascriptDependencies([
-          WEBDIR . '/js/selectProperty.js'
+          WEBDIR . '/js/selectProperty.js',
+          WEBDIR . '/dzscalendar/dzscalendar.js',
+          WEBDIR . '/js/paymentDatePicker.js'
       ]);
       $this->setCSSDependencies([
-          WEBDIR . '/css/module.css'
+          WEBDIR . '/dzstooltip/dzstooltip.css',
+          WEBDIR . '/dzscalendar/dzscalendar.css'
       ]);
       $_SESSION['sidebar'] = "payment";
       $this->view('agent/payment');
@@ -108,7 +111,7 @@ class PropertyAgent extends Controller
       $this->redirect('/');
     } else {
       $_SESSION['sidebar'] = "payment";
-      $this->view('agent/viewpayments');
+      $this->view('agent/payment');
     }
   }
 
@@ -129,7 +132,7 @@ class PropertyAgent extends Controller
           WEBDIR . '/css/module.css'
       ]);
       $_SESSION['sidebar'] = "payment";
-      $this->view('agent/addpayment');
+      $this->view('agent/payment');
     }
   }
 
@@ -138,14 +141,17 @@ class PropertyAgent extends Controller
     if (!Agent::isAuthenticated()) {
       $this->redirect('/');
     } else {
-      $result = $_SESSION['selectedProperty']->addPayment($_POST['payeeName'], $_POST['startDate'], $_POST['endDate'],
-          $_POST['amount']);
+      $payeeName = strip_tags($_POST['payeeName']);
+      $startDate = strip_tags($_POST['startDate']);
+      $endDate = strip_tags($_POST['endDate']);
+      $amount = strip_tags($_POST['amount']);
+      $result = $_SESSION['selectedProperty']->addPayment($payeeName, $startDate, $endDate, $amount);
       if ($result == false) {
         $_SESSION['sidebar'] = "payment";
-        $this->view('agent/addpayment');
+        $this->redirect('/propertyagent/payment');
       } else {
         $_SESSION['sidebar'] = "payment";
-        $this->view('agent/viewpayments');
+        $this->redirect('/propertyagent/payment');
       }
     }
   }
@@ -172,7 +178,14 @@ class PropertyAgent extends Controller
       $this->redirect('/');
     } else {
       $tmp = explode("/", $_POST['submit']);
-      $result = $_SESSION['selectedProperty']->processRepairRequest($tmp[0], $tmp[1], $_POST[$tmp[2]]);
+      $timeStamp = strip_tags($tmp[0]);
+      $value = strip_tags($tmp[1]);
+      $comment = strip_tags($_POST[$tmp[2]]);
+      $result = $_SESSION['selectedProperty']->processRepairRequest($timeStamp, $value, $comment);
+      if ($result) {
+        //Notification::addNotification($property->owner_id, "Repair status updated for " . $property->address . ".");
+        //Notification::addNotification($property->tenant_id, "Repair status updated for " . $property->address . ".");
+      }
       $_SESSION['sidebar'] = "repair";
       $this->redirect('/propertyagent/repair');
     }
@@ -216,9 +229,9 @@ class PropertyAgent extends Controller
         // ====================
         // UPDATE PROPERTY INFO
         // ====================
-        $property->address = $_POST['address'];
-        $property->rent_amount = $_POST['rent_amount'];
-        $property->payment_schedule = $_POST['payment_schedule'];
+        $property->address = strip_tags($_POST['address']);
+        $property->rent_amount = strip_tags($_POST['rent_amount']);
+        $property->payment_schedule = strip_tags($_POST['payment_schedule']);
         $property->update();
         // ========================
         // END UPDATE PROPERTY INFO
@@ -284,10 +297,10 @@ class PropertyAgent extends Controller
     } else {
       if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $property = Property::create([
-          'address' => $_POST['address'],
-          'payment_schedule' => $_POST['payment_schedule'],
-          'rent_amount' => $_POST['rent_amount'],
-          'agent_id' => $_SESSION['user']->id,
+          'address' => strip_tags($_POST['address']),
+          'payment_schedule' => strip_tags($_POST['payment_schedule']),
+          'rent_amount' => strip_tags($_POST['rent_amount']),
+          'owner_id' => $_SESSION['user']->id,
           'photo' => DUMMY_IMAGE
         ]);
         Flash::set('message', 'You added a new property!');
@@ -402,6 +415,15 @@ class PropertyAgent extends Controller
         // 6. redirect to property page
         $this->redirect('/propertyagent/manage');
       }
+    }
+  }
+
+  public function viewNotifications()
+  {
+    if (!Agent::isAuthenticated()) {
+      $this->redirect('/');
+    } else {
+      $this->view('agent/notifications');
     }
   }
 
