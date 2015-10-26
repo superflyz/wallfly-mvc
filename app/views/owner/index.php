@@ -2,10 +2,6 @@
     require_once '../app/views/templates/interfaceStartIndex.php';
 ?>
 
-<script src="/wallfly-mvc/public/js/dropdown/dropdown.js"></script>
-<link href="/wallfly-mvc/public/js/dropdown/dropdown.css" rel="stylesheet">
-          
-
 <!--Content here-->
 <div class="row">
     <div class="col-md-12">
@@ -120,31 +116,7 @@
 </div>
 
 <script>
-        $('.ui.search.dropdown').dropdown({
-            fullTextSearch: true, 
-            sortSelect: true, 
-            match:'text',
-            onChange: function(value) {
-                var arraypos = value;
-                jQuery.ajax({
-                    url: '/wallfly-mvc/public/dashboard/selectedProperty',
-                    type: "POST",
-                    data: {
-                        selected: arraypos
-                    },
-                    success: function (result) {
-                        window.location.reload();
-                    },
-                    error: function (result) {
-                        alert('Exeption:' + exception);
-                    }
-                });
-            }
-
-    });
-    
- document.title = 'Dashboard - WallFly';
-
+    document.title = 'Dashboard - WallFly';
 </script>
 
 
