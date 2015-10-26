@@ -350,4 +350,13 @@ class PropertyTenant extends Controller
             $this->redirect('/propertytenant/manage');
         }
     }
+
+    public function viewNotifications()
+    {
+        if (!Tenant::isAuthenticated()) {
+            $this->redirect('/');
+        } else {
+            $this->view('tenant/notifications');
+        }
+    }
 }
