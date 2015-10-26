@@ -37,8 +37,6 @@ if(isset($_SESSION['selectedProperty'])) {
         <!-- Pill panes -->
         <div class="pill-content manage_properties_view">
             <div role="pillpanel" class="pill-pane active" id="detail">
-                
-
                 <div class="row property_details">
                     <?php if ($property = $data['property']): ?>
                     <div class="col-md-4">
@@ -47,150 +45,128 @@ if(isset($_SESSION['selectedProperty'])) {
                         <img src="<?=$data['property']->photo?>" class="img-responsive" alt="property_photo" title="Property photo">
                         </div>
                     </div>
-                    
                     <div class="col-md-8">
                         <div class="pd_address">
                         <!-- This is to get the property address -->
                             <div class="pd_hd">Address<hr class='pd_hr'></div>
-                           <div class="pd_bd"> <span class="edit"><?=$data['property']->address?></span></div>
+                            <div class="pd_bd"> <span class="edit"><?=$data['property']->address?></span></div>
                         </div>
                         <div class="pd_rent_amount">
-                       <!-- This is to get the rent amount -->
+                            <!-- This is to get the rent amount -->
                             <div class="pd_hd">Rent amount<hr class='pd_hr'></div>
                             <div class="pd_bd">$<?=$data['property']->rent_amount?> (<?=$data['property']->payment_schedule?>)</div>
                         </div>
-
-                    <div class="pd_realest">
-                        <!-- This is to get the real estate -->
-                        <?php if ($realest = $data['property']->getRealEstate()):?>
-                     <div class="pd_hd">Real Estate<hr class='pd_hr'></div>
-                     <div class="pd_bd"><?=$realest->name?></div>
-                <?php else: ?>
-                    
-                       <!-- This is if this property does not belong to any real estate -->
-                    <div class="pd_hd">Real Estate<hr class='pd_hr'></div>              <div class="pd_bd_not">Not assigned</div>
-                <?php endif ?>
+                        <div class="pd_realest">
+                            <!-- This is to get the real estate -->
+                            <?php if ($realest = $data['property']->getRealEstate()):?>
+                            <div class="pd_hd">Real Estate<hr class='pd_hr'></div>
+                            <div class="pd_bd"><?=$realest->name?></div>
+                            <?php else: ?>
+                            <!-- This is if this property does not belong to any real estate -->
+                            <div class="pd_hd">Real Estate<hr class='pd_hr'></div>
+                            <div class="pd_bd_not">Not assigned</div>
+                            <?php endif ?>
                         </div>
-
-                <div class="pd_agent">
-                      <!-- This is to get the owner -->
-                    <?php if ($owner = $data['property']->getOwner()): ?>
-                     <div class="pd_hd">Owner<hr class='pd_hr'></div>
-                   <div class="pd_bd"> <?=$owner->firstname . ' ' . $owner->lastname?></div>
-                <?php else: ?>
-                    <!-- This is if there is currently no agent assigned to this property -->
-                     <div class="pd_hd">Owner<hr class='pd_hr'></div>                        <div class="pd_bd_not">Not assigned</div>
-                <?php endif ?>
+                        <div class="pd_agent">
+                            <!-- This is to get the owner -->
+                            <?php if ($owner = $data['property']->getOwner()): ?>
+                            <div class="pd_hd">Owner<hr class='pd_hr'></div>
+                            <div class="pd_bd"> <?=$owner->firstname . ' ' . $owner->lastname?></div>
+                            <?php else: ?>
+                            <!-- This is if there is currently no agent assigned to this property -->
+                            <div class="pd_hd">Owner<hr class='pd_hr'></div>
+                            <div class="pd_bd_not">Not assigned</div>
+                            <?php endif ?>
                         </div>
-
-                         <div class="pd_tenant">
-                       <!-- This is to get the tenant -->
-                <?php if ($tenant = $data['property']->getTenant()): ?>
-                    <div class="pd_hd">Tenant<hr class='pd_hr'></div>
-                             <div class="pd_bd"><?=$tenant->firstname . ' ' . $tenant->lastname?></div>
-                <?php else: ?>
-                    <div class="pd_hd">Tenant<hr class='pd_hr'></div>                        <div class="pd_bd_not">Not assigned</div> 
-        
-                <?php endif ?>
+                        <div class="pd_tenant">
+                            <!-- This is to get the tenant -->
+                            <?php if ($tenant = $data['property']->getTenant()): ?>
+                            <div class="pd_hd">Tenant<hr class='pd_hr'></div>
+                            <div class="pd_bd"><?=$tenant->firstname . ' ' . $tenant->lastname?></div>
+                            <?php else: ?>
+                            <div class="pd_hd">Tenant<hr class='pd_hr'></div>
+                            <div class="pd_bd_not">Not assigned</div>
+                            <?php endif ?>
                         </div>
                         <div class="pd_btns">
                             <div class="pull-right">
-
                                 <button class="btn btn-edit_property" id="triggermodal" data-toggle="modal" data-target="#editPropertyForm">Edit</button>
-                <button class="btn btn-add-tenant" id="triggermodal" data-toggle="modal" data-target="#tenantForm">Assign a tenant</button>
-            <?php endif ?>
-                                </div>
+                                <button class="btn btn-add-tenant" id="triggermodal" data-toggle="modal" data-target="#tenantForm">Assign a tenant</button>
+                            <?php endif ?>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            
-            
-            
             <div role="pillpanel" class="pill-pane" id="documents">
-                
                 <div class="row d_upload_pdf">
-                <form id="repairRequest" enctype="multipart/form-data" method="post" action="<?=WEBDIR?>/propertyagent/processDocument">
-                    <div class="col-md-12 pdf_upload">
-                        
-                        <div class="fileinput fileinput-new" data-provides="fileinput">
-    <span class="btn btn-choose btn-file"><span>Choose file</span><input  type="file" name="image"
-                               accept="application/pdf" id="image"  /></span>
-    <span class="fileinput-filename"><span class="fileinput-new">No file chosen</span></span>
-                             <button type="submit" name="Submit" class="btn btn-upload-pdf">Upload PDF
-                        </button>
-                                <span class="error"></span>  
-</div>
-          
+                    <form id="repairRequest" enctype="multipart/form-data" method="post" action="<?=WEBDIR?>/propertyagent/processDocument">
+                        <div class="col-md-12 pdf_upload">
+                            <div class="fileinput fileinput-new" data-provides="fileinput">
+                                <span class="btn btn-choose btn-file">
+                                    <span>Choose file</span>
+                                    <input  type="file" name="image" accept="application/pdf" id="image"  />
+                                </span>
+                                <span class="fileinput-filename">
+                                    <span class="fileinput-new">No file chosen</span>
+                                </span>
+                                <button type="submit" name="Submit" class="btn btn-upload-pdf">Upload PDF</button>
+                                <span class="error"></span>
+                            </div>
                         </div>
-                </form>
+                    </form>
                     <?php if ($error = Flash::get('pdferror')): ?>
-    <div class="alert alert-default" role="alert" style="color:rgb(159, 221, 94)"><?=$error?>!!!</div>
-<?php endif ?>
+                    <div class="alert alert-default" role="alert" style="color:rgb(159, 221, 94)"><?=$error?>!!!</div>
+                    <?php endif ?>
                     <div class="col-md-12">
                         <div class="row pdf_view">
-                      
-
                         <?php
-                  if(isset($_SESSION['selectedProperty'])) {
-                      $getdocuments = HandleDocuments::loadDocuments($_SESSION['selectedProperty']->id);
-                      if ($getdocuments != null) {
-                          foreach ($getdocuments as $key => $value) {
-                              echo $value;
+                          if(isset($_SESSION['selectedProperty'])) {
+                              $getdocuments = HandleDocuments::loadDocuments($_SESSION['selectedProperty']->id);
+                              if ($getdocuments != null) {
+                                  foreach ($getdocuments as $key => $value) {
+                                      echo $value;
+                                  }
+                              }
                           }
-                      }
-                  }
-
-
-           ?>
-                          
-                      </div>
+                        ?>
+                        </div>
                     </div>
                 </div>
             </div>
-            
             <div role="pillpanel" class="pill-pane" id="inspections">
                 <div class="row d_upload_pdf">
                     <form id="repairRequest" enctype="multipart/form-data" method="post" action="<?=WEBDIR?>/propertyagent/processInspection">
-                <div class="col-md-12 pdf_upload">
-                        
+                    <div class="col-md-12 pdf_upload">
                         <div class="fileinput fileinput-new" data-provides="fileinput">
-    <span class="btn btn-choose btn-file"><span>Choose file</span><input  type="file" name="image"
-                               accept="application/pdf" id="image"  /></span>
-    <span class="fileinput-filename"><span class="fileinput-new">No file chosen</span></span>
-                             <button type="submit" name="Submit" class="btn btn-upload-pdf">Upload PDF
-                        </button>
-                                <span class="error"></span>  
-</div>
-          
+                            <span class="btn btn-choose btn-file">
+                                <span>Choose file</span>
+                                <input  type="file" name="image" accept="application/pdf" id="image"  />
+                            </span>
+                            <span class="fileinput-filename">
+                                <span class="fileinput-new">No file chosen</span>
+                            </span>
+                            <button type="submit" name="Submit" class="btn btn-upload-pdf">Upload PDF</button>
+                            <span class="error"></span>
                         </div>
-                            
+                    </div>
                     </form>
-      
-
                     <div class="col-md-12">
                         <div class="row pdf_view">
-                <?php
-                if(isset($_SESSION['selectedProperty'])) {
-                    $getinspections = HandleDocuments::loadInspections($_SESSION['selectedProperty']->id);
-                    if ($getinspections != null) {
-                        foreach ($getinspections as $key => $value) {
-                            echo $value;
+                        <?php
+                        if(isset($_SESSION['selectedProperty'])) {
+                            $getinspections = HandleDocuments::loadInspections($_SESSION['selectedProperty']->id);
+                            if ($getinspections != null) {
+                                foreach ($getinspections as $key => $value) {
+                                    echo $value;
+                                }
+                            }
                         }
-                    }
-                }
-
-
-                ?>
-
-
-                     </div>
+                        ?>
+                        </div>
                     </div>
                 </div>
             </div>
-
-
-
             <div role="pillpanel" class="pill-pane" id="rta">
                 <div class="row p_rta">
                     <div class="col-md-8">
@@ -219,11 +195,6 @@ if(isset($_SESSION['selectedProperty'])) {
                     </div>
                 </div>
             </div>
-
-
-
-
-           
         </div>
     </div>
 </div>
@@ -298,8 +269,6 @@ if(isset($_SESSION['selectedProperty'])) {
     </div>
 </div>
 
-
-
 <!-- assign tenant modal -->
 <div class="modal modal-vcenter fade" id="tenantForm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
     <div class="modal-dialog modal-md">
@@ -365,14 +334,6 @@ if(isset($_SESSION['selectedProperty'])) {
     </div>
 </div>
 
-    
-
-
-
-<script type="text/javascript">
-    
-    
-</script>
 <script src="<?php echo WEBDIR?>/pdf_js/shared/util.js"></script>
 <script src="<?php echo WEBDIR?>/pdf_js/display/api.js"></script>
 <script src="<?php echo WEBDIR?>/pdf_js/display/metadata.js"></script>
@@ -430,7 +391,6 @@ if(isset($_SESSION['selectedProperty'])) {
             page.render(renderContext);
         });
     });
-
              </script>";
       }
   }
@@ -481,25 +441,20 @@ if(isset($_SESSION['selectedProperty'])) {
         });
 
     });
-
              </script>";
     }
 }
-
-
 ?>
-    <script src="/wallfly-mvc/public/js/jasny-bootstrap.js"></script>
+<script src="/wallfly-mvc/public/js/jasny-bootstrap.js"></script>
 <script>
     $(document).ready(function () {
-    var docAdded = <?php if(isset($_SESSION['docAdded'])){echo "'".$_SESSION['docAdded']."'";}else{echo "false";}?>;
-    if (docAdded == "true") {
-        swal("Success", "You have uploaded a document", "success");
-        <?php unset($_SESSION['docAdded']);?>
-    } else if (docAdded == "false") {
-        <?php unset($_SESSION['docAdded']);?>
-
-    }
-
+        var docAdded = <?php if(isset($_SESSION['docAdded'])){echo "'".$_SESSION['docAdded']."'";}else{echo "false";}?>;
+        if (docAdded == "true") {
+            swal("Success", "You have uploaded a document", "success");
+            <?php unset($_SESSION['docAdded']);?>
+        } else if (docAdded == "false") {
+            <?php unset($_SESSION['docAdded']);?>
+        }
     });
 </script>
 <script>
@@ -510,10 +465,8 @@ if(isset($_SESSION['selectedProperty'])) {
             <?php unset($_SESSION['inspectionAdded']);?>
         } else if (inspectionAdded == "false") {
             <?php unset($_SESSION['inspectionAdded']);?>
-
         }
     });
-    
     document.title = 'Properties - WallFly';
 </script>
 <?php }?>
