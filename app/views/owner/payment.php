@@ -34,8 +34,6 @@ require_once '../app/views/templates/interfaceStart.php';
         <!-- Pill panes -->
         <div class="pill-content payments_view">
             <div role="pillpanel" class="pill-pane active">
-              
-                       
                 <?php
                     if (isset($_SESSION['selectedProperty'])) {
                         $result = $_SESSION['selectedProperty']->getPayments();
@@ -47,30 +45,8 @@ require_once '../app/views/templates/interfaceStart.php';
                     }
                 ?>
             </div>
-         
-        
             <div role="pillpanel" class="pill-pane" id="payment_history">
-          
-<!--
-                <div class='row payment_history'>
-                        <div class='col-md-6'>
-                            <div class='payment_history_date'>
-                            <div class='hd-text-date'>Date<hr class='payment_hr'></div>
-                            <div class='bd-text-date'></div>
-                        </div>
-                            </div>
-                        <div class='col-md-6 payment_history_amount'>
-                            <div class='payment_history_amount'>
-                            <div class='hd-text-amount'>Amount<hr class='payment_hr'></div>
-                            <div class='bd-text-amount'></div>
-                        </div>
-                            </div>
-             
-    
-           </div>
--->
                 <?php if (isset($_SESSION['selectedProperty'])) { ?>
-             
                     <?php
                     $result = $_SESSION['selectedProperty']->getPayments();
                     if ($result) {
@@ -91,10 +67,7 @@ require_once '../app/views/templates/interfaceStart.php';
                         }
                     }
                     ?>
-         
                 <?php }?>
-      
-            
             </div>
             <div role="pillpanel" class="pill-pane" id="add_payment">
                 <div class="add_payments">

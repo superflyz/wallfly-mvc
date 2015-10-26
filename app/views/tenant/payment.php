@@ -47,28 +47,35 @@ require_once '../app/views/templates/interfaceStart.php';
                 }
               ?>
             </div>
-         
-        
             <div role="pillpanel" class="pill-pane" id="home4">
-                   
                 <?php if (isset($_SESSION['selectedProperty'])) { ?>
                   <div class="row">
                 <div class="col-md-12">
-                    <div class="payments">
-                    <?php
-                    $result = $_SESSION['selectedProperty']->getPayments();
-                    if ($result) {
-                        foreach ($result as $row) {
-                            echo "<p>Date: " . date('d/m/y', strtotime($row['time'])) . " Amount: $" . $row['amount'];
+                    <?php if (isset($_SESSION['selectedProperty'])) { ?>
+                        <?php
+                        $result = $_SESSION['selectedProperty']->getPayments();
+                        if ($result) {
+                            foreach ($result as $row) {
+                                echo "
+                            <div class='row payment_history'>
+                            <div class='col-md-6 col-sm-6 col-xs-6'>
+                            <div class='payment_history_date'>
+                            <div class='hd-text-date'>Date<hr class='payment_hr'></div>
+                            <div class='bd-text-date'>" . date('M, d Y', strtotime($row['time'])) . "</div></div></div>" .
+
+                                    "<div class='col-md-6 col-sm-6 col-xs-6 payment_history_amount'>
+                            <div class='payment_history_amount'>
+                            <div class='hd-text-amount'>Amount<hr class='payment_hr'></div>
+                            <div class='bd-text-amount'>$" . $row['amount'] . "</div>
+                            </div></div></div>";
+
+                            }
                         }
-                    }
-                    ?>
-                </div>
+                        ?>
+                    <?php }?>
                     </div>
                 </div>
                 <?php }?>
-      
-            
             </div>
             <div role="pillpanel" class="pill-pane" id="profile2">
                 <div class="add_payments">
@@ -132,13 +139,13 @@ require_once '../app/views/templates/interfaceStart.php';
 
                         <!-- end date picker -->
                         <div class="row first_row">
-                        <div class="col-md-4 col-md-offset-1">
-                <div class="form-field">
-                                <label for="creditCard">Credit Card Number</label>
-                                <input name="creditCard" id= "creditCard" type="text" class="form-control">
-                                <span class="error"></span>
+                            <div class="col-md-4 col-md-offset-1">
+                                <div class="form-field">
+                                    <label for="creditCard">Credit Card Number</label>
+                                    <input name="creditCard" id= "creditCard" type="text" class="form-control">
+                                    <span class="error"></span>
+                                </div>
                             </div>
-                        </div>
                         <div class="col-md-1"></div>
                         <div class="col-md-4">
                        <div class="form-field">
@@ -148,18 +155,14 @@ require_once '../app/views/templates/interfaceStart.php';
                             </div>
                         </div>
                     </div>
-           
-     
-
-     
                         <div class="row">
                             <div class="col-md-12">
-    <button type="submit" name="Submit" value="submit" id="submit-btn" style="margin-top: 10px;" class="btn btn-primary submit eventsubmit pull-right">Add Payment</button>
+                                <button type="submit" name="Submit" value="submit" id="submit-btn" style="margin-top: 10px;" class="btn btn-primary submit eventsubmit pull-right">Add Payment</button>
                         </div>
-                    </div>
+                        </div>
                     </form>
                     <?php }?>
-     </div>
+                </div>
 
             </div>
         </div>
