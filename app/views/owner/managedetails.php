@@ -315,7 +315,16 @@ if(isset($_SESSION['selectedProperty'])) {
                 <p class="modal-title">Assign Tenant</p>
             </div>
             <div class="modal-body">
-                <form action="<?=WEBDIR?>/propertyowner/assigntenant" method="post">
+                <div class="row">
+                    <div class="col-md-12">
+                        <label for="assignmode">Select action</label>
+                        <select id="assignmode" class="form-control">
+                            <option value="new">Create a new tenant account</option>
+                            <option value="existing">Assign existing tenant</option>
+                        </select>
+                    </div>
+                </div>
+                <form action="<?=WEBDIR?>/propertyowner/assigntenant" id="assignNewForm" method="post">
                     <div class="col-md-6">
                         <div class="at_field_fn">
                             <label for="firstname">First name</label>
@@ -330,21 +339,29 @@ if(isset($_SESSION['selectedProperty'])) {
                             <span class="error"></span>
                         </div>
                     </div>
-                    <div class="col-md-6">
-                        <div class="at_field_em">
-                            <label for="email">Email address</label>
-                            <input type="email" class="form-control" id="email" name="email" required>
-                        </div>
+                    <div class="form-field">
+                        <label for="email">Email address</label>
+                        <input type="email" class="form-control" id="email" name="email" required>
                     </div>
-                    <div class="col-md-6">
-                        <div class="at_field_ph">
-                            <label for="phone">Phone</label>
-                            <input type="text" class="form-control" id="phone" name="phone" required>
-                        </div>
+                    <div class="form-field">
+                        <label for="phone">Phone</label>
+                        <input type="text" class="form-control" id="phone" name="phone" required>
                     </div>
                     <div class="col-md-12">
                         <div class="at_btnz">
                             <button type="submit" class="btn btn-save-changes pull-right">Save changes</button>
+                        </div>
+                    </div>
+                </form>
+                <form action="<?=WEBDIR?>/propertyowner/assignexistingtenant" id="assignExistingForm" method="post">
+                    <div class="form-field">
+                        <label for="email2">Email address</label>
+                        <input type="email" class="form-control" id="email2" name="email" autocomplete="off" required>
+                        <p id="tenantError" style="color: red"></p>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="at_btnz">
+                            <button type="submit" id="submit2" class="btn btn-save-changes pull-right">Save changes</button>
                         </div>
                     </div>
                 </form>

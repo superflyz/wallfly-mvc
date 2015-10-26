@@ -22,7 +22,8 @@ class PropertyOwner extends Controller
 
       $this->setJavascriptDependencies([
 
-          WEBDIR . '/js/sweetalert.min.js'
+          WEBDIR . '/js/sweetalert.min.js',
+          WEBDIR . '/js/assigntenantformhandler.js'
 
       ]);
 
@@ -510,6 +511,31 @@ class PropertyOwner extends Controller
       $this->redirect('/');
     } else {
       $this->view('owner/notifications');
+    }
+  }
+
+  public function assignexistingtenant()
+  {
+    if (!Owner::isAuthenticated()) {
+      $this->redirect('/');
+    } else {
+      if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        // 1. get the post variables
+        $email = $_POST['email'];
+
+        // 2. get the tenant
+        $tenant = Tenant::get([ 'email' => $email ])[0];
+
+        // 4. assign the tenant to the property
+        $_SESSION['selectedProperty']->setTenant($tenant);
+
+        // 5. set success message
+        Flash::set('message', "{$tenant->firstname} {$tenant->lastname} has been added to this property");
+        $_SESSION['sidebar'] = "manage";
+
+        // 6. redirect to property page
+        $this->redirect('/propertyowner/manage');
+      }
     }
   }
 

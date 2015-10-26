@@ -347,7 +347,7 @@ require_once '../app/views/templates/interfaceStart.php';
                 <form action="<?=WEBDIR?>/propertyagent/assignexistingtenant" id="assignExistingForm" method="post">
                     <div class="form-field">
                         <label for="email2">Email address</label>
-                        <input type="email" class="form-control" id="email2" name="email" required>
+                        <input type="email" class="form-control" id="email2" name="email" autocomplete="off" required>
                         <p id="tenantError" style="color: red"></p>
                     </div>
                     <div class="col-md-12">
