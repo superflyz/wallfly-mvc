@@ -29,6 +29,7 @@ class PropertyAgent extends Controller
       $this->setJavascriptDependencies([
         WEBDIR . '/js/assigntenantformhandler.js'
       ]);
+      $_SESSION['sidebar'] = "manage";
       $this->view('agent/managedetails', $data);
     }
   }
@@ -38,6 +39,7 @@ class PropertyAgent extends Controller
     if (!Agent::isAuthenticated()) {
       $this->redirect('/');
     } else {
+      $_SESSION['sidebar'] = "manage";
       $this->view('agent/managedetails');
     }
   }
@@ -48,36 +50,22 @@ class PropertyAgent extends Controller
       $this->redirect('/');
     } else {
       $this->setJavascriptDependencies([
-
           WEBDIR . '/dzscalendar/dzscalendar.js',
           WEBDIR . '/js/sweetalert.min.js',
           WEBDIR . '/bootstrap/bootstrap.js',
           WEBDIR . '/clockpicker/js/bootstrap.min.js',
           WEBDIR . '/clockpicker/js/timepicki.js'
-
       ]);
-
       $this->setCSSDependencies([
-
           WEBDIR . '/css/bootstrap.css',
-        //WEBDIR . '/style/style.css',
-        // 'http://fonts.googleapis.com/css?family=Carrois+Gothic',
           WEBDIR . '/dzstooltip/dzstooltip.css',
           WEBDIR . '/dzscalendar/dzscalendar.css',
-        //'http://fonts.googleapis.com/css?family=Open+Sans',
-        // WEBDIR . '/clockpicker/css/bootstrap.css',
-
           WEBDIR . '/css/sweetalert.css',
           WEBDIR . '/css/wallfly.css',
           WEBDIR . '/css/module.css',
           WEBDIR . '/clockpicker/css/timepicki.css'
-
-
-
-
       ]);
-
-
+      $_SESSION['sidebar'] = "calendar";
       $this->view('agent/calendar');
     }
   }
@@ -87,17 +75,13 @@ class PropertyAgent extends Controller
     if (!Agent::isAuthenticated()) {
       $this->redirect('/');
     } else {
-
       $this->setJavascriptDependencies([
           WEBDIR . '/js/chat.js'
-
       ]);
-
       $this->setCSSDependencies([
           WEBDIR . '/css/module.css'
-
       ]);
-
+      $_SESSION['sidebar'] = "chat";
       $this->view('agent/chat');
     }
   }
@@ -109,12 +93,11 @@ class PropertyAgent extends Controller
     } else {
       $this->setJavascriptDependencies([
           WEBDIR . '/js/selectProperty.js'
-
       ]);
       $this->setCSSDependencies([
           WEBDIR . '/css/module.css'
-
       ]);
+      $_SESSION['sidebar'] = "payment";
       $this->view('agent/payment');
     }
   }
@@ -124,6 +107,7 @@ class PropertyAgent extends Controller
     if (!Agent::isAuthenticated()) {
       $this->redirect('/');
     } else {
+      $_SESSION['sidebar'] = "payment";
       $this->view('agent/viewpayments');
     }
   }
@@ -137,7 +121,6 @@ class PropertyAgent extends Controller
           WEBDIR . '/dzscalendar/dzscalendar.js',
           WEBDIR . '/js/paymentDatePicker.js'
       ]);
-
       $this->setCSSDependencies([
           'http://fonts.googleapis.com/css?family=Carrois+Gothic',
           WEBDIR . '/dzstooltip/dzstooltip.css',
@@ -145,6 +128,7 @@ class PropertyAgent extends Controller
           'http://fonts.googleapis.com/css?family=Open+Sans',
           WEBDIR . '/css/module.css'
       ]);
+      $_SESSION['sidebar'] = "payment";
       $this->view('agent/addpayment');
     }
   }
@@ -157,8 +141,10 @@ class PropertyAgent extends Controller
       $result = $_SESSION['selectedProperty']->addPayment($_POST['payeeName'], $_POST['startDate'], $_POST['endDate'],
           $_POST['amount']);
       if ($result == false) {
+        $_SESSION['sidebar'] = "payment";
         $this->view('agent/addpayment');
       } else {
+        $_SESSION['sidebar'] = "payment";
         $this->view('agent/viewpayments');
       }
     }
@@ -171,12 +157,11 @@ class PropertyAgent extends Controller
     } else {
       $this->setJavascriptDependencies([
           WEBDIR . '/js/selectProperty.js'
-
       ]);
       $this->setCSSDependencies([
           WEBDIR . '/css/module.css'
-
       ]);
+      $_SESSION['sidebar'] = "repair";
       $this->view('agent/repair');
     }
   }
@@ -188,6 +173,7 @@ class PropertyAgent extends Controller
     } else {
       $tmp = explode("/", $_POST['submit']);
       $result = $_SESSION['selectedProperty']->processRepairRequest($tmp[0], $tmp[1], $_POST[$tmp[2]]);
+      $_SESSION['sidebar'] = "repair";
       $this->redirect('/propertyagent/repair');
     }
   }
@@ -198,9 +184,7 @@ class PropertyAgent extends Controller
       $this->redirect('/');
     } else {
       if ($_SERVER['REQUEST_METHOD'] === 'POST'){
-
         $property = $_SESSION['selectedProperty'];
-
         // ============
         // IMAGE UPLOAD
         // ============
@@ -239,10 +223,10 @@ class PropertyAgent extends Controller
         // ========================
         // END UPDATE PROPERTY INFO
         // ========================
-
+        $_SESSION['sidebar'] = "manage";
         $this->redirect('/propertyagent/manage');
-
       } else {
+        $_SESSION['sidebar'] = "manage";
         $this->view('agent/editproperty');
       }
     }
@@ -308,8 +292,10 @@ class PropertyAgent extends Controller
         ]);
         Flash::set('message', 'You added a new property!');
         $_SESSION['selectedProperty'] = $property;
+        $_SESSION['sidebar'] = "manage";
         $this->redirect('/propertyagent/manage');
       } else {
+        $_SESSION['sidebar'] = "dashboard";
         $this->view('agent/index');
       }
     }

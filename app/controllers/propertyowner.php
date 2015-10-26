@@ -21,12 +21,9 @@ class PropertyOwner extends Controller
     } else {
 
       $this->setJavascriptDependencies([
-
           WEBDIR . '/js/sweetalert.min.js',
           WEBDIR . '/js/assigntenantformhandler.js'
-
       ]);
-
       $this->setCSSDependencies([
           WEBDIR . '/css/sweetalert.css'
       ]);
@@ -70,7 +67,6 @@ class PropertyOwner extends Controller
     } else {
       $this->setJavascriptDependencies([
               WEBDIR . '/js/chat.js'
-
       ]);
       $_SESSION['sidebar'] = "chat";
       $this->view('owner/chat');
