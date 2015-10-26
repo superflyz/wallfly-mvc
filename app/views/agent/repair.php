@@ -35,11 +35,14 @@ require_once '../app/views/templates/interfaceStart.php';
                     $count = 0;
                     foreach ($result as $row) {
                         if ($row['status'] == 0){
+                            $status = "Pending";
                             $row['status']= "<div class='status_p'><i class='fa fa-question'></i></div>";
                         }elseif($row['status'] == 1){
+                            $status = "Approved";
                             $row['status']= "<div class='status_a'><i class='fa fa-check'></i></div>";
-                        }else{$row['status']= "<div class='status_d'><i class='fa fa-times'></i></div>";}
-
+                        }else{
+                            $status = "Denied";
+                            $row['status']= "<div class='status_d'><i class='fa fa-times'></i></div>";}
                         if ($row['severity_level'] == "low"){
                             $row['severity_level']= "<div class='s_lvl_low'>LOW</div>";
                         }elseif($row['severity_level'] == "medium"){
@@ -73,7 +76,7 @@ require_once '../app/views/templates/interfaceStart.php';
     
                         
                             <div class='hd-text-status'>Status<hr class='repair_hr'></div>
-            <div class='bd-text-status'>" . $row['status'] . "</div>"
+            <div class='bd-text-status'>" . $status . $row['status'] . "</div>"
                             ;
                             
                         ?>
