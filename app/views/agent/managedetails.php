@@ -11,6 +11,9 @@ require_once '../app/views/templates/interfaceStart.php';
     </div>
 </div>
 
+<?php
+if(isset($_SESSION['selectedProperty'])) {
+?>
 <div class="row">
     <div class="col-md-12">
         <div class="manage_properties_pills">
@@ -513,7 +516,7 @@ if(isset($_SESSION['selectedProperty'])) {
     
     document.title = 'Properties - WallFly';
 </script>
-    
+<?php }?>
 <?php
 require_once '../app/views/templates/interfaceEnd.php';
 ?>
