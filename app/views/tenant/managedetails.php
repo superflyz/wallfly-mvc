@@ -17,8 +17,8 @@ if(isset($_SESSION['selectedProperty'])) {
 ?>
 
 <div class="row">
-    <div class="col-md-12">
-        <div class="manage_properties_pills">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="hidden-xs manage_properties_pills">
             <!-- Nav pills -->
             <ul class="nav nav-pills nav-justified properties_pills">
                 <li role="presentation" class="active"><a href="#detail" aria-controls="detail" role="pill" data-toggle="pill">Property Details</a></li>
@@ -26,7 +26,17 @@ if(isset($_SESSION['selectedProperty'])) {
                 <li role="presentation"><a href="#inspections" aria-controls="inspections" role="pill" data-toggle="pill">Inspections</a></li>
                 <li role="presentation"><a href="#rta" aria-controls="rta" role="pill" data-toggle="pill">R.T.A</a></li>
             </ul>
-
+        </div>
+        <div class="visible-xs manage_properties_pills">
+            <!-- Nav pills -->
+            <ul class="nav nav-pills nav-stacked properties_pills">
+                <li role="presentation" class="active"><a href="#detail" aria-controls="detail" role="pill" data-toggle="pill">Property Details</a></li>
+                <li role="presentation"><a href="#documents" aria-controls="documents" role="pill" data-toggle="pill">Documents</a></li>
+              
+                <li role="presentation"><a href="#inspections" aria-controls="inspections" role="pill" data-toggle="pill">Inspections</a></li>
+                <li role="presentation"><a href="#rta" aria-controls="rta" role="pill" data-toggle="pill">R.T.A</a></li>
+            </ul>
+        
         </div>
     </div>
 </div>
@@ -35,7 +45,7 @@ if(isset($_SESSION['selectedProperty'])) {
 
 <div class="row bottom-section">
     <div class="row">
-        <div class="col-md-12">
+    <div class="col-md-12 col-sm-12 col-xs-12">
             <!-- Pill panes -->
             <div class="pill-content manage_properties_view">
                 <div role="pillpanel" class="pill-pane active" id="detail">
@@ -43,14 +53,14 @@ if(isset($_SESSION['selectedProperty'])) {
 
                     <div class="row property_details">
                         <?php if ($property = $data['property']): ?>
-                        <div class="col-md-4">
+                        <div class="col-md-4 col-sm-4 col-xs-12">
                             <div class="pd_img">
                                 <!-- This is to get the property photo -->
                                 <img src="<?=$data['property']->photo?>" class="img-responsive" alt="property_photo" title="Property photo">
                             </div>
                         </div>
 
-                        <div class="col-md-8">
+                         <div class="col-md-8 col-sm-8 col-xs-12">
                             <div class="pd_address">
                                 <!-- This is to get the property address -->
                                 <div class="pd_hd">Address<hr class='pd_hr'></div>
@@ -114,7 +124,7 @@ if(isset($_SESSION['selectedProperty'])) {
                         <?php if ($error = Flash::get('pdferror')): ?>
                             <div class="alert alert-default" role="alert" style="color:rgb(159, 221, 94)"><?=$error?>!!!</div>
                         <?php endif ?>
-                        <div class="col-md-12">
+                          <div class="col-md-12 col-sm-12 col-xs-12">
                             <div class="row pdf_view">
 
 
@@ -140,7 +150,7 @@ if(isset($_SESSION['selectedProperty'])) {
                     <div class="row d_upload_pdf">
 
 
-                        <div class="col-md-12">
+                         <div class="col-md-12 col-sm-12 col-xs-12">
                             <div class="row pdf_view">
                                 <?php
                                 if(isset($_SESSION['selectedProperty'])) {

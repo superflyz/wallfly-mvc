@@ -21,7 +21,7 @@ require_once '../app/views/templates/interfaceStartIndex.php';
             $count = 0;
             foreach ($properties as $property) {
                 ?>
-                <div class="col-md-3">
+                <div class="col-md-3 col-sm-4 col-xs-12">
                     <form id="viewDetails" method="post" action="<?=WEBDIR?>/propertytenant/viewDetails">
                         <div class="dash_p">
                             <div class="dash_p_img">

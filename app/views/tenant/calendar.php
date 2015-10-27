@@ -14,9 +14,10 @@ require_once '../app/views/templates/interfaceStart.php';
 
 <!--Content here-->
 <div class="row bottom-section">
-    <div class="col-md-12">
+    <div class="row">
+        <div class="col-md-12">
 <!--start calendar-->
-<div id="calender">
+<div id="calender_tenant">
     <div class="dzscalendar skin-responsive-galileo mode-normal tooltip_transition-tooltipDef">
         <div class="dzscalendar skin-responsive-galileo auto-init " style="" data-options="{
             design_month_covers : ['../images/calendar/jan.jpg','../images/calendar/feb.jpg','../images/calendar/mar.jpg','../images/calendar/apr.jpg','../images/calendar/may.jpg','../images/calendar/jun.jpg','../images/calendar/jul.jpg','../images/calendar/aug.jpg','../images/calendar/sep.jpg','../images/calendar/oct.jpg','../images/calendar/nov.jpg','../images/calendar/dec.jpg']
@@ -79,7 +80,7 @@ require_once '../app/views/templates/interfaceStart.php';
 
 </div>
 </div>
-</div>
+
 
 
 <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>

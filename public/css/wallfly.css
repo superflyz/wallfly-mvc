@@ -3411,6 +3411,15 @@ color: #333333;}
     
 }
 
+#calender_tenant {
+/*    background: red;*/
+    height: auto;
+    margin: 20px 0px 33px 0px;
+    width: 100%;
+    padding: 0px;
+    
+}
+
 .event_time {
     
     color: #333333;
