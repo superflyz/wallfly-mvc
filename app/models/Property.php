@@ -173,4 +173,9 @@ class Property extends Model
     $this->update();
   }
 
+  public function getRent()
+  {
+    return $this->rent_amount;
+  }
+
 }

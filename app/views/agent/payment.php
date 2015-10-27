@@ -37,9 +37,14 @@ require_once '../app/views/templates/interfaceStart.php';
                     <?php
                     if (isset($_SESSION['selectedProperty'])) {
                         $result = $_SESSION['selectedProperty']->getPayments();
+                        $rent = $_SESSION['selectedProperty']->getRent();
+                        $rentType = $_SESSION['selectedProperty']->payment_schedule;
                         if ($result) {
                             for ($i = 0; $i < 1; $i++) {
-                                echo "<div class='last_payment'><p>Last payment was <b>$" . $result[$i]['amount'] . "</b> payed on <i>" . date('M, d Y', strtotime($result[$i]['time'])) . "</i></p></div>";
+                                echo "<div class='last_payment'>
+                                        <p>Weekly rent is $" . $rent . " and it is due " . $rentType . "</p>
+                                        <p>Last payment was <b>$" . $result[$i]['amount'] . "</b> payed on <i>" . date('M, d Y', strtotime($result[$i]['time'])) . "</i></p>
+                                    </div>";
                             }
                         }
                     }
