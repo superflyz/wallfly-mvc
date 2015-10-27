@@ -28,7 +28,8 @@ class PropertyAgent extends Controller
       $data['agent'] = $_SESSION['user'];
       $this->setJavascriptDependencies([
         WEBDIR . '/js/assigntenantformhandler.js',
-        WEBDIR . '/js/assignownerformhandler.js'
+        WEBDIR . '/js/assignownerformhandler.js',
+        WEBDIR . '/js/promptdelete.js'
       ]);
       $_SESSION['sidebar'] = "manage";
       $this->view('agent/managedetails', $data);
