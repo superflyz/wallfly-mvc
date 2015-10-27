@@ -63,8 +63,7 @@
 
     $(document).ready(function () {
            chatLoad(ID,pID);
-        var objDiv = document.getElementById("chatbox");
-        objDiv.scrollTop = objDiv.scrollHeight;
+        $('#chatbox').scrollTop($('#chatbox')[0].scrollHeight);
         $("#btn-send-msg").click(function () {
             var type="";
             switch (userType) {
