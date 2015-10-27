@@ -1,6 +1,7 @@
 <?php
 require_once '../app/views/templates/interfaceStart.php';
 ?>
+
 <!--Content here-->
 <div class="row">
     <div class="col-md-12">
@@ -10,6 +11,10 @@ require_once '../app/views/templates/interfaceStart.php';
         </div>
     </div>
 </div>
+
+<?php
+if(isset($_SESSION['selectedProperty'])) {
+?>
 
 <div class="row">
     <div class="col-md-12">
@@ -195,161 +200,148 @@ require_once '../app/views/templates/interfaceStart.php';
         </div>
     </div>
 
+<script src="<?php echo WEBDIR?>/pdf_js/shared/util.js"></script>
+<script src="<?php echo WEBDIR?>/pdf_js/display/api.js"></script>
+<script src="<?php echo WEBDIR?>/pdf_js/display/metadata.js"></script>
+<script src="<?php echo WEBDIR?>/pdf_js/display/canvas.js"></script>
+<script src="<?php echo WEBDIR?>/pdf_js/display/webgl.js"></script>
+<script src="<?php echo WEBDIR?>/pdf_js/display/pattern_helper.js"></script>
+<script src="<?php echo WEBDIR?>/pdf_js/display/font_loader.js"></script>
+<script src="<?php echo WEBDIR?>/pdf_js/display/annotation_helper.js"></script>
 
-
-
-
-
-
-
-    <script type="text/javascript">
-
-
-    </script>
-    <script src="<?php echo WEBDIR?>/pdf_js/shared/util.js"></script>
-    <script src="<?php echo WEBDIR?>/pdf_js/display/api.js"></script>
-    <script src="<?php echo WEBDIR?>/pdf_js/display/metadata.js"></script>
-    <script src="<?php echo WEBDIR?>/pdf_js/display/canvas.js"></script>
-    <script src="<?php echo WEBDIR?>/pdf_js/display/webgl.js"></script>
-    <script src="<?php echo WEBDIR?>/pdf_js/display/pattern_helper.js"></script>
-    <script src="<?php echo WEBDIR?>/pdf_js/display/font_loader.js"></script>
-    <script src="<?php echo WEBDIR?>/pdf_js/display/annotation_helper.js"></script>
-
-    <script>
-        // Specify the main script used to create a new PDF.JS web worker.
-        // In production, leave this undefined or change it to point to the
-        // combined `pdf.worker.js` file.
-        PDFJS.workerSrc = '<?php echo WEBDIR?>/pdf_js/worker_loader.js';
-    </script>
-    <?php
-    if(isset($_SESSION['selectedProperty'])) {
-        $pdfMagic = HandleDocuments::setPdfThumbs($_SESSION['selectedProperty']->id);
-        foreach ($pdfMagic as $key => $value) {
-            //echo "<script>alert('".$key."');</script>";
-            echo "<script>
-                 /* -*- Mode: Java; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
-                 /* vim: set shiftwidth=2 tabstop=2 autoindent cindent expandtab: */
-
-                //
-                // See README for overview
-                //
-
-                'use strict';
-
-                //
-                // Fetch the PDF document from the URL using promises
-                //
-                 PDFJS.getDocument('/wallfly-mvc/public/" . $value . "').then(function(pdf) {
-        // Using promise to fetch the page
-        pdf.getPage(1).then(function(page) {
-            var scale = 0.2;
-            var viewport = page.getViewport(scale);
+<script>
+    // Specify the main script used to create a new PDF.JS web worker.
+    // In production, leave this undefined or change it to point to the
+    // combined `pdf.worker.js` file.
+    PDFJS.workerSrc = '<?php echo WEBDIR?>/pdf_js/worker_loader.js';
+</script>
+<?php
+if(isset($_SESSION['selectedProperty'])) {
+    $pdfMagic = HandleDocuments::setPdfThumbs($_SESSION['selectedProperty']->id);
+    foreach ($pdfMagic as $key => $value) {
+        //echo "<script>alert('".$key."');</script>";
+        echo "<script>
+             /* -*- Mode: Java; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
+             /* vim: set shiftwidth=2 tabstop=2 autoindent cindent expandtab: */
 
             //
-            // Prepare canvas using PDF page dimensions
+            // See README for overview
             //
-            var canvas = document.getElementById('" . $key . "');
-            var context = canvas.getContext('2d');
-            canvas.height = viewport.height;
-            canvas.width = viewport.width;
+
+            'use strict';
 
             //
-            // Render PDF page into canvas context
+            // Fetch the PDF document from the URL using promises
             //
-            var renderContext = {
-                canvasContext: context,
-                viewport: viewport
-            };
-            page.render(renderContext);
-        });
+             PDFJS.getDocument('/wallfly-mvc/public/" . $value . "').then(function(pdf) {
+    // Using promise to fetch the page
+    pdf.getPage(1).then(function(page) {
+        var scale = 0.2;
+        var viewport = page.getViewport(scale);
+
+        //
+        // Prepare canvas using PDF page dimensions
+        //
+        var canvas = document.getElementById('" . $key . "');
+        var context = canvas.getContext('2d');
+        canvas.height = viewport.height;
+        canvas.width = viewport.width;
+
+        //
+        // Render PDF page into canvas context
+        //
+        var renderContext = {
+            canvasContext: context,
+            viewport: viewport
+        };
+        page.render(renderContext);
+    });
+});
+
+         </script>";
+    }
+}
+?>
+<?php
+if(isset($_SESSION['selectedProperty'])) {
+    $pdfMagic2 = HandleDocuments::setInspectionPdfThumbs($_SESSION['selectedProperty']->id);
+    foreach ($pdfMagic2 as $key => $value) {
+        //echo "<script>alert('".$key."');</script>";
+        echo "<script>
+             /* -*- Mode: Java; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
+             /* vim: set shiftwidth=2 tabstop=2 autoindent cindent expandtab: */
+
+            //
+            // See README for overview
+            //
+
+            'use strict';
+
+            //
+            // Fetch the PDF document from the URL using promises
+            //
+    PDFJS.getDocument('/wallfly-mvc/public/" . $value . "').then(function(pdf) {
+    // Using promise to fetch the page
+
+    pdf.getPage(1).then(function(page) {
+        var scale = 0.2;
+        var viewport = page.getViewport(scale);
+
+        //
+        // Prepare canvas using PDF page dimensions
+        //
+        var canvas = document.getElementById('" . $key . "');
+        var context = canvas.getContext('2d');
+        canvas.height = viewport.height;
+        canvas.width = viewport.width;
+
+        //
+        // Render PDF page into canvas context
+        //
+        var renderContext = {
+            canvasContext: context,
+            viewport: viewport
+        };
+        page.render(renderContext);
     });
 
-             </script>";
-        }
+});
+
+         </script>";
     }
+}
+?>
+<script src="/wallfly-mvc/public/js/jasny-bootstrap.js"></script>
+<script>
+    $(document).ready(function () {
+        var docAdded = <?php if(isset($_SESSION['docAdded'])){echo "'".$_SESSION['docAdded']."'";}else{echo "false";}?>;
+        if (docAdded == "true") {
+            swal("Success", "You have uploaded a document", "success");
+            <?php unset($_SESSION['docAdded']);?>
+        } else if (docAdded == "false") {
+            <?php unset($_SESSION['docAdded']);?>
 
-
-    ?>
-    <?php
-    if(isset($_SESSION['selectedProperty'])) {
-        $pdfMagic2 = HandleDocuments::setInspectionPdfThumbs($_SESSION['selectedProperty']->id);
-        foreach ($pdfMagic2 as $key => $value) {
-            //echo "<script>alert('".$key."');</script>";
-            echo "<script>
-                 /* -*- Mode: Java; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
-                 /* vim: set shiftwidth=2 tabstop=2 autoindent cindent expandtab: */
-
-                //
-                // See README for overview
-                //
-
-                'use strict';
-
-                //
-                // Fetch the PDF document from the URL using promises
-                //
-        PDFJS.getDocument('/wallfly-mvc/public/" . $value . "').then(function(pdf) {
-        // Using promise to fetch the page
-
-        pdf.getPage(1).then(function(page) {
-            var scale = 0.2;
-            var viewport = page.getViewport(scale);
-
-            //
-            // Prepare canvas using PDF page dimensions
-            //
-            var canvas = document.getElementById('" . $key . "');
-            var context = canvas.getContext('2d');
-            canvas.height = viewport.height;
-            canvas.width = viewport.width;
-
-            //
-            // Render PDF page into canvas context
-            //
-            var renderContext = {
-                canvasContext: context,
-                viewport: viewport
-            };
-            page.render(renderContext);
-        });
+        }
 
     });
+</script>
+<script>
+    $(document).ready(function () {
+        var inspectionAdded = <?php if(isset($_SESSION['inspectionAdded'])){echo "'".$_SESSION['inspectionAdded']."'";}else{echo "false";}?>;
+        if (inspectionAdded == "true") {
+            swal("Success", "You have uploaded an inspection", "success");
+            <?php unset($_SESSION['inspectionAdded']);?>
+        } else if (inspectionAdded == "false") {
+            <?php unset($_SESSION['inspectionAdded']);?>
 
-             </script>";
         }
-    }
+    });
 
-
-    ?>
-    <script src="/wallfly-mvc/public/js/jasny-bootstrap.js"></script>
-    <script>
-        $(document).ready(function () {
-            var docAdded = <?php if(isset($_SESSION['docAdded'])){echo "'".$_SESSION['docAdded']."'";}else{echo "false";}?>;
-            if (docAdded == "true") {
-                swal("Success", "You have uploaded a document", "success");
-                <?php unset($_SESSION['docAdded']);?>
-            } else if (docAdded == "false") {
-                <?php unset($_SESSION['docAdded']);?>
-
-            }
-
-        });
-    </script>
-    <script>
-        $(document).ready(function () {
-            var inspectionAdded = <?php if(isset($_SESSION['inspectionAdded'])){echo "'".$_SESSION['inspectionAdded']."'";}else{echo "false";}?>;
-            if (inspectionAdded == "true") {
-                swal("Success", "You have uploaded an inspection", "success");
-                <?php unset($_SESSION['inspectionAdded']);?>
-            } else if (inspectionAdded == "false") {
-                <?php unset($_SESSION['inspectionAdded']);?>
-
-            }
-        });
-
-        document.title = 'Properties - WallFly';
-    </script>
-
-    <?php
-    require_once '../app/views/templates/interfaceEnd.php';
-    ?>
+    document.title = 'Properties - WallFly';
+</script>
+<?php } else {?>
+    <h4>Please select a property</h4>
+<?php } ?>
+<?php
+require_once '../app/views/templates/interfaceEnd.php';
+?>

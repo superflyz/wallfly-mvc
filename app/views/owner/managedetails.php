@@ -491,9 +491,9 @@ if(isset($_SESSION['selectedProperty'])) {
     
     document.title = 'Properties - WallFly';
 </script>
-
-    <?php }?>
-    
+<?php } else {?>
+    <h4>Please select a property</h4>
+<?php } ?>
 <?php
 require_once '../app/views/templates/interfaceEnd.php';
 ?>
