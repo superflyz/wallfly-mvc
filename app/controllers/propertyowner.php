@@ -21,7 +21,8 @@ class PropertyOwner extends Controller
     } else {
       $this->setJavascriptDependencies([
           WEBDIR . '/js/sweetalert.min.js',
-          WEBDIR . '/js/assigntenantformhandler.js'
+          WEBDIR . '/js/assigntenantformhandler.js',
+          WEBDIR . '/js/promptdelete.js'
       ]);
       $this->setCSSDependencies([
           WEBDIR . '/css/sweetalert.css'
