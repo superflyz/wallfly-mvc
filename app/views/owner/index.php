@@ -4,17 +4,18 @@
 
 <!--Content here-->
 <div class="row">
-    <div class="col-md-12">
-        <div class="col-md-8">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="col-md-8 col-sm-8 col-xs-12">
         <h1 class="wlcm-h1">Welcome <span class="user-color"><?php echo $_SESSION['user']->firstname?>!</span></h1>
     </div>   
-            <div class="col-md-4">
-             <button class="btn btn-add-property pull-right" data-toggle="modal" data-target="#addpropertyform"><i class="fa fa-plus-square"></i>Add property</button>
+    <div class="col-md-4 col-sm-4 col-xs-12">
+        <button class="btn btn-add-property pull-right" data-toggle="modal" data-target="#addpropertyform">         <i class="fa fa-plus-square"></i>Add property</button>
     </div>
-         </div>
+    </div>
 </div>
 </div>
 </div>
+
 <div class="row bottom-section">
     <div class="col-md-12">
         <div class="row dash_p_list">
@@ -23,7 +24,7 @@
             $count = 0;
             foreach ($properties as $property) {
                 ?>
-                <div class="col-md-3">
+                <div class="col-md-3 col-sm-4 col-xs-12">
                     <form id="viewDetails" method="post" action="<?=WEBDIR?>/propertyowner/viewDetails">
                         <div class="dash_p">
                             <div class="dash_p_img">
@@ -64,13 +65,13 @@
                             <input type="text" class="form-control" id="address" name="address" required>
                         </div>
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-6 col-sm-6 col-xs-6">
                                 <div class="ap_field_r">
                                     <label for="rent_amount">Rent amount ($)</label>
                                     <input type="text" class="form-control" id="rent_amount" name="rent_amount" required>
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-6 col-sm-6 col-xs-6">
                                 <div class="ap_field_ps">
                                     <label for="payment_schedule">Payment schedule</label>
                                     <select name="payment_schedule" id="payment" class="form-control">
@@ -82,7 +83,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-12">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
                             <div class="ap_btnz">
                                 <button type="submit" class="btn btn-save-changes pull-right">Save changes</button>
                             </div>

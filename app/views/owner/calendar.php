@@ -11,7 +11,7 @@ require_once '../app/views/templates/interfaceStart.php';
 </div>
 
  <div class="row">
-    <div class="col-md-6 col-sm-6 col-xs-12">
+    <div class="col-md-6 col-sm-12 col-xs-12">
         <div class="manage_properties_pills">
           <!-- Nav pills -->
           <ul class="nav nav-pills nav-justified properties_pills">
@@ -26,7 +26,8 @@ require_once '../app/views/templates/interfaceStart.php';
 
 <!--Content here-->
 <div class="row bottom-section">
-    <div class="col-md-12">
+    <div class="row">
+        <div class="col-md-12">
 <!--start calendar-->
 <div id="calender">
     <div class="dzscalendar skin-responsive-galileo mode-normal tooltip_transition-tooltipDef">
@@ -87,6 +88,8 @@ require_once '../app/views/templates/interfaceStart.php';
         <div style="height:  <?php //echo ($count * 80)?>px"></div>
     </div>
 </div>
+</div>
+</div>
 <!--end calendar-->
     
 <!--add event modal-->
@@ -113,13 +116,13 @@ require_once '../app/views/templates/interfaceStart.php';
                     </div>
                     <div class="row add_event_field_t">
                  
-                        <div class="col-md-6">
+                        <div class="col-md-6 col-sm-6 col-xs-6">
                             <div class="timepick">
                             <label for="time">Time</label>
                             <input id='timepicker' type='text' name='timepicker1' class="form-control"/>
                                 </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-6 col-sm-6 col-xs-6">
                             <div class="interval">
                             <label for="interval">Select Interval</label>
                             <select name="interval" class="form-control">
@@ -133,7 +136,7 @@ require_once '../app/views/templates/interfaceStart.php';
                                  </div>
                         </div>
                     </div>
-                    <div class="col-md-8">
+                    <div class="col-md-8 col-sm-8 col-xs-8">
                     <div class="add_event_field_e">
                         <label for="date">Event Date</label>
                         <input name="date" id="date" type="hidden" class="form-control" >
@@ -145,7 +148,7 @@ require_once '../app/views/templates/interfaceStart.php';
          <span class="error"></span>
                     </div>
                          </div>
-                    <div class="col-md-4">
+                    <div class="col-md-4 col-sm-4 col-xs-4">
                     <div class="add_event_field_btn">
                         <button type="submit" name="Submit" id="submit-btn" class="btn btn-add-event pull-right">Add event
                         </button>
@@ -165,7 +168,6 @@ require_once '../app/views/templates/interfaceStart.php';
 
 
                     <!-- end date picker -->
-
                 </form>
             </div>
         </div>
@@ -302,7 +304,7 @@ require_once '../app/views/templates/interfaceStart.php';
 
 
         $("body").on('click', ".removeEvent", function(){ var removeID = $(this).parent().attr("id"); swal({   title: "Are you sure?",   text: "This will permanently remove the event!",
-           type: "warning",   showCancelButton: true, confirmButtonColor: "#DD6B55",   confirmButtonText: "Yes, delete it!",   closeOnConfirm: false },
+           type: "warning",   showCancelButton: true, confirmButtonColor: "#FA4B3E",   confirmButtonText: "Yes, delete it!",   closeOnConfirm: false },
            function(){
 
 

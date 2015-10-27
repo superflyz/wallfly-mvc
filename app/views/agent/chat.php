@@ -63,6 +63,9 @@ require_once '../app/views/templates/interfaceStart.php';
 
     $(document).ready(function () {
         chatLoad(ID,pID);
+        setTimeout(function() {
+            $('#chatbox').scrollTop($('#chatbox')[0].scrollHeight);
+        }, 500);
         $("#btn-send-msg").click(function () {
             var type="";
             switch (userType) {
