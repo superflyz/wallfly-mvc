@@ -93,6 +93,7 @@ if(isset($_SESSION['selectedProperty'])) {
                                 <button class="btn btn-edit_property" id="triggermodal" data-toggle="modal" data-target="#editPropertyForm">Edit</button>
                                 <button class="btn btn-add-tenant" id="triggermodal" data-toggle="modal" data-target="#tenantForm">Assign a tenant</button>
                                 <button class="btn btn-warning" id="triggermodal" data-toggle="modal" data-target="#assignOwner">Assign an owner</button>
+                                <a class="btn btn-danger" href="<?=WEBDIR?>/propertycontrol/delete">Remove this property</a>
                             <?php endif ?>
                             </div>
                         </div>
