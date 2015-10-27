@@ -49,7 +49,7 @@ require_once '../app/views/templates/interfaceStart.php';
                          if(!empty($checkIfImageExists[1])){
                          $repairPic = "<img data-toggle='modal' class='img-responsive repair_image_enlarge' title='Repair image' alt='Repair image' src='" . $row['image']."'/>";
                          }else{  $repairPic = "<img data-toggle='modal' class='img-responsive repair_image_enlarge' title='Repair image' alt='No image' src='/wallfly-mvc/public/img/noimage.png'/>"; }
-//<div class='no_repair_img_view img-responsive' title='Repair image'><p>No image</p></div>
+
                    
                         echo "<div class='row repair_view_head'>
                         <div class='col-md-12 col-sm-12 col-xs-12 hd'>
@@ -70,8 +70,7 @@ require_once '../app/views/templates/interfaceStart.php';
     
                         
                             <div class='hd-text-status'>Status<hr class='repair_hr'></div>
-            <div class='bd-text-status'>" . $status . $row['status'] . "</div>"
-                            ;
+            <div class='bd-text-status'>" . $status . $row['status'] . "</div>";
                             
                         ?>
                 

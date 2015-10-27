@@ -205,7 +205,7 @@ class PropertyTenant extends Controller
                 WEBDIR . '/js/selectProperty.js'
             ]);
             $this->setCSSDependencies([
-                WEBDIR . '/css/module.css'
+          //      WEBDIR . '/css/module.css'
             ]);
             $_SESSION['sidebar'] = "repair";
             $this->view('tenant/repair');
@@ -258,7 +258,7 @@ class PropertyTenant extends Controller
                 WEBDIR . '/css/module.css'
             ]);
             $_SESSION['sidebar'] = "repair";
-            $this->redirect('/propertytenant/viewRepairs');
+            $this->redirect('/propertytenant/repair');
         }
     }
 

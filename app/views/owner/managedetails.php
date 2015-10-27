@@ -285,6 +285,7 @@ if(isset($_SESSION['selectedProperty'])) {
         </div>
     </div>
 </div>
+
 <!-- assign tenant modal -->
 <div class="modal modal-vcenter fade" id="tenantForm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
     <div class="modal-dialog modal-md">

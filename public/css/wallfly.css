@@ -2552,6 +2552,21 @@ li{
     
 /*    height: auto;*/
 }
+.view_repairs_tenant {
+    
+/*      background: #f8f8f8;*/
+/*    radial-gradient(#dedede,#f8f8f8);*/
+    border-radius: 4px;
+    margin: 0px 0px 0px 0px;
+    padding: 0px;
+/*
+    min-height: 1000px;
+    height: inherit;
+*/
+/*    overflow: auto;*/
+    
+/*    height: auto;*/
+}
 
 
 /*
@@ -3024,6 +3039,28 @@ border-radius: 3px;
 
 
 .btn-save-changes:hover {
+    border: 2px solid #5AD663;
+    background-color: transparent;
+    color:  #5AD663;
+}
+
+.btn-save-changes_t {
+     color: #ffffff;
+    background-color: #5AD663;
+/*    height: 40px;*/
+    font-size: 14px;
+    font-weight: 600;
+/*    width: 40%;*/
+    margin: 29px 0px 10px 0px;
+    border: 2px solid transparent;
+        -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    transition: all .3s;
+    
+}
+
+
+.btn-save-changes_t:hover {
     border: 2px solid #5AD663;
     background-color: transparent;
     color:  #5AD663;
@@ -3755,13 +3792,162 @@ padding: 0px 0px 0px 0px;
     transition: all .3s;
 }
 
-
+.make_repair {
+    
+    background-color: #f8f8f8;
+    padding: 25px;
+border-radius: 4px;
+}
 
 .btn-text .btn_repair_deny:hover {
        background-color: transparent;
     border: 2px solid #FA4B3E;
     color: #FA4B3E;
 }
+
+.btn-text .btn_repair_cs {
+    
+    background-color: #FA4B3E;
+    color: #f8f8f8;
+    height: 40px;
+    font-size: 14px;
+    font-weight: 600;
+     width: 100%;
+    margin: -110px 0px 0px 0px;
+     border: 2px solid transparent;
+        -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    transition: all .3s;
+}
+
+
+
+.btn-text .btn_repair_cs:hover {
+       background-color: transparent;
+    border: 2px solid #FA4B3E;
+    color: #FA4B3E;
+}
+    .t_add_payment_inpt1 {
+    
+/*    background: blue;*/
+    margin: 0px 0px 10px 0px;
+}
+    
+        .t_add_payment_inpt2 {
+    
+/*    background: blue;*/
+    margin: 0px 0px 10px 0px;
+}
+
+    
+    .t_add_payment_inpt1 input, .t_add_payment_inpt2 select {
+        font-weight: 400;
+    font-size: 14px;
+    height: 40px;
+/*    padding: 0px 0px 0px 0px;*/
+    padding-left: 8px;
+    margin: 0px;
+    border: 1px solid #dedede;
+        outline: 0;
+}
+    
+    .t_add_payment_inpt1 label, .t_add_payment_inpt2 label, .t_add_payment_inpt3 label, .add_payment_btn label{
+/*        background: orange;*/
+    font-weight: 600;
+    font-size: 14px;
+    padding: 0px;
+    margin: 0px 0px 6px 0px;
+    color: #333333;
+}
+    
+    .t_add_payment_inpt1 input:hover, .t_add_payment_inpt2 select:hover, .t_add_payment_inpt1 input:focus, .t_add_payment_inpt2 select:focus{
+    border: 1px solid #5AD663;
+        outline: 0;
+    box-shadow: none;
+}
+    .t_add_payment_inpt3 {
+        
+        height: auto;
+        margin: 0px 0px 10px 0px;
+    }
+    
+    .t_add_payment_inpt3 textarea {
+    background-color: #ffffff;   
+    padding: 4px 6px 4px 6px;
+overflow-y: scroll;
+        height: 50px;
+    height: auto;
+    max-height:100px;
+    margin: 0px;
+    border-radius: 4px;
+    width: 100%;
+   resize: none;
+
+
+   outline:0px !important;
+   -webkit-appearance:none;
+    box-shadow: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    border-color:  #dedede;
+
+}
+
+.t_add_payment_inpt3 textarea:hover {
+    border: 1px solid #5AD663;
+}
+
+.t_add_payment_inpt3 textarea:focus {
+    border: 1px solid #5AD663;
+}
+    
+.t_ep_field_img_file {
+/*    background: red;*/
+           margin: 0px 0px 0px 0px;
+        padding: 0px 0px 0px 0px;
+      height: auto;
+}
+
+.t_ep_field_img_file .fileinput-filename {
+    color: #333333;
+    background-color: #ffffff;
+}
+
+.t_ep_field_img_file .btn-choose {
+    color: #333333;
+    background-color: #dedede;
+}   
+    
+ .t_btn-add-payment {
+    color: #f8f8f8;
+    background-color: #5AD663;
+    height: 40px;
+    font-size: 14px;
+    font-weight: 600;
+    width: 40%;
+    margin: 30px 0px 0px 0px;
+    padding: 4px 14px 4px 14px;
+    border: 2px solid transparent;
+        -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    transition: all .3s;
+    
+}
+
+.t_btn-add-payment:hover{
+    border: 2px solid #5AD663;
+    background-color: transparent;
+    color:  #5AD663;
+} 
+   
+    
+  
+.t_ep_field_img_file .btn-choose:hover, .t_ep_field_img_file .btn-choose:focus {
+/*    border: 2px solid #5AD663;*/
+    background-color: #5AD663;
+    color:  #ffffff;
+}
+
 
 .repair_view {
     color: #333333;
@@ -3771,7 +3957,7 @@ padding: 0px 0px 0px 0px;
 .repair_view_head {
     height: auto;
     background-color: #dedede;
-     
+
     color: #333333;
     font-size: 15px;
     font-weight: 600;
@@ -3780,6 +3966,23 @@ padding: 0px 0px 0px 0px;
     border: 0px;
       border-bottom: 2px solid #5AD663;
     margin: 20px 0px 0px 0px;
+    padding: 0px 0px 0px 5px;
+    
+
+}
+
+.repair_view_head_t {
+    height: auto;
+    background-color: #dedede;
+
+    color: #333333;
+    font-size: 15px;
+    font-weight: 600;
+    text-align: left;
+    border-radius: 4px 4px 0px 0px;
+    border: 0px;
+      border-bottom: 2px solid #5AD663;
+    margin: 0px 0px 0px 0px;
     padding: 0px 0px 0px 5px;
     
 
@@ -3804,7 +4007,7 @@ padding: 0px 0px 0px 0px;
 /*        margin: 0 auto;*/
                                            
 /*background-color: aqua;*/
-    padding: 0px 10px 0px 10px;
+    padding: 0px 10px 0px 0px;
     margin: 7px 0px 0px 0px;
     border-radius: 4px;
   height: 110px;
@@ -3951,7 +4154,7 @@ padding: 0px 0px 0px 0px;
     padding: 0px;
 }
 
-.repair_view_head .hd .hd-text {
+.repair_view_head .hd .hd-text, .repair_view_head_t .hd .hd-text {
 
 
     padding: 9px 0px 7px 0px;
@@ -3960,7 +4163,8 @@ padding: 0px 0px 0px 0px;
 
 }
 
-.repair_view_body .hd .hd-text {
+
+.repair_view_body .hd .hd-text, .repair_view_body_t .hd .hd-text {
      height: auto;
       color: #333333;
 /*    background: green;*/
@@ -3973,7 +4177,7 @@ padding: 0px 0px 0px 0px;
 
 }
 
-.repair_view_body .hd .hd-text.repair_dt {
+.repair_view_body .hd .hd-text.repair_dt, .repair_view_body_t .hd .hd-text.repair_dt {
 /*    width: 100%;*/
     font-weight: 400;
     font-size: 12px;
@@ -3985,16 +4189,16 @@ padding: 0px 0px 0px 0px;
 
 
 
-.repair_view_body .hd:last-child .bd-text {
+.repair_view_body .hd:last-child .bd-text, .repair_view_body_t .hd:last-child .bd-text {
     margin-right: 0px;  
 }
 
-.repair_view_body .hd {
+.repair_view_body .hd, .repair_view_body_t .hd {
            height: auto;
 /*        position:absolute; */
 }
 
-.repair_view_body .hd .bd-text {
+.repair_view_body .hd .bd-text, .repair_view_body_t .hd .bd-text {
 
 
 /*    background: blue;*/
@@ -4012,7 +4216,7 @@ padding: 0px 0px 0px 0px;
 
 
 
-.repair_view_body .hd .hd-text-description {
+.repair_view_body .hd .hd-text-description, .repair_view_body_t .hd .hd-text-description {
      height: auto;
       color: #333333;
 /*    background: green;*/
@@ -4026,7 +4230,7 @@ padding: 0px 0px 0px 0px;
     
 }
 
-.repair_view_body .hd .hd-text-status {
+.repair_view_body .hd .hd-text-status, .repair_view_body_t .hd .hd-text-status {
        height: auto;
       color: #333333;
 /*    background: green;*/
@@ -4041,7 +4245,7 @@ padding: 0px 0px 0px 0px;
     
 }
 
-.repair_view_body .hd .hd-text-severity {
+.repair_view_body .hd .hd-text-severity, .repair_view_body_t .hd .hd-text-severity  {
       height: auto;
         color: #333333;
 /*    background: green;*/
@@ -4066,7 +4270,7 @@ padding: 0px 0px 0px 0px;
     padding: 0px;
 }
 
-.repair_view_body .hd .bd-text-description {
+.repair_view_body .hd .bd-text-description, .repair_view_body_t .hd .bd-text-description {
      height: auto;
 /*    background: red;*/
 
@@ -4081,7 +4285,7 @@ word-wrap: break-word;
     
 }
 
-.repair_view_body .hd .bd-text-status {
+.repair_view_body .hd .bd-text-status, .repair_view_body_t .hd .bd-text-status {
       height: auto;
 /*    background: red;*/
       font-weight: 400;
@@ -4092,7 +4296,7 @@ word-wrap: break-word;
     
 } 
 
-.repair_view_body .hd .bd-text-severity {
+.repair_view_body .hd .bd-text-severity, .repair_view_body_t .hd .bd-text-severity  {
        height: auto;
 /*    background: blue;*/
 /*    width: 100%;*/
@@ -4109,14 +4313,28 @@ word-wrap: break-word;
 background-color: #f8f8f8;
 /*    background-color: red;*/
     color: #333333;
-    
     height: auto;
     font-size: 14px;
     font-weight: 600;
     text-align: left;
     border-radius: 0px 0px 4px 4px;
     border: 0px;
-    margin: 3px 0px 0px 0px;
+    margin: 0px 0px 10px 0px;
+    padding: 0px 0px 10px 0px;
+    
+}
+
+.repair_view_body_t {
+background-color: #f8f8f8;
+/*    background-color: red;*/
+    color: #333333;
+    height: auto;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: left;
+    border-radius: 0px 0px 4px 4px;
+    border: 0px;
+    margin: 0px 0px 20px 0px;
     padding: 0px 0px 10px 0px;
     
 }
@@ -4225,7 +4443,7 @@ overflow-y: scroll;
 
 }
     
-    .repair_view_body .hd .bd-text-status {
+    .repair_view_body .hd .bd-text-status, .repair_view_body_t .hd .bd-text-status  {
       height: auto;
 /*    background: red;*/
       font-weight: 400;
@@ -4235,7 +4453,7 @@ word-wrap: break-word;
        
     
 } 
-    .repair_view_body .hd .repair_dt {
+    .repair_view_body .hd .repair_dt, .repair_view_body_t .hd .repair_dt {
 /*    width: 100%;*/
     font-weight: 400;
     font-size: 12px;
@@ -4269,121 +4487,7 @@ word-wrap: break-word;
 /*    repair  tenant */
     
     
-    .t_add_payment_inpt1 {
-    
-/*    background: blue;*/
-    margin: 0px 15px 10px 0px;
-}
-    
-        .t_add_payment_inpt2 {
-    
-/*    background: blue;*/
-    margin: 0px 0px 10px 15px;
-}
 
-    
-    .t_add_payment_inpt1 input, .t_add_payment_inpt2 select {
-        font-weight: 400;
-    font-size: 14px;
-    height: 40px;
-/*    padding: 0px 0px 0px 0px;*/
-    padding-left: 8px;
-    margin: 0px;
-    border: 1px solid #dedede;
-        outline: 0;
-}
-    
-    .t_add_payment_inpt1 label, .t_add_payment_inpt2 label, .t_add_payment_inpt3 label, .add_payment_btn label{
-/*        background: orange;*/
-    font-weight: 600;
-    font-size: 14px;
-    padding: 0px;
-    margin: 0px 0px 6px 0px;
-    color: #333333;
-}
-    
-    .t_add_payment_inpt1 input:hover, .t_add_payment_inpt2 select:hover, .t_add_payment_inpt1 input:focus, .t_add_payment_inpt2 select:focus{
-    border: 1px solid #5AD663;
-        outline: 0;
-    box-shadow: none;
-}
-    .t_add_payment_inpt3 {
-        
-        height: auto;
-        margin: 0px 0px 10px 0px;
-    }
-    
-    .t_add_payment_inpt3 textarea {
-    background-color: #ffffff;   
-    padding: 4px 6px 4px 6px;
-overflow-y: scroll;
-        height: 50px;
-    height: auto;
-    max-height:100px;
-    margin: 0px;
-    border-radius: 4px;
-    width: 100%;
-   resize: none;
-
-
-   outline:0px !important;
-   -webkit-appearance:none;
-    box-shadow: none;
-    -moz-box-shadow: none;
-    -webkit-box-shadow: none;
-    border-color:  #dedede;
-
-}
-
-.t_add_payment_inpt3 textarea:hover {
-    border: 1px solid #5AD663;
-}
-
-.t_add_payment_inpt3 textarea:focus {
-    border: 1px solid #5AD663;
-}
-    
-.t_ep_field_img_file {
-/*    background: red;*/
-           margin: 0px 0px 0px 0px;
-        padding: 0px 0px 0px 0px;
-      height: auto;
-}
-
-.t_ep_field_img_file .fileinput-filename {
-    color: #333333;
-    background-color: #ffffff;
-}
-
-.t_ep_field_img_file .btn-choose {
-    color: #333333;
-    background-color: #dedede;
-}   
-    
- .t_btn-add-payment {
-    color: #f8f8f8;
-    background-color: #5AD663;
-    height: 40px;
-    font-size: 14px;
-    font-weight: 600;
-    width: 40%;
-    margin: 30px 0px 0px 0px;
-    padding: 4px 14px 4px 14px;
-    border: 2px solid transparent;
-        -webkit-transition: all .3s;
-    -moz-transition: all .3s;
-    transition: all .3s;
-    
-}
-
-.t_btn-add-payment:hover{
-    border: 2px solid #5AD663;
-    background-color: transparent;
-    color:  #5AD663;
-} 
-   
-    
-    
 
 .add_payment_inpt2 {
         margin: 0px 0px 0px 20px;
@@ -4553,7 +4657,7 @@ overflow-y: scroll;
     -moz-transition: all ease-in-out 0.33s;
     transition: all ease-in-out 0.33s;   
 }
-    .repair_view_body .hd .hd-text {
+    .repair_view_body .hd .hd-text, .repair_view_body_t .hd .hd-text {
      height: auto;
       color: #333333;
 /*    background: green;*/
@@ -4565,8 +4669,9 @@ overflow-y: scroll;
     margin: 0px 10px 0px 10px;  
 
 }
+}
 
-.repair_view_body .hd .hd-text.repair_dt {
+.repair_view_body .hd .hd-text.repair_dt, .repair_view_body_t .hd .hd-text.repair_dt {
 /*    width: 100%;*/
     font-weight: 400;
     font-size: 12px;
@@ -4575,6 +4680,32 @@ overflow-y: scroll;
 /*    color: #dedede;*/
     padding: 20px 0px 0px 0px;
 }
+.btn-text .btn_repair_cs {
+    
+    background-color: #FA4B3E;
+    color: #f8f8f8;
+    height: 40px;
+    font-size: 14px;
+    font-weight: 600;
+     width: 100%;
+    margin: 110px 0px 0px 0px;
+     border: 2px solid transparent;
+        -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    transition: all .3s;
+}
+    .t_add_payment_inpt1 {
+    
+/*    background: blue;*/
+    margin: 0px 15px 10px 0px;
+}
+    
+        .t_add_payment_inpt2 {
+    
+/*    background: blue;*/
+    margin: 0px 0px 10px 15px;
+}
+
 }
  /*-- Medium devices (desktops, 992px and up) --*/
 @media(min-width:1100px) {
@@ -4614,7 +4745,7 @@ overflow-y: scroll;
 
 }
     
-    .repair_view_body .hd .bd-text-status {
+    .repair_view_body .hd .bd-text-status, .repair_view_body_t .hd .bd-text-status {
       height: auto;
 /*    background: red;*/
       font-weight: 400;
@@ -4625,7 +4756,7 @@ word-wrap: break-word;
     
 } 
     
-    .repair_view_body .hd .repair_dt {
+    .repair_view_body .hd .repair_dt, .repair_view_body_t .hd .repair_dt {
 /*    width: 100%;*/
     font-weight: 400;
     font-size: 12px;
@@ -4826,7 +4957,7 @@ word-wrap: break-word;
     -moz-transition: all ease-in-out 0.33s;
     transition: all ease-in-out 0.33s;   
 }
-    .repair_view_body .hd .hd-text {
+    .repair_view_body .hd .hd-text,  .repair_view_body_t .hd .hd-text {
      height: auto;
       color: #333333;
 /*    background: green;*/
@@ -4839,7 +4970,7 @@ word-wrap: break-word;
 
 }
 
-.repair_view_body .hd .hd-text.repair_dt {
+.repair_view_body .hd .hd-text.repair_dt, .repair_view_body_t .hd .hd-text.repair_dt {
 /*    width: 100%;*/
     font-weight: 400;
     font-size: 12px;
@@ -4847,6 +4978,31 @@ word-wrap: break-word;
 /*    background: red;*/
 /*    color: #dedede;*/
     padding: 20px 0px 0px 0px;
+}
+    .btn-text .btn_repair_cs {
+    
+    background-color: #FA4B3E;
+    color: #f8f8f8;
+    height: 40px;
+    font-size: 14px;
+    font-weight: 600;
+     width: 100%;
+    margin: 110px 0px 0px 0px;
+     border: 2px solid transparent;
+        -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    transition: all .3s;
+}
+    .t_add_payment_inpt1 {
+    
+/*    background: blue;*/
+    margin: 0px 15px 10px 0px;
+}
+    
+        .t_add_payment_inpt2 {
+    
+/*    background: blue;*/
+    margin: 0px 0px 10px 15px;
 }
 }
 /*-- Large devices (large desktops, 1200px and up) --*/
@@ -4889,7 +5045,7 @@ word-wrap: break-word;
 
 }
     
-    .repair_view_body .hd .bd-text-status {
+    .repair_view_body .hd .bd-text-status, .repair_view_body_t .hd .bd-text-status {
       height: auto;
 /*    background: red;*/
       font-weight: 400;
@@ -4900,7 +5056,7 @@ word-wrap: break-word;
     
 } 
 
-    .repair_view_body .hd .repair_dt {
+    .repair_view_body .hd .repair_dt, .repair_view_body_t .hd .repair_dt {
 /*    width: 100%;*/
     font-weight: 400;
     font-size: 12px;
@@ -5101,7 +5257,7 @@ word-wrap: break-word;
     -moz-transition: all ease-in-out 0.33s;
     transition: all ease-in-out 0.33s;   
 }
-.repair_view_body .hd .hd-text {
+.repair_view_body .hd .hd-text, .repair_view_body_t .hd .hd-text {
      height: auto;
       color: #333333;
 /*    background: green;*/
@@ -5114,7 +5270,7 @@ word-wrap: break-word;
 
 }
 
-.repair_view_body .hd .hd-text.repair_dt {
+.repair_view_body .hd .hd-text.repair_dt, .repair_view_body_t .hd .hd-text.repair_dt {
 /*    width: 100%;*/
     font-weight: 400;
     font-size: 12px;
@@ -5123,4 +5279,31 @@ word-wrap: break-word;
 /*    color: #dedede;*/
     padding: 20px 0px 0px 0px;
 }
+    
+    .btn-text .btn_repair_cs {
+    
+    background-color: #FA4B3E;
+    color: #f8f8f8;
+    height: 40px;
+    font-size: 14px;
+    font-weight: 600;
+     width: 100%;
+    margin: 110px 0px 0px 0px;
+     border: 2px solid transparent;
+        -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    transition: all .3s;
+}
+        .t_add_payment_inpt1 {
+    
+/*    background: blue;*/
+    margin: 0px 15px 10px 0px;
+}
+    
+        .t_add_payment_inpt2 {
+    
+/*    background: blue;*/
+    margin: 0px 0px 10px 15px;
+}
+
 }
