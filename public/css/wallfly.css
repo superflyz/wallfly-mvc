@@ -3692,7 +3692,7 @@ padding: 0px 0px 0px 0px;
 .btn-text {
 /*    background-color: green;*/
     padding: 0px 0px 0px 0px;
-    margin: 0px 15px 0px 10px;
+    margin: 0px 10px 0px 10px;
 }
 
 .btn-text .btn_repair_approve {
@@ -3924,6 +3924,11 @@ padding: 0px 0px 0px 0px;
    background-color: #FA4B3E;
 }
 
+.repair_sp {
+    margin: 0px;
+    padding: 0px;
+}
+
 .repair_view_head .hd .hd-text {
 
 
@@ -3942,19 +3947,20 @@ padding: 0px 0px 0px 0px;
 /*   text-decoration: underline;*/
     padding: 10px 0px 5px 0px;
 /*       background-color: #333333;*/
-    margin: 0px 10px 0px 10px;  
+    margin: -25px 10px 0px 10px;  
 
 }
 
-.repair_view_body .hd .repair_dt {
+.repair_view_body .hd .hd-text.repair_dt {
 /*    width: 100%;*/
     font-weight: 400;
     font-size: 12px;
-    margin: 55px 15px 0px px;
+    margin: 80px 15px 0px 10px;
 /*    background: red;*/
 /*    color: #dedede;*/
     padding: 20px 0px 0px 0px;
 }
+
 
 
 .repair_view_body .hd:last-child .bd-text {
@@ -3994,7 +4000,7 @@ padding: 0px 0px 0px 0px;
 /*   text-decoration: underline;*/
     padding: 12px 0px 5px 0px;
 /*       background-color: #333333;*/
-    margin: 0px 10px 0px 20px;  
+    margin: 0px 10px 0px 10px;  
     
 }
 
@@ -4048,7 +4054,7 @@ padding: 0px 0px 0px 0px;
 word-wrap: break-word;
     padding: 0px 0px 0px 2px;
 /*       background-color: #333333;*/
-    margin: 0px 10px 0px 20px;   
+    margin: 0px 10px 0px 10px;   
     
     
 }
@@ -4189,7 +4195,7 @@ overflow-y: scroll;
      width: 100%;
     font-weight: 600;
     text-align: center;
-    margin: 66px 0px 10px 0px;
+    margin: 91px 0px 10px 0px;
     border: 2px solid transparent;
         -webkit-transition: all .3s;
     -moz-transition: all .3s;
@@ -4525,6 +4531,28 @@ overflow-y: scroll;
     -moz-transition: all ease-in-out 0.33s;
     transition: all ease-in-out 0.33s;   
 }
+    .repair_view_body .hd .hd-text {
+     height: auto;
+      color: #333333;
+/*    background: green;*/
+/*    width: 300px;*/
+/*    height: auto;*/
+/*   text-decoration: underline;*/
+    padding: 10px 0px 5px 0px;
+/*       background-color: #333333;*/
+    margin: 0px 10px 0px 10px;  
+
+}
+
+.repair_view_body .hd .hd-text.repair_dt {
+/*    width: 100%;*/
+    font-weight: 400;
+    font-size: 12px;
+    margin: 0px 15px 0px 10px;
+/*    background: red;*/
+/*    color: #dedede;*/
+    padding: 20px 0px 0px 0px;
+}
 }
  /*-- Medium devices (desktops, 992px and up) --*/
 @media(min-width:1100px) {
@@ -4556,7 +4584,7 @@ overflow-y: scroll;
      width: 100%;
     font-weight: 600;
     text-align: center;
-    margin: 84px 0px 10px 0px;
+    margin: 91px 0px 10px 0px;
     border: 2px solid transparent;
         -webkit-transition: all .3s;
     -moz-transition: all .3s;
@@ -4776,6 +4804,28 @@ word-wrap: break-word;
     -moz-transition: all ease-in-out 0.33s;
     transition: all ease-in-out 0.33s;   
 }
+    .repair_view_body .hd .hd-text {
+     height: auto;
+      color: #333333;
+/*    background: green;*/
+/*    width: 300px;*/
+/*    height: auto;*/
+/*   text-decoration: underline;*/
+    padding: 10px 0px 5px 0px;
+/*       background-color: #333333;*/
+    margin: 0px 10px 0px 10px;  
+
+}
+
+.repair_view_body .hd .hd-text.repair_dt {
+/*    width: 100%;*/
+    font-weight: 400;
+    font-size: 12px;
+    margin: 0px 15px 0px 10px;
+/*    background: red;*/
+/*    color: #dedede;*/
+    padding: 20px 0px 0px 0px;
+}
 }
 /*-- Large devices (large desktops, 1200px and up) --*/
 @media (min-width: 1200px) {
@@ -4809,7 +4859,7 @@ word-wrap: break-word;
      width: 100%;
     font-weight: 600;
     text-align: center;
-    margin: 84px 0px 10px 0px;
+    margin: 109px 0px 10px 0px;
     border: 2px solid transparent;
         -webkit-transition: all .3s;
     -moz-transition: all .3s;
@@ -5029,5 +5079,26 @@ word-wrap: break-word;
     -moz-transition: all ease-in-out 0.33s;
     transition: all ease-in-out 0.33s;   
 }
+.repair_view_body .hd .hd-text {
+     height: auto;
+      color: #333333;
+/*    background: green;*/
+/*    width: 300px;*/
+/*    height: auto;*/
+/*   text-decoration: underline;*/
+    padding: 10px 0px 5px 0px;
+/*       background-color: #333333;*/
+    margin: 0px 10px 0px 10px;  
 
+}
+
+.repair_view_body .hd .hd-text.repair_dt {
+/*    width: 100%;*/
+    font-weight: 400;
+    font-size: 12px;
+    margin: 0px 15px 0px 10px;
+/*    background: red;*/
+/*    color: #dedede;*/
+    padding: 20px 0px 0px 0px;
+}
 }

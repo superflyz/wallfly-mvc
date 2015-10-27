@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: jimmykovacevic
- * Date: 3/10/2015
- * Time: 4:51 PM
- */
 require_once '../app/views/templates/interfaceStart.php';
 ?>
 
@@ -35,13 +29,13 @@ require_once '../app/views/templates/interfaceStart.php';
                     $count = 0;
                     foreach ($result as $row) {
                         if ($row['status'] == 0){
-                            $status = "Pending";
+                            $status = "<p class='repair_sp'>Pending</p>";
                             $row['status']= "<div class='status_p'><i class='fa fa-question'></i></div>";
                         }elseif($row['status'] == 1){
-                            $status = "Approved";
+                            $status = "<p class='repair_sp'>Approved</p>";
                             $row['status']= "<div class='status_a'><i class='fa fa-check'></i></div>";
                         }else{
-                            $status = "Denied";
+                            $status = "<p class='repair_sp'>Denied</p>";
                             $row['status']= "<div class='status_d'><i class='fa fa-times'></i></div>";}
                         if ($row['severity_level'] == "low"){
                             $row['severity_level']= "<div class='s_lvl_low'>LOW</div>";
@@ -106,33 +100,28 @@ require_once '../app/views/templates/interfaceStart.php';
                                <button type='submit' name='submit' value='<?php echo $row['timestamp']?>/approve/<?php echo($count)?>' class='btn btn_repair_approve'>Approve</button>
                             <button type='submit' name='submit' value='<?php echo $row['timestamp']?>/deny/<?php echo($count++)?>' class='btn btn_repair_deny'>Deny</button></div>
                                 </div>
-                </div>
-                            </div>
-        
-                       
-     
-           
-                
-                    <?php
-                    }
-                }
-                ?>
-
-         </div>
-            </form>
-
-        <?php }?>
-
+            </div>
+        </div>
     
-    </div>
+        <?php
+        }
+    }
+    ?>
+
+        </div>
+    </form>
+
+    <?php }?>
+
 </div>
-    </div>
+</div>
+</div>
 
-
+<!-- Repair image enlage modal -->
 <div class="modal fade enlarge_repair_img modal-vcenter" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
   <div class="modal-dialog modal-sm">
     <div class="modal-content display_enlarged_repair_imgs">
-    <img src="" width="100%" height="100%" >
+        <img src="" width="100%" height="100%" >
     </div>
   </div>
 </div>
@@ -147,18 +136,18 @@ require_once '../app/views/templates/interfaceStart.php';
     
     document.title = 'Repairs - WallFly';
      
-        $(document).ready(function () {
-     autosize(document.querySelectorAll('textarea'));
+    $(document).ready(function () {
+        autosize(document.querySelectorAll('textarea'));
             
-$(".repair_image_enlarge").on("click", function() {
+        $(".repair_image_enlarge").on("click", function() {
     
-var src = $(this).attr('src'); 
-   $('.enlarge_repair_img img').attr('src', src);
-   $('.enlarge_repair_img').modal('show');
+            var src = $(this).attr('src'); 
+            $('.enlarge_repair_img img').attr('src', src);
+            $('.enlarge_repair_img').modal('show');
      
-});
+        });
            
- });
+    });
             
 </script>
 

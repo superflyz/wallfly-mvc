@@ -105,7 +105,7 @@ if(isset($_SESSION['selectedProperty'])) {
                         <div class="pd_btns">
                             <div class="pull-right">
                                 <button class="btn btn-edit_property" id="triggermodal" data-toggle="modal" data-target="#editPropertyForm">Edit</button>
-                                <button class="btn btn-add-tenant" id="triggermodal" data-toggle="modal" data-target="#tenantForm">Register Tenant</button>
+                                <button class="btn btn-add-tenant" id="triggermodal" data-toggle="modal" data-target="#tenantForm">Register/Assign Tenant</button>
                                 <?php endif ?>
                             </div>
                         </div>
@@ -183,7 +183,7 @@ if(isset($_SESSION['selectedProperty'])) {
             </div>
             <div role="pillpanel" class="pill-pane" id="rta">
                 <div class="row p_rta">
-                    <div class="col-md-8 col-sm-8 col-xs-8">
+                    <div class="col-md-8">
                         <div class="p_rta_1">
                             <p>Applying to QCAT</p>
                             <ul>
@@ -194,7 +194,7 @@ if(isset($_SESSION['selectedProperty'])) {
                             </ul>
                         </div>              
                     </div>
-                    <div class="col-md-4 col-sm-4 col-xs-4">
+                    <div class="col-md-4">
                         <div class="p_rta_2">
                             <p>RTA Links</p>
                             <ul>
@@ -245,7 +245,7 @@ if(isset($_SESSION['selectedProperty'])) {
                         <div class="ep_field_ps">
                             <label for="payment_schedule">Payment schedule</label>
                             <select name="payment_schedule" class="form-control">
-                               <option disabled selected hidden>Please select...</option>
+                                <option disabled selected hidden>Please select...</option>
                                 <option value="WEEKLY" <?=$selected[0]?>>Weekly</option>
                                 <option value="FORTNIGHTLY" <?=$selected[1]?>>Fortnightly</option>
                                 <option value="MONTHLY" <?=$selected[2]?>>Monthly</option>
@@ -289,7 +289,7 @@ if(isset($_SESSION['selectedProperty'])) {
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></button>
-                <p class="modal-title">Register Tenant</p>
+                <p class="modal-title">Register/Assign Tenant</p>
             </div>
             <div class="modal-body">
                 <div class="row">
