@@ -75,7 +75,6 @@ require_once '../app/views/templates/interfaceStart.php';
                                     </div>
                                 </div>
                             </div>";
-                            
                         }
                     }
                     ?>
