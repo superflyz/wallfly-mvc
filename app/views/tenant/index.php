@@ -8,9 +8,6 @@ require_once '../app/views/templates/interfaceStartIndex.php';
         <div class="col-md-8">
             <h1 class="wlcm-h1">Welcome <span class="user-color"><?php echo $_SESSION['user']->firstname?>!</span></h1>
         </div>
-        <div class="col-md-4">
-            <button class="btn btn-add-property pull-right" data-toggle="modal" data-target="#addpropertyform"><i class="fa fa-plus-square"></i>Add property</button>
-        </div>
     </div>
 </div>
 </div>
