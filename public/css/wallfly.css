@@ -111,7 +111,6 @@ h6 {
 }
 
 
-
 .modal-header {
     background-color: #dedede;
     margin: 0px;
@@ -150,13 +149,13 @@ h6 {
     transition: background .3s ease-in-out;
 }
 
-.modal-body {
-    max-height: 500px;
-    overflow: auto;
-    padding: 20px;
-    margin: 0px 0px 0px 0px;
-}
 
+.modal-body {
+  overflow-y: auto;
+    padding: 20px;
+/*    margin: 0px 0px 0px 0px;*/
+}
+    <?php }?>
 
 /*------ Modal style ALL screen ------*/
 .modal-body label {
@@ -1057,30 +1056,42 @@ text-rendering: optimizeLegibility;
 }
 
 .content_body {
-    height: 100vh;
+    height: 627px;
     overflow: auto; 
-    margin-bottom: -55px;
+    margin-bottom: 0px;
     width: 100%;
-    padding-bottom: 55px;
+/*    background: green;*/
+/*    padding-bottom: 80px;*/
 }
 
 .top-section {
     padding-left: 33px;
     padding-right: 33px;
+
 /*    background: red;*/
+       
 }
 
 .bottom-section {
-    padding: 0px 33px 20px 33px;
-    overflow: auto; 
-/*     background: yellow;*/
+    padding: 0px 33px 0px 33px;
+/*    height: 100%;*/
+/*      padding-bottom: 180px;*/
+    
+/*          padding-bottom: 0px;*/
+/*    overflow: auto; */
+/*      margin-bottom: -180px;*/
+/*    background: yellow;*/
 }
 
-.bottom-section {
-    padding: 0px 33px 20px 33px;
+/*
+.xs-section {
+    padding: 0px 33px 33px 33px;
     overflow: auto; 
-/*     background: yellow;*/
+     background: green;
 }
+*/
+
+
 
 /*-- Small devices (tablets, 768px and up) --*/
 @media(min-width:768px) {
@@ -1518,7 +1529,7 @@ https://groups.google.com/forum/#!topic/twitter-bootstrap-stackoverflow/0Aqzs5s_
     font-weight: 600;
     width: 150px;
 
-       margin: 66px 0px 20px 0px;  
+       margin: 0px 0px 20px 0px;  
     padding: 0px;
     border: 2px solid #333333;
         -webkit-transition: all .3s;
@@ -2060,11 +2071,9 @@ padding: 25px 0px 0px 0px;
     background-color: #dedede;
         height: auto;
         vertical-align: middle; 
-/*
 
-    width: 100%;
-*/
 }
+
 
 /*
 .dash_p:last-child {
@@ -2120,8 +2129,7 @@ padding: 25px 0px 0px 0px;
 
 .dash_p_list {
 /*     background: blue;  */
-margin-left: -21px;
-    margin-right: -21px;
+margin: 0px -21px 21px -21px;
     padding: 10px 0px 0px 0px;
 /*    margin: 0px;*/
     
@@ -2158,7 +2166,7 @@ margin-left: -21px;
 #chat_system {
     height: auto;
 /*    background: blue;*/
-    margin: 20px 0px 0px 0px;
+    margin: 20px 0px 33px 0px;
     padding: 0px;
 }
 
@@ -2339,6 +2347,7 @@ li{
     width: 40px;
     float: right;
     font-size: 10px;
+    cursor: default;
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
     border-radius: 4px;  
@@ -2444,6 +2453,7 @@ li{
     width: 40px;
     float: left;
     font-size: 10px;
+      cursor: default;
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
     border-radius: 4px;
@@ -2482,8 +2492,10 @@ li{
 
 
 .manage_properties_pills .properties_pills li a {
-    margin: 0px 20px 0px 0px;
+    margin: 0px 0px -20px 0px;
+/*      margin: 0px 20px 0px 0px;*/
     font-weight: 500;
+/*    width: 100%;*/
     color: #333333;  
 /*    width: 50%;*/
     border-bottom: 2px solid #5AD663; 
@@ -2491,7 +2503,10 @@ li{
     border-radius: 4px;
     font-size: 16px;
         background-color: #dedede;
-    
+/*
+    width: 40%;
+    float: left;
+*/
 /*    box-shadow: inset 0 0 0 0 #5AD663;*/
     -webkit-transition: all ease-in-out 0.33s;
     -moz-transition: all ease-in-out 0.33s;
@@ -2499,7 +2514,7 @@ li{
 }
 
 .manage_properties_pills .properties_pills li:last-child a {
-    margin: 0px 0px 0px 0px;
+   margin: 0px 0px -20px 0px
 
 }
 
@@ -2527,7 +2542,7 @@ li{
       background: #f8f8f8;
 /*    radial-gradient(#dedede,#f8f8f8);*/
     border-radius: 4px;
-    margin: 0px 0px 0px 0px;
+    margin: 0px 0px 33px 0px;
     padding: 0px;
 /*
     min-height: 1000px;
@@ -2753,7 +2768,7 @@ border-radius: 4px;
 
 .pd_img {
 /*    background: blue;*/
-        margin: 0px 25px 0px 0px;
+        margin: 0px 0px 25px 0px;
 
         border: 2px solid #dedede;
     padding: 2px;
@@ -2898,11 +2913,11 @@ margin: 0px 0px 10px 0px;
         height: auto;
 /*    background: red;*/
     padding: 0px;
-    margin: 0px 30px 0px 0px;
+    margin: 0px 10px 0px 0px;
 }
 
 .ep_field_ps {
-        margin: 0px 0px 0px 0px;
+        margin: 0px 0px 0px 10px;
         height: auto;
     padding: 0px;
 /*    background: yellow;*/
@@ -2993,29 +3008,29 @@ border-radius: 3px;
 }
 
 .at_field_fn{
-            margin: 0px 10px 10px 0px;
+            margin: 0px 0px 10px 0px;
     
         padding: 0px 0px 0px 0px;
 /*    background: red;*/
 }
 
 .at_field_ln {
-            margin: 0px 0px 10px 10px;
+            margin: 0px 0px 10px 0px;
     
         padding: 0px 0px 0px 0px;
 /*        background: green;*/
 }
 
 .at_field_em {
-            margin: 0px 10px 0px 0px;
+            margin: 0px 0px 10px 0px;
     
         padding: 0px 0px 0px 0px;
 /*        background: green;*/
 }
 
 .at_field_ph {
-            margin: 0px 0px 0px 10px;
-    
+            margin: 0px 0px 0px 0px;
+
         padding: 0px 0px 0px 0px;
 /*        background: green;*/
 }
@@ -3076,12 +3091,20 @@ margin: 0px 0px 10px 0px;
  background-color: #dedede;
     border-radius: 4px 4px 0px 0px;
       margin: 0px 0px 0px 0px;
-    padding:  25px 0px 15px 25px;
+    padding:  20px 20px 20px 20px;
     border-bottom: 2px solid #5AD663;
+}
+
+.pdf_upload .row {
+    
+    margin: 0px;
+    padding: 0px;
 }
 
 .fileinput {
 /*       background-color: red;*/
+    margin: 0px 20px 0px 0px;
+    padding: 5px 0px 5px 0px;
 }
 
 .fileinput-filename {
@@ -3149,7 +3172,7 @@ margin: 0px 0px 10px 0px;
     font-size: 14px;
     font-weight: 600;
 /*    width: 75%;*/
-    margin: 0px 0px 0px 15px;
+    margin: 0px 0px 0px 0px;
     border: 2px solid transparent;
         -webkit-transition: all .3s;
     -moz-transition: all .3s;
@@ -3177,10 +3200,11 @@ margin: 0px 0px 10px 0px;
     padding: 4px;
     background-color: #dedede;
     border-radius: 4px;
-/*      width: 120px;*/
-      height:auto;
+/*      width: 100%;*/
+      height: auto;
      cursor: pointer;
 }
+
 
 canvas {
       width: 100%;
@@ -3300,7 +3324,7 @@ color: #333333;}
 #calender {
 /*    background: red;*/
     height: auto;
-    margin: 0px;
+    margin: 0px 0px 33px 0px;
     width: 100%;
     padding: 0px;
     
@@ -3449,6 +3473,7 @@ padding: 0px 0px 0px 0px;
     background-color: #f8f8f8;
     border: 1px solid #dedede;
     border-radius: 4px;
+    
     margin: 0px 0px 10px 0px;
     padding: 0px;
     height: auto;
@@ -3549,9 +3574,16 @@ padding: 0px 0px 0px 0px;
 .paypal {
     
 /*    background: red;*/
-    margin: -14px 0px 10px 0px;
+    margin: 33px 33px 0px 0px;
     height: 20px;
-    width: 120px;    
+    width: 120px;
+
+}
+
+.lol {
+    
+        padding: 0px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
 }
 
 .last_payment {
@@ -3637,7 +3669,7 @@ padding: 0px 0px 0px 0px;
       background: #f8f8f8;
 /*    radial-gradient(#dedede,#f8f8f8);*/
     border-radius: 4px;
-    margin: 0px 0px 0px 0px;
+    margin: 0px 0px 33px 0px;
 /*
     min-height: 1000px;
     height: inherit;
@@ -3711,7 +3743,7 @@ padding: 0px 0px 0px 0px;
 
 .repair_view {
     color: #333333;
-    margin: 0px 0px 10px 0px;
+    margin: 0px 0px 33px 0px;
 }
 
 .repair_view_head {
@@ -4129,6 +4161,25 @@ overflow-y: scroll;
 
 /*-- Small devices (tablets, 768px and up) --*/
 @media(min-width:768px) {
+        
+    .content_body {
+    height: 100vh;
+    overflow: auto; 
+    margin-bottom: -55px;
+    width: 100%;
+    padding-bottom: 55px;
+}
+  .top-section {
+    padding-left: 33px;
+    padding-right: 33px;
+/*    background: red;*/
+}
+
+.bottom-section {
+    padding: 0px 33px 0px 33px;
+    overflow: auto; 
+/*    background: yellow;*/
+}  
 .btn-text .btn_repair_approve {
      color: #ffffff;
     background-color: #5AD663;
@@ -4185,6 +4236,126 @@ word-wrap: break-word;
 /*    background: blue;*/
     margin: 0px 20px 0px 0px;
 }
+    
+    
+/*    repair  tenant */
+    
+    
+    .t_add_payment_inpt1 {
+    
+/*    background: blue;*/
+    margin: 0px 15px 10px 0px;
+}
+    
+        .t_add_payment_inpt2 {
+    
+/*    background: blue;*/
+    margin: 0px 0px 10px 15px;
+}
+
+    
+    .t_add_payment_inpt1 input, .t_add_payment_inpt2 select {
+        font-weight: 400;
+    font-size: 14px;
+    height: 40px;
+/*    padding: 0px 0px 0px 0px;*/
+    padding-left: 8px;
+    margin: 0px;
+    border: 1px solid #dedede;
+        outline: 0;
+}
+    
+    .t_add_payment_inpt1 label, .t_add_payment_inpt2 label, .t_add_payment_inpt3 label, .add_payment_btn label{
+/*        background: orange;*/
+    font-weight: 600;
+    font-size: 14px;
+    padding: 0px;
+    margin: 0px 0px 6px 0px;
+    color: #333333;
+}
+    
+    .t_add_payment_inpt1 input:hover, .t_add_payment_inpt2 select:hover, .t_add_payment_inpt1 input:focus, .t_add_payment_inpt2 select:focus{
+    border: 1px solid #5AD663;
+        outline: 0;
+    box-shadow: none;
+}
+    .t_add_payment_inpt3 {
+        
+        height: auto;
+        margin: 0px 0px 10px 0px;
+    }
+    
+    .t_add_payment_inpt3 textarea {
+    background-color: #ffffff;   
+    padding: 4px 6px 4px 6px;
+overflow-y: scroll;
+        height: 50px;
+    height: auto;
+    max-height:100px;
+    margin: 0px;
+    border-radius: 4px;
+    width: 100%;
+   resize: none;
+
+
+   outline:0px !important;
+   -webkit-appearance:none;
+    box-shadow: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    border-color:  #dedede;
+
+}
+
+.t_add_payment_inpt3 textarea:hover {
+    border: 1px solid #5AD663;
+}
+
+.t_add_payment_inpt3 textarea:focus {
+    border: 1px solid #5AD663;
+}
+    
+.t_ep_field_img_file {
+/*    background: red;*/
+           margin: 0px 0px 0px 0px;
+        padding: 0px 0px 0px 0px;
+      height: auto;
+}
+
+.t_ep_field_img_file .fileinput-filename {
+    color: #333333;
+    background-color: #ffffff;
+}
+
+.t_ep_field_img_file .btn-choose {
+    color: #333333;
+    background-color: #dedede;
+}   
+    
+ .t_btn-add-payment {
+    color: #f8f8f8;
+    background-color: #5AD663;
+    height: 40px;
+    font-size: 14px;
+    font-weight: 600;
+    width: 40%;
+    margin: 30px 0px 0px 0px;
+    padding: 4px 14px 4px 14px;
+    border: 2px solid transparent;
+        -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    transition: all .3s;
+    
+}
+
+.t_btn-add-payment:hover{
+    border: 2px solid #5AD663;
+    background-color: transparent;
+    color:  #5AD663;
+} 
+   
+    
+    
 
 .add_payment_inpt2 {
         margin: 0px 0px 0px 20px;
@@ -4274,10 +4445,108 @@ word-wrap: break-word;
     -moz-border-radius: 4px;
     border-radius: 4px;
 } 
+    .btn-add-property, .btn-add-property:focus {
  
+
+        color: #ffffff;
+    background-color: #333333;
+    height: 40px;
+    font-size: 14px;
+    font-weight: 600;
+    width: 150px;
+
+       margin: 66px 0px 20px 0px;  
+    padding: 0px;
+    border: 2px solid #333333;
+        -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    transition: all .3s;
+}
+ .pd_img {
+/*    background: blue;*/
+        margin: 0px 25px 0px 0px;
+
+        border: 2px solid #dedede;
+    padding: 2px;
+    height: auto;
+          border-radius: 4px; 
+    
+}
+    .at_field_fn{
+            margin: 0px 10px 10px 0px;
+    
+        padding: 0px 0px 0px 0px;
+/*    background: red;*/
+}
+
+.at_field_ln {
+            margin: 0px 0px 10px 10px;
+    
+        padding: 0px 0px 0px 0px;
+/*        background: green;*/
+}
+
+.at_field_em {
+            margin: 0px 10px 0px 0px;
+    
+        padding: 0px 0px 0px 0px;
+/*        background: green;*/
+}
+
+.at_field_ph {
+            margin: 0px 0px 0px 10px;
+    
+        padding: 0px 0px 0px 0px;
+/*        background: green;*/
+}
+    .fileinput {
+/*       background-color: red;*/
+    margin: 0px 10px 0px 0px;
+/*    padding: 5px 0px 5px 0px;*/
+}
+    .manage_properties_pills .properties_pills li a {
+    margin: 0px 20px 0px 0px;
+/*      margin: 0px 20px 0px 0px;*/
+    font-weight: 500;
+/*    width: 100%;*/
+    color: #333333;  
+/*    width: 50%;*/
+    border-bottom: 2px solid #5AD663; 
+    border-left: 0px;
+    border-radius: 4px;
+    font-size: 16px;
+        background-color: #dedede;
+/*
+    width: 40%;
+    float: left;
+*/
+/*    box-shadow: inset 0 0 0 0 #5AD663;*/
+    -webkit-transition: all ease-in-out 0.33s;
+    -moz-transition: all ease-in-out 0.33s;
+    transition: all ease-in-out 0.33s;   
+}
 }
  /*-- Medium devices (desktops, 992px and up) --*/
-@media(min-width:1100px) {   
+@media(min-width:1100px) {
+     
+    .content_body {
+    height: 100vh;
+    overflow: auto; 
+    margin-bottom: -55px;
+    width: 100%;
+    padding-bottom: 55px;
+}   
+.top-section {
+    padding-left: 33px;
+    padding-right: 33px;
+/*    background: red;*/
+}
+
+.bottom-section {
+    padding: 0px 33px 0px 33px;
+    overflow: auto; 
+/*    background: yellow;*/
+}
 .btn-text .btn_repair_approve {
      color: #ffffff;
     background-color: #5AD663;
@@ -4424,10 +4693,113 @@ word-wrap: break-word;
     -moz-border-radius: 4px;
     border-radius: 4px;
 }
+    
+    .btn-add-property, .btn-add-property:focus {
+ 
 
+        color: #ffffff;
+    background-color: #333333;
+    height: 40px;
+    font-size: 14px;
+    font-weight: 600;
+    width: 150px;
+
+       margin: 66px 0px 20px 0px;  
+    padding: 0px;
+    border: 2px solid #333333;
+        -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    transition: all .3s;
+}
+    .pd_img {
+/*    background: blue;*/
+        margin: 0px 25px 0px 0px;
+
+        border: 2px solid #dedede;
+    padding: 2px;
+    height: auto;
+          border-radius: 4px; 
+    
+}
+    
+    .at_field_fn{
+            margin: 0px 10px 10px 0px;
+    
+        padding: 0px 0px 0px 0px;
+/*    background: red;*/
+}
+
+.at_field_ln {
+            margin: 0px 0px 10px 10px;
+    
+        padding: 0px 0px 0px 0px;
+/*        background: green;*/
+}
+
+.at_field_em {
+            margin: 0px 10px 0px 0px;
+    
+        padding: 0px 0px 0px 0px;
+/*        background: green;*/
+}
+
+.at_field_ph {
+            margin: 0px 0px 0px 10px;
+    
+        padding: 0px 0px 0px 0px;
+/*        background: green;*/
+}
+.fileinput {
+/*       background-color: red;*/
+    margin: 0px 10px 0px 0px;
+/*    padding: 5px 0px 5px 0px;*/
+}
+    
+    .manage_properties_pills .properties_pills li a {
+    margin: 0px 20px 0px 0px;
+/*      margin: 0px 20px 0px 0px;*/
+    font-weight: 500;
+/*    width: 100%;*/
+    color: #333333;  
+/*    width: 50%;*/
+    border-bottom: 2px solid #5AD663; 
+    border-left: 0px;
+    border-radius: 4px;
+    font-size: 16px;
+        background-color: #dedede;
+/*
+    width: 40%;
+    float: left;
+*/
+/*    box-shadow: inset 0 0 0 0 #5AD663;*/
+    -webkit-transition: all ease-in-out 0.33s;
+    -moz-transition: all ease-in-out 0.33s;
+    transition: all ease-in-out 0.33s;   
+}
 }
 /*-- Large devices (large desktops, 1200px and up) --*/
-@media (min-width: 1200px) { 
+@media (min-width: 1200px) {
+    
+    .content_body {
+    height: 100vh;
+    overflow: auto; 
+    margin-bottom: -55px;
+    width: 100%;
+    padding-bottom: 55px;
+}
+
+  .top-section {
+    padding-left: 33px;
+    padding-right: 33px;
+/*    background: red;*/
+}
+
+.bottom-section {
+    padding: 0px 33px 0px 33px;
+    overflow: auto; 
+/*    background: yellow;*/
+}  
+    
 .btn-text .btn_repair_approve {
      color: #ffffff;
     background-color: #5AD663;
@@ -4573,6 +4945,89 @@ word-wrap: break-word;
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
     border-radius: 4px;
+}
+    .btn-add-property, .btn-add-property:focus {
+ 
+
+        color: #ffffff;
+    background-color: #333333;
+    height: 40px;
+    font-size: 14px;
+    font-weight: 600;
+    width: 150px;
+
+       margin: 66px 0px 20px 0px;  
+    padding: 0px;
+    border: 2px solid #333333;
+        -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    transition: all .3s;
+}
+    
+    .pd_img {
+/*    background: blue;*/
+        margin: 0px 25px 0px 0px;
+
+        border: 2px solid #dedede;
+    padding: 2px;
+    height: auto;
+          border-radius: 4px; 
+    
+}
+    
+    .at_field_fn{
+            margin: 0px 10px 10px 0px;
+    
+        padding: 0px 0px 0px 0px;
+/*    background: red;*/
+}
+
+.at_field_ln {
+            margin: 0px 0px 10px 10px;
+    
+        padding: 0px 0px 0px 0px;
+/*        background: green;*/
+}
+
+.at_field_em {
+            margin: 0px 10px 0px 0px;
+    
+        padding: 0px 0px 0px 0px;
+/*        background: green;*/
+}
+
+.at_field_ph {
+            margin: 0px 0px 0px 10px;
+    
+        padding: 0px 0px 0px 0px;
+/*        background: green;*/
+}
+    .fileinput {
+/*       background-color: red;*/
+    margin: 0px 10px 0px 0px;
+/*    padding: 5px 0px 5px 0px;*/
+}
+    
+    .manage_properties_pills .properties_pills li a {
+    margin: 0px 20px 0px 0px;
+/*      margin: 0px 20px 0px 0px;*/
+    font-weight: 500;
+/*    width: 100%;*/
+    color: #333333;  
+/*    width: 50%;*/
+    border-bottom: 2px solid #5AD663; 
+    border-left: 0px;
+    border-radius: 4px;
+    font-size: 16px;
+        background-color: #dedede;
+/*
+    width: 40%;
+    float: left;
+*/
+/*    box-shadow: inset 0 0 0 0 #5AD663;*/
+    -webkit-transition: all ease-in-out 0.33s;
+    -moz-transition: all ease-in-out 0.33s;
+    transition: all ease-in-out 0.33s;   
 }
 
 }
