@@ -27,7 +27,8 @@ class PropertyAgent extends Controller
       $data['property'] = $data['property'] = isset($_SESSION['selectedProperty']) ? $_SESSION['selectedProperty'] : null;
       $data['agent'] = $_SESSION['user'];
       $this->setJavascriptDependencies([
-        WEBDIR . '/js/assigntenantformhandler.js'
+        WEBDIR . '/js/assigntenantformhandler.js',
+        WEBDIR . '/js/assignownerformhandler.js'
       ]);
       $_SESSION['sidebar'] = "manage";
       $this->view('agent/managedetails', $data);
@@ -439,6 +440,21 @@ class PropertyAgent extends Controller
       $_SESSION['selectedProperty'] = $properties[$_POST['submit']];
       $_SESSION['sidebar'] = "manage";
       $this->redirect('/propertyagent/manage');
+    }
+  }
+
+  public function assignowner()
+  {
+    if (!Agent::isAuthenticated()) {
+      $this->redirect('/');
+    } else {
+      if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $property = $_SESSION['selectedProperty'];
+        $owner = Owner::get(['email'=>$_POST['ownerEmail']])[0];
+        $property->owner_id = $owner->id;
+        $property->update();
+        $this->redirect('/propertyagent/manage');
+      }
     }
   }
 
