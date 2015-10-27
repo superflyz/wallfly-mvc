@@ -122,7 +122,7 @@ require_once '../app/views/templates/interfaceStart.php';
                                 <div class="col-md-4 col-md-offset-1 ">
                         <div class="form-field">
                             <label for="startDate">Rent Start Week</label>
-                            <input name="startDate" id="startDate" type="text"  class="form-control" >
+                            <input type="hidden" name="startDate" id="startDate" type="text"  class="form-control" >
                             <pre hidden id="hidden" class="event-receiver"></pre>
                             <span class="error"></span>
                             <section style="height:160px">
@@ -141,7 +141,7 @@ require_once '../app/views/templates/interfaceStart.php';
                                 <div class="col-md-4 col-md-push-1">
                         <div class="form-field">
                             <label for="endDate">Rent End Week</label>
-                            <input name="endDate" id="endDate" type="text"  class="form-control" >
+                            <input type="hidden" name="endDate" id="endDate" type="text"  class="form-control" >
                             <pre hidden id="hidden2" class="event-receiver2"></pre>
                             <span class="error"></span>
                             <section style="height:160px">
