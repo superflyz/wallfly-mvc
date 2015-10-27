@@ -116,15 +116,19 @@ class Dashboard extends Controller
 
         if ($addEvent == true) {
             $_SESSION['eventAdded'] = "true";
-            header('Location:../PropertyOwner/calendar');
-            exit();
+            //header('Location:../PropertyOwner/calendar');
+            //exit();
 
         } else {
             $_SESSION['eventAdded'] = "false";
-            header('Location:../PropertyOwner/calendar');
-            exit();
+            //header('Location:../PropertyOwner/calendar');
+            //exit();
         }
-
+        if(Owner::isAuthenticated()) {
+            $this->redirect('/propertyowner/calendar');
+        } elseif (Agent::isAuthenticated()) {
+            $this->redirect('/propertyagent/calendar');
+        }
     }
 
     public function getPropertyEvents()
