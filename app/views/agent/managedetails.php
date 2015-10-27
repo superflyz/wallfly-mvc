@@ -92,6 +92,7 @@ if(isset($_SESSION['selectedProperty'])) {
                             <div class="pull-right">
                                 <button class="btn btn-edit_property" id="triggermodal" data-toggle="modal" data-target="#editPropertyForm">Edit</button>
                                 <button class="btn btn-add-tenant" id="triggermodal" data-toggle="modal" data-target="#tenantForm">Assign a tenant</button>
+                                <button class="btn btn-warning" id="triggermodal" data-toggle="modal" data-target="#assignOwner">Assign an owner</button>
                             <?php endif ?>
                             </div>
                         </div>
@@ -325,6 +326,33 @@ if(isset($_SESSION['selectedProperty'])) {
                     <div class="col-md-12">
                         <div class="at_btnz">
                             <button type="submit" id="submit2" class="btn btn-save-changes pull-right">Save changes</button>
+                        </div>
+                    </div>
+                </form>
+                <!-- FORM ENDS HERE -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal modal-vcenter fade" id="assignOwner" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></button>
+                <p class="modal-title">Assign an owner</p>
+            </div>
+            <div class="modal-body">
+                <form action="<?=WEBDIR?>/propertyagent/assignowner" id="assignNewForm" method="post">
+                    <div class="form-field">
+                        <label for="ownerEmail">Email address</label>
+                        <input type="email" class="form-control" id="ownerEmail" name="ownerEmail" autocomplete="off" required>
+                        <p id="ownerMessage" style="color: red"></p>
+                        <p id="ownerFound" style="color: green"></p>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="at_btnz">
+                            <button type="submit" id="ownersubmit" class="btn btn-save-changes pull-right">Save changes</button>
                         </div>
                     </div>
                 </form>
