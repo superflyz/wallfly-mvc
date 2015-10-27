@@ -63,7 +63,9 @@
 
     $(document).ready(function () {
            chatLoad(ID,pID);
-        $('#chatbox').scrollTop($('#chatbox')[0].scrollHeight);
+        setTimeout(function() {
+            $('#chatbox').scrollTop($('#chatbox')[0].scrollHeight);
+        }, 500);
         $("#btn-send-msg").click(function () {
             var type="";
             switch (userType) {
