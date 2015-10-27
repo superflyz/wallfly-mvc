@@ -24,7 +24,7 @@ class HandleDocuments
                     $all_documents[$row->doc_id] = "
                   
                     
-                  <div class='col-md-2'>
+                  <div class='col-md-2 col-sm-3 col-xs-6'>
                     <div class='display_pdf' title='".$row->real_id."'>
                   <a target='_blank' href='" .WEBDIR. $row->unique_id . "' >
                     <canvas id='" . $row->doc_id . "'/></a>
@@ -124,7 +124,7 @@ class HandleDocuments
                     $all_documents[$row->doc_id] = "
                     
                     
-                    <div class='col-md-2'>
+                    <div class='col-md-2 col-sm-3 col-xs-6'>
                     <div class='display_pdf' title='".$row->real_id."'>
                   <a target='_blank' href='" .WEBDIR. $row->unique_id . "' >
                     <canvas id='" . $row->doc_id . "'/></a>

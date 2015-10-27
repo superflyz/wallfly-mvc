@@ -260,7 +260,7 @@ class PropertyOwner extends Controller
           'lastname' => $data['lastname'],
           'phone' => $data['phone'],
           'password' => create_hash($password),
-          'photo' => 'img/noimage.png'
+          'photo' => '/wallfly-mvc/public/img/noimage.png'
         ]);
 
         // 4. assign the tenant to the property
@@ -287,7 +287,7 @@ class PropertyOwner extends Controller
             'payment_schedule' => strip_tags($_POST['payment_schedule']),
             'rent_amount' => strip_tags($_POST['rent_amount']),
             'owner_id' => $_SESSION['user']->id,
-            'photo' => DUMMY_IMAGE
+            'photo' => '/wallfly-mvc/public/img/noimage.png'
           ]);
           Flash::set('message', 'You added a new property!');
           $_SESSION['selectedProperty'] = $property;
