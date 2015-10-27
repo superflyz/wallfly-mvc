@@ -275,7 +275,7 @@
                         <div class="l_field_ut">
                             <label for="usertype">Are you a/an...</label>
                             <select class="form-control select-style" name="usertype" id="usertypes">
-                                <option disabled selected hidden>Please select...</option>
+                                <option disabled selected>Please select...</option>
                                 
                                 <option value="tenant">Tenant</option>
                                 <option value="owner">Owner</option>

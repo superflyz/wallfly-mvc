@@ -90,6 +90,7 @@ a:focus,
 a:active,
 a.active {
     color: #5AD663;
+    background-color: transparent;
 }
 
 h1,
@@ -1741,7 +1742,20 @@ background: blue;
 .dropdown-menu {
     overflow: hidden;
     max-height: 300px;
-    width: 300px;   
+    width: inherit;
+    height: auto;
+    max-width: 333px;   
+ 
+}
+
+.dropdown-menu li {
+    padding: 0px;
+    margin: 0px 0px 10px 0px;
+}
+
+.notf {
+    padding: 15px;
+    
 }
 
 /*
@@ -1834,7 +1848,7 @@ background: blue;
 }
 
 .dashb a:hover {
-    background-color: #333333;
+/*    background-color: #333333;*/
     color: #5AD663;
 }
 
@@ -2733,6 +2747,7 @@ li{
 
 
 }
+
 
 .pall {
 border-radius: 4px;

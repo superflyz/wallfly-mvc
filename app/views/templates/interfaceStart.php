@@ -94,7 +94,8 @@ if (isset($_SESSION['selectedProperty'])) {
                                 <?php $notifications = Notification::getUnreadNotifications($_SESSION['user']->id); ?>
                                 <span class="badge anown"><?php echo count($notifications);?></span>
                             </a>
-                            <ul class="dropdown-menu pull-right enable-overflow">
+                            <ul class="notf dropdown-menu pull-right enable-overflow">
+                            
                                 <?php
                                 $count = 0;
                                 foreach ($notifications as $notification) {
@@ -124,10 +125,10 @@ if (isset($_SESSION['selectedProperty'])) {
                         </div>
                         <span class="btn-separator"></span>
                         <div class="btn-group user-btn-focus" data-container="body" data-toggle="tooltip" data-placement="bottom" title="User Info">
-                            <a class="btn user-btn-t dropdown-toggle" data-toggle="dropdown" href="#">
+                            <a class="btn user-btn-t dropdown-toggle" data-toggle="dropdown" href="">
                                 <span class="glyphicon glyphicon-user"></span>
                             </a>
-                            <ul class="dropdown-menu">
+                            <ul class="dropdown-menu pull-right">
                                 <li><i class="i"></i><span class="user-name"><?php echo $_SESSION['user']->firstname . " " . $_SESSION['user']->lastname?></span></li>
                                 <li class="divider"></li>
                                 <li><a href=""><i class="i"></i>User Profile</a></li>
