@@ -24,7 +24,7 @@ class PropertyTenant extends Controller
             $this->redirect('/');
         } else {
             $data = [];
-            $data['property'] = $_SESSION['selectedProperty'];
+            $data['property'] = isset($_SESSION['selectedProperty']) ? $_SESSION['selectedProperty'] : null;
             $data['tenant'] = $_SESSION['user'];
             $_SESSION['sidebar'] = "manage";
             $this->view('tenant/managedetails', $data);
