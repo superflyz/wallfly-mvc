@@ -155,7 +155,7 @@ require_once '../app/views/templates/interfaceStart.php';
 
 
                         </div>
-
+                        <br />
                         <!-- end date picker -->
                         <div class="row first_row">
                             <div class="col-md-4 col-md-offset-1">
