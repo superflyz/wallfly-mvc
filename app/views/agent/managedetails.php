@@ -15,15 +15,25 @@ require_once '../app/views/templates/interfaceStart.php';
 if(isset($_SESSION['selectedProperty'])) {
 ?>
 <div class="row">
-    <div class="col-md-12">
-        <div class="manage_properties_pills">
-          <!-- Nav pills -->
-          <ul class="nav nav-pills nav-justified properties_pills">
-            <li role="presentation" class="active"><a href="#detail" aria-controls="detail" role="pill" data-toggle="pill">Property Details</a></li>
-            <li role="presentation"><a href="#documents" aria-controls="documents" role="pill" data-toggle="pill">Documents</a></li>
-            <li role="presentation"><a href="#inspections" aria-controls="inspections" role="pill" data-toggle="pill">Inspections</a></li>
-            <li role="presentation"><a href="#rta" aria-controls="rta" role="pill" data-toggle="pill">R.T.A</a></li>
-          </ul>
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="hidden-xs manage_properties_pills">
+            <!-- Nav pills -->
+            <ul class="nav nav-pills nav-justified properties_pills">
+                <li role="presentation" class="active"><a href="#detail" aria-controls="detail" role="pill" data-toggle="pill">Property Details</a></li>
+                <li role="presentation"><a href="#documents" aria-controls="documents" role="pill" data-toggle="pill">Documents</a></li>
+                <li role="presentation"><a href="#inspections" aria-controls="inspections" role="pill" data-toggle="pill">Inspections</a></li>
+                <li role="presentation"><a href="#rta" aria-controls="rta" role="pill" data-toggle="pill">R.T.A</a></li>
+            </ul>
+        </div>
+        <div class="visible-xs manage_properties_pills">
+            <!-- Nav pills -->
+            <ul class="nav nav-pills nav-stacked properties_pills">
+                <li role="presentation" class="active"><a href="#detail" aria-controls="detail" role="pill" data-toggle="pill">Property Details</a></li>
+                <li role="presentation"><a href="#documents" aria-controls="documents" role="pill" data-toggle="pill">Documents</a></li>
+              
+                <li role="presentation"><a href="#inspections" aria-controls="inspections" role="pill" data-toggle="pill">Inspections</a></li>
+                <li role="presentation"><a href="#rta" aria-controls="rta" role="pill" data-toggle="pill">R.T.A</a></li>
+            </ul>
         
         </div>
     </div>
@@ -33,19 +43,19 @@ if(isset($_SESSION['selectedProperty'])) {
 
 <div class="row bottom-section">
     <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-12 col-sm-12 col-xs-12">
         <!-- Pill panes -->
         <div class="pill-content manage_properties_view">
             <div role="pillpanel" class="pill-pane active" id="detail">
                 <div class="row property_details">
                     <?php if ($property = $data['property']): ?>
-                    <div class="col-md-4">
+                    <div class="col-md-4 col-sm-4 col-xs-12">
                         <div class="pd_img">
                         <!-- This is to get the property photo -->
                         <img src="<?=$data['property']->photo?>" class="img-responsive" alt="property_photo" title="Property photo">
                         </div>
                     </div>
-                    <div class="col-md-8">
+                    <div class="col-md-8 col-sm-8 col-xs-12">
                         <div class="pd_address">
                         <!-- This is to get the property address -->
                             <div class="pd_hd">Address<hr class='pd_hr'></div>
@@ -90,20 +100,23 @@ if(isset($_SESSION['selectedProperty'])) {
                         </div>
                         <div class="pd_btns">
                             <div class="pull-right">
+                                  <div class="pull-right">
                                 <button class="btn btn-edit_property" id="triggermodal" data-toggle="modal" data-target="#editPropertyForm">Edit</button>
-                                <button class="btn btn-add-tenant" id="triggermodal" data-toggle="modal" data-target="#tenantForm">Assign a tenant</button>
-                                <button class="btn btn-warning" id="triggermodal" data-toggle="modal" data-target="#assignOwner">Assign an owner</button>
-                                <a id="deleteBtn" class="btn btn-danger" href="<?=WEBDIR?>/propertycontrol/delete">Remove this property</a>
-                            <?php endif ?>
+                                <button class="btn btn-add-tenant" id="triggermodal" data-toggle="modal" data-target="#tenantForm">Register/Assign Tenant</button>
+                          
+                                <button class="btn btn-add-owner" id="triggermodal" data-toggle="modal" data-target="#assignOwner">Assign Owner</button>
+                               <a id="deleteBtn" class="btn btn-delete-property" href="<?=WEBDIR?>/propertycontrol/delete">Remove Property</a>
+                             <?php endif ?>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            </div> 
             <div role="pillpanel" class="pill-pane" id="documents">
                 <div class="row d_upload_pdf">
                     <form id="repairRequest" enctype="multipart/form-data" method="post" action="<?=WEBDIR?>/propertyagent/processDocument">
-                        <div class="col-md-12 pdf_upload">
+                        <div class="col-md-12 col-sm-12 col-xs-12 pdf_upload">
                             <div class="fileinput fileinput-new" data-provides="fileinput">
                                 <span class="btn btn-choose btn-file">
                                     <span>Choose file</span>
@@ -111,16 +124,16 @@ if(isset($_SESSION['selectedProperty'])) {
                                 </span>
                                 <span class="fileinput-filename">
                                     <span class="fileinput-new">No file chosen</span>
-                                </span>
+                                </span>     </div>
                                 <button type="submit" name="Submit" class="btn btn-upload-pdf">Upload PDF</button>
                                 <span class="error"></span>
                             </div>
-                        </div>
+                    
                     </form>
                     <?php if ($error = Flash::get('pdferror')): ?>
                     <div class="alert alert-default" role="alert" style="color:rgb(159, 221, 94)"><?=$error?>!!!</div>
                     <?php endif ?>
-                    <div class="col-md-12">
+                     <div class="col-md-12 col-sm-12 col-xs-12">
                         <div class="row pdf_view">
                         <?php
                           if(isset($_SESSION['selectedProperty'])) {
@@ -139,7 +152,7 @@ if(isset($_SESSION['selectedProperty'])) {
             <div role="pillpanel" class="pill-pane" id="inspections">
                 <div class="row d_upload_pdf">
                     <form id="repairRequest" enctype="multipart/form-data" method="post" action="<?=WEBDIR?>/propertyagent/processInspection">
-                    <div class="col-md-12 pdf_upload">
+                     <div class="col-md-12 col-sm-12 col-xs-12 pdf_upload">
                         <div class="fileinput fileinput-new" data-provides="fileinput">
                             <span class="btn btn-choose btn-file">
                                 <span>Choose file</span>
@@ -147,13 +160,13 @@ if(isset($_SESSION['selectedProperty'])) {
                             </span>
                             <span class="fileinput-filename">
                                 <span class="fileinput-new">No file chosen</span>
-                            </span>
+                            </span>     </div>
                             <button type="submit" name="Submit" class="btn btn-upload-pdf">Upload PDF</button>
                             <span class="error"></span>
                         </div>
-                    </div>
+               
                     </form>
-                    <div class="col-md-12">
+                     <div class="col-md-12 col-sm-12 col-xs-12">
                         <div class="row pdf_view">
                         <?php
                         if(isset($_SESSION['selectedProperty'])) {
@@ -202,7 +215,8 @@ if(isset($_SESSION['selectedProperty'])) {
 </div>
   
 <!-- edit property modal -->
-<div class="modal modal-vcenter fade" id="editPropertyForm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+<div class="modal modal-vcenter fade" id="editPropertyForm" tabindex="-1" role="dialog" aria-labelledby="editPropertyForm">
+
     <div class="modal-dialog modal-md">
         <div class="modal-content">
             <div class="modal-header">
@@ -221,34 +235,34 @@ if(isset($_SESSION['selectedProperty'])) {
                         <input type="text" class="form-control" name="address" value="<?=$_SESSION['selectedProperty']->address?>">
                         <span class="error"></span>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6 col-sm-6 col-xs-6">
                         <div class="ep_field_ra">
                             <label for="rent_amount">Rent amount</label>
                             <input type="text" name="rent_amount" class="form-control" value="<?=$_SESSION['selectedProperty']->rent_amount?>">
                             <span class="error"></span>
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6 col-sm-6 col-xs-6">
                         <div class="ep_field_ps">
                             <label for="payment_schedule">Payment schedule</label>
                             <select name="payment_schedule" class="form-control">
-                                <option value="" hidden>Please select...</option>
+                                <option disabled selected>Please select...</option>
                                 <option value="WEEKLY" <?=$selected[0]?>>Weekly</option>
                                 <option value="FORTNIGHTLY" <?=$selected[1]?>>Fortnightly</option>
                                 <option value="MONTHLY" <?=$selected[2]?>>Monthly</option>
                             </select>
-                            </select>
                             <span class="error"></span>
                         </div>
                     </div>
-                    <div class="col-md-8">
+                    <div class="col-md-8 col-sm-8 col-xs-8">
                         <div class="ep_field_img">
                             <label for="photo_file">Change image</label>
                             <div class="ep_field_img_img">
-                                <img src="<?=$_SESSION['selectedProperty']->photo?>" class="img-responsive" alt="property_photo" title="Property photo"> </div>
+                                <img src="<?=$_SESSION['selectedProperty']->photo?>" class="img-responsive" alt="property_photo" title="Property photo">
+                                </div>
                         </div>
                     </div>
-                    <div class="col-md-8">
+                    <div class="col-md-8 col-sm-8 col-xs-8">
                         <div class="ep_field_img_file">
                             <div class="fileinput fileinput-new" data-provides="fileinput">
                                 <span class="btn btn-choose btn-file"><span>Choose file</span>
@@ -259,7 +273,7 @@ if(isset($_SESSION['selectedProperty'])) {
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-4 col-sm-4 col-xs-4">
                         <div class="ep_btnz pull-right">
                             <button type="submit" class="btn btn-save-changes">Save changes</button>
                         </div>
@@ -277,11 +291,11 @@ if(isset($_SESSION['selectedProperty'])) {
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></button>
-                <p class="modal-title">Assign Tenant</p>
+                <p class="modal-title">Register/Assign Tenant</p>
             </div>
             <div class="modal-body">
                 <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-md-12 col-sm-6 col-xs-12">
                         <label for="assignmode">Select action</label>
                         <select id="assignmode" class="form-control">
                             <option value="new">Create a new tenant account</option>
@@ -290,41 +304,45 @@ if(isset($_SESSION['selectedProperty'])) {
                     </div>
                 </div>
                 <form action="<?=WEBDIR?>/propertyagent/assigntenant" id="assignNewForm" method="post">
-                    <div class="col-md-6">
+                    <div class="col-md-6 col-sm-6 col-xs-12">
                         <div class="at_field_fn">
                             <label for="firstname">First name</label>
                             <input type="text" class="form-control" id="firstname" name="firstname" required>
                             <span class="error"></span>
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6 col-sm-6 col-xs-12">
                         <div class="at_field_ln">
                             <label for="lastname">Last name</label>
                             <input type="text" class="form-control" id="lastname" name="lastname" required>
                             <span class="error"></span>
                         </div>
                     </div>
-                    <div class="form-field">
+                   <div class="col-md-6 col-sm-6 col-xs-12">
+                        <div class="at_field_fn">
                         <label for="email">Email address</label>
                         <input type="email" class="form-control" id="email" name="email" required>
+                     </div>
                     </div>
-                    <div class="form-field">
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                        <div class="at_field_ln">
                         <label for="phone">Phone</label>
                         <input type="text" class="form-control" id="phone" name="phone" required>
                     </div>
-                    <div class="col-md-12">
+                       </div>
+                    <div class="col-md-12 col-sm-12 col-xs-12">
                         <div class="at_btnz">
-                            <button type="submit" class="btn btn-save-changes pull-right">Save changes</button>
+                            <button type="submit" class="btn btn-save-changes pull-right">Register</button>
                         </div>
                     </div>
                 </form>
                 <form action="<?=WEBDIR?>/propertyagent/assignexistingtenant" id="assignExistingForm" method="post">
-                    <div class="form-field">
+                    <div class="at_field_em">
                         <label for="email2">Email address</label>
                         <input type="email" class="form-control" id="email2" name="email" autocomplete="off" required>
                         <p id="tenantError" style="color: red"></p>
                     </div>
-                    <div class="col-md-12">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
                         <div class="at_btnz">
                             <button type="submit" id="submit2" class="btn btn-save-changes pull-right">Save changes</button>
                         </div>

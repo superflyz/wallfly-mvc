@@ -70,7 +70,7 @@ require_once '../app/views/templates/interfaceStart.php';
                             foreach ($result as $row) {
                                 echo "
                                 <div class='row payment_history'>
-                                    <div class='col-md-4 col-sm-4 col-xs-4'>
+                                    <div class='col-md-4 col-sm-4 col-xs-12'>
                                         <div class='payment_history_date'>
                                             <div class='hd-text-date'>Date<hr class='payment_hr'></div>
                                             <div class='bd-text-date'>" . date('M, d Y', strtotime($row['time'])) .
@@ -78,14 +78,14 @@ require_once '../app/views/templates/interfaceStart.php';
                                         </div>
                                     </div>" .
 
-                                    "<div class='col-md-4 col-sm-4 col-xs-4'>
+                                    "<div class='col-md-4 col-sm-4 col-xs-12'>
                                         <div class='payment_history_date'>
                                             <div class='hd-text-amount'>Payee Name<hr class='payment_hr'></div>
                                             <div class='bd-text-amount'>" . $row['payee'] . "</div>
                                         </div>
                                     </div>" .
 
-                                    "<div class='col-md-4 col-sm-4 col-xs-4 payment_history_amount'>
+                                    "<div class='col-md-4 col-sm-4 col-xs-12 payment_history_amount'>
                                         <div class='payment_history_amount'>
                                             <div class='hd-text-amount'>Amount<hr class='payment_hr'></div>
                                             <div class='bd-text-amount'>$" . $row['amount'] . "</div>

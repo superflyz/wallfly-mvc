@@ -67,7 +67,7 @@
                         <div class="row">
                             <div class="col-md-6 col-sm-6 col-xs-6">
                                 <div class="ap_field_r">
-                                    <label for="rent_amount">Rent amount ($)</label>
+                                    <label for="rent_amount">Rent amount <span class="opt">($)</span></label>
                                     <input type="text" class="form-control" id="rent_amount" name="rent_amount" required>
                                 </div>
                             </div>
@@ -75,7 +75,7 @@
                                 <div class="ap_field_ps">
                                     <label for="payment_schedule">Payment schedule</label>
                                     <select name="payment_schedule" id="payment" class="form-control">
-                                        <option disabled selected hidden>Please select...</option>
+                                        <option disabled selected>Please select...</option>
                                         <option value="WEEKLY">Weekly</option>
                                         <option value="FORTNIGHTLY">Fortnightly</option>
                                         <option value="MONTHLY">Monthly</option>

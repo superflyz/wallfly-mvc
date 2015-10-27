@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: jimmykovacevic
- * Date: 3/10/2015
- * Time: 4:51 PM
- */
 require_once '../app/views/templates/interfaceStart.php';
 ?>
 
@@ -35,13 +29,13 @@ require_once '../app/views/templates/interfaceStart.php';
                     $count = 0;
                     foreach ($result as $row) {
                         if ($row['status'] == 0){
-                            $status = "Pending";
+                            $status = "<p class='repair_sp'>Pending</p>";
                             $row['status']= "<div class='status_p'><i class='fa fa-question'></i></div>";
                         }elseif($row['status'] == 1){
-                            $status = "Approved";
+                            $status = "<p class='repair_sp'>Approved</p>";
                             $row['status']= "<div class='status_a'><i class='fa fa-check'></i></div>";
                         }else{
-                            $status = "Denied";
+                            $status = "<p class='repair_sp'>Denied</p>";
                             $row['status']= "<div class='status_d'><i class='fa fa-times'></i></div>";}
                         if ($row['severity_level'] == "low"){
                             $row['severity_level']= "<div class='s_lvl_low'>LOW</div>";
@@ -55,7 +49,7 @@ require_once '../app/views/templates/interfaceStart.php';
                          if(!empty($checkIfImageExists[1])){
                          $repairPic = "<img data-toggle='modal' class='img-responsive repair_image_enlarge' title='Repair image' alt='Repair image' src='" . $row['image']."'/>";
                          }else{  $repairPic = "<img data-toggle='modal' class='img-responsive repair_image_enlarge' title='Repair image' alt='No image' src='/wallfly-mvc/public/img/noimage.png'/>"; }
-//<div class='no_repair_img_view img-responsive' title='Repair image'><p>No image</p></div>
+                        
                    
                         echo "<div class='row repair_view_head'>
                         <div class='col-md-12 col-sm-12 col-xs-12 hd'>
@@ -106,8 +100,8 @@ require_once '../app/views/templates/interfaceStart.php';
                                <button type='submit' name='submit' value='<?php echo $row['timestamp']?>/approve/<?php echo($count)?>' class='btn btn_repair_approve'>Approve</button>
                             <button type='submit' name='submit' value='<?php echo $row['timestamp']?>/deny/<?php echo($count++)?>' class='btn btn_repair_deny'>Deny</button></div>
                                 </div>
-                </div>
-                            </div>
+            </div>
+        </div>
         
                        
      
@@ -118,15 +112,15 @@ require_once '../app/views/templates/interfaceStart.php';
                 }
                 ?>
 
-         </div>
+                </div>
             </form>
 
         <?php }?>
 
     
-    </div>
 </div>
-    </div>
+</div>
+</div>
 
 
 <div class="modal fade enlarge_repair_img modal-vcenter" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">

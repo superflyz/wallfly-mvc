@@ -217,7 +217,7 @@ overflow-y: scroll;
     height: 40px;
 /*    padding: 0px 0px 0px 0px;*/
     padding-left: 8px;
-    margin: 0px;
+    margin: 0px 0px 10px 0px;
 
     border: 1px solid #dedede;
         outline: 0;
@@ -2951,6 +2951,30 @@ border-radius: 4px;
     color: #FA4B3E;
 }
 
+
+.btn-add-owner, .btn-add-owner:focus {
+    color: #ffffff;
+    background-color: #FCCF3F;
+/*    height: 40px;*/
+    font-size: 14px;
+    font-weight: 600;
+/*    width: 20%;*/
+    margin: 0px 5px 0px 0px;
+    border: 2px solid transparent;
+        -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    transition: all .3s;
+    
+}
+
+
+.btn-add-owner:hover {
+    border: 2px solid #FCCF3F;
+    background-color: transparent;
+    color: #FCCF3F;
+}
+
+
 .pd_hr {
     
     background: linear-gradient(to left, #f8f8f8, #dedede);
@@ -3089,6 +3113,13 @@ border-radius: 3px;
 }
 
 .at_field_fn{
+            margin: 0px 0px 10px 0px;
+    
+        padding: 0px 0px 0px 0px;
+/*    background: red;*/
+}
+
+.at_field_new{
             margin: 0px 0px 10px 0px;
     
         padding: 0px 0px 0px 0px;

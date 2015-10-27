@@ -64,7 +64,7 @@ class PropertyAgent extends Controller
           WEBDIR . '/dzscalendar/dzscalendar.css',
           WEBDIR . '/css/sweetalert.css',
           WEBDIR . '/css/wallfly.css',
-          WEBDIR . '/css/module.css',
+         // WEBDIR . '/css/module.css',
           WEBDIR . '/clockpicker/css/timepicki.css'
       ]);
       $_SESSION['sidebar'] = "calendar";

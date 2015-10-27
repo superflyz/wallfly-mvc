@@ -19,8 +19,8 @@ require_once '../app/views/templates/interfaceStart.php';
 
 <!-- Chat box -->
 <div class="row bottom-section">
-    <div class="row">
-        <div class="col-md-12">
+<div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
             <div id="chat_system">
                 <div class="panel panel-primary">
                     <div class="panel-heading">
@@ -38,12 +38,12 @@ require_once '../app/views/templates/interfaceStart.php';
                     <div class="panel-footer">
                         <div class="input-group">
                             <textarea id="btn-input-msg" class="form-control custom-control btn-msg-inpt" placeholder="Type your message here..." ></textarea><span class="input-group-addon btn-msg-snd" type="submit" id="btn-send-msg">Send</span>
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 </div>
 
 

@@ -11,7 +11,7 @@ require_once '../app/views/templates/interfaceStart.php';
 </div>
 
  <div class="row">
-    <div class="col-md-6 ">
+    <div class="col-md-6 col-sm-12 col-xs-12">
         <div class="manage_properties_pills">
           <!-- Nav pills -->
           <ul class="nav nav-pills nav-justified properties_pills">
@@ -26,7 +26,8 @@ require_once '../app/views/templates/interfaceStart.php';
 
 <!--Content here-->
 <div class="row bottom-section">
-    <div class="col-md-12">
+    <div class="row">
+        <div class="col-md-12">
 <!--start calendar-->
 <div id="calender">
     <div class="dzscalendar skin-responsive-galileo mode-normal tooltip_transition-tooltipDef">
@@ -87,6 +88,8 @@ require_once '../app/views/templates/interfaceStart.php';
         <div style="height:  <?php //echo ($count * 80)?>px"></div>
     </div>
 </div>
+</div>
+</div>
 <!--end calendar-->
 
 <!--add event modal-->
@@ -112,18 +115,18 @@ require_once '../app/views/templates/interfaceStart.php';
                         <span class="error"></span>
                     </div>
                     <div class="row add_event_field_t">
-
-                        <div class="col-md-6">
+                 
+                        <div class="col-md-6 col-sm-6 col-xs-6">
                             <div class="timepick">
                             <label for="time">Time</label>
                             <input id='timepicker' type='text' name='timepicker1' class="form-control"/>
                                 </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-6 col-sm-6 col-xs-6">
                             <div class="interval">
                             <label for="interval">Select Interval</label>
                             <select name="interval" class="form-control">
-                                <option value="" hidden>Please select...</option>
+                                <option disabled selected>Please select...</option>
                                 <option value="onetime">One Time</option>
                                 <option value="everyweek">Weekly</option>
                                 <option value="everyotherweek">Fortnightly</option>
@@ -133,23 +136,25 @@ require_once '../app/views/templates/interfaceStart.php';
                                  </div>
                         </div>
                     </div>
+                    <div class="col-md-8 col-sm-8 col-xs-8">
                     <div class="add_event_field_e">
                         <label for="date">Event Date</label>
-                        <input name="date" id="date" type="hidden"  class="form-control" >
+                        <input name="date" id="date" type="hidden" class="form-control" >
                         <pre hidden id="hidden" class="event-receiver"></pre>
-
-
-                        <div class="dzscalendar skin-aurora" id="trauroradatepicker">
-                                </div>
-
+                        
+               
+                        <div class="dzscalendar skin-aurora" id="trauroradatepicker"> </div>
+                    
          <span class="error"></span>
                     </div>
+                         </div>
+                    <div class="col-md-4 col-sm-4 col-xs-4">
                     <div class="add_event_field_btn">
                         <button type="submit" name="Submit" id="submit-btn" class="btn btn-add-event pull-right">Add event
                         </button>
                     </div>
-
-
+                      </div>
+                   
                     <div class="form-field">
                         <input type="hidden" name="propertyID" id="propertyID" class="form-control"
                                value="<?php echo $pID; ?> ">
@@ -163,13 +168,13 @@ require_once '../app/views/templates/interfaceStart.php';
 
 
                     <!-- end date picker -->
-
                 </form>
             </div>
         </div>
     </div>
 </div>
 <!-- end add event modal-->
+
 
 <!--select event modal-->
 <div class="modal modal-vcenter fade remove-event-modal-md" tabindex="-1" role="dialog"

@@ -126,7 +126,7 @@ require_once '../app/views/templates/interfaceStart.php';
                             <div class="interval">
                             <label for="interval">Select Interval</label>
                             <select name="interval" class="form-control">
-                                <option disabled selected hidden>Please select...</option>
+                                <option disabled selected>Please select...</option>
                                 <option value="onetime">One Time</option>
                                 <option value="everyweek">Weekly</option>
                                 <option value="everyotherweek">Fortnightly</option>

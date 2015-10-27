@@ -4,15 +4,14 @@ require_once '../app/views/templates/interfaceStartIndex.php';
 
 <!--Content here-->
 <div class="row">
-    <div class="col-md-12">
-        <div class="col-md-8">
-            <h1 class="wlcm-h1">Welcome <span class="user-color"><?php echo $_SESSION['user']->firstname?>!</span></h1>
-        </div>
-        <div class="col-md-4">
-            <button class="btn btn-add-property pull-right" data-toggle="modal" data-target="#addpropertyform"><i class="fa fa-plus-square"></i>Add property</button>
-        </div>
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="col-md-8 col-sm-8 col-xs-12">
+        <h1 class="wlcm-h1">Welcome <span class="user-color"><?php echo $_SESSION['user']->firstname?>!</span></h1>
+    </div>   
+    <div class="col-md-4 col-sm-4 col-xs-12">
+        <button class="btn btn-add-property pull-right" data-toggle="modal" data-target="#addpropertyform">         <i class="fa fa-plus-square"></i>Add property</button>
     </div>
-</div>
+    </div>
 </div>
 </div>
 
@@ -24,7 +23,7 @@ require_once '../app/views/templates/interfaceStartIndex.php';
             $count = 0;
             foreach ($properties as $property) {
                 ?>
-                <div class="col-md-3">
+                 <div class="col-md-3 col-sm-4 col-xs-12">
                     <form id="viewDetails" method="post" action="<?=WEBDIR?>/propertyagent/viewDetails">
                         <div class="dash_p">
                             <div class="dash_p_img">
@@ -67,7 +66,7 @@ require_once '../app/views/templates/interfaceStartIndex.php';
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="ap_field_r">
-                                    <label for="rent_amount">Rent amount ($)</label>
+                                    <label for="rent_amount">Rent amount <span class="opt">($)</span></label>
                                     <input type="text" class="form-control" id="rent_amount" name="rent_amount" required>
                                 </div>
                             </div>
@@ -75,7 +74,7 @@ require_once '../app/views/templates/interfaceStartIndex.php';
                                 <div class="ap_field_ps">
                                     <label for="payment_schedule">Payment schedule</label>
                                     <select name="payment_schedule" id="payment" class="form-control">
-                                        <option disabled selected hidden>Please select...</option>
+                                        <option disabled selected>Please select...</option>
                                         <option value="WEEKLY">Weekly</option>
                                         <option value="FORTNIGHTLY">Fortnightly</option>
                                         <option value="MONTHLY">Monthly</option>
