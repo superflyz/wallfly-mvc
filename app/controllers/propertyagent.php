@@ -330,10 +330,10 @@ class PropertyAgent extends Controller
 
         // 3. create a new tenant
         $tenant = Tenant::create([
-          'email' => $data['email'],
-          'firstname' => $data['firstname'],
-          'lastname' => $data['lastname'],
-          'phone' => $data['phone'],
+          'email' => strip_tags($data['email']),
+          'firstname' => strip_tags($data['firstname']),
+          'lastname' => strip_tags($data['lastname']),
+          'phone' => strip_tags($data['phone']),
           'password' => create_hash($password),
           'photo' => 'http://dummyimage.com/250x200/000/fff.jpg'
         ]);
