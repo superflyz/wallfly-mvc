@@ -46,6 +46,10 @@ require_once '../app/views/templates/interfaceStart.php';
                                         <p>Last payment was <b>$" . $result[$i]['amount'] . "</b> payed on <i>" . date('M, d Y', strtotime($result[$i]['time'])) . "</i></p>
                                     </div>";
                             }
+                        } else {
+                            echo "<div class='last_payment'>
+                                    <p>Weekly rent is $" . $rent . " and it is due " . $rentType . "</p>
+                            </div>";
                         }
                     }
                     ?>
