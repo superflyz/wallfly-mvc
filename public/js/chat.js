@@ -42,7 +42,7 @@ function chatLoad(userID,propertyID) {
             }
 
         });
-        setInterval(chatRefresh, 2000);
+        setInterval(chatRefresh, 200);
         setTimeout(function () {
             $("#chatbox").scrollTop($("#chatbox")[0].scrollHeight);
         }, 50);
