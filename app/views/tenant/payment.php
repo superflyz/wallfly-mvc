@@ -152,8 +152,8 @@ require_once '../app/views/templates/interfaceStart.php';
                             </section>
                                     </div>
                         </div>
-                                           
-                        
+
+
                         </div>
 
                         <!-- end date picker -->

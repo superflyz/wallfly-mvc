@@ -109,8 +109,6 @@ require_once '../app/views/templates/interfaceStart.php';
                             </div>
                         </div>
                     </div>
-              
-                        
                     <!-- date picker -->
                     <div class="row add_payment_cal">
                         <div class="col-md-6 col-sm-6 col-xs-12">
@@ -118,9 +116,8 @@ require_once '../app/views/templates/interfaceStart.php';
                                 <label for="startDate">Rent Start Week</label>
                                 <pre hidden id="hidden" class="event-receiver"></pre>
                                 <span class="error"></span>
-                             <div class="dzscalendar skin-aurora" id="trauroradatepicker" style="max-height:160px">
-                                        </div>
-
+                                <div class="dzscalendar skin-aurora" id="trauroradatepicker" style="max-height:160px">
+                                </div>
                             </div>
                         </div>
                         <!-- end date picker -->
@@ -134,13 +131,11 @@ require_once '../app/views/templates/interfaceStart.php';
                                     
                                 <div class="dzscalendar skin-aurora" id="trauroradatepicker2" style="max-height:160px">
                                     
+                                </div>
                             </div>
-                        </div>                  
-                    </div>
-                        
-                    <!-- end date picker -->
                         </div>
-                        
+                    </div>
+                    <!-- end date picker -->
                     <div class="row add_payment_btn">
                         <div class="col-md-12 col-sm-12 col-xs-12">
                             <button type="submit" name="add" class="btn btn-add-payment pull-right">Add Payment</button>

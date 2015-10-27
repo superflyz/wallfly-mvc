@@ -61,7 +61,7 @@ class Property extends Model
       $statement = $db->prepare("INSERT INTO payment (tenant_id, property_id, timestamp, rent_period_start, rent_period_end, amount, payee_name) VALUES
         (:tenant_id, :property_id, :timestamp, :rent_period_start, :rent_period_end, :amount, :payee_name)");
       $statement->execute(['tenant_id' => $this->tenant_id, 'property_id' => $this->id, 'timestamp' => date('Y-m-d G:i:s'),
-        'rent_period_start' => date("Y-m-d", strtotime($start)), 'rent_period_end' => date("Y-m-d", strtotime($end)), 'amount' => $amount, 'name' => $name]);
+        'rent_period_start' => date("Y-m-d", strtotime($start)), 'rent_period_end' => date("Y-m-d", strtotime($end)), 'amount' => $amount, 'payee_name' => $name]);
       return true;
     } catch (Exception $e) {
       echo 'Error: ' . $e->getMessage();
