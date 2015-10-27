@@ -49,26 +49,37 @@ require_once '../app/views/templates/interfaceStart.php';
             </div>
             <div role="pillpanel" class="pill-pane" id="home4">
                 <?php if (isset($_SESSION['selectedProperty'])) { ?>
-                  <div class="row">
-                <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-12">
                     <?php if (isset($_SESSION['selectedProperty'])) { ?>
                         <?php
                         $result = $_SESSION['selectedProperty']->getPayments();
                         if ($result) {
                             foreach ($result as $row) {
                                 echo "
-                            <div class='row payment_history'>
-                            <div class='col-md-6 col-sm-6 col-xs-6'>
-                            <div class='payment_history_date'>
-                            <div class='hd-text-date'>Date<hr class='payment_hr'></div>
-                            <div class='bd-text-date'>" . date('M, d Y', strtotime($row['time'])) . "</div></div></div>" .
+                                <div class='row payment_history'>
+                                    <div class='col-md-4 col-sm-4 col-xs-4'>
+                                        <div class='payment_history_date'>
+                                            <div class='hd-text-date'>Date<hr class='payment_hr'></div>
+                                            <div class='bd-text-date'>" . date('M, d Y', strtotime($row['time'])) .
+                                            "</div>
+                                        </div>
+                                    </div>" .
 
-                                    "<div class='col-md-6 col-sm-6 col-xs-6 payment_history_amount'>
-                            <div class='payment_history_amount'>
-                            <div class='hd-text-amount'>Amount<hr class='payment_hr'></div>
-                            <div class='bd-text-amount'>$" . $row['amount'] . "</div>
-                            </div></div></div>";
+                                    "<div class='col-md-4 col-sm-4 col-xs-4'>
+                                        <div class=''>
+                                            <div class='hd-text-amount'>Payee Name<hr class='payment_hr'></div>
+                                            <div class='bd-text-amount'>" . $row['payee'] . "</div>
+                                        </div>
+                                    </div>" .
 
+                                    "<div class='col-md-4 col-sm-4 col-xs-4 payment_history_amount'>
+                                        <div class='payment_history_amount'>
+                                            <div class='hd-text-amount'>Amount<hr class='payment_hr'></div>
+                                            <div class='bd-text-amount'>$" . $row['amount'] . "</div>
+                                        </div>
+                                    </div>
+                            </div>";
                             }
                         }
                         ?>
