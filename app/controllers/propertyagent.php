@@ -300,7 +300,7 @@ class PropertyAgent extends Controller
           'address' => strip_tags($_POST['address']),
           'payment_schedule' => strip_tags($_POST['payment_schedule']),
           'rent_amount' => strip_tags($_POST['rent_amount']),
-          'owner_id' => $_SESSION['user']->id,
+          'agent_id' => $_SESSION['user']->id,
           'photo' => DUMMY_IMAGE
         ]);
         Flash::set('message', 'You added a new property!');
