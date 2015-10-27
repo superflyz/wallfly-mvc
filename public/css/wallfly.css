@@ -2850,12 +2850,12 @@ border-radius: 4px;
 
 .btn-edit_property, .btn-edit_property:focus {
     color: #ffffff;
-    background-color: #FA4B3E;
+    background-color: #bdbdbd;
 /*    height: 40px;*/
     font-size: 14px;
     font-weight: 600;
 /*    width: 20%;*/
-    margin: 0px 10px 0px 0px;
+    margin: 0px 5px 0px 0px;
     border: 2px solid transparent;
         -webkit-transition: all .3s;
     -moz-transition: all .3s;
@@ -2865,9 +2865,9 @@ border-radius: 4px;
 
 
 .btn-edit_property:hover {
-    border: 2px solid #FA4B3E;
+    border: 2px solid #bdbdbd;
     background-color: transparent;
-    color: #FA4B3E;
+    color: #bdbdbd;
 }
 
 .btn-add-tenant, .btn-add-tenant:focus {
@@ -2877,7 +2877,7 @@ border-radius: 4px;
     font-size: 14px;
     font-weight: 600;
 /*    width: 40%;*/
-    margin: 0px 0px 0px 0px;
+    margin: 0px 5px 0px 0px;
     border: 2px solid transparent;
         -webkit-transition: all .3s;
     -moz-transition: all .3s;
@@ -2890,6 +2890,28 @@ border-radius: 4px;
     border: 2px solid #5AD663;
     background-color: transparent;
     color:  #5AD663;
+}
+
+.btn-delete-property, .btn-delete-property:focus {
+    color: #ffffff;
+    background-color: #FA4B3E;
+/*    height: 40px;*/
+    font-size: 14px;
+    font-weight: 600;
+/*    width: 20%;*/
+    margin: 0px 0px 0px 0px;
+    border: 2px solid transparent;
+        -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    transition: all .3s;
+    
+}
+
+
+.btn-delete-property:hover {
+    border: 2px solid #FA4B3E;
+    background-color: transparent;
+    color: #FA4B3E;
 }
 
 .pd_hr {

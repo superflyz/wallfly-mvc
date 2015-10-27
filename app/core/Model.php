@@ -95,10 +95,11 @@ class Model
 
   public function delete()
   {
-    $db = Database::get_instance();
+    $db = Database::getInstance();
     $statement = $db->prepare("DELETE FROM " . strtolower(get_class($this)) . " WHERE id=:id");
     $statement->bindParam(':id', $this->id);
     $statement->execute();
+
   }
 
   public static function create($data)

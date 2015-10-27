@@ -106,6 +106,7 @@ if(isset($_SESSION['selectedProperty'])) {
                             <div class="pull-right">
                                 <button class="btn btn-edit_property" id="triggermodal" data-toggle="modal" data-target="#editPropertyForm">Edit</button>
                                 <button class="btn btn-add-tenant" id="triggermodal" data-toggle="modal" data-target="#tenantForm">Register/Assign Tenant</button>
+                                <a class="btn btn-delete-property" href="<?=WEBDIR?>/propertycontrol/delete">Remove Property</a>
                                 <?php endif ?>
                             </div>
                         </div>
