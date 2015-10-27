@@ -427,4 +427,19 @@ class PropertyAgent extends Controller
     }
   }
 
+  public function viewDetails()
+  {
+    if (!Agent::isAuthenticated()) {
+      $this->redirect('/');
+    } else {
+      if (!isset($_POST['submit'])) {
+        $this->redirect("/propertyagent/index");
+      }
+      $properties = $_SESSION['user']->getProperties();
+      $_SESSION['selectedProperty'] = $properties[$_POST['submit']];
+      $_SESSION['sidebar'] = "manage";
+      $this->redirect('/propertyagent/manage');
+    }
+  }
+
 }
