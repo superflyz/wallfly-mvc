@@ -41,7 +41,7 @@ class Property extends Model
       }
       $result = Array();
       while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
-        $tmp = Array("time" => $row['timestamp'], "amount" => $row['amount']);
+        $tmp = Array("time" => $row['timestamp'], "amount" => $row['amount'], "payee" => $row['payee_name']);
         array_push($result, $tmp);
       }
       if (count($result) == 0) {
@@ -58,9 +58,10 @@ class Property extends Model
   {
     try {
       $db = Database::getInstance();
-      $statement = $db->prepare("INSERT INTO payment (tenant_id, property_id, timestamp, rent_period_start, rent_period_end, amount) VALUES
-        (:tenant_id, :property_id, :timestamp, :rent_period_start, :rent_period_end, :amount)");
-      $statement->execute(['tenant_id' => $this->tenant_id, 'property_id' => $this->id, 'timestamp' => date('Y-m-d G:i:s'), 'rent_period_start' => date("Y-m-d", strtotime($start)), 'rent_period_end' => date("Y-m-d", strtotime($end)), 'amount' => $amount]);
+      $statement = $db->prepare("INSERT INTO payment (tenant_id, property_id, timestamp, rent_period_start, rent_period_end, amount, payee_name) VALUES
+        (:tenant_id, :property_id, :timestamp, :rent_period_start, :rent_period_end, :amount, :payee_name)");
+      $statement->execute(['tenant_id' => $this->tenant_id, 'property_id' => $this->id, 'timestamp' => date('Y-m-d G:i:s'),
+        'rent_period_start' => date("Y-m-d", strtotime($start)), 'rent_period_end' => date("Y-m-d", strtotime($end)), 'amount' => $amount, 'name' => $name]);
       return true;
     } catch (Exception $e) {
       echo 'Error: ' . $e->getMessage();
