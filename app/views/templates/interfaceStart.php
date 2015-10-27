@@ -68,12 +68,8 @@ if (isset($_SESSION['selectedProperty'])) {
                             <li id="repair" <?php if($_SESSION['sidebar']== 'repair'){echo 'class="active"'; } ?>><a href='<?=WEBDIR?>/propertytenant/repair' >Repairs<i class="fa fa-wrench pull-right"></i></a></li>
                         <?php }?>
                         <?php if($_SESSION['usertype'] == USERTYPE_REALESTATE) {;?>
-                            <li  id="dashboard" <?php if($_SESSION['sidebar']== 'dashboard'){echo 'class="active"'; } ?>><a href='<?=WEBDIR?>/realest/index'>Dashboard<i class="fa fa-desktop pull-right"></i></a></li>
-                            <li id="manage" <?php if($_SESSION['sidebar']== 'manage'){echo 'class="active"'; } ?>><a href='<?=WEBDIR?>/realest/manage'><span class="wrap">Properties</span><i class="fa fa-home pull-right"></i></a></li>
-                            <li id="calendar" <?php if($_SESSION['sidebar']== 'calendar'){echo 'class="active"'; } ?>><a href='<?=WEBDIR?>/realest/calendar'>Calendar<i class="fa fa-calendar pull-right"></i></a></li>
-                            <li id="chat" <?php if($_SESSION['sidebar']== 'chat'){echo 'class="active"'; } ?>><a href='<?=WEBDIR?>/realest/chat'>Messages<i class="fa fa-comments-o pull-right"></i></a></li>
-                            <li id="payment" <?php if($_SESSION['sidebar']== 'payment'){echo 'class="active"'; } ?>><a href='<?=WEBDIR?>/realest/payment' >Payments<i class="fa fa-credit-card pull-right"></i></a></li>
-                            <li id="repair" <?php if($_SESSION['sidebar']== 'repair'){echo 'class="active"'; } ?>><a href='<?=WEBDIR?>/realest/repair' >Repairs<i class="fa fa-wrench pull-right"></i></a></li>
+                            <li  id="dashboard" <?php if($_SESSION['sidebar']== 'dashboard'){echo 'class="active"'; } ?>><a href='<?=WEBDIR?>/realest/index'>Properties<i class="fa fa-home pull-right"></i></a></li>
+                            <li id="manage" <?php if($_SESSION['sidebar']== 'manage'){echo 'class="active"'; } ?>><a href='<?=WEBDIR?>/realest/manage'><span class="wrap">Agents</span><i class="fa fa-group pull-right"></i></a></li>
                         <?php }?>
                     </ul>
                 </nav>
@@ -121,7 +117,7 @@ if (isset($_SESSION['selectedProperty'])) {
                                     } else if ($userType == USERTYPE_OWNER) {
                                         echo ("<a href='" . WEBDIR . "/propertyowner/viewnotifications'>View all notifications</a>");
                                     } else if ($userType == USERTYPE_REALESTATE) {
-                                        echo ("<a href='" . WEBDIR . "/propertyrealestate/viewnotifications'>View all notifications</a>");
+                                        echo ("<a href='" . WEBDIR . "/realest/viewnotifications'>View all notifications</a>");
                                     }
                                 ?>
                             </ul>

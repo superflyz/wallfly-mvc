@@ -12,7 +12,7 @@ class Agent extends Super_User
     try {
       $db = Database::getInstance();
       $statement = $db->prepare("INSERT INTO agent VALUES (:super_user_id, :real_estate_id)");
-      $statement->execute([
+      $x = $statement->execute([
         ':super_user_id' => $this->id,
         ':real_estate_id' => $this->real_estate_id
       ]);

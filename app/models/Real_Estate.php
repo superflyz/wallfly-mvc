@@ -14,6 +14,25 @@ class Real_Estate extends Model
       isset($_SESSION['user']));
   }
 
+  public function getProperties()
+  {
+    $agents = $this->getAgents();
+    $properties = [];
+    for ($i = 0; $i < sizeof($agents); $i++) {
+      $props = $agents[$i]->getProperties();
+      for ($j = 0; $j < sizeof($props); $j++) {
+        $properties[] = $props[$j];
+      }
+    }
+    return $properties;
+  }
+
+  public function getAgents()
+  {
+    $agents = Agent::get(['real_estate_id' => $this->id]);
+    return $agents;
+  }
+
   public static function get($data = '_all')
   {
     if ($data === '_all') {

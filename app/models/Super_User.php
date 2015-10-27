@@ -13,7 +13,7 @@ class Super_User extends Model
       $statement = $db->prepare("INSERT INTO super_user (email, password, firstname,
         lastname, phone, photo) VALUES (:email, :password, :firstname, :lastname,
         :phone, :photo)");
-      $statement->execute([
+      $x = $statement->execute([
         ':email' => $this->email,
         ':password' => $this->password,
         ':firstname' => $this->firstname,
