@@ -70,7 +70,7 @@ require_once '../app/views/templates/interfaceStart.php';
                                 </div>" .
 
                                 "<div class='col-md-4 col-sm-4 col-xs-4'>
-                                    <div class=''>
+                                    <div class='payment_history_date'>
                                         <div class='hd-text-amount'>Payee Name<hr class='payment_hr'></div>
                                         <div class='bd-text-amount'>" . $row['payee'] . "</div>
                                     </div>

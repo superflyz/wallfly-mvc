@@ -2687,6 +2687,28 @@ li{
     color:  #5AD663;
 } 
 
+.btn-pay_now {
+    color: #f8f8f8;
+    background-color: #5AD663;
+    height: 45px;
+    font-size: 14px;
+    font-weight: 600;
+/*    width: 15%;*/
+    margin: 5px 0px 0px 0px;
+    padding: 4px 14px 4px 14px;
+    border: 2px solid transparent;
+        -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    transition: all .3s;
+    
+}
+
+.btn-pay_now:hover{
+    border: 2px solid #5AD663;
+    background-color: transparent;
+    color:  #5AD663;
+} 
+
 
 /*
 .zeropad{
@@ -3639,18 +3661,18 @@ padding: 0px 0px 0px 0px;
 
 }
 
-.lol {
+.t_payments {
     
         padding: 0px 0px 0px 0px;
     margin: 0px 0px 0px 0px;
 }
 
-.last_payment {
+.last_payment  {
     
 /*    background: green;*/
     font-size: 16px;
 
-    padding: 15px 0px 5px 25px;
+    padding: 5px 0px 5px 25px;
 }
 
 .last_payment b {
@@ -3663,6 +3685,26 @@ padding: 0px 0px 0px 0px;
     font-style: normal;
     font-weight: 400; 
 }
+
+.weekly_rent  {
+    
+/*    background: green;*/
+    font-size: 16px;
+
+    padding: 15px 0px 0px 25px;
+}
+
+ .weekly_rent b{
+    color: #333333;
+    font-weight: 600; 
+}
+
+ .weekly_rent i {
+    color: #333333;
+    font-style: normal;
+    font-weight: 400; 
+}
+
 
 .payment_history {
     
@@ -3712,6 +3754,9 @@ padding: 0px 0px 0px 0px;
     font-weight: 400; 
         padding: 8px 0px 0px 2px;
 }
+
+
+
 
 .payment_hr {
     
