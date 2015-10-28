@@ -166,9 +166,10 @@ class PropertyOwner extends Controller
       $value = strip_tags($tmp[1]);
       $comment = strip_tags($_POST[$tmp[2]]);
       $result = $_SESSION['selectedProperty']->processRepairRequest($timeStamp, $value, $comment);
+      $property = $_SESSION['selectedProperty'];
       if ($result) {
-        //Notification::addNotification($property->agent_id, "Repair status updated for " . $property->address . ".");
-        //Notification::addNotification($property->tenant_id, "Repair status updated for " . $property->address . ".");
+        Notification::addNotification($_SESSION['selectedProperty']->tenant_id, "Repair status updated for " . $property->address . ".");
+        Notification::addNotification($_SESSION['selectedProperty']->agent_id, "Repair status updated for " . $property->address . ".");
       }
       $_SESSION['sidebar'] = "repair";
       $this->redirect('/propertyowner/repair');

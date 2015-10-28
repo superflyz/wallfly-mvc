@@ -14,9 +14,10 @@ class Notification
         }
         try {
             $db = Database::getInstance();
-            $statement = $db->prepare("INSERT INTO notifications (super_user_id, notification, viewed, date) VALUES ($userId,
-              :notification, 0, :date");
-            $result = $statement->execute(['notification' => $notification, 'date' => date("d-m-Y")]);
+            date('Y-m-d', strtotime(str_replace('-', '/', date())));
+            $statement = $db->prepare("INSERT INTO notifications (super_user_id, notification, viewed, date) VALUES (:user,
+              :notification, 0, :date)");
+            $result = $statement->execute(['user' => $userId, 'notification' => $notification, 'date' => date('Y-m-d', time())]);
             return $result;
         } catch (Exception $e) {
             $db = NULL;
@@ -83,7 +84,7 @@ class Notification
                 $statement = $db->prepare("UPDATE notifications SET viewed=1 WHERE id=:id AND super_user_id=:user_id");
                 $result = $statement->execute(['id' => $id, 'user_id' => $userId]);
             }
-            return $id;
+            return $result;
         } catch (Exception $e) {
             $db = NULL;
             echo 'Error: ' . $e->getMessage();
