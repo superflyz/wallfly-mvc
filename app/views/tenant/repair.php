@@ -39,6 +39,7 @@ require_once '../app/views/templates/interfaceStart.php';
                     <?php if (isset($_SESSION['selectedProperty'])) { ?>
                             <?php
                             $result = $_SESSION['selectedProperty']->getRepairRequests();
+                            $count = 0;
                             if ($result) {
                                 foreach ($result as $row) {
                                     if ($row['status'] == 0){
@@ -58,55 +59,55 @@ require_once '../app/views/templates/interfaceStart.php';
 
 
                                     $splitImgSource = explode("/", $row['image']);
-                         $lastpos = end($splitImgSource);
-                         $checkIfImageExists= explode(".", $lastpos);
-                         if(!empty($checkIfImageExists[1])){
-                         $repairPic = "<img data-toggle='modal' class='img-responsive repair_image_enlarge' title='Repair image' alt='Repair image' src='" . $row['image']."'/>";
-                         }else{  $repairPic = "<img data-toggle='modal' class='img-responsive repair_image_enlarge' title='Repair image' alt='No image' src='/wallfly-mvc/public/img/noimage.png'/>"; }
-                                    
-                                    
-                                    echo "        
-                        <div class='row repair_view_head_t'>
-                            <div class='col-md-12 col-sm-12 col-xs-12 hd'>
-                                <div class='hd-text'>" . $row['subject'] . "
-                                </div>
-                            </div>
-                        </div>" .
-                        "<div class='row repair_view_body_t'>
-                            <div class='col-md-5 col-sm-5 col-xs-7 hd'>
-                                <div class='row ss'>
-                                    <div class='col-md-6 col-sm-6 col-xs-7 hd'>
-                                        <div class='repair_img_view'>
-                                            <div class='repair_img_view_img'>" . $repairPic . "
+                                     $lastpos = end($splitImgSource);
+                                     $checkIfImageExists= explode(".", $lastpos);
+                                     if(!empty($checkIfImageExists[1])){
+                                     $repairPic = "<img data-toggle='modal' class='img-responsive repair_image_enlarge' title='Repair image' alt='Repair image' src='" . $row['image']."'/>";
+                                     }else{  $repairPic = "<img data-toggle='modal' class='img-responsive repair_image_enlarge' title='Repair image' alt='No image' src='/wallfly-mvc/public/img/noimage.png'/>"; }
+
+
+                                                echo "
+                                    <div class='row repair_view_head_t'>
+                                        <div class='col-md-12 col-sm-12 col-xs-12 hd'>
+                                            <div class='hd-text'>" . $row['subject'] . "
                                             </div>
                                         </div>
                                     </div>" .
-                                    "<div class='col-md-6 col-sm-6 col-xs-5 hd'>
-                                        <div class='hd-text-severity'>Severity<hr class='repair_hr'>
-                                        </div>
-                                        <div class='bd-text-severity'>". $row['severity_level'] ."
-                                        </div>
-                                    </div>
-                                </div>" . 
-                                "<div class='hd-text-description'>Description<hr class='repair_hr'>
-                                </div>
-                                <div class='bd-text-description'>" . $row['description'] . "
-                                </div>" .
-                            "</div>
-                            <div class='col-md-5 col-sm-5 col-xs-5 hd'>
-                                <div class='hd-text-status'>Status<hr class='repair_hr'>
-                                </div>
-                                <div class='bd-text-status'>" . $status . $row['status'] . "
-                                </div>
-                            </div>";
-                                    
-                                    
-              ?>
+                                    "<div class='row repair_view_body_t'>
+                                        <div class='col-md-5 col-sm-5 col-xs-7 hd'>
+                                            <div class='row ss'>
+                                                <div class='col-md-6 col-sm-6 col-xs-7 hd'>
+                                                    <div class='repair_img_view'>
+                                                        <div class='repair_img_view_img'>" . $repairPic . "
+                                                        </div>
+                                                    </div>
+                                                </div>" .
+                                                "<div class='col-md-6 col-sm-6 col-xs-5 hd'>
+                                                    <div class='hd-text-severity'>Severity<hr class='repair_hr'>
+                                                    </div>
+                                                    <div class='bd-text-severity'>". $row['severity_level'] ."
+                                                    </div>
+                                                </div>
+                                            </div>" .
+                                            "<div class='hd-text-description'>Description<hr class='repair_hr'>
+                                            </div>
+                                            <div class='bd-text-description'>" . $row['description'] . "
+                                            </div>" .
+                                        "</div>
+                                        <div class='col-md-5 col-sm-5 col-xs-5 hd'>
+                                            <div class='hd-text-status'>Status<hr class='repair_hr'>
+                                            </div>
+                                            <div class='bd-text-status'>" . $status . $row['status'] . "
+                                            </div>
+                                        </div>";
+
+
+                          ?>
                             
                             <div class="hidden-xs col-md-2 col-sm-2 hd">
                                 <div class="hd-text repair_dt"><?php echo(date('M, d Y - h:sa', strtotime($row['timestamp'])))?></div>
                                 <div class="btn-text">
-                                    <button id="triggermodal" data-toggle="modal" data-target="#changeSeverity" class='btn btn_repair_cs'>Change Severity</button>
+                                    <button id="triggermodal" data-toggle="modal" data-target="#changeSeverity<?php echo $count;?>" class='btn btn_repair_cs'>Change Severity</button>
                                 </div>
                             </div>
             
@@ -117,12 +118,44 @@ require_once '../app/views/templates/interfaceStart.php';
                                 </div>
                                 <div class="col-xs-6 hd">
                                     <div class="btn-text">
-                                        <button id="triggermodal" data-toggle="modal" data-target="#changeSeverity" class='btn btn_repair_cs'>Change Severity</button>
+                                        <button id="triggermodal" data-toggle="modal" data-target="#changeSeverity<?php echo $count;?>" class='btn btn_repair_cs'>Change Severity</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                
+
+                    <div class="modal modal-vcenter fade" id="changeSeverity<?php echo $count++;?>" tabindex="-1" role="dialog" aria-labelledby="changeSeverity">
+
+                        <div class="modal-dialog modal-md">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></button>
+                                    <p class="modal-title">Change Severity</p>
+                                </div>
+                                <div class="modal-body">
+                                    <form id="changeSeverity" enctype="multipart/form-data" method="post" action="<?=WEBDIR?>/propertytenant/changeSeverity">
+                                        <div class="col-md-6 col-sm-6 col-xs-6">
+                                            <label for="severity">Severity Level</label>
+                                            <select name="severity" class="form-control formSelect">
+                                                <option value="low" class="form-control">Low</option>
+                                                <option value="medium" class="form-control">Medium</option>
+                                                <option value="high" class="form-control">High</option>
+                                            </select>
+                                            <span class="error"></span>
+                                        </div>
+                                        <div class="col-md-6 col-sm-6 col-xs-6">
+
+                                            <button type="submit" name="submit" value="<?php echo ($row['timestamp'])?>" id="submit-btn"
+                                                    class="btn btn-save-changes_t pull-right">Save Changes</button>
+                                        </div>
+                                    </form>
+
+
+                                    <!-- FORM ENDS HERE -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
     
             <?php
         }
