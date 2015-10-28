@@ -125,8 +125,12 @@ class Dashboard extends Controller
             //exit();
         }
         if(Owner::isAuthenticated()) {
+            Notification::addNotification($_SESSION['selectedProperty']->agent_id, "Event added for " . $_SESSION['selectedProperty']->address . ".");
+            Notification::addNotification($_SESSION['selectedProperty']->tenant_id, "Event added for " . $_SESSION['selectedProperty']->address . ".");
             $this->redirect('/propertyowner/calendar');
         } elseif (Agent::isAuthenticated()) {
+            Notification::addNotification($_SESSION['selectedProperty']->owner_id, "Event added for " . $_SESSION['selectedProperty']->address . ".");
+            Notification::addNotification($_SESSION['selectedProperty']->tenant_id, "Event added for " . $_SESSION['selectedProperty']->address . ".");
             $this->redirect('/propertyagent/calendar');
         }
     }
