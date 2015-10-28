@@ -58,7 +58,7 @@
             </div>
             <div class="modal-body">
                 <!-- FORM STARTS HERE -->
-                <form action="<?=WEBDIR?>/propertyowner/addproperty" method="post">
+                <form action="<?=WEBDIR?>/propertyowner/addproperty" method="post" enctype="multipart/form-data">
                     <div class="add_property">
                         <div class="ap_field_a">
                             <label for="address">Address</label>
@@ -81,6 +81,10 @@
                                         <option value="MONTHLY">Monthly</option>
                                     </select>
                                 </div>
+                            </div>
+                            <div class="form-field">
+                                <label for="propertyImage">Choose an image</label>
+                                <input type="file" name="propertyImage" id="propertyImage">
                             </div>
                         </div>
                         <div class="col-md-12 col-sm-12 col-xs-12">

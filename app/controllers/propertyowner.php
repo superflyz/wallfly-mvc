@@ -285,20 +285,49 @@ class PropertyOwner extends Controller
       $this->redirect('/');
     } else {
       if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-          $property = Property::create([
-            'address' => strip_tags($_POST['address']),
-            'payment_schedule' => strip_tags($_POST['payment_schedule']),
-            'rent_amount' => strip_tags($_POST['rent_amount']),
-            'owner_id' => $_SESSION['user']->id,
-            'photo' => '/wallfly-mvc/public/img/noimage.png'
-          ]);
-          Flash::set('message', 'You added a new property!');
-          $_SESSION['selectedProperty'] = $property;
-          $this->redirect('/propertyowner/manage');
+
+        $photoPath = WEBDIR . '/img/noimage.png';
+
+        // ============
+        // IMAGE UPLOAD
+        // ============
+        $file = $_FILES['propertyImage'];
+        // 1. check if user uploads an image
+        if ($file['name']) {
+          // 2. check if it's an image
+          if ($file['type'] !== 'image/jpeg') {
+            // TODO: error
+          } else {
+            // 3. store the file
+            $targetDir = '/img/properties';
+            $targetFile = $targetDir . basename($file['name']);
+            if (move_uploaded_file($file['tmp_name'], PUBLIC_ABSOLUTE_PATH . $targetFile)) {
+              // 4. update the property
+              $photoPath = WEBDIR . $targetFile;
+            } else {
+              // TODO: error
+            }
+          }
         } else {
-          $this->view('owner/index');
+          // TODO: error
         }
+        // ================
+        // END IMAGE UPLOAD
+        // ================
+
+        $property = Property::create([
+          'address' => strip_tags($_POST['address']),
+          'payment_schedule' => strip_tags($_POST['payment_schedule']),
+          'rent_amount' => strip_tags($_POST['rent_amount']),
+          'owner_id' => $_SESSION['user']->id,
+          'photo' => $photoPath
+        ]);
+
+        Flash::set('message', 'You added a new property!');
+        $_SESSION['selectedProperty'] = $property;
+        $this->redirect('/propertyowner/manage');
+      } else {
+        $this->view('owner/index');
       }
     }
   }
