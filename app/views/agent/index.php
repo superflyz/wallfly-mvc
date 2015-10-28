@@ -88,7 +88,7 @@ require_once '../app/views/templates/interfaceStartIndex.php';
                         </div>
                         <div class="col-md-12">
                             <div class="ap_btnz">
-                                <button type="submit" class="btn btn-save-changes pull-right">Save changes</button>
+                                <button type="submit" class="btn btn-save-changes pull-right">Create property</button>
                             </div>
                         </div>
                     </div>
