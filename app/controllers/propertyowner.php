@@ -134,6 +134,8 @@ class PropertyOwner extends Controller
         $_SESSION['sidebar'] = "payment";
         $this->redirect('/propertyowner/payment');
       } else {
+        Notification::addNotification($_SESSION['selectedProperty']->agent_id, "Payment  made for " . $_SESSION['selectedProperty']->address . ".");
+        Notification::addNotification($_SESSION['selectedProperty']->tenant_id, "Payment made for " . $_SESSION['selectedProperty']->address . ".");
         $_SESSION['sidebar'] = "payment";
         $this->redirect('/propertyowner/payment');
       }
@@ -396,6 +398,8 @@ class PropertyOwner extends Controller
             HandleDocuments::addDocument($_SESSION['selectedProperty']->id,$targetFile,basename($file['name']));
             $_SESSION['docAdded'] = "true";
             $_SESSION['sidebar'] = "manage";
+            Notification::addNotification($_SESSION['selectedProperty']->agent_id, "Document added for " . $_SESSION['selectedProperty']->address . ".");
+            Notification::addNotification($_SESSION['selectedProperty']->tenant_id, "Document added for " . $_SESSION['selectedProperty']->address . ".");
             $this->redirect('/propertyowner/manage');
           } else {
             $_SESSION['sidebar'] = "manage";
@@ -441,6 +445,8 @@ class PropertyOwner extends Controller
             HandleDocuments::addInspection($_SESSION['selectedProperty']->id,$targetFile,basename($file['name']));
             $_SESSION['docAdded'] = "true";
             $_SESSION['sidebar'] = "manage";
+            Notification::addNotification($_SESSION['selectedProperty']->agent_id, "Inspection document added for " . $_SESSION['selectedProperty']->address . ".");
+            Notification::addNotification($_SESSION['selectedProperty']->tenant_id, "Inspection document added for " . $_SESSION['selectedProperty']->address . ".");
             $this->redirect('/propertyowner/manage');
           } else {
             $_SESSION['sidebar'] = "manage";
