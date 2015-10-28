@@ -168,6 +168,8 @@ class PropertyTenant extends Controller
                 $this->redirect('/propertytenant/payment');
             } else {
                 $_SESSION['sidebar'] = "payment";
+                Notification::addNotification($_SESSION['selectedProperty']->agent_id, "Payment made for " . $_SESSION['selectedProperty']->address . ".");
+                Notification::addNotification($_SESSION['selectedProperty']->owner_id, "Payment made for " . $_SESSION['selectedProperty']->address . ".");
                 $this->redirect('/propertytenant/payment');
             }
         }
@@ -240,6 +242,8 @@ class PropertyTenant extends Controller
                 WEBDIR . '/css/module.css'
             ]);
             $_SESSION['sidebar'] = "repair";
+            //Notification::addNotification($_SESSION['selectedProperty']->agent_id, "Repair request made for " . $_SESSION['selectedProperty']->address . ".");
+            //Notification::addNotification($_SESSION['selectedProperty']->owner_id, "Repair request made for " . $_SESSION['selectedProperty']->address . ".");
             $this->view('tenant/repairrequest');
         }
     }
@@ -257,6 +261,8 @@ class PropertyTenant extends Controller
             $this->setCSSDependencies([
                 WEBDIR . '/css/module.css'
             ]);
+            Notification::addNotification($_SESSION['selectedProperty']->agent_id, "Repair severity level changed for " . $_SESSION['selectedProperty']->address . ".");
+            Notification::addNotification($_SESSION['selectedProperty']->owner_id, "Repair severity level changed for " . $_SESSION['selectedProperty']->address . ".");
             $_SESSION['sidebar'] = "repair";
             $this->redirect('/propertytenant/repair');
         }
@@ -325,7 +331,8 @@ class PropertyTenant extends Controller
 
             $result = $_SESSION['selectedProperty']->addRepairRequest($_POST['subject'], $_POST['description'],
                 $_POST['severity'], $target_file);
-
+            Notification::addNotification($_SESSION['selectedProperty']->agent_id, "Repair request made for " . $_SESSION['selectedProperty']->address . ".");
+            Notification::addNotification($_SESSION['selectedProperty']->owner_id, "Repair request made for " . $_SESSION['selectedProperty']->address . ".");
             if ($result) {
                 $_SESSION['sidebar'] = "repair";
                 $this->redirect('/propertytenant/repair');
