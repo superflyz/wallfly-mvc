@@ -143,6 +143,7 @@ class PropertyAgent extends Controller
     if (!Agent::isAuthenticated()) {
       $this->redirect('/');
     } else {
+      $property = $_SESSION['selectedProperty'];
       $payeeName = strip_tags($_POST['payeeName']);
       $startDate = strip_tags($_POST['startDate']);
       $endDate = strip_tags($_POST['endDate']);
@@ -152,6 +153,8 @@ class PropertyAgent extends Controller
         $_SESSION['sidebar'] = "payment";
         $this->redirect('/propertyagent/payment');
       } else {
+        Notification::addNotification($_SESSION['selectedProperty']->tenant_id, "Payment made for " . $property->address . ".");
+        Notification::addNotification($_SESSION['selectedProperty']->owner_id, "Payment made for " . $property->address . ".");
         $_SESSION['sidebar'] = "payment";
         $this->redirect('/propertyagent/payment');
       }
@@ -179,14 +182,15 @@ class PropertyAgent extends Controller
     if (!Agent::isAuthenticated()) {
       $this->redirect('/');
     } else {
+      $property = $_SESSION['selectedProperty'];
       $tmp = explode("/", $_POST['submit']);
       $timeStamp = strip_tags($tmp[0]);
       $value = strip_tags($tmp[1]);
       $comment = strip_tags($_POST[$tmp[2]]);
       $result = $_SESSION['selectedProperty']->processRepairRequest($timeStamp, $value, $comment);
       if ($result) {
-        //Notification::addNotification($property->owner_id, "Repair status updated for " . $property->address . ".");
-        //Notification::addNotification($property->tenant_id, "Repair status updated for " . $property->address . ".");
+        Notification::addNotification($_SESSION['selectedProperty']->tenant_id, "Repair status updated for " . $property->address . ".");
+        Notification::addNotification($_SESSION['selectedProperty']->owner_id, "Repair status updated for " . $property->address . ".");
       }
       $_SESSION['sidebar'] = "repair";
       $this->redirect('/propertyagent/repair');
@@ -252,7 +256,7 @@ class PropertyAgent extends Controller
     if (!Agent::isAuthenticated()) {
       $this->redirect('/');
     } else {
-
+      $property = $_SESSION['selectedProperty'];
       // ============
       // PDF UPLOAD
       // ============
@@ -272,6 +276,8 @@ class PropertyAgent extends Controller
             HandleDocuments::addInspection($_SESSION['selectedProperty']->id,$targetFile,basename($file['name']));
             $_SESSION['docAdded'] = "true";
             $_SESSION['sidebar'] = "manage";
+            Notification::addNotification($_SESSION['selectedProperty']->tenant_id, "Inspection document added for " . $property->address . ".");
+            Notification::addNotification($_SESSION['selectedProperty']->owner_id, "Inspection document added for " . $property->address . ".");
             $this->redirect('/propertyagent/manage');
           } else {
             $_SESSION['sidebar'] = "manage";
@@ -375,6 +381,8 @@ class PropertyAgent extends Controller
             HandleDocuments::addDocument($_SESSION['selectedProperty']->id,$targetFile,basename($file['name']));
             $_SESSION['docAdded'] = "true";
             $_SESSION['sidebar'] = "manage";
+            Notification::addNotification($_SESSION['selectedProperty']->tenant_id, "Document added for " . $property->address . ".");
+            Notification::addNotification($_SESSION['selectedProperty']->owner_id, "Document added for " . $property->address . ".");
             $this->redirect('/propertyagent/manage');
           } else {
             $_SESSION['sidebar'] = "manage";
