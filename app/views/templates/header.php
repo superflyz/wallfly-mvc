@@ -46,11 +46,12 @@
     <link rel="mask-icon" href="http://103.253.147.221/wallfly-mvc/public/favicon/safari-pinned-tab.svg" color="#333333">
     <link rel="shortcut icon" href="http://103.253.147.221/wallfly-mvc/public/favicon/favicon.ico">
     <meta name="apple-mobile-web-app-title" content="WallFly">
-    <meta name="application-name" content="WallFly">
+    <meta name="application-name" content="sWallFly">
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="msapplication-TileImage" content="http://103.253.147.221/wallfly-mvc/public/favicon/mstile-144x144.png">
     <meta name="msapplication-config" content="http://103.253.147.221/wallfly-mvc/public/favicon/browserconfig.xml">
     <meta name="theme-color" content="#ffffff">
+    <link href="/wallfly-mvc/public/js/dropdown2/dropdown2.css" rel="stylesheet">
 
 </head>
 
