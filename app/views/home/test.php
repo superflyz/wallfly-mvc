@@ -11,6 +11,7 @@ try {
 
 function testOwner() {
     echo ("<div id='test'><h6>Testing create owner</h6>");
+    echo ("<p>This tests creating an owner. The owner should have an account with the email someowner@someowner.com</p>");
     $owner = Owner::create([
         'email' => "someowner@someowner.com",
         'password' => create_hash("password1"),
@@ -22,6 +23,7 @@ function testOwner() {
     echo ("<p>Owner created - email is $owner->email</p></div>");
 
     echo ("<div id='test'><h6>Test getting someowner@someowner.com from database</h6>");
+    echo ("<p>This test checks to see if the owner was created and stored in the database. The database will return an owner object if it did, otherwise it will return false.</p>");
     echo ("<p>Expected outcome = True");
 
     $result = Owner::get(['email' => 'someowner@someowner.com'])[0];
@@ -35,6 +37,7 @@ function testOwner() {
     echo ("</div>");
 
     echo ("<div id='test'><h6>Test getting no@no.com from database</h6>");
+    echo ("<p>This tests getting an owner which is not in the database. It should return false as there is no owner with the email no@no.com</p>");
     echo ("<p>Expected outcome = False");
 
     $result = Owner::get(['email' => 'no@no.com'])[0];
@@ -50,6 +53,8 @@ function testOwner() {
 
 function testRealEstate() {
     echo ("<div id='test'><h6>Testing create real estate</h6>");
+    echo ("<p>This tests creating a real estate company. The company should have an account with the email ray@white.com</p>");
+
     $realEstate = Real_Estate::create([
         'name' => "ray white",
         'password' => create_hash("12345678"),
@@ -61,6 +66,7 @@ function testRealEstate() {
     echo ("<p>Real estate created - email is $realEstate->email</p></div>");
 
     echo ("<div id='test'><h6>Test getting ray@white.com from database</h6>");
+    echo ("<p>This test checks to see if the real estate company was created and stored in the database. The database will return a real estate object if it did, otherwise it will return false.</p>");
     echo ("<p>Expected outcome = True");
 
     $result = Real_Estate::get(['name' => 'ray white'])[0];
@@ -74,9 +80,10 @@ function testRealEstate() {
     echo ("</div>");
 
     echo ("<div id='test'><h6>Test getting raysome@raysome.com from database</h6>");
+    echo ("<p>This tests getting a real estate company which is not in the database. It should return false as there is no company with the name ray black</p>");
     echo ("<p>Expected outcome = False");
 
-    $result = Agent::get(['email' => 'raysome@raysome.com'])[0];
+    $result = Agent::get(['name' => 'ray black'])[0];
     if ($result) {
         echo ("<p>Outcome = True</p>");
         failed();
@@ -89,6 +96,7 @@ function testRealEstate() {
 
 function testAgent() {
     echo ("<div id='test'><h6>Testing create agent</h6>");
+    echo ("<p>This tests creating an agent. The agent should have an account with the email someagent@someagent.com</p>");
     $id = Real_Estate::get(['name' => 'ray white'])[0]->id;
     $agent = Agent::create([
         'email' => "someagent@someagent.com",
@@ -102,6 +110,7 @@ function testAgent() {
     echo ("<p>Agent created - email is $agent->email</p></div>");
 
     echo ("<div id='test'><h6>Test getting someagent@someagent.com from database</h6>");
+    echo ("<p>This test checks to see if the agent was created and stored in the database. The database will return an agent object if it did, otherwise it will return false.</p>");
     echo ("<p>Expected outcome = True");
 
     $result = Agent::get(['email' => 'someagent@someagent.com'])[0];
@@ -115,6 +124,7 @@ function testAgent() {
     echo ("</div>");
 
     echo ("<div id='test'><h6>Test getting agentsome@agentsome.com from database</h6>");
+    echo ("<p>This tests getting an agent which is not in the database. It should return false as there is no agent with the email agentsome@agentsome.com</p>");
     echo ("<p>Expected outcome = False");
 
     $result = Agent::get(['email' => 'agentsome@agentsome.com'])[0];
@@ -130,6 +140,7 @@ function testAgent() {
 
 function testTenant() {
     echo ("<div id='test'><h6>Testing create tenant</h6>");
+    echo ("<p>This tests creating a tenant. The tenant should have an account with the email sometenant@sometenant.com</p>");
     $tenant = Tenant::create([
         'email' => "sometenant@sometenant.com",
         'password' => create_hash("password1"),
@@ -141,6 +152,7 @@ function testTenant() {
     echo ("<p>Tenant created - email is $tenant->email</p></div>");
 
     echo ("<div id='test'><h6>Test getting sometenant@sometenant.com from database</h6>");
+    echo ("<p>This test checks to see if the tenant was created and stored in the database. The database will return a tenant object if it did, otherwise it will return false.</p>");
     echo ("<p>Expected outcome = True");
 
     $result = Tenant::get(['email' => 'sometenant@sometenant.com'])[0];
@@ -154,6 +166,7 @@ function testTenant() {
     echo ("</div>");
 
     echo ("<div id='test'><h6>Test getting sometenant1@sometenant.com from database</h6>");
+    echo ("<p>This tests getting a tenant which is not in the database. It should return false as there is no tenant with the email sometenant1@sometenant.com</p>");
     echo ("<p>Expected outcome = False");
 
     $result = Tenant::get(['email' => 'sometenant1@sometenant.com'])[0];
@@ -169,6 +182,7 @@ function testTenant() {
 
 function testPropertyCreate() {
     echo ("<div id='test'><h6>Testing create a property</h6>");
+    echo ("<p>This tests creating a property. The property should have an address of 123 fake street</p>");
     $property = Property::create([
         'address' => strip_tags('123 fake street'),
         'payment_schedule' => strip_tags('WEEKLY'),
@@ -179,6 +193,7 @@ function testPropertyCreate() {
     echo ("<p>Property created - address is $property->address</p></div>");
 
     echo ("<div id='test'><h6>Test getting 123 fake street from database</h6>");
+    echo ("<p>This test checks to see if the property was created and stored in the database. The database will return a property object if it did, otherwise it will return false.</p>");
     echo ("<p>Expected outcome = True");
 
     $result = Property::get(['address' => '123 fake street'])[0];
@@ -192,6 +207,7 @@ function testPropertyCreate() {
     echo ("</div>");
 
     echo ("<div id='test'><h6>Test getting 124 fake street from database</h6>");
+    echo ("<p>This tests getting a property which is not in the database. It should return false as there is no property with the address 124 fake street</p>");
     echo ("<p>Expected outcome = False");
 
     $result = Property::get(['address' => '124 fake street'])[0];
