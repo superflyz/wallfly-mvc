@@ -4,6 +4,7 @@ try {
     testRealEstate();
     testAgent();
     testTenant();
+    testPropertyCreate();
 } catch (Exception $e) {
     echo 'Error: ' . $e->getMessage();
 }
@@ -156,6 +157,44 @@ function testTenant() {
     echo ("<p>Expected outcome = False");
 
     $result = Tenant::get(['email' => 'sometenant1@sometenant.com'])[0];
+    if ($result) {
+        echo ("<p>Outcome = True</p>");
+        failed();
+    } else {
+        echo ("<p>Outcome = False</p>");
+        passed();
+    }
+    echo ("</div>");
+}
+
+function testPropertyCreate() {
+    echo ("<div id='test'><h6>Testing create a property</h6>");
+    $property = Property::create([
+        'address' => strip_tags('123 fake street'),
+        'payment_schedule' => strip_tags('WEEKLY'),
+        'rent_amount' => strip_tags('400'),
+        'owner_id' => Owner::get(['email' => 'someowner@someowner.com'])[0]->id,
+        'photo' => '/img/noimage.png'
+    ]);
+    echo ("<p>Property created - address is $property->address</p></div>");
+
+    echo ("<div id='test'><h6>Test getting 123 fake street from database</h6>");
+    echo ("<p>Expected outcome = True");
+
+    $result = Property::get(['address' => '123 fake street'])[0];
+    if ($result) {
+        echo ("<p>Outcome = True</p>");
+        passed();
+    } else {
+        echo ("<p class='fail'>Outcome = False</p>");
+        failed();
+    }
+    echo ("</div>");
+
+    echo ("<div id='test'><h6>Test getting 124 fake street from database</h6>");
+    echo ("<p>Expected outcome = False");
+
+    $result = Property::get(['address' => '124 fake street'])[0];
     if ($result) {
         echo ("<p>Outcome = True</p>");
         failed();

@@ -178,4 +178,33 @@ class Property extends Model
     return $this->rent_amount;
   }
 
+  public static function get($data)
+  {
+    $query = "SELECT * FROM property WHERE ";
+    $i = 0;
+    foreach ($data as $key => $value) {
+      $query .= $key . '=:' . $key;
+      if ($i !== sizeof($data)-1) {
+        $query .= ' AND ';
+      }
+      $i++;
+    }
+    try {
+      $db = Database::getInstance();
+      $statement = $db->prepare($query);
+      $statement->execute($data);
+      $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+      if ($result) {
+        $result = array_map(function($row) {
+          return new Property($row);
+        }, $result);
+        return $result;
+      } else {
+        return false;
+      }
+    } catch (Exception $e) {
+      echo 'Error: ' . $e->getMessage();
+    }
+  }
+
 }
