@@ -5408,9 +5408,8 @@ word-wrap: break-word;
 
 }
 
-#test {
+.test {
     border: solid 2px black;
-    background-color: #EEEEEE;
     margin-bottom: 10px;
 }
 
@@ -5420,4 +5419,11 @@ word-wrap: break-word;
 
 .fail {
     background-color: red;
+}
+
+.line {
+    border-bottom: solid 2px black;
+    background-color: black;
+    color: white;
+    font-weight: bold;
 }
