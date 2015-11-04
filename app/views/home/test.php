@@ -1,6 +1,7 @@
 <?php
 try {
     testOwner();
+    testRealEstate();
     testAgent();
     testTenant();
 } catch (Exception $e) {
@@ -46,27 +47,68 @@ function testOwner() {
     echo ("</div>");
 }
 
+function testRealEstate() {
+    echo ("<div id='test'><h6>Testing create real estate</h6>");
+    $realEstate = Real_Estate::create([
+        'name' => "ray white",
+        'password' => create_hash("12345678"),
+        'address' => "some address",
+        'email' => "ray@white.com",
+        'phone' => "1231231231",
+        'photo' => null
+    ]);
+    echo ("<p>Real estate created - email is $realEstate->email</p></div>");
+
+    echo ("<div id='test'><h6>Test getting ray@white.com from database</h6>");
+    echo ("<p>Expected outcome = True");
+
+    $result = Real_Estate::get(['name' => 'ray white'])[0];
+    if ($result) {
+        echo ("<p>Outcome = True</p>");
+        passed();
+    } else {
+        echo ("<p>Outcome = False</p>");
+        failed();
+    }
+    echo ("</div>");
+
+    echo ("<div id='test'><h6>Test getting raysome@raysome.com from database</h6>");
+    echo ("<p>Expected outcome = False");
+
+    $result = Agent::get(['email' => 'raysome@raysome.com'])[0];
+    if ($result) {
+        echo ("<p>Outcome = True</p>");
+        failed();
+    } else {
+        echo ("<p>Outcome = False</p>");
+        passed();
+    }
+    echo ("</div>");
+}
+
 function testAgent() {
     echo ("<div id='test'><h6>Testing create agent</h6>");
-    $owner = Owner::create([
+    $id = Real_Estate::get(['name' => 'ray white'])[0]->id;
+    $agent = Agent::create([
         'email' => "someagent@someagent.com",
         'password' => create_hash("password1"),
         'firstname' => "agent",
         'lastname' => "smith",
         'phone' => "0403222222",
-        'photo' => 'img/noimage.png'
+        'photo' => 'img/noimage.png',
+        'real_estate_id' => $id
     ]);
-    echo ("<p>Owner created - email is $owner->email</p></div>");
+    echo ("<p>Agent created - email is $agent->email</p></div>");
 
-    echo ("<div id='test'><h6>Test getting someowner@someowner.com from database</h6>");
+    echo ("<div id='test'><h6>Test getting someagent@someagent.com from database</h6>");
     echo ("<p>Expected outcome = True");
 
-    $result = Owner::get(['email' => 'someagent@someagent.com'])[0];
+    $result = Agent::get(['email' => 'someagent@someagent.com'])[0];
     if ($result) {
         echo ("<p>Outcome = True</p>");
         passed();
     } else {
-        echo ("<p class='fail'>Outcome = False</p>");
+        echo ("<p>Outcome = False</p>");
         failed();
     }
     echo ("</div>");
@@ -74,7 +116,7 @@ function testAgent() {
     echo ("<div id='test'><h6>Test getting agentsome@agentsome.com from database</h6>");
     echo ("<p>Expected outcome = False");
 
-    $result = Owner::get(['email' => 'no@no.com'])[0];
+    $result = Agent::get(['email' => 'agentsome@agentsome.com'])[0];
     if ($result) {
         echo ("<p>Outcome = True</p>");
         failed();
@@ -86,7 +128,42 @@ function testAgent() {
 }
 
 function testTenant() {
+    echo ("<div id='test'><h6>Testing create tenant</h6>");
+    $tenant = Tenant::create([
+        'email' => "sometenant@sometenant.com",
+        'password' => create_hash("password1"),
+        'firstname' => "owner",
+        'lastname' => "last",
+        'phone' => "0403222222",
+        'photo' => 'img/noimage.png'
+    ]);
+    echo ("<p>Tenant created - email is $tenant->email</p></div>");
 
+    echo ("<div id='test'><h6>Test getting sometenant@sometenant.com from database</h6>");
+    echo ("<p>Expected outcome = True");
+
+    $result = Tenant::get(['email' => 'sometenant@sometenant.com'])[0];
+    if ($result) {
+        echo ("<p>Outcome = True</p>");
+        passed();
+    } else {
+        echo ("<p class='fail'>Outcome = False</p>");
+        failed();
+    }
+    echo ("</div>");
+
+    echo ("<div id='test'><h6>Test getting sometenant1@sometenant.com from database</h6>");
+    echo ("<p>Expected outcome = False");
+
+    $result = Tenant::get(['email' => 'sometenant1@sometenant.com'])[0];
+    if ($result) {
+        echo ("<p>Outcome = True</p>");
+        failed();
+    } else {
+        echo ("<p>Outcome = False</p>");
+        passed();
+    }
+    echo ("</div>");
 }
 
 function passed() {
