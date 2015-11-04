@@ -5407,3 +5407,17 @@ word-wrap: break-word;
 }
 
 }
+
+#test {
+    border: solid 2px black;
+    background-color: #EEEEEE;
+    margin-bottom: 10px;
+}
+
+.pass {
+    background-color: greenyellow;
+}
+
+.fail {
+    background-color: red;
+}
