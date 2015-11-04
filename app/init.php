@@ -13,7 +13,6 @@ require_once 'libs/CalendarEvents.php';
 require_once 'libs/HandleDocuments.php';
 require_once 'libs/Notification.php';
 
-
 require_once 'core/App.php';
 require_once 'core/Controller.php';
 require_once 'core/Database.php';

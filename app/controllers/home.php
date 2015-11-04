@@ -165,12 +165,7 @@ class Home extends Controller
 
   public function test()
   {
-    // $owner = Owner::get_by_email('rayp1100@gmail.com');
-    // var_dump($owner);
-
-    $owners = Owner::get([
-      'email' => 'rayp1100@gmail.com'
-    ]);
+    $this->view('home/test');
   }
 
 }
