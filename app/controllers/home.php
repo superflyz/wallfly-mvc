@@ -165,7 +165,32 @@ class Home extends Controller
 
   public function test()
   {
+    try {
+      $db = Database::getInstance();
+      $statement = $db->prepare("
+                              DELETE FROM calendar;
+                              DELETE FROM chat;
+                              DELETE FROM documents;
+                              DELETE FROM inspections;
+                              DELETE FROM notifications;
+                              DELETE FROM payment;
+                              DELETE FROM repair_request;
+                              DELETE FROM property;
+                              DELETE FROM super_user;
+                              DELETE FROM tenant;
+                              DELETE FROM agent;
+                              DELETE FROM owner;
+                              DELETE FROM real_estate;");
+      $statement->execute();
+    } catch (PDOException $e) {
+      die();
+    }
+    $this->redirect('/home/tests');
+  }
+
+  public function tests() {
     $this->view('home/test');
+
   }
 
 }
