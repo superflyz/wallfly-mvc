@@ -18,6 +18,8 @@ class Tenant extends Super_User
     }
   }
 
+  //Gets and returns a Tenant from the database if one exists, false otherwise. Data should be in the form of
+  //key, value pairs.
   public static function get($data)
   {
     $query = "SELECT * FROM tenant, super_user WHERE tenant.super_user_id = super_user.id AND ";
@@ -47,6 +49,7 @@ class Tenant extends Super_User
     }
   }
 
+  //Checks to see if a user logged in is a Tenant. Returns true if they are a Tenant, false otherwise.
   public static function isAuthenticated()
   {
     if (session_status() == PHP_SESSION_NONE) {
@@ -56,6 +59,7 @@ class Tenant extends Super_User
       isset($_SESSION['user']));
   }
 
+  //Gets and returns an array of all properties linked to the tenant if any exist.
   public function getProperties()
   {
     try {

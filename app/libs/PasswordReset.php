@@ -1,9 +1,6 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: jimmykovacevic
- * Date: 27/10/2015
- * Time: 8:26 PM
+ Password reset feature... Not implemented.
  */
 class PasswordReset
 {

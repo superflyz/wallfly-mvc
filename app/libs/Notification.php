@@ -1,12 +1,11 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: jimmykovacevic
- * Date: 17/10/2015
- * Time: 6:07 PM
+ Notification class. Allows notifications to be added/retrieved to/from the database.
  */
 class Notification
 {
+    //Adds a notification to the database. Takes the userId of a user and a notification string.
+    //Returns true if added, false otherwise.
     public static function addNotification($userId, $notification)
     {
         if ($userId == NULL) {
@@ -26,6 +25,8 @@ class Notification
         return false;
     }
 
+    //Gets all unread notifications based on the userId. Returns an array of all unread notifications if any exist for
+    //the user, otherwise the array is empty.
     public static function getUnreadNotifications($userId)
     {
         if ($userId == NULL) {
@@ -49,6 +50,7 @@ class Notification
         return false;
     }
 
+    //Gets and returns all notifications for the userId. The returned array may be empty if none exist.
     public static function getAllNotifications($userId)
     {
         if ($userId == NULL) {
@@ -76,6 +78,7 @@ class Notification
         return false;
     }
 
+    //Sets a notification for a user to be read.
     public static function setRead($userId, $ids) {
         try {
             $db = Database::getInstance();
