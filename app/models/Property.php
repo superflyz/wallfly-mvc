@@ -6,6 +6,7 @@ class Property extends Model
   public $id, $address, $payment_schedule, $rent_amount, $photo,
     $agent_id, $owner_id, $tenant_id;
 
+  //Returns the Agent linked to the property if one exists, null otherwise.
   public function getAgent()
   {
     $agent = Agent::get(['id' => $this->agent_id]);
@@ -28,6 +29,8 @@ class Property extends Model
 
   }
 
+  //Gets all payments made for a property. Returns an array map with timestamp, amount, payee name if a payment exists.
+  //Returns false if property has no payments for made.
   public function getPayments()
   {
     try {
@@ -54,6 +57,7 @@ class Property extends Model
     return false;
   }
 
+  //Adds a payment to the database for a property. Returns true if successful, false otherwise.
   public function addPayment($name, $start, $end, $amount)
   {
     try {
@@ -69,6 +73,7 @@ class Property extends Model
     return false;
   }
 
+  //Gets and returns an array of all repair requests for a property. Returns false if no requests exist.
   public function getRepairRequests()
   {
     try {
@@ -99,6 +104,7 @@ class Property extends Model
     return false;
   }
 
+  //Adds a repair request for a property. Returns true if successful, false otherwise.
   public function addRepairRequest($subject, $description, $severity, $image)
   {
     try {
@@ -115,6 +121,8 @@ class Property extends Model
     return false;
   }
 
+  //Allows an Agent or Owner to repair or deny a repair request. Returns true if a request status was updated,
+  //false otherwise.
   public function processRepairRequest($timestamp, $value, $comment)
   {
     try {
@@ -133,6 +141,7 @@ class Property extends Model
     return false;
   }
 
+  //Allows a tenant to change the severity of a repair request. Returns true if successful, false otherwise.
   public function changeSeverity($timestamp, $severity)
   {
     try {
@@ -155,29 +164,35 @@ class Property extends Model
     }
   }
 
+  //Gets and returns a Tenant linked to the property if one exists, false otherwise.
   public function getTenant()
   {
     $tenant = Tenant::get(['id' => $this->tenant_id]);
     return $tenant ? $tenant[0] : false;
   }
 
+  //Gets and returns an Owner linked to the property if one exists, false otherwise.
   public function getOwner()
   {
     $owner = Owner::get(['id' => $this->owner_id]);
     return $owner ? $owner[0] : false;
   }
 
+  //Links a tenant to the property.
   public function setTenant($tenant)
   {
     $this->tenant_id = $tenant->id;
     $this->update();
   }
 
+  //Gets the amount of rent charged for the property.
   public function getRent()
   {
     return $this->rent_amount;
   }
 
+  //Gets and returns a property from the database if one exists, false otherwise. Data should be in the form of
+  //key, value pairs.
   public static function get($data)
   {
     $query = "SELECT * FROM property WHERE ";
