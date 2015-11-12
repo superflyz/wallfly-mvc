@@ -3,6 +3,7 @@
 class Owner extends Super_User
 {
 
+  //Saves data to the owner table
   public function save()
   {
     parent::save();
@@ -15,6 +16,7 @@ class Owner extends Super_User
     $db->commit();
   }
 
+  //Returns a list of properties the owner is linked to.
   public function getProperties()
   {
     try {
@@ -32,6 +34,8 @@ class Owner extends Super_User
     return false;
   }
 
+  //Checks to see if the current use is logged in as an Owner. Returns true if they are logged in as an Owner,
+  //false otherwise.
   public static function isAuthenticated()
   {
     if (session_status() == PHP_SESSION_NONE) {
@@ -41,6 +45,8 @@ class Owner extends Super_User
       isset($_SESSION['user']));
   }
 
+  //Gets the data passed in from the owner table. Data should be in the form of an array map with relevant key, value
+  //pairs. Returns an object of type Owner if it exists, false otherwise.
   public static function get($data)
   {
     $query = "SELECT * FROM owner, super_user WHERE owner.super_user_id = super_user.id AND ";

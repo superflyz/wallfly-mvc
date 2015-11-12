@@ -1,9 +1,6 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: jimmykovacevic
- * Date: 3/10/2015
- * Time: 3:26 PM
+Unused...?
  */
 
 class Payment extends Model
