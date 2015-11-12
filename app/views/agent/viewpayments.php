@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: jimmykovacevic
- * Date: 3/10/2015
- * Time: 4:51 PM
- */
+//Page shows payment history to the agent for a property.
 require_once '../app/views/templates/interfaceStart.php';
 require_once '../app/views/templates/selectProperty.php';
 ?>

@@ -5,6 +5,7 @@ class Agent extends Super_User
 
   public $real_estate_id;
 
+  //Saves information to the agent table
   public function save()
   {
     parent::save();
@@ -22,6 +23,8 @@ class Agent extends Super_User
     }
   }
 
+  //Gets data from the agent table. Data needs to contain the key and value to search the database.
+  //Returns an object of type Agent with the relevant fields, otherwise returns false if no match found.
   public static function get($data)
   {
     $query = "SELECT * FROM agent, super_user WHERE agent.super_user_id = super_user.id AND ";
@@ -51,6 +54,7 @@ class Agent extends Super_User
     }
   }
 
+  //Check to see if the user currently logged in is an agent. Returns true if they are an Agent, false otherwise.
   public static function isAuthenticated()
   {
     if (session_status() == PHP_SESSION_NONE) {
@@ -60,6 +64,7 @@ class Agent extends Super_User
       isset($_SESSION['user']));
   }
 
+  //Returns an array of properties which the agent is linked to.
   public function getProperties()
   {
     try {

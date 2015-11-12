@@ -1,4 +1,5 @@
 <?php
+//Page allows agents to modify property details or view them
 require_once '../app/views/templates/interfaceStart.php';
 ?>
 <!--Content here-->

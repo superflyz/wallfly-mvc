@@ -1,4 +1,5 @@
 <?php
+//Page which allows agents to use the calendar feature
 require_once '../app/views/templates/interfaceStart.php';
 ?>
 <div class="row">

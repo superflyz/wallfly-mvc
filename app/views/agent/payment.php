@@ -1,4 +1,5 @@
 <?php
+//Page shows payment history and allows an agent to add a payment.
 require_once '../app/views/templates/interfaceStart.php';
 ?>
 

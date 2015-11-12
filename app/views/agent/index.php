@@ -1,4 +1,5 @@
 <?php
+//Index page for agents after logging in
 require_once '../app/views/templates/interfaceStartIndex.php';
 ?>
 

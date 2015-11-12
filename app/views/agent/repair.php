@@ -1,4 +1,5 @@
 <?php
+//Page that displays repair requests and allows agents to accept/deny them.
 require_once '../app/views/templates/interfaceStart.php';
 ?>
 

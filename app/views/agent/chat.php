@@ -1,6 +1,7 @@
 <audio id="audiotag1" src="<?=WEBDIR?>/sounds/messageAlert.mp3" preload="auto"></audio>
 
 <?php
+//Page allows agents to chat with owners/tenants
 require_once '../app/views/templates/interfaceStart.php';
 ?>
 <!--Content here-->

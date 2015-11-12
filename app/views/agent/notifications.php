@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: jimmykovacevic
- * Date: 3/10/2015
- * Time: 4:51 PM
- */
+//Page that shows all notifications for an agent
 require_once '../app/views/templates/interfaceStart.php';
 ?>
 
